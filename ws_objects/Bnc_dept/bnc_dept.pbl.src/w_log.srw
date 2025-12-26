@@ -182,6 +182,7 @@ destroy(this.sle_new2)
 end on
 
 event open;//
+MessageBox("BNC_CUST", "환영합니다.")			/*2025.12.26 dslee Git Test 를 위한 추가 */
 end event
 
 event pfc_default;integer	li_rc,li_rtrn
