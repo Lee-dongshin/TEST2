@@ -1,0 +1,24 @@
+﻿$PBExportHeader$d_42024_d01.srd
+$PBExportComments$DPS매장순서
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(6) update=yes updatewhereclause=yes key=yes name=shop_cd dbname="TB_42060_M.shop_cd" )
+ column=(type=char(30) updatewhereclause=yes name=shop_nm dbname="shop_nm" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=num dbname="TB_42060_M.num" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=brand dbname="TB_42060_M.brand" )
+ retrieve="select shop_cd, dbo.sf_shop_nm(shop_cd, 'a') as shop_nm, num, brand
+from TB_42060_M
+where brand = :as_brand
+order by 3" update="TB_42060_M" updatewhere=1 updatekeyinplace=no arguments=(("as_brand", string)) )
+text(band=header alignment="2" text="순번" border="6" color="0" x="974" y="8" height="56" width="329"  name=num_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="매장" border="6" color="0" x="5" y="8" height="56" width="955"  name=shop_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="5" y="4" height="60" width="219" format="[general]"  name=shop_cd edit.limit=6 edit.case=upper edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="2" tabsequence=20 border="5" color="0" x="974" y="4" height="60" width="329" format="[general]"  name=num editmask.spin=yes editmask.mask="######" editmask.spinrange="1~~999" editmask.spinincr=1 editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="242" y="4" height="68" width="718" format="[general]"  name=shop_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33421539" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1376" y="8" height="56" width="229" format="[general]"  name=brand visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

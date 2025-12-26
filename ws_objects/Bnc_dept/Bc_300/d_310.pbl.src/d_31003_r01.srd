@@ -1,0 +1,131 @@
+﻿$PBExportHeader$d_31003_r01.srd
+$PBExportComments$생산 공정 진행 관리
+release 7;
+datawindow(units=0 timer_interval=0 color=1090519039 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=616 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=no key=yes name=work_dt dbname="Work_Dt" )
+ column=(type=char(2) updatewhereclause=no name=country_cd dbname="country_cd" )
+ column=(type=char(6) update=yes updatewhereclause=no key=yes name=cust_cd dbname="Cust_Cd" )
+ column=(type=char(4) update=yes updatewhereclause=no name=st_tm dbname="St_Tm" )
+ column=(type=char(4) update=yes updatewhereclause=no name=ed_tm dbname="Ed_Tm" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=cut_man dbname="Cut_Man" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=cut_man_n dbname="Cut_Man_N" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=cut_bojo dbname="Cut_Bojo" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=cut_bojo_n dbname="Cut_Bojo_N" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=sew_man dbname="Sew_Man" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=sew_man_n dbname="Sew_Man_N" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=sew_bojo dbname="Sew_Bojo" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=sew_bojo_n dbname="Sew_Bojo_N" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=sida_man dbname="Sida_Man" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=sida_man_n dbname="Sida_Man_N" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=sida_bojo dbname="Sida_Bojo" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=sida_bojo_n dbname="Sida_Bojo_N" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=fin_man dbname="Fin_Man" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=fin_man_n dbname="Fin_Man_N" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=fin_bojo dbname="Fin_Bojo" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=fin_bojo_n dbname="Fin_Bojo_N" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=ilong_man dbname="Ilong_Man" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=ilong_man_n dbname="Ilong_Man_N" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=ilong_bojo dbname="Ilong_Bojo" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=ilong_bojo_n dbname="Ilong_Bojo_N" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=test_man dbname="Test_Man" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=test_man_n dbname="Test_Man_N" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=test_bojo dbname="Test_Bojo" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=test_bojo_n dbname="Test_Bojo_N" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=etc_man dbname="Etc_Man" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=etc_man_n dbname="Etc_Man_N" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=plan_qty dbname="Plan_qty" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=make_qty dbname="Make_qty" )
+ column=(type=char(20) update=yes updatewhereclause=no name=bigo dbname="Bigo" )
+ column=(type=char(6) update=yes updatewhereclause=no name=reg_id dbname="Reg_id" )
+ column=(type=datetime update=yes updatewhereclause=no name=reg_dt dbname="Reg_Dt" )
+ column=(type=char(6) update=yes updatewhereclause=no name=mod_id dbname="Mod_id" )
+ column=(type=datetime update=yes updatewhereclause=no name=mod_dt dbname="Mod_Dt" )
+ column=(type=decimal(0) updatewhereclause=no name=bf_plan_qty dbname="bf_plan_qty" )
+ column=(type=decimal(0) updatewhereclause=no name=bf_make_qty dbname="bf_make_qty" )
+ column=(type=char(6) updatewhereclause=no name=date_nm dbname="date_nm" )
+ column=(type=char(20) updatewhereclause=no name=cust_nm dbname="cust_nm" )
+ column=(type=decimal(0) updatewhereclause=no name=prot dbname="prot" )
+ column=(type=char(1) updatewhereclause=no name=flag dbname="flag" )
+ procedure="1 execute dbo.sp_31003_d01;1 @work_dt = :work_dt, @cust_cd = :cust_cd, @country_cd = :country_cd" update="tb_31020_m" updatewhere=0 updatekeyinplace=yes arguments=(("work_dt", string),("cust_cd", string),("country_cd", string)) )
+column(band=detail id=3 alignment="0" tabsequence=10 border="0" color="0" x="293" y="12" height="56" width="219" format="[general]"  name=cust_cd edit.limit=6 edit.case=upper edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=42 alignment="0" tabsequence=32766 border="0" color="0" x="581" y="12" height="56" width="704" format="[general]"  name=cust_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="-" border="0" color="0" x="526" y="12" height="56" width="41"  name=t_11  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=20 border="0" color="0" x="293" y="92" height="56" width="558" format="@@@@년 @@월 @@일"  name=work_dt edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=41 alignment="2" tabsequence=32766 border="0" color="0" x="919" y="92" height="56" width="366" format="[general]"  name=date_nm edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="-" border="0" color="0" x="864" y="92" height="56" width="41"  name=t_12  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="0" expression="if( country_cd = '06','(중국)','')"border="0" color="0" x="1298" y="12" height="56" width="256" format="[GENERAL]"  name=compute_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=15 alignment="2" tabsequence=220 border="2" color="0" x="777" y="520" height="64" width="229" format="###" protect="0~tif(prot = 1,0,1)"  name=sida_man_n edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=19 alignment="2" tabsequence=240 border="2" color="0" x="1019" y="520" height="64" width="229" format="###" protect="0~tif(prot = 1,0,1)"  name=fin_man_n edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=23 alignment="2" tabsequence=260 border="2" color="0" x="1262" y="520" height="64" width="229" format="###" protect="0~tif(prot = 1,0,1)"  name=ilong_man_n edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=27 alignment="2" tabsequence=280 border="2" color="0" x="1504" y="520" height="64" width="229" format="###" protect="0~tif(prot = 1,0,1)"  name=test_man_n edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=31 alignment="2" tabsequence=300 border="2" color="0" x="1746" y="520" height="64" width="229" format="###" protect="0~tif(prot = 1,0,1)"  name=etc_man_n edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=7 alignment="2" tabsequence=180 border="2" color="0" x="293" y="520" height="64" width="229" format="###" protect="0~tif(prot = 1,0,1)"  name=cut_man_n edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=11 alignment="2" tabsequence=200 border="2" color="0" x="535" y="520" height="64" width="229" format="###" protect="0~tif(prot = 1,0,1)"  name=sew_man_n edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="2" expression="if(isnull(cut_man_n),0,cut_man_n) + 
+if(isnull(cut_bojo_n),0,cut_bojo_n) +
+if(isnull(sew_man_n),0,sew_man_n) +
+if(isnull(sew_bojo_n),0,sew_bojo_n) +
+if(isnull(sida_man_n),0,sida_man_n) +
+if(isnull(sida_bojo_n),0,sida_bojo_n) +
+if(isnull(fin_man_n),0,fin_man_n) +
+if(isnull(fin_bojo_n),0,fin_bojo_n) +
+if(isnull(ilong_man_n),0,ilong_man_n) +
+if(isnull(ilong_bojo_n),0,ilong_bojo_n) +
+if(isnull(test_man_n),0,test_man_n) +
+if(isnull(test_bojo_n),0,test_bojo_n) +
+if(isnull(etc_man_n),0,etc_man_n) "border="2" color="0" x="1989" y="520" height="64" width="229" format="##0"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=14 alignment="2" tabsequence=90 border="2" color="0" x="777" y="444" height="64" width="229" format="###" protect="0~tif(prot = 1,0,1)"  name=sida_man edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=18 alignment="2" tabsequence=110 border="2" color="0" x="1019" y="444" height="64" width="229" format="###" protect="0~tif(prot = 1,0,1)"  name=fin_man edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=22 alignment="2" tabsequence=130 border="2" color="0" x="1262" y="444" height="64" width="229" format="###" protect="0~tif(prot = 1,0,1)"  name=ilong_man edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=26 alignment="2" tabsequence=150 border="2" color="0" x="1504" y="444" height="64" width="229" format="###" protect="0~tif(prot = 1,0,1)"  name=test_man edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=30 alignment="2" tabsequence=170 border="2" color="0" x="1746" y="444" height="64" width="229" format="###" protect="0~tif(prot = 1,0,1)"  name=etc_man edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=6 alignment="2" tabsequence=50 border="2" color="0" x="293" y="444" height="64" width="229" format="###" protect="0~tif(prot = 1,0,1)"  name=cut_man edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=10 alignment="2" tabsequence=70 border="2" color="0" x="535" y="444" height="64" width="229" format="###" protect="0~tif(prot = 1,0,1)"  name=sew_man edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="2" expression="if(isnull(cut_man),0,cut_man) + 
+if(isnull(cut_bojo),0,cut_bojo) +
+if(isnull(sew_man),0,sew_man) +
+if(isnull(sew_bojo),0,sew_bojo) +
+if(isnull(sida_man),0,sida_man) +
+if(isnull(sida_bojo),0,sida_bojo) +
+if(isnull(fin_man),0,fin_man) +
+if(isnull(fin_bojo),0,fin_bojo) +
+if(isnull(ilong_man),0,ilong_man) +
+if(isnull(ilong_bojo),0,ilong_bojo) +
+if(isnull(test_man),0,test_man) +
+if(isnull(test_bojo),0,test_bojo) +
+if(isnull(etc_man),0,etc_man) "border="2" color="0" x="1989" y="444" height="64" width="229" format="##0"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=40 alignment="1" tabsequence=32766 border="2" color="0" x="2560" y="520" height="64" width="233" format="#,##0"  name=bf_make_qty edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=39 alignment="1" tabsequence=32766 border="2" color="0" x="2560" y="444" height="64" width="233" format="#,##0"  name=bf_plan_qty edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=34 alignment="0" tabsequence=330 border="2" color="0" x="3054" y="444" height="140" width="315" format="[general]" protect="0~tif(prot = 1,0,1)"  name=bigo edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=33 alignment="1" tabsequence=320 border="2" color="0" x="2807" y="520" height="64" width="233" format="#,##0" protect="0~tif(prot = 1,0,1)"  name=make_qty edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=32 alignment="1" tabsequence=310 border="2" color="0" x="2807" y="444" height="64" width="233" format="#,##0" protect="0~tif(prot = 1,0,1)"  name=plan_qty edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="1. 인 원 현 황" border="0" color="0" x="18" y="304" height="56" width="466"  name=t_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="2. 목 표 관 리" border="0" color="0" x="2295" y="304" height="56" width="494"  name=t_10  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="~~" border="0" color="0" x="489" y="176" height="56" width="91"  name=t_5  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="2" tabsequence=30 border="0" color="0" x="293" y="176" height="56" width="174" format="@@:@@" protect="0~tif(prot = 1,0,1)"  name=st_tm edit.limit=4 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="2" tabsequence=40 border="0" color="0" x="603" y="176" height="56" width="174" format="@@:@@" protect="0~tif(prot = 1,0,1)"  name=ed_tm edit.limit=4 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="전 일" border="2" color="0" x="2560" y="368" height="64" width="233"  name=plan_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30273523" )
+text(band=detail alignment="2" text="구  분" border="2" color="0" x="2295" y="368" height="64" width="251"  name=t_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30273523" )
+text(band=detail alignment="2" text="금 일" border="2" color="0" x="2807" y="368" height="64" width="233"  name=make_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30273523" )
+text(band=detail alignment="2" text="비 고" border="2" color="0" x="3054" y="368" height="64" width="315"  name=bigo_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30273523" )
+text(band=detail alignment="2" text="실  적" border="2" color="0" x="2295" y="520" height="64" width="251"  name=t_9  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30273523" )
+text(band=detail alignment="2" text="계  획" border="2" color="0" x="2295" y="444" height="64" width="251"  name=t_8  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30273523" )
+text(band=detail alignment="2" text="구  분" border="2" color="0" x="18" y="368" height="64" width="261"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30273523" )
+text(band=detail alignment="2" text="시 다" border="2" color="0" x="777" y="368" height="64" width="229"  name=sida_man_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30273523" )
+text(band=detail alignment="2" text="완 성" border="2" color="0" x="1019" y="368" height="64" width="229"  name=fin_man_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30273523" )
+text(band=detail alignment="2" text="아이롱" border="2" color="0" x="1262" y="368" height="64" width="229"  name=ilong_man_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30273523" )
+text(band=detail alignment="2" text="검 사" border="2" color="0" x="1504" y="368" height="64" width="229"  name=fin_man_n_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30273523" )
+text(band=detail alignment="2" text="기 타" border="2" color="0" x="1746" y="368" height="64" width="229"  name=etc_man_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30273523" )
+text(band=detail alignment="2" text="재 단" border="2" color="0" x="293" y="368" height="64" width="229"  name=cut_man_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30273523" )
+text(band=detail alignment="2" text="봉 재" border="2" color="0" x="535" y="368" height="64" width="229"  name=sew_man_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30273523" )
+text(band=detail alignment="2" text="총인원" border="2" color="0" x="1989" y="368" height="64" width="229"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30273523" )
+text(band=detail alignment="2" text="인  원" border="2" color="0" x="18" y="444" height="64" width="261"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30273523" )
+text(band=detail alignment="2" text="결  근" border="2" color="0" x="18" y="520" height="64" width="261"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30273523" )
+text(band=detail alignment="1" text="거 래 처:" border="2" color="0" x="18" y="12" height="56" width="261"  name=cust_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30273523" )
+text(band=detail alignment="1" text="근무시간:" border="2" color="0" x="18" y="176" height="56" width="261"  name=st_tm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30273523" )
+text(band=detail alignment="1" text="작업일자:" border="2" color="0" x="18" y="92" height="56" width="261"  name=work_dt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30273523" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

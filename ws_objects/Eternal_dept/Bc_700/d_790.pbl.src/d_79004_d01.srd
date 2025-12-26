@@ -1,0 +1,207 @@
+﻿$PBExportHeader$d_79004_d01.srd
+$PBExportComments$A/S 의뢰/판정 현황
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=152 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=80 color="536870912" )
+detail(height=156 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=yymmdd dbname="VI_79010_1.YYMMDD" )
+ column=(type=char(4) updatewhereclause=yes name=seq_no dbname="VI_79010_1.SEQ_NO" )
+ column=(type=char(4) updatewhereclause=yes name=no dbname="VI_79010_1.NO" )
+ column=(type=char(20) updatewhereclause=yes name=custom_nm dbname="VI_79010_1.CUSTOM_NM" )
+ column=(type=char(20) updatewhereclause=yes name=tel_no dbname="TEL_NO" )
+ column=(type=char(8) updatewhereclause=yes name=style dbname="VI_79010_1.STYLE" )
+ column=(type=char(1) updatewhereclause=yes name=chno dbname="VI_79010_1.CHNO" )
+ column=(type=char(9) updatewhereclause=yes name=style_no dbname="STYLE_NO" )
+ column=(type=char(2) updatewhereclause=yes name=color dbname="VI_79010_1.COLOR" )
+ column=(type=char(40) updatewhereclause=yes name=color_nm dbname="COLOR_NM" )
+ column=(type=char(2) updatewhereclause=yes name=size dbname="VI_79010_1.SIZE" )
+ column=(type=char(10) updatewhereclause=yes name=size_nm dbname="SIZE_NM" )
+ column=(type=decimal(0) updatewhereclause=yes name=b_tag_price dbname="VI_79010_1.tag_price" )
+ column=(type=char(6) updatewhereclause=yes name=shop_cd dbname="VI_79010_1.SHOP_CD" )
+ column=(type=char(30) updatewhereclause=yes name=shop_nm dbname="SHOP_NM" )
+ column=(type=char(255) updatewhereclause=yes name=problem dbname="PROBLEM" )
+ column=(type=char(8) updatewhereclause=yes name=want_ymd dbname="VI_79010_1.WANT_YMD" )
+ column=(type=char(8) updatewhereclause=yes name=go_ymd dbname="VI_79010_1.GO_YMD" )
+ column=(type=char(8) updatewhereclause=yes name=st_ymd dbname="VI_79010_1.ST_YMD" )
+ column=(type=char(1) updatewhereclause=yes name=judg_fg dbname="JUDG_FG" )
+ column=(type=char(30) updatewhereclause=yes name=judg_fg_nm dbname="JUDG_FG_NM" )
+ column=(type=char(2) updatewhereclause=yes name=judg_l dbname="JUDG_L" )
+ column=(type=char(30) updatewhereclause=yes name=judg_l_nm dbname="JUDG_L_NM" )
+ column=(type=char(3) updatewhereclause=yes name=judg_s dbname="JUDG_S" )
+ column=(type=char(30) updatewhereclause=yes name=judg_s_nm dbname="JUDG_S_NM" )
+ column=(type=char(6) updatewhereclause=yes name=cust_cd dbname="VI_79010_1.CUST_CD" )
+ column=(type=char(30) updatewhereclause=yes name=cust_nm dbname="CUST_NM" )
+ column=(type=char(255) updatewhereclause=yes name=result dbname="RESULT" )
+ column=(type=char(2) updatewhereclause=yes name=deal_fg dbname="VI_79010_1.DEAL_FG" )
+ column=(type=char(30) updatewhereclause=yes name=deal_fg_nm dbname="DEAL_FG_NM" )
+ column=(type=char(255) updatewhereclause=yes name=remark dbname="REMARK" )
+ column=(type=char(30) updatewhereclause=yes name=pay_fg_nm dbname="PAY_FG_NM" )
+ column=(type=decimal(0) updatewhereclause=yes name=pay_amt dbname="VI_79010_1.PAY_AMT" )
+ column=(type=char(1) updatewhereclause=yes name=pay_yn dbname="VI_79010_1.PAY_YN" values="지급	Y/미지급	N/	/" )
+ column=(type=char(2) updatewhereclause=yes name=claim_fg dbname="VI_79010_1.CLAIM_FG" )
+ column=(type=char(8) updatewhereclause=yes name=appoint_ymd dbname="VI_79010_1.appoint_ymd" )
+ column=(type=char(6) updatewhereclause=yes name=fix_cust_cd dbname="VI_79010_1.fix_cust_cd" )
+ column=(type=char(30) updatewhereclause=yes name=fix_cust_nm dbname="fix_CUST_NM" )
+ column=(type=char(8) updatewhereclause=yes name=go_ymd2 dbname="VI_79010_1.go_ymd2" )
+ column=(type=char(8) updatewhereclause=yes name=rtrn_ymd dbname="VI_79010_1.rtrn_ymd" )
+ column=(type=char(4) updatewhereclause=yes name=rtrn_no dbname="VI_79010_1.rtrn_no" )
+ column=(type=char(8) updatewhereclause=yes name=receipt_ymd dbname="VI_79010_1.receipt_ymd" )
+ column=(type=char(6) updatewhereclause=yes name=ded_ymd dbname="VI_79010_1.ded_ymd" )
+ column=(type=char(20) updatewhereclause=yes name=gamga dbname="VI_79010_1.gamga" )
+ retrieve="SELECT	a.YYMMDD, 
+			a.SEQ_NO, 
+			a.NO, 
+			a.CUSTOM_NM, 
+			ISNULL(ISNULL(a.TEL_NO3, a.TEL_NO1), a.TEL_NO2) 		AS TEL_NO,
+			a.STYLE, 
+			a.CHNO, 
+			a.STYLE + a.CHNO													AS STYLE_NO, 
+			COLOR, dbo.sf_color_nm(a.COLOR, 'E')						AS COLOR_NM,
+			a.SIZE,  dbo.sf_size_nm(a.SIZE)								AS SIZE_NM,
+			b.tag_price,
+			a.SHOP_CD, dbo.sf_shop_nm (a.SHOP_CD, 'S') 				AS SHOP_NM,
+			REPLACE(PROBLEM, CHAR(13) + CHAR(10), '   ')				AS PROBLEM, 
+			a.WANT_YMD, 
+			a.GO_YMD, 
+			a.ST_YMD, 
+			ISNULL(a.JUDG_FG, '0')											AS JUDG_FG, 
+			dbo.sf_inter_nm('799', ISNULL(a.JUDG_FG, '0') ) 		AS JUDG_FG_NM,
+			ISNULL(a.JUDG_L, '00') 											AS JUDG_L, 
+			dbo.sf_inter_nm('795', ISNULL(a.JUDG_L, '00') ) 		AS JUDG_L_NM,
+			ISNULL(a.JUDG_S, '000')											AS JUDG_S, 
+			dbo.sf_inter_nm('796', ISNULL(a.JUDG_S, '000') ) 		AS JUDG_S_NM,
+			a.CUST_CD,
+			dbo.sf_cust_nm (a.CUST_CD, 'S') 	    						AS CUST_NM,
+			REPLACE(RESULT, CHAR(13) + CHAR(10), '   ')				AS RESULT,  
+			DEAL_FG, dbo.sf_inter_nm('798', a.DEAL_FG) 				AS DEAL_FG_NM,
+			REPLACE(REMARK, CHAR(13) + CHAR(10), '   ') 				AS REMARK,
+			dbo.sf_inter_nm('7979', ISNULL(a.PAY_FG, 'x') ) 		AS PAY_FG_NM,
+			a.PAY_AMT,
+			a.PAY_YN,
+			a.CLAIM_FG,
+			a.appoint_ymd,
+			a.fix_cust 															as fix_cust_cd, 
+			isnull(fix_cust_nm,dbo.sf_cust_nm (a.fix_cust, 'S'))	AS fix_CUST_NM,
+			a.go_ymd2,
+			a.rtrn_ymd,
+			a.rtrn_no,
+			a.receipt_ymd,
+			a.ded_ymd,
+			a.gamga
+
+    FROM VI_79010_1 a with (nolock)  left outer join tb_12020_m b with (nolock) on a.style = b.style 
+
+  WHERE a.YYMMDD BETWEEN :as_fr_ymd AND :as_to_ymd
+     AND a.BRAND = :as_brand
+     AND ISNULL(a.CUSTOM_NM, '%') LIKE :as_custom_nm + '%'
+     AND ISNULL(a.CARD_NO, '%') LIKE :as_card_no + '%'
+     AND ISNULL(a.JUMIN,   '%') LIKE :as_jumin + '%'
+     AND ISNULL(a.STYLE,   '%') LIKE :as_style + '%'
+     AND ISNULL(a.CHNO,    '%') LIKE :as_chno + '%'
+     AND ISNULL(a.JUDG_FG, '0') LIKE :as_judg_fg + '%'
+     AND ISNULL(a.pay_FG, '%')  LIKE :as_pay_fg + '%'
+     AND ISNULL(a.DEPT_CD, '%') LIKE :as_dept_cd + '%'
+	  and isnull(a.shop_cd,'')   like :as_shop_cd + '%'
+	  and isnull(a.cust_cd,'')   like :as_cust_cd + '%'
+	  and isnull(a.fix_cust,'')   like :as_fix_cust + '%'
+	  and isnull(a.claim_fg,'')  like :as_claim_fg + '%'
+	  and isnull(a.go_ymd,'')    like case when :as_go_exp = '1' then '' else '%' end   
+     AND isnull(a.ST_ymd,'')    like case when :as_go_exp = '1' then '' else '%' end     
+     and isnull(a.WANT_YMD,'99999999') between  :as_fr_want and :as_to_want
+     and isnull(a.go_YMD,'99999999') between  :as_fr_go_ymd and :as_to_go_ymd
+     and isnull(a.st_YMD,'99999999') between  :as_fr_st_ymd and :as_to_st_ymd
+     and isnull(a.appoint_YMD,'99999999') between  :as_fr_appoint and :as_to_appoint
+	  and isnull(a.receipt_ymd,'99999999') between  :as_fr_receipt and :as_to_receipt
+	  and isnull(a.year,'%')     like :as_year + '%'
+	  and isnull(a.season,'%')   like :as_season + '%'
+	  and isnull(a.item,'%')     like :as_item + '%'
+	  and isnull(a.receipt_type,'N')     like :as_receipt_type + '%'
+	  and isnull(a.confirm_yn,'N')     like :as_confirm_yn + '%'
+	  and isnull(a.judg_l,'%')     like :as_judg_l + '%'
+	  and isnull(a.judg_s,'%')     like :as_judg_s + '%'
+	  and isnull(a.judg_s,'%')     like :as_judg_s + '%'
+	  and isnull(a.receipt_empno,'%')     like :as_receipt_empno + '%'
+
+" arguments=(("as_brand", string),("as_fr_ymd", string),("as_to_ymd", string),("as_style", string),("as_chno", string),("as_card_no", string),("as_jumin", string),("as_custom_nm", string),("as_judg_fg", string),("as_dept_cd", string),("as_fr_want", string),("as_to_want", string),("as_pay_fg", string),("as_shop_cd", string),("as_cust_cd", string),("as_go_exp", string),("as_claim_fg", string),("as_fr_appoint", string),("as_to_appoint", string),("as_fr_go_ymd", string),("as_to_go_ymd", string),("as_year", string),("as_season", string),("as_item", string),("as_fr_receipt", string),("as_to_receipt", string),("as_fr_st_ymd", string),("as_to_st_ymd", string),("as_receipt_type", string),("as_confirm_yn", string),("as_fix_cust", string),("as_judg_l", string),("as_judg_s", string),("as_receipt_empno", string)) )
+text(band=header alignment="2" text="
+
+번호" border="6" color="0" x="398" y="8" height="136" width="114"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+
+STYLE NO" border="6" color="0" x="530" y="8" height="136" width="466"  name=style_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+
+의  뢰  내  용" border="6" color="0" x="1454" y="8" height="136" width="718"  name=problem_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+
+판  정  내  용" border="6" color="0" x="2190" y="8" height="136" width="718"  name=result_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="판정구분" border="6" color="0" x="2926" y="8" height="60" width="219"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="처리구분" border="6" color="0" x="2926" y="84" height="60" width="219"  name=t_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="업  체" border="6" color="0" x="1015" y="8" height="60" width="421"  name=cust_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="수선업체" border="6" color="0" x="1015" y="84" height="60" width="421"  name=t_11  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="외뢰일" border="6" color="0" x="14" y="8" height="64" width="370"  name=yymmdd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="접수일" border="6" color="16711680" x="9" y="84" height="60" width="375"  name=t_14  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="고객발송일" border="6" color="0" x="4617" y="8" height="60" width="274"  name=judg_ymd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="업체발송일" border="6" color="0" x="4617" y="84" height="60" width="274"  name=t_10  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="행랑외발송일" border="6" color="0" x="5609" y="8" height="60" width="539"  name=t_12  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="반품전표" border="6" color="0" x="5609" y="84" height="60" width="539"  name=t_13  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="
+
+비  고" border="6" color="0" x="6167" y="8" height="136" width="402"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="완료희망일" border="6" color="0" x="3886" y="80" height="64" width="283"  name=want_ymd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="공제월" border="6" color="0" x="3886" y="8" height="60" width="283"  name=t_15  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="매  장" border="6" color="0" x="4187" y="8" height="60" width="411"  name=shop_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="감가내역" border="6" color="0" x="4187" y="84" height="60" width="411"  name=t_16  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="수선비용" border="6" color="0" x="3547" y="84" height="60" width="320"  name=t_8  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="수선지급구분" border="6" color="0" x="3547" y="8" height="60" width="320"  name=t_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="판정대분류" border="6" color="0" x="3163" y="8" height="60" width="370"  name=t_17  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="판정소분류" border="6" color="0" x="3163" y="84" height="60" width="370"  name=t_18  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="고 객 명" border="6" color="0" x="4910" y="8" height="60" width="389"  name=custom_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="약속변경일" border="6" color="0" x="5317" y="8" height="60" width="274"  name=t_9  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="전화번호" border="6" color="0" x="4910" y="84" height="60" width="389"  name=tel_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Tag_Price" border="6" color="0" x="5317" y="84" height="60" width="274"  name=t_19  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="5" color="0" x="937" y="4" height="136" width="59" format="[general]"  name=size edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="5" color="0" x="859" y="4" height="136" width="59" format="[general]"  name=color edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="5" color="0" x="530" y="4" height="136" width="311" format="@@@@@@@@-@"  name=style_no edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="5" color="0" x="398" y="4" height="136" width="114" format="[general]"  name=seq_no edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=27 alignment="0" tabsequence=32766 border="5" color="0" x="1015" y="4" height="60" width="421" format="[general]"  name=cust_nm edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=38 alignment="0" tabsequence=32766 border="5" color="0" x="1015" y="80" height="60" width="421" format="[general]"  name=fix_cust_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="5" color="0" x="1454" y="4" height="136" width="718" format="[general]"  name=problem  slideup=allabove edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=28 alignment="0" tabsequence=32766 border="5" color="0" x="2190" y="4" height="136" width="718" format="[general]"  name=result edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="2" expression="yymmdd"border="5" color="0" x="9" y="4" height="60" width="370" format="@@@@/@@/@@"  name=compute_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=42 alignment="2" tabsequence=32766 border="5" color="16711680" x="9" y="84" height="56" width="370" format="@@@@/@@/@@"  name=receipt_ymd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=32 alignment="2" tabsequence=32766 border="5" color="0" x="3547" y="4" height="60" width="146" format="[general]"  name=pay_fg_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="2" expression="MID(ST_YMD, 5,4)"border="5" color="0" x="4617" y="80" height="60" width="274" format="@@/@@"  name=compute_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="2" expression="Mid( go_ymd, 5, 4 )"border="5" color="0" x="4617" y="4" height="60" width="274" format="@@/@@"  name=compute_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=41 alignment="0" tabsequence=32766 border="5" color="0" x="5984" y="84" height="56" width="165" format="[general]"  name=rtrn_no edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=39 alignment="0" tabsequence=32766 border="5" color="0" x="5609" y="4" height="64" width="539" format="@@@@/@@/@@"  name=go_ymd2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=40 alignment="0" tabsequence=32766 border="5" color="0" x="5609" y="84" height="56" width="361" format="@@@@/@@/@@"  name=rtrn_ymd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=31 alignment="0" tabsequence=32766 border="5" color="0" x="6167" y="4" height="136" width="402" format="[general]"  name=remark edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=35 alignment="0" tabsequence=32766 border="0" color="0" x="6400" y="44" height="56" width="55" format="[general]"  name=claim_fg edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=19 alignment="0" tabsequence=32766 border="0" color="0" x="6318" y="72" height="56" width="215" format="[general]"  name=st_ymd visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=33 alignment="1" tabsequence=32766 border="5" color="0" x="3547" y="80" height="60" width="320" format="#,###"  name=pay_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=34 alignment="2" tabsequence=32766 border="5" color="0" x="3712" y="4" height="60" width="155" format="[general]"  name=pay_yn ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=43 alignment="2" tabsequence=32766 border="5" color="0" x="3886" y="4" height="56" width="274" format="@@@@/@@"  name=ded_ymd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="2" expression="Mid( want_ymd, 5, 4 )"border="5" color="0" x="3886" y="80" height="60" width="274" format="@@/@@"  name=compute_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="5" color="0" x="4178" y="4" height="56" width="421" format="[general]"  name=shop_nm edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=44 alignment="0" tabsequence=32766 border="5" color="0" x="4178" y="80" height="60" width="421" format="[general]"  name=gamga edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=21 alignment="0" tabsequence=32766 border="5" color="0" x="2926" y="4" height="60" width="219" format="[general]"  name=judg_fg_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=23 alignment="0" tabsequence=32766 border="5" color="0" x="3163" y="4" height="60" width="370" format="[general]"  name=judg_l_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=30 alignment="0" tabsequence=32766 border="5" color="0" x="2926" y="80" height="60" width="219" format="[general]"  name=deal_fg_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=25 alignment="0" tabsequence=32766 border="5" color="0" x="3163" y="80" height="60" width="370" format="[general]"  name=judg_s_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="5" color="0" x="4910" y="4" height="60" width="389" format="[general]"  name=custom_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=36 alignment="0" tabsequence=32766 border="5" color="0" x="5317" y="4" height="60" width="274" format="[general]"  name=appoint_ymd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="5" color="0" x="4910" y="80" height="60" width="389" format="[general]"  name=tel_no edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="1" tabsequence=32766 border="5" color="0" x="5317" y="80" height="60" width="274" format="#,###,##0"  name=b_tag_price edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=22 alignment="0" tabsequence=32766 border="0" color="0" x="6674" y="0" height="56" width="55" format="[general]"  name=judg_l visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=24 alignment="0" tabsequence=32766 border="0" color="0" x="6807" y="12" height="56" width="82" format="[general]"  name=judg_s visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=footer alignment="2" text="총 접수건수" border="6" color="0" x="9" y="8" height="60" width="329"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="1" expression="count(yymmdd for all)"border="5" color="0" x="357" y="8" height="60" width="274" format="#,##0"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="1" expression="count( style for all distinct )"border="5" color="0" x="1106" y="8" height="60" width="274" format="#,##0"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="1" expression="sum(b_tag_price for all)"border="5" color="0" x="5317" y="8" height="60" width="274" format="#,###,##0"  name=compute_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=footer alignment="2" text="STYLE 수" border="6" color="0" x="759" y="8" height="60" width="329"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=footer alignment="1" text="Tag_Price 합계" border="6" color="0" x="4901" y="8" height="60" width="398"  name=t_20  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

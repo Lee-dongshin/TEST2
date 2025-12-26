@@ -1,0 +1,19 @@
+﻿$PBExportHeader$d_56002_d03.srd
+$PBExportComments$마진율일괄등록[매장]
+release 7;
+datawindow(units=0 timer_interval=0 color=10789024 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(6) updatewhereclause=yes name=shop_cd dbname="shop_cd" )
+ column=(type=char(20) updatewhereclause=yes name=shop_nm dbname="shop_nm" )
+ column=(type=char(1) updatewhereclause=yes name=job_yn dbname="job_yn" values="	Y/	N" )
+ procedure="1 execute dbo.SP_56002_D03;1 @brand = :brand, @shop_div = :shop_div, @shop_grp = :shop_grp" arguments=(("brand", string),("shop_div", string),("shop_grp", string)) )
+text(band=header alignment="2" text="매장" border="6" color="0" x="9" y="8" height="60" width="759"  name=shop_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="79741120" )
+button(band=header text="선택"filename=""action="0" border="0" color="16777215" x="777" y="0" height="76" width="197" vtextalign="0" htextalign="0"  name=b_job_yn  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421376" )
+column(band=detail id=3 alignment="2" tabsequence=10 border="0" color="0" x="777" y="0" height="64" width="187" format="[general]"  name=job_yn checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="5" y="0" height="64" width="183" format="[general]"  name=shop_cd edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30988504" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="197" y="0" height="64" width="576" format="[general]"  name=shop_nm edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30988504" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

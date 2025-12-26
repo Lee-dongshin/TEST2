@@ -1,0 +1,89 @@
+﻿$PBExportHeader$d_93001_d01.srd
+$PBExportComments$사용자 관리
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(6) update=yes updatewhereclause=yes key=yes name=person_id dbname="TB_93010_M.PERSON_ID" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=person_nm dbname="TB_93010_M.PERSON_NM" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=pass_wd dbname="TB_93010_M.PASS_WD" )
+ column=(type=long update=yes updatewhereclause=yes name=user_level dbname="TB_93010_M.USER_LEVEL" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=user_grp_nm dbname="TB_93010_M.USER_GRP" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=brand_nm dbname="TB_93010_M.BRAND" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=status_yn dbname="TB_93010_M.STATUS_YN" initial="Y" values="사용	Y/사용	N" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=iwol_fr_ymd dbname="TB_93010_M.IWOL_FR_YMD" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=iwol_to_ymd dbname="TB_93010_M.IWOL_TO_YMD" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=st_ymd dbname="TB_93010_M.ST_YMD" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=ed_ymd dbname="TB_93010_M.ED_YMD" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="TB_93010_M.REG_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="TB_93010_M.REG_DT" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="TB_93010_M.MOD_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="TB_93010_M.MOD_DT" )
+ column=(type=char(3) update=yes updatewhereclause=yes name=work_brand dbname="TB_93010_M.work_brand" )
+ column=(type=char(3) update=yes updatewhereclause=yes name=work_type dbname="TB_93010_M.work_type" values="10 임가공	10/40 완사입	40/%  전체	null/" )
+ column=(type=char(3) update=yes updatewhereclause=yes name=work_sojae dbname="TB_93010_M.work_sojae" )
+ column=(type=char(3) update=yes updatewhereclause=yes name=work_level dbname="TB_93010_M.work_level" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=data_level dbname="TB_93010_M.data_level" initial="V" values="모든권한	A/등록	I/변경	U/삭제	D/조회	V/" )
+ retrieve="  SELECT PERSON_ID, 
+         PERSON_NM, 
+         PASS_WD, 
+         USER_LEVEL, 
+         USER_GRP, 
+         BRAND, 
+         STATUS_YN, 
+			IWOL_FR_YMD,
+			IWOL_TO_YMD,
+			ST_YMD,
+			ED_YMD,
+         REG_ID, 
+         REG_DT, 
+         MOD_ID, 
+         MOD_DT,
+			work_brand,
+			work_type,
+			work_sojae,
+			work_level,
+			data_level 
+    FROM TB_93010_M (nolock)
+   WHERE PERSON_ID LIKE :as_user_id + '%' 
+	  and isnull(user_grp,'') like :as_user_grp + '%'
+     AND ( CASE PERSON_NM WHEN NULL THEN ' ' ELSE PERSON_NM END ) LIKE :as_user_nm + '%' 
+ " update="TB_93010_M" updatewhere=0 updatekeyinplace=yes arguments=(("as_user_id", string),("as_user_nm", string),("as_user_grp", string))  sort="user_grp_nm A person_id A " )
+text(band=header alignment="2" text="사  번" border="6" color="33554432" x="137" y="8" height="60" width="224"  name=person_id_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="성  명" border="6" color="33554432" x="379" y="8" height="60" width="443"  name=person_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="비밀번호" border="6" color="33554432" x="841" y="8" height="60" width="242"  name=pass_wd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="등급" border="6" color="33554432" x="1669" y="8" height="60" width="146"  name=t_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="사용자 그룹" border="6" color="33554432" x="1102" y="8" height="60" width="549"  name=user_grp_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="상  태" border="6" color="33554432" x="2510" y="8" height="60" width="210"  name=status_yn_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="소급일자" border="6" color="33554432" x="2738" y="8" height="60" width="672"  name=t_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="브 랜 드" border="6" color="33554432" x="1833" y="8" height="60" width="658"  name=brand_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="소급시작일" border="6" color="33554432" x="3429" y="8" height="60" width="306"  name=t_10  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="소급종료일" border="6" color="33554432" x="3753" y="8" height="60" width="306"  name=t_11  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="업무브랜드" border="6" color="33554432" x="4069" y="8" height="60" width="439"  name=t_12  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="데이터권한" border="6" color="0" x="5925" y="8" height="60" width="453"  name=t_16  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="업무등급" border="6" color="33554432" x="5458" y="8" height="60" width="453"  name=t_15  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="업무소재" border="6" color="33554432" x="4987" y="8" height="60" width="453"  name=t_14  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="업무구분" border="6" color="33554432" x="4521" y="8" height="60" width="453"  name=t_13  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="137" y="4" height="60" width="224" format="[general]"  name=person_id  tag="OE" edit.limit=6 edit.case=upper edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="379" y="4" height="60" width="443" format="[general]"  name=person_nm  tag="DK" edit.limit=20 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="5" color="0" x="841" y="4" height="60" width="242" format="[general]"  name=pass_wd edit.limit=6 edit.case=upper edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=4 alignment="1" tabsequence=50 border="5" color="0" x="1669" y="4" height="60" width="146" format="[general]"  name=user_level edit.limit=3 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=5 alignment="0" tabsequence=40 border="5" color="0" x="1102" y="4" height="60" width="160" format="[general]"  name=user_grp  tag="OE" edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_cd dddw.datacolumn=inter_cd dddw.percentwidth=300 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="5" color="0" x="1280" y="4" height="60" width="370" format="[general]"  name=user_grp_nm  tag="" edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_nm dddw.datacolumn=inter_cd dddw.percentwidth=300 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=7 alignment="0" tabsequence=70 border="5" color="0" x="2505" y="4" height="60" width="210" format="[general]"  name=status_yn  tag="OE" checkbox.text="사용" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=8 alignment="0" tabsequence=80 border="5" color="0" x="2738" y="4" height="60" width="306" format="@@@@/@@/@@"  name=iwol_fr_ymd edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="2" text="~~" border="0" color="33554432" x="3063" y="4" height="60" width="23"  name=t_9  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=60 border="5" color="0" x="1833" y="4" height="60" width="160" format="[general]"  name=brand  tag="OE" edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_cd dddw.datacolumn=inter_cd dddw.percentwidth=300 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="5" color="0" x="2011" y="4" height="60" width="480" format="[general]"  name=brand_nm  tag="" edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_nm dddw.datacolumn=inter_cd dddw.percentwidth=300 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=9 alignment="0" tabsequence=90 border="5" color="0" x="3104" y="4" height="60" width="306" format="@@@@/@@/@@"  name=iwol_to_ymd edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=10 alignment="0" tabsequence=100 border="5" color="0" x="3429" y="4" height="60" width="306" format="@@@@/@@/@@"  name=st_ymd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=11 alignment="0" tabsequence=110 border="5" color="0" x="3753" y="4" height="60" width="306" format="@@@@/@@/@@"  name=ed_ymd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=16 alignment="0" tabsequence=120 border="5" color="0" x="4069" y="4" height="60" width="439" format="[general]"  name=work_brand edit.limit=3 edit.case=upper edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=20 alignment="0" tabsequence=160 border="5" color="0" x="5929" y="4" height="60" width="453" format="[general]"  name=data_level ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.useasborder=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=19 alignment="0" tabsequence=150 border="5" color="0" x="5458" y="4" height="60" width="453" format="[general]"  name=work_level edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=18 alignment="0" tabsequence=140 border="5" color="0" x="4987" y="4" height="60" width="453" format="[general]"  name=work_sojae edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=17 alignment="0" tabsequence=130 border="5" color="0" x="4521" y="4" height="60" width="453" format="[general]"  name=work_type ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

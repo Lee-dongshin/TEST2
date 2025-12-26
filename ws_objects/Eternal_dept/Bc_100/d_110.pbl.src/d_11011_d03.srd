@@ -1,0 +1,80 @@
+﻿$PBExportHeader$d_11011_d03.srd
+$PBExportComments$ITEM별 물량계획[출고차순별 계획]
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=char(1) update=yes updatewhereclause=yes key=yes name=brand dbname="tb_11063_h.brand" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=year dbname="tb_11063_h.year" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=season dbname="tb_11063_h.season" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=plan_seq dbname="tb_11063_h.plan_seq" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=season_seq dbname="tb_11063_h.season_seq" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=plan_fg dbname="tb_11063_h.plan_fg" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=sojae dbname="tb_11063_h.sojae" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=item dbname="tb_11063_h.item" )
+ column=(type=char(3) update=yes updatewhereclause=yes key=yes name=out_seq dbname="tb_11063_h.out_seq" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=mod_cnt dbname="tb_11063_h.mod_cnt" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=plan_qty dbname="tb_11063_h.plan_qty" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=plan_amt dbname="tb_11063_h.plan_amt" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="tb_11063_h.reg_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="tb_11063_h.reg_dt" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="tb_11063_h.mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="tb_11063_h.mod_dt" )
+ retrieve="  SELECT brand,   
+         year,   
+         season,   
+         plan_seq,   
+         season_seq,   
+         plan_fg,   
+         sojae,   
+         item,   
+         out_seq,   
+         mod_cnt,   
+         plan_qty,   
+         plan_amt,   
+         reg_id,   
+         reg_dt,   
+         mod_id,   
+         mod_dt  
+    FROM tb_11063_h   
+   WHERE brand      = :as_brand 
+     AND year       = :as_year 
+     AND season     = :as_season
+     AND plan_seq   = :an_plan_seq
+" update="tb_11063_h" updatewhere=0 updatekeyinplace=yes arguments=(("as_brand", string),("as_year", string),("as_season", string),("an_plan_seq", number)) )
+text(band=header alignment="2" text="Brand" border="6" color="0" x="9" y="8" height="56" width="155"  name=brand_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Year" border="6" color="0" x="174" y="8" height="56" width="137"  name=year_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Season" border="6" color="0" x="320" y="8" height="56" width="201"  name=season_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Plan Seq" border="6" color="0" x="530" y="8" height="56" width="329"  name=plan_seq_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Season Seq" border="6" color="0" x="869" y="8" height="56" width="325"  name=season_seq_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Out Seq" border="6" color="0" x="1847" y="8" height="56" width="219"  name=out_seq_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Mod Cnt" border="6" color="0" x="2075" y="8" height="56" width="329"  name=mod_cnt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Plan Qty" border="6" color="0" x="2414" y="8" height="56" width="329"  name=plan_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Plan Amt" border="6" color="0" x="2752" y="8" height="56" width="329"  name=plan_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Reg Id" border="6" color="0" x="3090" y="8" height="56" width="192"  name=reg_id_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Reg Dt" border="6" color="0" x="3291" y="8" height="56" width="603"  name=reg_dt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Mod Id" border="6" color="0" x="3904" y="8" height="56" width="192"  name=mod_id_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Mod Dt" border="6" color="0" x="4105" y="8" height="56" width="603"  name=mod_dt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Plan Fg" border="6" color="0" x="1202" y="8" height="56" width="206"  name=plan_fg_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Sojae" border="6" color="0" x="1417" y="4" height="56" width="114"  name=obj_23454325  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Item" border="6" color="0" x="1541" y="4" height="56" width="297"  name=obj_23457693  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="0" x="9" y="8" height="76" width="155" format="[general]"  name=brand edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="0" x="174" y="8" height="76" width="137" format="[general]"  name=year edit.limit=4 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="0" color="0" x="320" y="8" height="76" width="201" format="[general]"  name=season edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=40 border="0" color="0" x="530" y="8" height="76" width="329" format="[general]"  name=plan_seq edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=50 border="0" color="0" x="869" y="8" height="76" width="325" format="[general]"  name=season_seq edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=60 border="0" color="0" x="1202" y="8" height="76" width="206" format="[general]"  name=plan_fg edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=70 border="0" color="0" x="1847" y="8" height="76" width="219" format="[general]"  name=out_seq edit.limit=3 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="1" tabsequence=80 border="0" color="0" x="2075" y="8" height="76" width="329" format="[general]"  name=mod_cnt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="1" tabsequence=90 border="0" color="0" x="2414" y="8" height="76" width="329" format="[general]"  name=plan_qty edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="1" tabsequence=100 border="0" color="0" x="2752" y="8" height="76" width="329" format="[general]"  name=plan_amt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="0" tabsequence=110 border="0" color="0" x="3090" y="8" height="76" width="192" format="[general]"  name=reg_id edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="0" tabsequence=120 border="0" color="0" x="3291" y="8" height="76" width="603" format="[shortdate] [time]"  name=reg_dt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="0" tabsequence=130 border="0" color="0" x="3904" y="8" height="76" width="192" format="[general]"  name=mod_id edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="0" tabsequence=140 border="0" color="0" x="4105" y="8" height="76" width="603" format="[shortdate] [time]"  name=mod_dt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="1417" y="8" height="76" width="114" format="[general]"  name=sojae edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="1541" y="8" height="76" width="297" format="[general]"  name=item edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

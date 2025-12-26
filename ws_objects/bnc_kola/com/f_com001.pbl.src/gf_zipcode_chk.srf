@@ -1,0 +1,35 @@
+﻿$PBExportHeader$gf_zipcode_chk.srf
+$PBExportComments$우편번호 체크
+global type gf_zipcode_chk from function_object
+end type
+
+forward prototypes
+global function boolean gf_zipcode_chk (string as_zipcode, ref string as_zipcode2, ref string as_addr)
+end prototypes
+
+global function boolean gf_zipcode_chk (string as_zipcode, ref string as_zipcode2, ref string as_addr);/*============================================================*/
+/* 작 성 자  : 지우정보(김영일)                               */
+/* 작 성 일  : 2002/02/18                                     */
+/* 수 정 일  : 2002/02/18                                     */
+/* 내    용  : 우편번호를 체크한다.                           */
+/*============================================================*/
+long   ls_cnt
+String ls_jiyeok,ls_gu,ls_dong
+
+SELECT count(zipcode1)
+  INTO :ls_cnt
+  FROM zipcode
+ WHERE zipcode1 like :as_zipcode + "%";
+
+IF ls_cnt <> 1 Then 
+	RETURN False	
+ELSE
+	SELECT zipcode1,      jiyeok + ' ' + gu + ' ' + dong 
+	  INTO :as_zipcode2, :as_addr
+     FROM zipcode
+	 WHERE zipcode1 like :as_zipcode + "%";
+	RETURN True
+END IF
+
+end function
+

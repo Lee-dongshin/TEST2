@@ -1,0 +1,70 @@
+﻿$PBExportHeader$d_11080_d02.srd
+$PBExportComments$경영계획예산(data저장용)
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=char(6) update=yes updatewhereclause=yes key=yes name=yymm dbname="tb_11080_m.yymm" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=brand dbname="tb_11080_m.brand" )
+ column=(type=char(2) update=yes updatewhereclause=yes key=yes name=country dbname="tb_11080_m.country" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=sale_amt dbname="tb_11080_m.sale_amt" )
+ column=(type=decimal(3) update=yes updatewhereclause=yes name=dc_rate dbname="tb_11080_m.dc_rate" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=sale_collect dbname="tb_11080_m.sale_collect" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=cost_amt dbname="tb_11080_m.cost_amt" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=sale_acc_goal dbname="tb_11080_m.sale_acc_goal" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=general_acc_goal dbname="tb_11080_m.general_acc_goal" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=stock_sale dbname="tb_11080_m.stock_sale" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="tb_11080_m.reg_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="tb_11080_m.reg_dt" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="tb_11080_m.mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="tb_11080_m.mod_dt" )
+ retrieve="select  yymm,
+	brand,
+	country,
+	sale_amt,
+	dc_rate,
+	sale_collect,
+	cost_amt,
+	sale_acc_goal,
+	general_acc_goal,
+	stock_sale,
+	reg_id,
+	reg_dt,
+	mod_id,
+	mod_dt
+from    tb_11080_m with (nolock)
+where   brand = :ps_brand
+and	  yymm  like :ps_yyyy + '%'
+and     country = :ps_country;" update="tb_11080_m" updatewhere=1 updatekeyinplace=no arguments=(("ps_brand", string),("ps_yyyy", string),("ps_country", string)) )
+text(band=header alignment="2" text="Yymm" border="0" color="0" x="9" y="8" height="64" width="192"  name=yymm_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Brand" border="0" color="0" x="210" y="8" height="64" width="155"  name=brand_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Country" border="0" color="0" x="375" y="8" height="64" width="206"  name=country_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Sale Amt" border="0" color="0" x="590" y="8" height="64" width="329"  name=sale_amt_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Dc Rate" border="0" color="0" x="928" y="8" height="64" width="329"  name=dc_rate_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Sale Collect" border="0" color="0" x="1266" y="8" height="64" width="329"  name=sale_collect_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Cost Amt" border="0" color="0" x="1605" y="8" height="64" width="329"  name=cost_amt_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Sale Acc Goal" border="0" color="0" x="1943" y="8" height="64" width="384"  name=sale_acc_goal_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="General Acc Goal" border="0" color="0" x="2336" y="8" height="64" width="471"  name=general_acc_goal_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Stock Sale" border="0" color="0" x="2816" y="8" height="64" width="329"  name=stock_sale_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Reg Id" border="0" color="0" x="3154" y="8" height="64" width="192"  name=reg_id_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Reg Dt" border="0" color="0" x="3355" y="8" height="64" width="603"  name=reg_dt_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Mod Id" border="0" color="0" x="3968" y="8" height="64" width="192"  name=mod_id_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Mod Dt" border="0" color="0" x="4169" y="8" height="64" width="603"  name=mod_dt_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="0" x="9" y="8" height="76" width="192" format="[general]"  name=yymm edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="0" x="210" y="8" height="76" width="155" format="[general]"  name=brand edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="0" color="0" x="375" y="8" height="76" width="206" format="[general]"  name=country edit.limit=2 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=40 border="0" color="0" x="590" y="8" height="76" width="329" format="[general]"  name=sale_amt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=50 border="0" color="0" x="928" y="8" height="76" width="329" format="[general]"  name=dc_rate edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=60 border="0" color="0" x="1266" y="8" height="76" width="329" format="[general]"  name=sale_collect edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=70 border="0" color="0" x="1605" y="8" height="76" width="329" format="[general]"  name=cost_amt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=80 border="0" color="0" x="1943" y="8" height="76" width="384" format="[general]"  name=sale_acc_goal edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="1" tabsequence=90 border="0" color="0" x="2336" y="8" height="76" width="471" format="[general]"  name=general_acc_goal edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="1" tabsequence=100 border="0" color="0" x="2816" y="8" height="76" width="329" format="[general]"  name=stock_sale edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=110 border="0" color="0" x="3154" y="8" height="76" width="192" format="[general]"  name=reg_id edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=120 border="0" color="0" x="3355" y="8" height="76" width="603" format="[shortdate] [time]"  name=reg_dt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="0" tabsequence=130 border="0" color="0" x="3968" y="8" height="76" width="192" format="[general]"  name=mod_id edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="0" tabsequence=140 border="0" color="0" x="4169" y="8" height="76" width="603" format="[shortdate] [time]"  name=mod_dt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

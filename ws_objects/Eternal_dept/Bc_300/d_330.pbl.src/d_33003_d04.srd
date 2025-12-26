@@ -1,0 +1,91 @@
+﻿$PBExportHeader$d_33003_d04.srd
+$PBExportComments$협력업체 선급금 전표Detail
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=304 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(2) update=yes updatewhereclause=yes key=yes name=slip_bonji dbname="slip_bonji" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=slip_date dbname="slip_date" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=slip_no dbname="slip_no" )
+ column=(type=char(7) updatewhereclause=yes name=bari_dept dbname="bari_dept" )
+ column=(type=char(7) updatewhereclause=yes name=bari_dept_name dbname="bari_dept_name" )
+ column=(type=char(7) updatewhereclause=yes name=bari_emp dbname="bari_emp" )
+ column=(type=char(7) updatewhereclause=yes name=bari_emp_name dbname="bari_emp_name" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=slip_serl dbname="slip_serl" )
+ column=(type=char(5) update=yes updatewhereclause=yes name=acc_code dbname="acc_code" )
+ column=(type=char(10) updatewhereclause=yes name=acc_name dbname="acc_name" )
+ column=(type=char(5) update=yes updatewhereclause=yes name=racc_code dbname="racc_code" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=bojo_lrg_code dbname="bojo_lrg_code" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=bojo_sml_code dbname="bojo_sml_code" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=slip_rmk1 dbname="slip_rmk1" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=slip_drcr dbname="slip_drcr" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=slip_cha_amt dbname="slip_cha_amt" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=slip_dae_amt dbname="slip_dae_amt" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=cust_code dbname="cust_code" )
+ column=(type=char(10) updatewhereclause=yes name=cust_name dbname="cust_name" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=dept_code dbname="dept_code" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=slip_detail dbname="slip_detail" )
+ column=(type=char(15) update=yes updatewhereclause=yes name=wonga_code dbname="wonga_code" )
+ retrieve="select slip_bonji, 
+       slip_date, 
+       slip_no, 
+       '       ' AS bari_dept,
+       '       ' AS bari_dept_name,
+       '       ' AS bari_emp,
+       '       ' AS bari_emp_name,
+       slip_serl, 
+       acc_code, 
+       '          ' AS acc_name,
+       racc_code, 
+       bojo_lrg_code, 
+       bojo_sml_code, 
+       slip_rmk1, 
+       slip_drcr, 
+       slip_cha_amt, 
+       slip_dae_amt, 
+       cust_code, 
+       '          ' AS cust_name,  
+       dept_code, 
+       slip_detail, 
+       wonga_code  
+  from mis.dbo.tat01d
+ where slip_bonji = :as_slip_bonji
+   and slip_date  = :as_slip_date
+   and slip_no    = :as_slip_no
+
+
+ 
+
+" update="mis.dbo.tat01d" updatewhere=0 updatekeyinplace=yes arguments=(("as_slip_bonji", string),("as_slip_date", string),("as_slip_no", string)) )
+text(band=header alignment="2" text="" border="6" color="0" x="5" y="236" height="60" width="105"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="순번" border="6" color="0" x="128" y="236" height="60" width="178"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="계정코드" border="6" color="0" x="325" y="236" height="60" width="283"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="계정명" border="6" color="0" x="626" y="236" height="60" width="279"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="거래처코드" border="6" color="0" x="923" y="236" height="60" width="279"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="거래처명" border="6" color="0" x="1221" y="236" height="60" width="480"  name=t_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="차변금액" border="6" color="0" x="1719" y="236" height="60" width="462"  name=t_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="적요" border="6" color="0" x="2679" y="236" height="60" width="759"  name=t_9  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="대변금액" border="6" color="0" x="2199" y="236" height="60" width="462"  name=t_8  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="전표번호 :" border="0" color="0" x="59" y="36" height="60" width="343"  name=t_10  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="발의부서 :" border="0" color="0" x="55" y="132" height="60" width="343"  name=t_11  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=header id=4 alignment="0" tabsequence=32766 border="0" color="0" x="402" y="132" height="60" width="187" format="[general]"  name=bari_dept edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=header id=5 alignment="0" tabsequence=32766 border="0" color="0" x="594" y="132" height="60" width="334" format="[general]"  name=bari_dept_name edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="발 의 자 :" border="0" color="0" x="1234" y="132" height="60" width="347"  name=t_13  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=header id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1586" y="132" height="60" width="206" format="[general]"  name=bari_emp edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=header id=7 alignment="0" tabsequence=32766 border="0" color="0" x="1797" y="132" height="60" width="265" format="[general]"  name=bari_emp_name edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=header id=2 alignment="0" tabsequence=32766 border="0" color="0" x="407" y="36" height="60" width="329" format="[general]"  name=slip_date edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="-" border="0" color="0" x="741" y="36" height="60" width="55"  name=t_12  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=header id=3 alignment="0" tabsequence=32766 border="0" color="0" x="800" y="36" height="60" width="128" format="[general]"  name=slip_no edit.limit=0 edit.case=any edit.format="????" edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="2" expression="getrow()"border="6" color="0" x="0" y="0" height="60" width="110" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=8 alignment="2" tabsequence=32766 border="6" color="0" x="128" y="0" height="60" width="178" format="[general]"  name=slip_serl edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="2" tabsequence=32766 border="6" color="0" x="325" y="0" height="60" width="283" format="[general]"  name=acc_code edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="6" color="0" x="626" y="0" height="60" width="279" format="[general]"  name=acc_name edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="2" tabsequence=32766 border="6" color="0" x="923" y="0" height="60" width="279" format="[general]"  name=cust_code edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=19 alignment="0" tabsequence=32766 border="6" color="0" x="1221" y="0" height="60" width="480" format="[general]"  name=cust_name edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="1" tabsequence=32766 border="6" color="0" x="1719" y="0" height="60" width="462" format="#,##0"  name=slip_cha_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="0" tabsequence=10 border="6" color="0" x="2679" y="0" height="60" width="759" format="[general]" protect="0~tif(getrow() = 1, 1, 0)"  name=slip_rmk1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="536870912~tif(getrow() = 1, 553648127, rgb(255,255,255))" )
+column(band=detail id=17 alignment="1" tabsequence=32766 border="6" color="0" x="2199" y="0" height="60" width="462" format="#,##0"  name=slip_dae_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

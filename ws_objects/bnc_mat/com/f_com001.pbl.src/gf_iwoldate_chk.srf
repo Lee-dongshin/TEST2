@@ -1,0 +1,38 @@
+﻿$PBExportHeader$gf_iwoldate_chk.srf
+$PBExportComments$일자소급 가능여부 체크
+global type gf_iwoldate_chk from function_object
+end type
+
+forward prototypes
+global function boolean gf_iwoldate_chk (string as_user_id, string as_pgm_id, string as_iwol_ymd)
+end prototypes
+
+global function boolean gf_iwoldate_chk (string as_user_id, string as_pgm_id, string as_iwol_ymd);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 작 성 일  : 2001/09/27                                     */
+/* 수 정 일  : 2001/09/27                                     */
+/* 내    용  : 일자소급 가능여부 체크.                        */
+/*              as_user_id  : 사용자_id(사번, 매장코드)       */
+/*              as_pgm_id   : 프로그램 id                     */
+/*              as_iwol_ymd : 소급일                          */
+/*============================================================*/
+Long     ll_return
+datetime ld_datetime
+
+/* 시스템 날짜를 가져온다 */
+IF gf_sysdate(ld_datetime) = FALSE THEN
+	Return FALSE
+END IF
+
+SELECT DBO.SF_IWOLDATE_CHK(:as_user_id, :as_pgm_id, :as_iwol_ymd, :ld_datetime)
+  INTO :ll_return
+  FROM DUAL ;
+
+IF SQLCA.SQLCODE = 0 AND ll_return > 0 Then 
+	RETURN TRUE 
+END IF
+
+RETURN FALSE 
+
+end function
+

@@ -1,0 +1,22 @@
+﻿$PBExportHeader$d_menu_grp.srd
+$PBExportComments$프로그램 그룹
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=char(9) updatewhereclause=yes name=pgm_id dbname="TB_93030_H.PGM_ID" )
+ column=(type=char(30) updatewhereclause=yes name=pgm_nm dbname="TB_93020_M.PGM_NM" )
+ retrieve="  SELECT A.PGM_ID, B.PGM_NM 
+    FROM TB_93030_H A, 
+         TB_93020_M B 
+   WHERE A.PGM_ID = B.PGM_ID 
+     AND A.MENU_ID = 'BNC_SHOP'
+" )
+text(band=header alignment="2" text="Pgm Id" border="6" color="0" x="9" y="8" height="56" width="274"  name=pgm_id_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Pgm Nm" border="6" color="0" x="293" y="8" height="56" width="850"  name=pgm_nm_t  tag="ktb"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="76" width="274" format="[general]"  name=pgm_id edit.limit=9 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="293" y="8" height="76" width="850" format="[general]"  name=pgm_nm edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

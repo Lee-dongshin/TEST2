@@ -1,0 +1,65 @@
+﻿$PBExportHeader$gf_open_sheet.srf
+$PBExportComments$프로그램 OPEN
+global type gf_open_sheet from function_object
+end type
+
+forward prototypes
+global function boolean gf_open_sheet (window aw_window, string as_win_id, string as_win_name)
+end prototypes
+
+global function boolean gf_open_sheet (window aw_window, string as_win_id, string as_win_name);Window		lw_sheet_window
+Boolean		lb_bValid, lb_isValid, lb_is_active
+Long			ll_parent, handle
+String		ls_msg, ls_class_name
+integer     li_ret
+
+TreeViewItem	ltvi_Window
+
+SetPointer(HourGlass!)
+/* Sheet의 Open여부를 확인한다. */
+lb_isValid = FALSE
+
+lw_sheet_window = aw_window.GetFirstSheet()
+if (IsValid(lw_sheet_window)) then
+	ls_class_name = lw_sheet_window.ClassName() 
+	if (upper(ls_class_name) = as_win_id) then
+		lb_isValid = TRUE
+	else
+		do
+   		if upper(ls_class_name) <> 'W_SH101_E' then 
+			   if close(lw_sheet_window) = -1 then return false
+            lw_sheet_window = aw_window.GetFirstSheet()
+			else 
+   			lw_sheet_window = aw_window.GetNextSheet(lw_sheet_window)
+		   end if
+			lb_bValid = IsValid (lw_sheet_window)
+			if (lb_bValid) then
+				ls_class_name = lw_sheet_window.ClassName() 
+				if (upper(ls_class_name) = as_win_id) then
+					lb_isValid = TRUE
+					Exit
+				end if
+			end if
+		loop while lb_bValid
+	end if
+end if
+
+// *** Sheet의 Activate,Open한다. **********************************************
+if (lb_isValid) then
+	if (lw_sheet_window.Windowstate = Minimized!) then
+		lw_sheet_window.Windowstate = Normal!
+	end if
+	lw_sheet_window.SetFocus()
+else
+	ltvi_Window.Label = as_win_name 
+	ltvi_Window.Data  = as_win_id
+	// SheetWindow를 Open한다.
+   li_ret = OpenSheetWithParm(lw_sheet_window, ltvi_Window, as_win_id, &
+		   	                  aw_window, gi_menu_pos, Original!)
+end if
+
+SetPointer(Arrow!)
+return TRUE
+
+end function
+

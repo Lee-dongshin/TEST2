@@ -1,0 +1,24 @@
+﻿$PBExportHeader$gf_run_status.srf
+$PBExportComments$Program 권한 Check
+global type gf_run_status from function_object
+end type
+
+forward prototypes
+global function long gf_run_status (string as_user_id, string as_pgm_id)
+end prototypes
+
+global function long gf_run_status (string as_user_id, string as_pgm_id);/*------------------------------------------------------------*/
+/* 작 성 자  : 지우정보                                       */
+/* 내    용  : 프로그램 사용 권한 체크                        */
+/*------------------------------------------------------------*/
+Long  ll_status
+
+SELECT dbo.sf_run_stat(:as_user_id, :as_pgm_id)
+  INTO :ll_status
+  FROM DUAL;
+
+IF ISNULL(ll_status) or sqlca.sqlcode <> 0 THEN RETURN -1
+
+RETURN ll_status
+end function
+

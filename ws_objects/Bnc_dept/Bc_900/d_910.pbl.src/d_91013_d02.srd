@@ -1,0 +1,57 @@
+﻿$PBExportHeader$d_91013_d02.srd
+$PBExportComments$매장 판매사원 LIST
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=172 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(8) updatewhereclause=no name=st_dt dbname="ST_DT" )
+ column=(type=char(8) updatewhereclause=no name=ed_dt dbname="ED_DT" )
+ column=(type=char(6) updatewhereclause=no name=code dbname="CODE" )
+ column=(type=char(30) updatewhereclause=no name=name dbname="NAME" )
+ column=(type=char(6) updatewhereclause=no name=shop_cd dbname="shop_cd" )
+ column=(type=char(30) updatewhereclause=no name=shop_nm dbname="shop_nm" )
+ column=(type=char(20) updatewhereclause=no name=comm_fg dbname="comm_fg" )
+ column=(type=decimal(0) updatewhereclause=no name=comm_rate1 dbname="comm_rate1" )
+ column=(type=decimal(0) updatewhereclause=no name=comm_rate2 dbname="comm_rate2" )
+ column=(type=decimal(0) updatewhereclause=no name=comm_rate3 dbname="comm_rate3" )
+ column=(type=decimal(0) updatewhereclause=no name=comm_rate4 dbname="comm_rate4" )
+ column=(type=char(25) updatewhereclause=no name=bank_nm dbname="bank_nm" )
+ column=(type=char(25) updatewhereclause=no name=bank_code dbname="bank_code" )
+ column=(type=char(6) updatewhereclause=no name=cust_cd dbname="cust_cd" )
+ column=(type=char(15) updatewhereclause=no name=saup_no dbname="saup_no" )
+ procedure="1 execute dbo.SP_91013_D01;1 @ps_flag = :ps_flag, @ps_code = :ps_code" arguments=(("ps_flag", string),("ps_code", string)) )
+group(level=1 header.height=0 trailer.height=12 by=("code" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="
+종료일" border="6" color="0" x="325" y="8" height="156" width="302"  name=ed_dt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+시작일" border="6" color="0" x="9" y="8" height="156" width="302"  name=st_dt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+매    장 / 사     원" border="6" color="0" x="640" y="8" height="156" width="786"  name=code_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+수수료구분" border="6" color="0" x="1440" y="8" height="156" width="384"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="판매형태별( 정상/세일/기획/행사)
+
+실적별(시작액/한도액/수수료율/기본액)" border="6" color="0" x="1838" y="8" height="156" width="1650"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+은행" border="6" color="0" x="3502" y="8" height="156" width="896"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="841" y="4" height="60" width="590" format="[general]"  name=name edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="2249" y="4" height="60" width="389" format="#,##0.00"  name=comm_rate2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="31588350" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="0" color="0" x="2651" y="4" height="60" width="393" format="#,##0.00"  name=comm_rate3 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="31588350" )
+column(band=detail id=11 alignment="1" tabsequence=32766 border="0" color="0" x="3058" y="4" height="60" width="430" format="#,##0.00"  name=comm_rate4 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31588350" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="325" y="4" height="60" width="302" format="@@@@/@@/@@"  name=ed_dt edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33554431" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="9" y="4" height="60" width="302" format="@@@@/@@/@@"  name=st_dt edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33554431" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="640" y="4" height="60" width="192" format="[general]"  name=code edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="1440" y="4" height="60" width="384" format="[general]"  name=comm_fg edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33484286" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="1838" y="4" height="60" width="398" format="#,##0.00"  name=comm_rate1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="31588350" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="3502" y="4" height="60" width="274" format="[general]"  name=bank_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33554431" )
+text(band=header alignment="2" text="
+거래처정보" border="6" color="0" x="4416" y="8" height="156" width="736"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="2" tabsequence=32766 border="0" color="0" x="3785" y="4" height="60" width="617" format="[general]"  name=bank_code edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33554431" )
+column(band=detail id=14 alignment="2" tabsequence=0 border="0" color="0" x="4421" y="4" height="60" width="192"  name=cust_cd  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33417214" )
+column(band=detail id=15 alignment="2" tabsequence=0 border="0" color="0" x="4626" y="4" height="60" width="535"  name=saup_no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33417214" )
+line(band=trailer.1 x1="18" y1="0" x2="5147" y2="0"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="33484286" )
+line(band=trailer.1 x1="18" y1="4" x2="5147" y2="4"  name=l_2 pen.style="0" pen.width="5" pen.color="16777215"  background.mode="2" background.color="33484286" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,44 @@
+﻿$PBExportHeader$d_42039_h01.srd
+$PBExportComments$출고요청출고
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=192 color="536870912" )
+table(column=(type=char(1) updatewhereclause=yes name=brand dbname="brand" initial="N" )
+ column=(type=char(8) updatewhereclause=yes name=out_ymd dbname="out_ymd" )
+ column=(type=char(1) updatewhereclause=yes name=deal_fg dbname="deal_fg" initial="1" )
+ column=(type=char(1) updatewhereclause=yes name=proc_yn dbname="proc_yn" initial="N" values="Y - 처리	Y/N - 미처리	N/" )
+ column=(type=char(8) updatewhereclause=yes name=yymmdd dbname="yymmdd" )
+ column=(type=long updatewhereclause=yes name=work_no dbname="DUAL.work_no" initial="0" )
+ column=(type=long updatewhereclause=yes name=deal_seq dbname="DUAL.deal_seq" )
+ column=(type=char(1) updatewhereclause=yes name=opt_chno dbname="opt_chno" initial="N" values="차수 구분	Y/차수 구분	N" )
+ column=(type=char(2) updatewhereclause=yes name=area dbname="area" initial="00" values="전체	00/수도권	01/지방	02/" )
+ retrieve="select 
+'n'					brand,
+'20020328'			out_ymd,
+'1'					deal_fg,
+'Y'					proc_yn,
+'20020328'			yymmdd,
+111				   work_no,
+111					deal_seq,
+'Y'					opt_chno,
+'01'					area
+from dual" )
+text(band=detail alignment="1" text="브랜드:" border="0" color="0" x="50" y="20" height="56" width="274"  name=brand_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="347" y="20" height="60" width="471" format="[general]"  name=brand edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="출고의뢰일:" border="0" color="0" x="818" y="20" height="56" width="329"  name=out_ymd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=20 border="5" color="0" x="1170" y="20" height="60" width="471" format="@@@@/@@/@@"  name=out_ymd editmask.mask="XXXX/XX/XX" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="배분구분:" border="0" color="0" x="14" y="108" height="56" width="311"  name=dela_fg_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="2" tabsequence=30 border="5" color="0" x="2016" y="20" height="56" width="430" format="[general]"  name=yymmdd editmask.mask="XXXX/XX/XX" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="출고지정일:" border="0" color="0" x="1614" y="20" height="56" width="384"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=40 border="5" color="16711680" x="2482" y="24" height="56" width="430" format="[general]"  name=opt_chno checkbox.text="차수 구분" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=3 alignment="0" tabsequence=50 border="5" color="0" x="347" y="108" height="60" width="471" format="[general]"  name=deal_fg edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="처리여부:" border="0" color="0" x="763" y="112" height="56" width="384"  name=proc_yn_t visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=60 border="5" color="0" x="1170" y="108" height="60" width="471" format="[general]"  name=proc_yn visible="1~t0" ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.useasborder=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="작업번호:" border="0" color="0" x="1637" y="112" height="56" width="357"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="2" tabsequence=70 border="5" color="0" x="2011" y="108" height="60" width="206" format="#,##0"  name=deal_seq edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="0" tabsequence=80 border="5" color="0" x="2761" y="112" height="60" width="503"  name=area ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.useasborder=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="지역구분:" border="0" color="0" x="2473" y="112" height="56" width="274"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

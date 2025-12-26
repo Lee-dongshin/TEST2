@@ -1,0 +1,67 @@
+﻿$PBExportHeader$d_53042_d02.srd
+$PBExportComments$위탁판매현황
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=84 color="536870912" )
+summary(height=72 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=a_style dbname="tb_53010_h.style" )
+ column=(type=char(1) updatewhereclause=yes name=a_chno dbname="tb_53010_h.chno" )
+ column=(type=char(2) updatewhereclause=yes name=a_color dbname="tb_53010_h.color" )
+ column=(type=char(40) updatewhereclause=yes name=color_nm dbname="color_nm" )
+ column=(type=char(2) updatewhereclause=yes name=a_size dbname="tb_53010_h.size" )
+ column=(type=decimal(0) updatewhereclause=yes name=sale_qty dbname="sale_qty" )
+ column=(type=decimal(0) updatewhereclause=yes name=real_sale_amt dbname="real_sale_amt" )
+ column=(type=decimal(0) updatewhereclause=yes name=tag_amt dbname="tag_amt" )
+ column=(type=decimal(0) updatewhereclause=yes name=sale_collect dbname="sale_collect" )
+ column=(type=decimal(0) updatewhereclause=yes name=wonga dbname="wonga" )
+ retrieve="select a.style ,a.chno, 
+		a.color, dbo.sf_color_nm(a.color,'e') as color_nm,
+		a.size,
+		sum(a.sale_qty)		as sale_qty, 
+		sum(a.real_sale_amt)	as real_sale_amt, 
+		sum(a.tag_amt)			as tag_amt, 
+		sum(a.sale_collect) 	as sale_collect, 
+      isnull(b.mmat_price,0) +isnull(b.smat_price,0) +isnull(b.make_price,0) +isnull(b.etc_price,0)  as wonga
+from tb_53010_h a (nolock), tb_12021_d b (nolock)
+where a.yymmdd between :as_frm_ymd and :As_to_ymd
+and b.make_type = '50'
+and b.brand = :as_brand
+and b.style like :As_style + '%'
+and b.chno  like :as_chno + '%'
+and b.year  like :as_year + '%'
+and b.season  like :as_season + '%'
+and a.style = b.style
+and a.chno  = b.chno
+group by a.style ,a.chno, a.color, a.size, b.mmat_price, b.smat_price, b.make_price, b.etc_price
+" arguments=(("as_frm_ymd", string),("as_to_ymd", string),("as_brand", string),("as_style", string),("as_chno", string),("as_year", string),("as_season", string)) )
+group(level=1 header.height=0 trailer.height=12 by=("a_style" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="품번" border="6" color="0" x="0" y="12" height="60" width="384"  name=a_style_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="색상" border="6" color="0" x="398" y="12" height="60" width="439"  name=t_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="5" y="4" height="60" width="302" format="[general]"  name=a_style edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="320" y="4" height="60" width="55" format="[general]"  name=a_chno edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="389" y="4" height="60" width="73" format="[general]"  name=a_color edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="466" y="4" height="60" width="375" format="[general]"  name=color_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+text(band=summary alignment="2" text="[ 합 계 ]" border="6" color="16711680" x="5" y="4" height="56" width="379"  name=t_5  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="8388736" x="1298" y="4" height="60" width="398" format="#,###"  name=real_sale_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="31588347" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="1710" y="4" height="60" width="398" format="#,###"  name=tag_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="31588347" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="2121" y="4" height="60" width="398" format="#,###"  name=sale_collect edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="31588347" )
+compute(band=detail alignment="1" expression=" wonga * sale_qty "border="0" color="8388736" x="2533" y="4" height="60" width="407" format="#,###"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31588347" )
+compute(band=summary alignment="1" expression="sum(real_sale_amt for all)"border="0" color="8388736" x="1298" y="4" height="60" width="398" format="#,###"  name=compute_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33282037" )
+compute(band=summary alignment="1" expression="sum(tag_amt for all)"border="0" color="8388736" x="1710" y="4" height="60" width="398" format="#,###"  name=compute_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33282037" )
+compute(band=summary alignment="1" expression="sum(sale_collect for all)"border="0" color="8388736" x="2121" y="4" height="60" width="398" format="#,###"  name=compute_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33282037" )
+compute(band=summary alignment="1" expression="sum( wonga * sale_qty  for all)"border="0" color="8388736" x="2533" y="4" height="60" width="407" format="#,###"  name=compute_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33282037" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="1033" y="4" height="60" width="251" format="#,###"  name=sale_qty edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="31588347" )
+compute(band=summary alignment="1" expression="sum(sale_qty for all)"border="0" color="8388736" x="1033" y="4" height="60" width="251" format="#,###"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33282037" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="855" y="4" height="60" width="165" format="[general]"  name=a_size edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+text(band=header alignment="0" text="사이즈" border="6" color="0" x="855" y="12" height="60" width="165"  name=t_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="판매수량" border="6" color="0" x="1033" y="12" height="60" width="251"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="실판금액" border="6" color="0" x="1298" y="12" height="60" width="398"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="택금액" border="6" color="0" x="1710" y="12" height="60" width="398"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="입금가" border="6" color="0" x="2121" y="12" height="60" width="398"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="원가금액" border="6" color="0" x="2533" y="12" height="60" width="407"  name=wonga_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=trailer.1 x1="9" y1="0" x2="2939" y2="0"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=trailer.1 x1="9" y1="4" x2="2939" y2="4"  name=l_2 pen.style="0" pen.width="5" pen.color="16777215"  background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

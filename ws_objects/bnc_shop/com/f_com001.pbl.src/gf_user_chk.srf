@@ -1,0 +1,194 @@
+﻿$PBExportHeader$gf_user_chk.srf
+$PBExportComments$회원체크
+global type gf_user_chk from function_object
+end type
+
+forward prototypes
+global function boolean gf_user_chk (string as_search, ref string as_jumin, ref string as_user_name, ref string as_age_grp, ref string as_card_no)
+end prototypes
+
+global function boolean gf_user_chk (string as_search, ref string as_jumin, ref string as_user_name, ref string as_age_grp, ref string as_card_no);/*============================================================*/
+/* 작 성 자  : 지우정보(동은아빠)                             */
+/* 작 성 일  : 2002/01/28                                     */
+/* 수 정 일  : 2002/01/28                                     */
+/* 내    용  : 회원이 있는지 체크한다.                        */
+/*============================================================*/
+Long ll_cnt
+datetime ld_datetime
+integer	li_year1,li_year2
+
+/* 시스템 날짜를 가져온다 */
+IF gf_sysdate(ld_datetime) = FALSE THEN
+	Return FALSE
+END IF
+
+li_year1 = Integer(String(Date(ld_datetime),"yyyy"))
+
+SELECT COUNT(*)
+ INTO :ll_cnt
+ FROM TB_71010_M
+WHERE user_id = :as_search;
+
+IF ll_cnt = 0 Then
+  SELECT COUNT(*)
+    INTO :ll_cnt
+	 FROM TB_71010_M
+	WHERE user_name like :as_search+"%";
+ELSEIF ll_cnt = 1 THEN
+	SELECT JUMIN,USER_NAME,CARD_NO INTO :as_jumin,:as_user_name,:as_card_no
+	FROM TB_71010_M
+	WHERE user_id = :as_search;
+	
+	IF MidA(as_jumin,7,1) > '2' THEN	//2000년 이후 출생자.
+		li_year2 = Integer(MidA(as_jumin,1,2)) + 2000
+	ELSE
+		li_year2 = Integer(MidA(as_jumin,1,2)) + 1900
+	END IF
+	
+	li_year1 = li_year1 - li_year2 + 1
+	
+	IF li_year1 < 20 THEN
+		as_age_grp = "10"
+	ELSEIF li_year1 < 25 THEN
+		as_age_grp = "20"		
+	ELSEIF li_year1 < 30 THEN
+		as_age_grp = "25"		
+	ELSEIF li_year1 < 35 THEN
+		as_age_grp = "30"		
+	ELSEIF li_year1 < 40 THEN
+		as_age_grp = "35"		
+	ELSEIF li_year1 < 50 THEN
+		as_age_grp = "40"		
+	ELSE
+		as_age_grp = "50"		
+	END IF
+
+	RETURN true
+ELSEIF ll_cnt > 1 THEN
+	as_jumin = ""
+	RETURN true
+END IF
+
+IF ll_cnt = 0 Then
+  SELECT COUNT(*)
+    INTO :ll_cnt
+	 FROM TB_71010_M
+	WHERE card_no = :as_search;
+ELSEIF ll_cnt = 1 THEN
+	SELECT JUMIN,USER_NAME,CARD_NO INTO :as_jumin,:as_user_name,:as_card_no
+	FROM TB_71010_M
+	WHERE user_name like :as_search+"%";
+	
+	IF MidA(as_jumin,7,1) > '2' THEN	//2000년 이후 출생자.
+		li_year2 = Integer(MidA(as_jumin,1,2)) + 2000
+	ELSE
+		li_year2 = Integer(MidA(as_jumin,1,2)) + 1900
+	END IF
+		
+	li_year1 = li_year1 - li_year2 + 1
+	
+	IF li_year1 < 20 THEN
+		as_age_grp = "10"
+	ELSEIF li_year1 < 25 THEN
+		as_age_grp = "20"		
+	ELSEIF li_year1 < 30 THEN
+		as_age_grp = "25"		
+	ELSEIF li_year1 < 35 THEN
+		as_age_grp = "30"		
+	ELSEIF li_year1 < 40 THEN
+		as_age_grp = "35"		
+	ELSEIF li_year1 < 50 THEN
+		as_age_grp = "40"		
+	ELSE
+		as_age_grp = "50"		
+	END IF
+	
+	RETURN true
+ELSEIF ll_cnt > 1 THEN
+	as_jumin = ""
+	RETURN true
+END IF
+
+IF ll_cnt = 0 Then
+  SELECT COUNT(*)
+    INTO :ll_cnt
+	 FROM TB_71010_M
+	WHERE jumin like :as_search+"%";
+ELSEIF ll_cnt = 1 THEN
+	SELECT JUMIN,USER_NAME,CARD_NO INTO :as_jumin,:as_user_name,:as_card_no
+	FROM TB_71010_M
+	WHERE card_no = :as_search;
+	
+	IF MidA(as_jumin,7,1) > '2' THEN	//2000년 이후 출생자.
+		li_year2 = Integer(MidA(as_jumin,1,2)) + 2000
+	ELSE
+		li_year2 = Integer(MidA(as_jumin,1,2)) + 1900
+	END IF
+		
+	li_year1 = li_year1 - li_year2 + 1
+	
+	IF li_year1 < 20 THEN
+		as_age_grp = "10"
+	ELSEIF li_year1 < 25 THEN
+		as_age_grp = "20"		
+	ELSEIF li_year1 < 30 THEN
+		as_age_grp = "25"		
+	ELSEIF li_year1 < 35 THEN
+		as_age_grp = "30"		
+	ELSEIF li_year1 < 40 THEN
+		as_age_grp = "35"		
+	ELSEIF li_year1 < 50 THEN
+		as_age_grp = "40"		
+	ELSE
+		as_age_grp = "50"		
+	END IF
+	
+	RETURN true
+ELSEIF ll_cnt > 1 THEN
+	as_jumin = ""
+	RETURN true
+END IF
+
+
+IF ll_cnt = 0 Then
+ELSEIF ll_cnt = 1 THEN
+	SELECT JUMIN,USER_NAME,CARD_NO INTO :as_jumin,:as_user_name,:as_card_no
+	FROM TB_71010_M
+	WHERE jumin like :as_search+"%";
+	
+	IF MidA(as_jumin,7,1) > '2' THEN	//2000년 이후 출생자.
+		li_year2 = Integer(MidA(as_jumin,1,2)) + 2000
+	ELSE
+		li_year2 = Integer(MidA(as_jumin,1,2)) + 1900
+	END IF
+		
+	li_year1 = li_year1 - li_year2 + 1
+	
+	IF li_year1 < 20 THEN
+		as_age_grp = "10"
+	ELSEIF li_year1 < 25 THEN
+		as_age_grp = "20"		
+	ELSEIF li_year1 < 30 THEN
+		as_age_grp = "25"		
+	ELSEIF li_year1 < 35 THEN
+		as_age_grp = "30"		
+	ELSEIF li_year1 < 40 THEN
+		as_age_grp = "35"		
+	ELSEIF li_year1 < 50 THEN
+		as_age_grp = "40"		
+	ELSE
+		as_age_grp = "50"		
+	END IF
+	
+	RETURN true
+ELSEIF ll_cnt > 1 THEN
+	as_jumin = ""
+	RETURN true
+END IF
+
+as_jumin = ""
+
+RETURN False
+
+end function
+

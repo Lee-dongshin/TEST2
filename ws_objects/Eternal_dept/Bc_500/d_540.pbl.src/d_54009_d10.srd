@@ -1,0 +1,36 @@
+﻿$PBExportHeader$d_54009_d10.srd
+$PBExportComments$당일RT작업 리스트
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=yymmdd dbname="tb_54009_h.YYMMDD" )
+ column=(type=char(4) updatewhereclause=yes name=recall_no dbname="tb_54009_h.RECALL_NO" )
+ column=(type=char(13) updatewhereclause=yes name=style dbname="STYLE" )
+ column=(type=char(1) updatewhereclause=yes name=accept_yn dbname="tb_54009_h.ACCEpT_YN" values="승인	Y/승인	N" )
+ column=(type=char(1) updatewhereclause=yes name=chi_fg dbname="tb_54009_h.chi_fg" initial="N" values="물류	N/대만	T/중국	Y/러시아	R/본사	X/" )
+ retrieve="SELECT distinct YYMMDD, RECALL_NO, STYLE+ '-' + CHNO + '-' + COLOR AS STYLE,
+       ACCEpT_YN, chi_fg
+FROM TB_54009_H
+WHERE YYMMDD = :AS_YYMMDD
+AND   BRAND  = :AS_BRAND
+and   substring(shop_cd ,2,1) like :as_shop_div 
+" arguments=(("as_yymmdd", string),("AS_BRAND", string),("as_shop_div", string)) )
+text(band=header alignment="2" text="작업일자" border="6" color="0" x="0" y="4" height="56" width="288"  name=yymmdd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="번호" border="6" color="0" x="302" y="4" height="56" width="114"  name=recall_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="품번" border="6" color="0" x="430" y="4" height="56" width="375"  name=style_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="승인여부" border="6" color="0" x="818" y="4" height="56" width="224"  name=accept_yn_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+button(band=header text="전체승인"filename=""action="0" border="0" color="31323131" x="809" y="0" height="68" width="242" vtextalign="0" htextalign="0"  name=cb_accept  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="32768" )
+button(band=header text="중국"filename=""action="0" border="0" color="15793151" x="1051" y="0" height="68" width="146" vtextalign="0" htextalign="0"  name=cb_chi  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421376" )
+button(band=header text="본사"filename=""action="0" border="0" color="15793151" x="1344" y="0" height="68" width="146" vtextalign="0" htextalign="0"  name=cb_com  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421376" )
+button(band=header text="물류"filename=""action="0" border="0" color="15793151" x="1198" y="0" height="68" width="146" vtextalign="0" htextalign="0"  name=cb_house  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421376" )
+button(band=header text="대만"filename=""action="0" border="0" color="15793151" x="1490" y="0" height="68" width="146" vtextalign="0" htextalign="0"  name=cb_taiwan  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421376" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="0" y="4" height="60" width="288" format="[general]"  name=yymmdd editmask.mask="XXXX/XX/XX" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="302" y="4" height="60" width="114" format="[general]"  name=recall_no edit.limit=4 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="430" y="4" height="60" width="375" format="[general]"  name=style edit.limit=13 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="0" tabsequence=10 border="0" color="0" x="818" y="4" height="60" width="224" format="[general]"  name=accept_yn checkbox.text="승인" checkbox.on="Y" checkbox.off="N" checkbox.lefttext=yes checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="31323131" )
+column(band=detail id=5 alignment="0" tabsequence=20 border="5" color="16711680" x="1056" y="4" height="60" width="576" format="[general]"  name=chi_fg ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.useasborder=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

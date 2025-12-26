@@ -1,0 +1,15 @@
+﻿$PBExportHeader$d_76002_h01.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=192 color="536870912" )
+table(column=(type=char(1) updatewhereclause=no name=brand dbname="brand" )
+ column=(type=char(8) updatewhereclause=no name=yymmdd dbname="yymmdd" )
+ )
+text(band=detail alignment="1" text="브랜드" border="0" color="0" x="187" y="84" height="56" width="274"  name=brand_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="기준일자" border="0" color="0" x="1170" y="84" height="56" width="329"  name=yymmdd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="480" y="84" height="56" width="626" format="[general]"  name=brand edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="1513" y="84" height="56" width="352" format="@@@@/@@/@@"  name=yymmdd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

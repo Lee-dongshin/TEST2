@@ -1,0 +1,38 @@
+﻿$PBExportHeader$d_42041_d02.srd
+$PBExportComments$출고요청출고
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=92 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=yymmdd dbname="TB_52031_WORK.YYMMDD" )
+ column=(type=long updatewhereclause=yes name=work_no dbname="TB_52031_WORK.WORK_NO" )
+ column=(type=decimal(0) updatewhereclause=yes name=out_qty dbname="OUT_QTY" )
+ column=(type=char(1) updatewhereclause=yes name=deal_fg dbname="TB_52031_WORK.deal_fg" )
+ retrieve="select YYMMDD, WORK_NO, 
+       sum(OUT_qty) as OUT_QTY,
+		 deal_fg
+from beaucre.dbo.tb_52031_WORK with (nolock)
+where YYMMDD = :AS_YYMMDD
+AND 	BRAND  = :as_brand 
+and   deal_fg  like :as_deal_fg + '%'
+AND   TRX_CHK = '2'
+and   ISNULL(OUT_TERM,'N') = :as_OUT_TERM
+group by YYMMDD, WORK_NO, deal_fg
+having sum(OUT_qty) > 0
+order by 1,2" arguments=(("as_brand", string),("as_YYMMDD", string),("as_deal_fg", string),("as_OUT_TERM", string)) )
+text(band=header alignment="2" text="의뢰일자" border="6" color="0" x="142" y="4" height="56" width="306"  name=out_ymd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="번호" border="6" color="0" x="466" y="4" height="56" width="128"  name=deal_seq_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="수량" border="6" color="0" x="608" y="4" height="56" width="325"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="순번" border="6" color="0" x="0" y="4" height="56" width="128"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="2" expression="getrow()"border="6" color="0" x="0" y="4" height="60" width="128" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="146" y="4" height="60" width="306" format="@@@@/@@/@@"  name=yymmdd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="471" y="4" height="60" width="128" format="[general]"  name=work_no edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="613" y="4" height="60" width="325" format="[general]"  name=out_qty edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30670581" )
+text(band=footer alignment="1" text="[ 합  계 ]" border="0" color="16711680" x="0" y="24" height="56" width="347"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+line(band=footer x1="5" y1="12" x2="928" y2="12"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=footer x1="5" y1="0" x2="928" y2="0"  name=l_2 pen.style="0" pen.width="5" pen.color="16777215"  background.mode="2" background.color="16777215" )
+compute(band=footer alignment="1" expression=" sum(OUT_qty for all) "border="0" color="0" x="613" y="24" height="60" width="325" format="[General]"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31323131" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

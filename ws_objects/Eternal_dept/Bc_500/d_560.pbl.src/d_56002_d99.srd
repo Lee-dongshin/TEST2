@@ -1,0 +1,20 @@
+﻿$PBExportHeader$d_56002_d99.srd
+$PBExportComments$마진율일괄등록[매장]
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=308 color="536870912" )
+table(column=(type=char(2) updatewhereclause=no name=dep_seq dbname="dep_seq" )
+ column=(type=char(1) updatewhereclause=no name=shop_type dbname="shop_type" )
+ column=(type=char(2) updatewhereclause=no name=sale_type dbname="sale_type" )
+ column=(type=char(2) updatewhereclause=no name=disc_seq dbname="disc_seq" )
+ column=(type=char(1) updatewhereclause=no name=dotcom dbname="dotcom" initial="N" values="닷컴부진	Y/닷컴부진	N" )
+ )
+column(band=detail id=5 alignment="0" tabsequence=50 border="6" color="16711680" x="27" y="244" height="56" width="370" format="[general]"  name=dotcom checkbox.text="닷컴부진" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="5" color="0" x="32" y="164" height="60" width="576" format="[general]"  name=sale_type edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="32" y="84" height="60" width="576" format="[general]"  name=shop_type edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="5" color="0" x="32" y="4" height="60" width="576" format="[general]"  name=disc_seq visible="1~t0" edit.name="품목할인선정" dddw.name=d_com907 dddw.displaycolumn=dep_display dddw.datacolumn=dep_seq dddw.percentwidth=120 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="32" y="4" height="60" width="576" format="[general]"  name=dep_seq edit.name="부진차수" dddw.name=d_com904 dddw.displaycolumn=dep_display dddw.datacolumn=dep_seq dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

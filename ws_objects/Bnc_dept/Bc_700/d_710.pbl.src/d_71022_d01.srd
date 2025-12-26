@@ -1,0 +1,55 @@
+﻿$PBExportHeader$d_71022_d01.srd
+$PBExportComments$매장별발행/회수현황
+release 7;
+datawindow(units=0 timer_interval=0 color=1090519039 processing=4 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no  crosstab.dynamic = yes grid.lines=0 grid.columnmove=no selected.mouse=no )
+header[1](height=0 color="536870912" )
+header[2](height=72 color="536870912" )
+header[3](height=72 color="536870912" )
+summary(height=116 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(20) updatewhereclause=yes name=shop_cd dbname="shop_cd" )
+ column=(type=char(20) updatewhereclause=yes name=shop_nm dbname="shop_nm" )
+ column=(type=number updatewhereclause=yes name=give_qty dbname="give_qty" )
+ column=(type=number updatewhereclause=yes name=accept_qty dbname="accept_qty" )
+ procedure="
+	SELECT A.SHOP_CD, DBO.SF_SHOP_NM(A.SHOP_CD,'S') AS SHOP_NM, A.GIVE_POINT, A.SALE_QTY AS GIVE_QTY, B.SALE_QTY AS ACCEPT_QTY
+	FROM	(SELECT  M.SHOP_CD, M.GIVE_POINT, SUM(M.SALE_QTY) AS SALE_QTY 
+		FROM	(SELECT H.JUMIN,(SELECT SHOP_CD FROM TB_71010_M WHERE JUMIN = H.JUMIN) AS SHOP_CD, 
+		 		H.GIVE_POINT, COUNT(H.GIVE_POINT) AS SALE_QTY
+			 FROM   TB_71011_H H WITH (NOLOCK)
+			 WHERE  H.GIVE_DATE = '20030818' 
+			  AND   H.POINT_FLAG = '1'
+			group by  H.JUMIN,H.GIVE_POINT) M
+		GROUP BY M.SHOP_CD,M.GIVE_POINT) A ,
+		(SELECT A.SHOP_CD,
+			a.goods_amt /10 AS GIVE_POINT,
+			sum(A.sale_qty) as sale_qty         
+		 FROM TB_71012_H  a with (nolock)
+		 where a.sale_ymd between '20030818' and '20030831'
+		 and   left(isnull(a.coupon_no,''),1) in ('N', 'O')
+		 group by A.SHOP_CD, a.goods_amt) B
+         WHERE   A.SHOP_CD = B.SHOP_CD
+	AND      A.GIVE_POINT = B.GIVE_POINT"  sort="shop_cd A shop_nm A " )
+text(band=header[2] alignment="0" text="@give_point" border="0" color="33554432" x="1033" y="4" height="64" width="699"  name=t_2  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header[2] alignment="0" text="Total Sum Of Give Qty" border="0" color="33554432" x="1737" y="4" height="64" width="439"  name=t_3  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header[2] alignment="0" text="Total Sum Of Accept Qty" border="0" color="33554432" x="2185" y="4" height="64" width="448"  name=t_4  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header[3] alignment="0" text="Shop Cd" border="0" color="33554432" x="9" y="4" height="64" width="338"  name=shop_cd_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header[3] alignment="0" text="Shop Nm" border="0" color="33554432" x="357" y="4" height="64" width="667"  name=shop_nm_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header[3] alignment="0" text="Sum Of Give Qty" border="0" color="33554432" x="1033" y="4" height="64" width="325"  name=give_qty_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header[3] alignment="0" text="Sum Of Accept Qty" border="0" color="33554432" x="1367" y="4" height="64" width="361"  name=accept_qty_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="9" y="4" height="76" width="338" format="[general]"  name=shop_cd edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="33554432" x="357" y="4" height="76" width="667" format="[general]"  name=shop_nm edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="33554432" x="1033" y="4" height="76" width="325" format="[general]"  name=give_qty edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes crosstab.repeat=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="33554432" x="1367" y="4" height="76" width="361" format="[general]"  name=accept_qty edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes crosstab.repeat=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="crosstabsum(1)"border="0" color="33554432" x="1737" y="4" height="76" width="439" format="[general]"  name=grand_sum_give_qty  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="crosstabsum(2)"border="0" color="33554432" x="2185" y="4" height="76" width="448" format="[general]"  name=grand_sum_accept_qty  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="~"Grand Total~""border="0" color="33554432" x="9" y="4" height="76" width="338" format="[general]"  name=compute_6  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(give_qty for all )"border="0" color="33554432" x="1033" y="4" height="76" width="325" format="[general]"  name=compute_7  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(accept_qty for all )"border="0" color="33554432" x="1367" y="4" height="76" width="361" format="[general]"  name=compute_8  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(grand_sum_give_qty for all )"border="0" color="33554432" x="1737" y="4" height="76" width="439" format="[general]"  name=compute_9  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(grand_sum_accept_qty for all )"border="0" color="33554432" x="2185" y="4" height="76" width="448" format="[general]"  name=compute_10  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+ crosstab(band = foreground  crosstabonly = yes 
+ columns = "give_point" rows = "shop_cd, shop_nm" values = "sum(give_qty for crosstab), sum(accept_qty for crosstab)" sourcenames = "shop_cd, shop_nm, give_point, give_qty, accept_qty")
+sparse(names="shop_cd")htmltable(border="0" cellpadding="1" cellspacing="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

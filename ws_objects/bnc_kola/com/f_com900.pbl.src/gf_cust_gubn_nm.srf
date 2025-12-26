@@ -1,0 +1,56 @@
+﻿$PBExportHeader$gf_cust_gubn_nm.srf
+$PBExportComments$거래처명을 읽어온다.
+global type gf_cust_gubn_nm from function_object
+end type
+
+forward prototypes
+global function integer gf_cust_gubn_nm (string as_cust_cd, string as_flag1, string as_flag2, string as_flag3, ref string as_cust_nm)
+end prototypes
+
+global function integer gf_cust_gubn_nm (string as_cust_cd, string as_flag1, string as_flag2, string as_flag3, ref string as_cust_nm);/*=================================================================================*/
+/* 작 성 자  : 지우정보                                                            */
+/* 작 성 일  : 2001/09/14                                                          */
+/* 수 정 일  : 2001/09/14                                                          */
+/* 내    용  : 구분별 거래처명을 읽어온다.                                         */
+/* 구    분  : flag1('L':거래처명, 'S':약칭명)                                     */
+/*             flag2('1':자재/생산, '2':수수료사원, '3':매장 , '4':기타, '%':전체) */
+/*             flag3('0':정상, '1':비정상, '%':전체)                               */
+/*=================================================================================*/
+String ls_gubn1, ls_gubn2, ls_gubn3, ls_gubn4, ls_gubn5
+
+If as_flag3 = '0' Then
+	ls_gubn1 = '00'
+	ls_gubn2 = '00'
+	ls_gubn3 = '00'
+	ls_gubn4 = '00'
+	ls_gubn5 = '00'
+ElseIf as_flag3 = '1' Then
+	ls_gubn1 = '11'
+	ls_gubn2 = '11'
+	ls_gubn3 = '12'
+	ls_gubn4 = '13'
+	ls_gubn5 = '41'
+Else
+	ls_gubn1 = '00'
+	ls_gubn2 = '11'
+	ls_gubn3 = '12'
+	ls_gubn4 = '13'
+	ls_gubn5 = '41'
+End If
+
+Select (Case :as_flag1 When 'L' Then Cust_Name ELSE Cust_SName END)
+  Into :as_cust_nm
+  From VI_91102_1 
+ Where Brand     = SubString(:as_cust_cd, 1, 1) 
+   And Cust_Code = SubString(:as_cust_cd, 3, 4)
+   And Shop_Type = SubString(:as_cust_cd, 2, 1)
+	And shop_Gubn LIKE :as_flag2
+	And Change_gubn In (:ls_gubn1, :ls_gubn2, :ls_gubn3, :ls_gubn4, :ls_gubn5)
+;
+
+IF ISNULL(as_cust_nm) THEN RETURN 100
+
+RETURN sqlca.sqlcode 
+
+end function
+

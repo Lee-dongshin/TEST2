@@ -1,0 +1,31 @@
+﻿$PBExportHeader$d_22203_d02.srd
+$PBExportComments$원/부자재 HISTORY
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=mat_cd dbname="mat_cd" )
+ column=(type=char(30) updatewhereclause=yes name=mat_nm dbname="mat_nm" )
+ column=(type=char(6) updatewhereclause=yes name=cust_cd dbname="cust_cd" )
+ column=(type=char(20) updatewhereclause=yes name=cust_sname dbname="cust_sname" )
+ column=(type=char(4) updatewhereclause=yes name=mat_year dbname="mat_year" )
+ column=(type=char(1) updatewhereclause=yes name=sort_brand dbname="sort_brand" )
+ column=(type=char(1) updatewhereclause=yes name=sort_season dbname="sort_season" )
+ retrieve="	select mat_cd, mat_nm, cust_cd, cust_sname, mat_year,
+	case brand when 'n' then '1' when 'o' then '2' else '3' end  sort_brand,
+	case mat_season when 's' then '1' when 'm' then '2' when 'a' then '3' else '4' end sort_season
+	from (select m.brand, mat_year, mat_season, mat_cd, mat_nm, m.cust_cd, d.cust_sname
+		from tb_21010_m m, mis.dbo.vsb04 d
+		where m.cust_cd = d.cust_code
+		)	x"  sort="cust_cd A sort_brand A mat_year D sort_season D mat_cd A " )
+column(band=detail id=3 alignment="0" tabsequence=30 border="5" color="0" x="5" y="4" height="60" width="229" format="[general]"  name=cust_cd edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=header alignment="2" text="구매업체" border="6" color="0" x="14" y="8" height="56" width="809"  name=cust_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="5" color="0" x="251" y="4" height="60" width="571" format="[general]"  name=cust_sname edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=header alignment="2" text="자재코드" border="6" color="0" x="841" y="8" height="56" width="937"  name=mat_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="837" y="4" height="60" width="370" format="@@@@@@@@@-@"  name=mat_cd edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="1221" y="4" height="60" width="553" format="[general]"  name=mat_nm edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+
+sparse(names="cust_cd	cust_sname")htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

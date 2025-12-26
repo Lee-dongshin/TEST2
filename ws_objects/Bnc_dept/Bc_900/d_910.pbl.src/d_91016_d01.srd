@@ -1,0 +1,59 @@
+﻿$PBExportHeader$d_91016_d01.srd
+$PBExportComments$전국(타회사포함)매장
+release 7;
+datawindow(units=0 timer_interval=0 color=82042848 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(1) update=yes updatewhereclause=yes key=yes name=brand dbname="tb_53033_m.brand" )
+ column=(type=char(3) update=yes updatewhereclause=yes key=yes name=area_no dbname="tb_53033_m.area_no" )
+ column=(type=char(2) update=yes updatewhereclause=yes key=yes name=store_no dbname="tb_53033_m.store_NO" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=store_nm dbname="tb_53033_m.STORE_NM" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=store_cd dbname="tb_53033_m.store_cd" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=curr_shop dbname="tb_53033_m.curr_shop" )
+ column=(type=char(30) updatewhereclause=yes name=curr_shop_nm dbname="CURR_SHOP_NM" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=in_shop dbname="tb_53033_m.in_shop" )
+ column=(type=char(30) updatewhereclause=yes name=in_shop_nm dbname="IN_SHOP_NM" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=use_yn dbname="tb_53033_m.use_yn" values="사용	Y/사용	N" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="tb_53033_m.Reg_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="tb_53033_m.Reg_Dt" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="tb_53033_m.Mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="tb_53033_m.Mod_Dt" )
+ retrieve="SELECT 	brand,
+		 	area_no,
+			store_NO,
+			STORE_NM,
+			store_cd,
+			curr_shop,
+			DBO.SF_SHOP_NM(CURR_SHOP, 'S')	AS CURR_SHOP_NM,
+			in_shop,
+			DBO.SF_SHOP_NM(IN_SHOP, 'S')	AS IN_SHOP_NM,
+			use_yn,
+			Reg_id,
+			Reg_Dt,
+			Mod_id,
+			Mod_Dt
+FROM     tb_53033_m WITH (NOLOCK)
+WHERE    BRAND      = :AS_BRAND
+AND      AREA_NO LIKE :AS_AREA_NO
+
+" update="tb_53033_m" updatewhere=1 updatekeyinplace=no arguments=(("AS_BRAND", string),("AS_AREA_NO", string))  sort="area_no A store_no A " )
+text(band=header alignment="2" text="지역번호" border="6" color="0" x="14" y="4" height="60" width="343"  name=area_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="순번" border="6" color="0" x="370" y="4" height="60" width="197"  name=store_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="매장명" border="6" color="0" x="581" y="4" height="60" width="480"  name=store_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="해당매장" border="6" color="0" x="1074" y="4" height="60" width="288"  name=curr_shop_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="매장명" border="6" color="0" x="1376" y="4" height="60" width="571"  name=curr_shop_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="상대매장" border="6" color="0" x="1961" y="4" height="60" width="288"  name=in_shop_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="매장명" border="6" color="0" x="2263" y="4" height="60" width="571"  name=in_shop_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="사용여부" border="6" color="0" x="2848" y="4" height="60" width="283"  name=use_yn_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="1376" y="4" height="60" width="571" format="[general]"  name=curr_shop_nm edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="2263" y="4" height="60" width="571" format="[general]"  name=in_shop_nm edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=4 alignment="0" tabsequence=30 border="5" color="0" x="581" y="4" height="60" width="480" format="[general]"  name=store_nm  tag="OK" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="5" color="0" x="370" y="4" height="60" width="197" format="[general]"  name=store_no edit.limit=2 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="5" color="0" x="14" y="4" height="60" width="343" format="[general]"  name=area_no edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=40 border="5" color="0" x="1074" y="4" height="60" width="288" format="[general]"  name=curr_shop  tag="OE" edit.limit=6 edit.case=upper edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=50 border="5" color="0" x="1961" y="4" height="60" width="288" format="[general]"  name=in_shop  tag="OE" edit.limit=6 edit.case=upper edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=60 border="0" color="0" x="2848" y="4" height="60" width="283" format="[general]"  name=use_yn checkbox.text="사용" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="82042848" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

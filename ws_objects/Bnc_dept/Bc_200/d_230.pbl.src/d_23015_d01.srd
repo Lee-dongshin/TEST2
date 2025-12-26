@@ -1,0 +1,41 @@
+﻿$PBExportHeader$d_23015_d01.srd
+$PBExportComments$지급보류
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=72 color="15780518" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(1) update=yes updatewhereclause=yes key=yes name=brand dbname="TB_33030_H.brand" )
+ column=(type=char(8) update=yes updatewhereclause=yes key=yes name=hold_ymd dbname="TB_33030_H.hold_ymd" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=dept_gubn dbname="TB_33030_H.dept_gubn" initial="1" values="1 자재	1/2 생산	2/" )
+ column=(type=char(6) update=yes updatewhereclause=yes key=yes name=cust_cd dbname="TB_33030_H.cust_cd" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=hold_amt dbname="TB_33030_H.hold_amt" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=rmk dbname="TB_33030_H.rmk" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="TB_33030_H.reg_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="TB_33030_H.reg_dt" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="TB_33030_H.mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="TB_33030_H.mod_dt" )
+ column=(type=char(30) updatewhereclause=yes name=cust_nm dbname="cust_nm" )
+ column=(type=long updatewhereclause=yes name=prot dbname="prot" )
+ retrieve="	select * ,
+		dbo.sf_cust_nm(cust_cd, 's')	cust_nm	,
+		case when hold_ymd < convert(char(8),getdate(),112) then 1 else 0 end prot 	
+	from tb_33030_h
+	where brand = :as_brand
+	and   cust_cd  like :as_cust_cd + '%'" update="tb_33030_h" updatewhere=0 updatekeyinplace=yes arguments=(("as_brand", string),("as_cust_cd", string)) )
+text(band=header alignment="2" text="등록일자" border="6" color="0" x="14" y="8" height="56" width="361"  name=hold_ymd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="부서구분" border="6" color="0" x="389" y="8" height="56" width="261"  name=dept_gubn_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="거래처" border="6" color="0" x="663" y="8" height="56" width="937"  name=cust_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="보류금액" border="6" color="0" x="1614" y="8" height="56" width="384"  name=hold_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="비고" border="6" color="0" x="2011" y="8" height="56" width="1673"  name=rmk_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="5" color="0" x="946" y="4" height="60" width="654" format="[general]"  name=cust_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="5" color="0" x="14" y="4" height="60" width="361" format="@@@@.@@.@@" protect="0~tprot"  name=hold_ymd edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="1090519039~tif(prot = 1,rgb(230,230,210), rgb(255,255,255))" )
+column(band=detail id=3 alignment="0" tabsequence=50 border="5" color="0" x="389" y="4" height="60" width="261" format="[general]" protect="0~tprot"  name=dept_gubn ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="1090519039~tif(prot = 1,rgb(230,230,210), rgb(255,255,255))" )
+column(band=detail id=4 alignment="0" tabsequence=20 border="5" color="0" x="663" y="4" height="60" width="274" format="[general]" protect="0~tprot"  name=cust_cd edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="1090519039~tif(prot = 1,rgb(230,230,210), rgb(255,255,255))" )
+column(band=detail id=5 alignment="1" tabsequence=30 border="5" color="0" x="1614" y="4" height="60" width="384" format="#,##0" protect="0~tprot"  name=hold_amt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="1090519039~tif(prot = 1,rgb(230,230,210), rgb(255,255,255))" )
+column(band=detail id=6 alignment="0" tabsequence=40 border="5" color="0" x="2011" y="4" height="60" width="1673" format="[general]" protect="0~tprot"  name=rmk edit.limit=60 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="1090519039~tif(prot = 1,rgb(230,230,210), rgb(255,255,255))" )
+compute(band=summary alignment="1" expression="sum(hold_amt for all)"border="0" color="0" x="1614" y="8" height="60" width="384" format="#,##0"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=summary alignment="1" text="총  계:" border="0" color="0" x="1344" y="8" height="56" width="219"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

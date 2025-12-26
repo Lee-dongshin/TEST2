@@ -1,0 +1,50 @@
+﻿$PBExportHeader$d_79001_d08_imsi.srd
+$PBExportComments$A/S 등록
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(1) updatewhereclause=yes name=cbit dbname="cbit" values="	Y/	N" )
+ column=(type=char(8) updatewhereclause=yes name=yymmdd dbname="yymmdd" )
+ column=(type=char(4) updatewhereclause=yes name=seq_no dbname="seq_no" )
+ column=(type=char(26) updatewhereclause=yes name=custom_nm dbname="custom_nm" )
+ column=(type=char(6) updatewhereclause=yes name=shop_cd dbname="shop_cd" )
+ column=(type=char(26) updatewhereclause=yes name=shop_nm dbname="shop_nm" )
+ column=(type=char(8) updatewhereclause=yes name=style dbname="style" )
+ column=(type=char(26) updatewhereclause=yes name=problem dbname="problem" )
+ column=(type=char(12) updatewhereclause=yes name=amt dbname="amt" )
+ column=(type=char(26) updatewhereclause=yes name=person_nm dbname="person_nm" )
+ retrieve="select	' ' as cbit,
+			'        ' yymmdd,
+			'    ' seq_no,
+			'                          ' custom_nm,
+			'      ' shop_cd,
+			'                          ' shop_nm,
+			'        ' style,
+			'                          ' problem,
+			'            ' as amt,
+         '                          ' person_nm
+from		tb_79010_m a with (nolock) 
+
+" )
+text(band=header alignment="2" text="고객명" border="6" color="0" x="741" y="8" height="60" width="311"  name=custom_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="접수매장" border="6" color="0" x="1070" y="8" height="60" width="786"  name=shop_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="품번" border="6" color="0" x="1874" y="8" height="60" width="494"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="고객납부금액" border="6" color="0" x="2386" y="8" height="60" width="421"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="번호" border="6" color="0" x="594" y="8" height="60" width="128"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="접수일자" border="6" color="0" x="261" y="8" height="60" width="315"  name=yymmdd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="수선내역" border="6" color="0" x="2825" y="8" height="60" width="1426"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="5" color="0" x="741" y="4" height="60" width="311" format="[general]"  name=custom_nm edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="5" color="0" x="1070" y="4" height="60" width="169" format="[general]"  name=shop_cd edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="5" color="0" x="594" y="4" height="60" width="128" format="[general]"  name=seq_no edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="5" color="0" x="1257" y="4" height="60" width="599" format="[general]"  name=shop_nm edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="5" color="0" x="1874" y="8" height="56" width="485" format="[general]"  name=style edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="5" color="0" x="261" y="4" height="60" width="315" format="@@@@/@@/@@"  name=yymmdd edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="2" tabsequence=10 border="5" color="0" x="5" y="4" height="60" width="238" format="[general]"  name=cbit checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="5" color="0" x="2382" y="12" height="56" width="421" format="[general]"  name=amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="5" color="0" x="2825" y="12" height="56" width="1426" format="[general]"  name=problem edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=0 border="0" color="0" x="4251" y="0" height="56" width="704"  name=person_nm  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

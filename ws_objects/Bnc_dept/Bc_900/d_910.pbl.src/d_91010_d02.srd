@@ -1,0 +1,56 @@
+﻿$PBExportHeader$d_91010_d02.srd
+$PBExportComments$매장 등록
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=688 color="536870912" )
+table(column=(type=char(2) updatewhereclause=yes name=sugm_mm1 dbname="TB_91100_M.SUGM_MM1" )
+ column=(type=char(2) updatewhereclause=yes name=sugm_dd1 dbname="TB_91100_M.SUGM_DD1" )
+ column=(type=decimal(2) updatewhereclause=yes name=sugm_rate1 dbname="TB_91100_M.SUGM_RATE1" )
+ column=(type=char(2) updatewhereclause=yes name=sugm_mm2 dbname="TB_91100_M.SUGM_MM2" )
+ column=(type=char(2) updatewhereclause=yes name=sugm_dd2 dbname="TB_91100_M.SUGM_DD2" )
+ column=(type=decimal(2) updatewhereclause=yes name=sugm_rate2 dbname="TB_91100_M.SUGM_RATE2" )
+ column=(type=char(2) updatewhereclause=yes name=slip_dd dbname="TB_91100_M.SLIP_DD" )
+ column=(type=char(1) updatewhereclause=yes name=vat_way dbname="TB_91100_M.VAT_WAY" initial="2" )
+ column=(type=char(1) updatewhereclause=yes name=amt_fg dbname="TB_91100_M.AMT_FG" initial="2" )
+ column=(type=char(2) updatewhereclause=yes name=bank_cd dbname="TB_91100_M.BANK_CD" )
+ column=(type=char(1) updatewhereclause=yes name=pos_yn dbname="POS_YN" values="Y	Y/Y	N" )
+ column=(type=char(8) updatewhereclause=yes name=sugm_ymd dbname="TB_91100_M.sugm_ymd" )
+ retrieve="  SELECT SUGM_MM1,	SUGM_DD1,	SUGM_RATE1,	
+         SUGM_MM2,	SUGM_DD2,	SUGM_RATE2,
+         SLIP_DD,		VAT_WAY,		AMT_FG,		
+			BANK_CD,		ISNULL(POS_YN, 'N') AS POS_YN,
+			sugm_ymd
+    FROM TB_91100_M
+	WHERE SHOP_CD = :as_shop_cd
+" arguments=(("as_shop_cd", string)) )
+column(band=detail id=11 alignment="0" tabsequence=120 border="5" color="0" x="398" y="612" height="60" width="142" format="[general]"  name=pos_yn checkbox.text="Y" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="POS 유무" border="6" color="0" x="50" y="612" height="60" width="329"  name=note_yn_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="2" tabsequence=10 border="5" color="0" x="398" y="28" height="56" width="325"  name=sugm_ymd editmask.mask="XXXX/XX/XX" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="2" text="거래처은행" border="6" color="0" x="50" y="532" height="60" width="329"  name=t_9  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=110 border="5" color="0" x="398" y="532" height="60" width="690" format="[general]"  name=bank_cd  tag="OE" edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="2" text="금액산출구분" border="6" color="0" x="50" y="448" height="60" width="329"  name=amt_fg_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=100 border="5" color="0" x="398" y="448" height="60" width="690" format="[general]"  name=amt_fg edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="2" text="부가세적용" border="6" color="0" x="50" y="364" height="60" width="329"  name=vat_fg_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=90 border="5" color="0" x="398" y="364" height="60" width="690" format="[general]"  name=vat_way edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="2" text="계산서일자" border="6" color="0" x="50" y="276" height="60" width="329"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=80 border="5" color="0" x="398" y="276" height="60" width="64" format="@@@@/@@/@@"  name=slip_dd  tag="OE" edit.limit=2 edit.case=upper edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="0" text="일" border="0" color="0" x="485" y="280" height="60" width="59"  name=t_8  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="수금일2" border="6" color="0" x="50" y="192" height="60" width="329"  name=bill_dd2_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=50 border="5" color="0" x="398" y="192" height="60" width="64" format="[general]"  name=sugm_mm2  tag="OE" edit.limit=2 edit.case=upper edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="0" text="개월 후" border="0" color="0" x="485" y="192" height="60" width="206"  name=t_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=60 border="5" color="0" x="709" y="192" height="60" width="64" format="[general]"  name=sugm_dd2 edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="2" text="일" border="0" color="0" x="795" y="192" height="60" width="55"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=70 border="5" color="0" x="869" y="192" height="60" width="169" format="[general]"  name=sugm_rate2 edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="2" text="%" border="0" color="0" x="1061" y="192" height="60" width="23"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=20 border="5" color="0" x="398" y="108" height="60" width="64" format="[general]"  name=sugm_mm1  tag="OE" edit.limit=2 edit.case=upper edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="0" text="개월 후" border="0" color="0" x="485" y="108" height="60" width="206"  name=t_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=30 border="5" color="0" x="709" y="108" height="60" width="64" format="[general]"  name=sugm_dd1 edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="2" text="일" border="0" color="0" x="795" y="108" height="60" width="55"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=40 border="5" color="0" x="869" y="108" height="60" width="169" format="[general]"  name=sugm_rate1 edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="2" text="%" border="0" color="0" x="1061" y="108" height="60" width="23"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="수금일1" border="6" color="0" x="50" y="108" height="60" width="329"  name=bill_dd1_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="최종변경일" border="6" color="0" x="50" y="28" height="60" width="329"  name=t_10  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

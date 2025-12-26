@@ -1,0 +1,137 @@
+﻿$PBExportHeader$m_1_0000.srm
+$PBExportComments$보끄레 시스템 메인 메뉴
+forward
+global type m_1_0000 from m_0_0000
+end type
+end forward
+
+global type m_1_0000 from m_0_0000
+end type
+global m_1_0000 m_1_0000
+
+on m_1_0000.create
+m_1_0000=this
+call super::create
+end on
+
+on m_1_0000.destroy
+call super::destroy
+end on
+
+type m_file from m_0_0000`m_file within m_1_0000
+end type
+
+on m_file.create
+call super::create
+end on
+
+on m_file.destroy
+call super::destroy
+end on
+
+type m_printersetup from m_0_0000`m_printersetup within m_file
+end type
+
+on m_printersetup.create
+call super::create
+end on
+
+on m_printersetup.destroy
+call super::destroy
+end on
+
+type m_-11 from m_0_0000`m_-11 within m_file
+end type
+
+on m_-11.create
+call super::create
+end on
+
+on m_-11.destroy
+call super::destroy
+end on
+
+type m_close from m_0_0000`m_close within m_file
+end type
+
+on m_close.create
+call super::create
+this.visible = true
+end on
+
+on m_close.destroy
+call super::destroy
+end on
+
+type m_-12 from m_0_0000`m_-12 within m_file
+end type
+
+on m_-12.create
+call super::create
+end on
+
+on m_-12.destroy
+call super::destroy
+end on
+
+type m_exit from m_0_0000`m_exit within m_file
+end type
+
+on m_exit.create
+call super::create
+this.enabled = false
+end on
+
+on m_exit.destroy
+call super::destroy
+end on
+
+type m_tool from m_0_0000`m_tool within m_1_0000
+end type
+
+on m_tool.create
+call super::create
+this.toolbaritemvisible = false
+end on
+
+on m_tool.destroy
+call super::destroy
+end on
+
+type m_사용자loginl from m_0_0000`m_사용자loginl within m_tool
+end type
+
+on m_사용자loginl.create
+call super::create
+end on
+
+on m_사용자loginl.destroy
+call super::destroy
+end on
+
+event m_사용자loginl::clicked;ParentWindow.ParentWindow().TriggerEvent("ue_logon")
+
+end event
+
+type m_help from m_0_0000`m_help within m_1_0000
+end type
+
+on m_help.create
+call super::create
+end on
+
+on m_help.destroy
+call super::destroy
+end on
+
+type m_help_about from m_0_0000`m_help_about within m_help
+end type
+
+on m_help_about.create
+call super::create
+end on
+
+on m_help_about.destroy
+call super::destroy
+end on
+

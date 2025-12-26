@@ -1,0 +1,38 @@
+﻿$PBExportHeader$d_menu02_d02.srd
+$PBExportComments$Menu 관리 (tb_93030_h)
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 grid.columnmove=no selected.mouse=no )
+header(height=68 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(9) update=yes updatewhereclause=yes key=yes name=menu_id dbname="TB_93030_H.MENU_ID" )
+ column=(type=char(9) update=yes updatewhereclause=yes key=yes name=pgm_id dbname="TB_93030_H.PGM_ID" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=display_seq dbname="TB_93030_H.DISPLAY_SEQ" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="TB_93030_H.REG_ID" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="TB_93030_H.MOD_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="TB_93030_H.MOD_DT" )
+ retrieve="  SELECT TB_93030_H.MENU_ID,   
+         TB_93030_H.PGM_ID,   
+         TB_93030_H.DISPLAY_SEQ,   
+         TB_93030_H.REG_ID,   
+         TB_93030_H.MOD_ID,   
+         TB_93030_H.MOD_DT   
+    FROM TB_93030_H   
+   WHERE TB_93030_H.MENU_ID = :AS_MENU_ID 
+     AND TB_93030_H.PGM_ID  = :AS_PGM_ID 
+" update="TB_93030_H" updatewhere=0 updatekeyinplace=yes arguments=(("as_menu_id", string),("as_pgm_id", string)) )
+text(band=header alignment="0" text="Menu Id" border="0" color="0" x="9" y="4" height="56" width="279"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Pgm Id" border="0" color="0" x="297" y="4" height="56" width="279"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Display Seq" border="0" color="0" x="585" y="4" height="56" width="55"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Reg Id" border="0" color="0" x="649" y="4" height="56" width="183"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Mod Id" border="0" color="0" x="841" y="4" height="56" width="183"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Mod Dt" border="0" color="0" x="1033" y="4" height="56" width="599"  name=t_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="64" width="279" format="[general]"  name=menu_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="297" y="4" height="64" width="279" format="[general]"  name=pgm_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="585" y="4" height="64" width="55" format="[general]"  name=display_seq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="649" y="4" height="64" width="183" format="[general]"  name=reg_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="841" y="4" height="64" width="183" format="[general]"  name=mod_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1033" y="4" height="64" width="599" format="[shortdate] [time]"  name=mod_dt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

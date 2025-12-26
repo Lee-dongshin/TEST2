@@ -1,0 +1,14 @@
+﻿$PBExportHeader$d_31003_r00.srd
+$PBExportComments$생산 공정 진행 관리
+release 7;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=5 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=584 color="536870912"  height.autosize=yes)
+table(column=(type=char(10) updatewhereclause=yes name=a dbname="a" )
+ unbound = "yes"arguments=(("work_dt", string),("cust_cd", string),("country_cd", string)) )
+text(band=detail alignment="2" text="일  별  작  업  진  행" border="1" color="0" x="1138" y="60" height="100" width="960"  name=t_1  font.face="Arial" font.height="-16" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+report(band=detail dataobject="d_31003_r01" x="18" y="288" height="120" width="9998" border="0"  height.autosize=yes criteria="" nest_arguments=(("work_dt"),("cust_cd"),("country_cd")) trail_footer = yes  name=dw_1  slideup=directlyabove )
+report(band=detail dataobject="d_31003_r02" x="18" y="436" height="120" width="9998" border="0"  height.autosize=yes criteria="" nest_arguments=(("work_dt"),("cust_cd"),("country_cd")) trail_footer = no  name=dw_2  slideup=directlyabove )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

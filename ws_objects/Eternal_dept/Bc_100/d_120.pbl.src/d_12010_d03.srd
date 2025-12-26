@@ -1,0 +1,64 @@
+﻿$PBExportHeader$d_12010_d03.srd
+$PBExportComments$작업지시서[완성제품치수] 작업용
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(1) updatewhereclause=yes name=spec_fg dbname="SPEC_FG" )
+ column=(type=char(2) updatewhereclause=yes name=spec_cd dbname="SPEC_CD" )
+ column=(type=decimal(2) updatewhereclause=yes name=spec_term dbname="SPEC_TERM" )
+ column=(type=decimal(2) updatewhereclause=yes name=size_spec_1 dbname="SIZE_SPEC_1" )
+ column=(type=decimal(2) updatewhereclause=yes name=size_spec_2 dbname="SIZE_SPEC_2" )
+ column=(type=decimal(2) updatewhereclause=yes name=size_spec_3 dbname="SIZE_SPEC_3" )
+ column=(type=decimal(2) updatewhereclause=yes name=size_spec_4 dbname="SIZE_SPEC_4" )
+ column=(type=decimal(2) updatewhereclause=yes name=size_spec_5 dbname="SIZE_SPEC_5" )
+ column=(type=decimal(2) updatewhereclause=yes name=size_spec_6 dbname="SIZE_SPEC_6" )
+ column=(type=decimal(2) updatewhereclause=yes name=size_spec_7 dbname="SIZE_SPEC_7" )
+ column=(type=decimal(2) updatewhereclause=yes name=size_spec_8 dbname="SIZE_SPEC_8" )
+ column=(type=decimal(2) updatewhereclause=yes name=size_spec_9 dbname="SIZE_SPEC_9" )
+ column=(type=decimal(2) updatewhereclause=yes name=size_spec_10 dbname="SIZE_SPEC_10" )
+ retrieve="  SELECT ' '      AS SPEC_FG, 
+         '  '     AS SPEC_CD, 
+         000.00   AS SPEC_TERM, 
+         000.00   AS SIZE_SPEC_1, 
+         000.00   AS SIZE_SPEC_2, 
+         000.00   AS SIZE_SPEC_3, 
+         000.00   AS SIZE_SPEC_4, 
+         000.00   AS SIZE_SPEC_5, 
+         000.00   AS SIZE_SPEC_6, 
+         000.00   AS SIZE_SPEC_7, 
+         000.00   AS SIZE_SPEC_8, 
+         000.00   AS SIZE_SPEC_9, 
+         000.00   AS SIZE_SPEC_10  
+    FROM DUAL 
+" )
+text(band=header alignment="2" text="허용편차" border="6" color="0" x="800" y="12" height="60" width="256"  name=spec_term_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text=" 44" border="6" color="0" x="1074" y="12" height="60" width="238"  name=t_size_spec_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text=" 55" border="6" color="0" x="1326" y="12" height="60" width="238"  name=t_size_spec_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text=" 66" border="6" color="0" x="1577" y="12" height="60" width="238"  name=t_size_spec_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text=" 77" border="6" color="0" x="1829" y="12" height="60" width="238"  name=t_size_spec_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text=" " border="6" color="0" x="2080" y="12" height="60" width="238"  name=t_size_spec_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text=" " border="6" color="0" x="2331" y="12" height="60" width="238"  name=t_size_spec_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text=" " border="6" color="0" x="2578" y="12" height="60" width="242"  name=t_size_spec_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text=" " border="6" color="0" x="2830" y="12" height="60" width="238"  name=t_size_spec_8  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text=" " border="6" color="0" x="3081" y="12" height="60" width="238"  name=t_size_spec_9  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text=" " border="6" color="0" x="3333" y="12" height="60" width="238"  name=t_size_spec_10  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="상/하구분" border="6" color="0" x="14" y="12" height="60" width="306"  name=spec_fg_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="치수내역" border="6" color="0" x="338" y="12" height="60" width="443"  name=spec_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=10 border="0" color="0" x="795" y="0" height="64" width="265" format="[general]"  name=spec_term edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="28370649" )
+column(band=detail id=4 alignment="1" tabsequence=20 border="0" color="0" x="1070" y="0" height="64" width="242" format="[general]"  name=size_spec_1 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="28295932" )
+column(band=detail id=5 alignment="1" tabsequence=30 border="0" color="0" x="1321" y="0" height="64" width="242" format="[general]"  name=size_spec_2 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="28295932" )
+column(band=detail id=6 alignment="1" tabsequence=40 border="0" color="0" x="1573" y="0" height="64" width="242" format="[general]"  name=size_spec_3 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="28295932" )
+column(band=detail id=7 alignment="1" tabsequence=50 border="0" color="0" x="1824" y="0" height="64" width="242" format="[general]"  name=size_spec_4 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="28295932" )
+column(band=detail id=8 alignment="1" tabsequence=60 border="0" color="0" x="2075" y="0" height="64" width="242" format="[general]"  name=size_spec_5 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="28295932" )
+column(band=detail id=9 alignment="1" tabsequence=70 border="0" color="0" x="2327" y="0" height="64" width="242" format="[general]"  name=size_spec_6 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="28295932" )
+column(band=detail id=10 alignment="1" tabsequence=80 border="0" color="0" x="2578" y="0" height="64" width="242" format="[general]"  name=size_spec_7 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="28295932" )
+column(band=detail id=11 alignment="1" tabsequence=90 border="0" color="0" x="2830" y="0" height="64" width="238" format="[general]"  name=size_spec_8 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="28295932" )
+column(band=detail id=12 alignment="1" tabsequence=110 border="0" color="0" x="3077" y="0" height="64" width="242" format="[general]"  name=size_spec_9 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="28295932" )
+column(band=detail id=13 alignment="1" tabsequence=100 border="0" color="0" x="3328" y="0" height="64" width="247" format="[general]"  name=size_spec_10 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="28295932" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="14" y="0" height="60" width="306" format="[general]"  name=spec_fg edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="28370649" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="338" y="0" height="60" width="443" format="[general]"  name=spec_cd edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="28370649" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

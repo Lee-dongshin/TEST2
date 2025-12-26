@@ -1,0 +1,16 @@
+﻿$PBExportHeader$d_91001_h01.srd
+$PBExportComments$내부코드 관리
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=108 color="536870912" )
+table(column=(type=char(3) updatewhereclause=yes name=inter_grp dbname="inter_grp" )
+ column=(type=char(20) updatewhereclause=yes name=inter_kdesc dbname="inter_kdesc" )
+ )
+text(band=detail alignment="1" text="내부코드그룹명" border="0" color="0" x="672" y="36" height="60" width="576"  name=inter_desc_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="내부코드그룹" border="0" color="0" x="46" y="36" height="60" width="494"  name=inter_grp_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="558" y="36" height="60" width="87" format="[general]"  name=inter_grp  tag="OE" edit.limit=3 edit.case=upper edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="1266" y="36" height="60" width="549" format="[general]"  name=inter_kdesc  tag="DK" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,63 @@
+﻿$PBExportHeader$d_23091_d01.srd
+$PBExportComments$총마감 현황
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=152 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(1) updatewhereclause=yes name=season dbname="SEASON" )
+ column=(type=long updatewhereclause=yes name=sum_dang dbname="DUAL.SUM_DANG" )
+ column=(type=long updatewhereclause=yes name=sum_nu dbname="DUAL.SUM_NU" )
+ column=(type=long updatewhereclause=yes name=won_dang dbname="DUAL.WON_DANG" )
+ column=(type=long updatewhereclause=yes name=won_nu dbname="DUAL.WON_NU" )
+ column=(type=long updatewhereclause=yes name=bu_dang dbname="DUAL.BU_DANG" )
+ column=(type=long updatewhereclause=yes name=bu_nu dbname="DUAL.BU_NU" )
+ column=(type=long updatewhereclause=yes name=wan_dang dbname="DUAL.WAN_DANG" )
+ column=(type=long updatewhereclause=yes name=wan_nu dbname="DUAL.WAN_NU" )
+ column=(type=long updatewhereclause=yes name=im_dang dbname="DUAL.IM_DANG" )
+ column=(type=long updatewhereclause=yes name=im_nu dbname="DUAL.IM_NU" )
+ retrieve="  SELECT ' ' AS SEASON,
+			0 AS SUM_DANG,
+			0 AS SUM_NU,
+			0 AS WON_DANG,
+			0 AS WON_NU,
+			0 AS BU_DANG,
+			0 AS BU_NU,
+			0 AS WAN_DANG,
+			0 AS WAN_NU,
+			0 AS IM_DANG,
+			0 AS IM_NU
+	 FROM DUAL
+" )
+data(null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null ) 
+text(band=header alignment="2" text="
+시  즌" border="6" color="0" x="9" y="8" height="136" width="201"  name=season_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="시  즌  소  계" border="6" color="0" x="229" y="8" height="60" width="997"  name=t_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="원   자   재" border="6" color="0" x="1243" y="8" height="60" width="997"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="누  계" border="6" color="0" x="2766" y="84" height="60" width="489"  name=bu_nu_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="당  월" border="6" color="0" x="2258" y="84" height="60" width="489"  name=bu_dang_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="부   자   재" border="6" color="0" x="2258" y="8" height="60" width="997"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="완   사   입" border="6" color="0" x="3273" y="8" height="60" width="997"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="임   가   공" border="6" color="0" x="4288" y="8" height="60" width="997"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="당  월" border="6" color="0" x="3273" y="84" height="60" width="489"  name=wan_dang_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="누  계" border="6" color="0" x="3781" y="84" height="60" width="489"  name=wan_nu_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="당  월" border="6" color="0" x="4288" y="84" height="60" width="489"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="누  계" border="6" color="0" x="4795" y="84" height="60" width="489"  name=t_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="당  월" border="6" color="0" x="1243" y="84" height="60" width="489"  name=won_dang_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="누  계" border="6" color="0" x="1751" y="84" height="60" width="489"  name=won_nu_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="당  월" border="6" color="0" x="229" y="84" height="60" width="489"  name=t_8  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="누  계" border="6" color="0" x="736" y="84" height="60" width="489"  name=t_9  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="5" color="0" x="9" y="4" height="60" width="201" format="[general]"  name=season edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="5" color="0" x="1243" y="4" height="60" width="489" format="[general]"  name=won_dang edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="5" color="0" x="1751" y="4" height="60" width="489" format="[general]"  name=won_nu edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="5" color="0" x="2258" y="4" height="60" width="489" format="[general]"  name=bu_dang edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="5" color="0" x="2766" y="4" height="60" width="489" format="[general]"  name=bu_nu edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="5" color="0" x="3273" y="4" height="60" width="489" format="[general]"  name=wan_dang edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="5" color="0" x="3781" y="4" height="60" width="489" format="[general]"  name=wan_nu edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="5" color="0" x="4288" y="4" height="60" width="489" format="[general]"  name=im_dang edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="1" tabsequence=32766 border="5" color="0" x="4795" y="4" height="60" width="489" format="[general]"  name=im_nu edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="5" color="0" x="229" y="4" height="60" width="489" format="[general]"  name=sum_dang edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="5" color="0" x="736" y="4" height="60" width="489" format="[general]"  name=sum_nu edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

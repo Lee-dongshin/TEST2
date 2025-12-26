@@ -1,0 +1,1 @@
+copy C:\sample\sp_img\N\20170922N0004.jpg

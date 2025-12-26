@@ -1,0 +1,59 @@
+﻿$PBExportHeader$d_23092_d01.srd
+$PBExportComments$정산 현황 (마감 집계)
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=152 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(6) updatewhereclause=yes name=cust_cd dbname="CUST_CD" )
+ column=(type=char(30) updatewhereclause=yes name=cust_nm dbname="CUST_NM" )
+ column=(type=long updatewhereclause=yes name=good_amt dbname="DUAL.GOOD_AMT" )
+ column=(type=long updatewhereclause=yes name=claim_amt dbname="DUAL.CLAIM_AMT" )
+ column=(type=long updatewhereclause=yes name=return_amt dbname="DUAL.RETURN_AMT" )
+ column=(type=long updatewhereclause=yes name=tot_amt dbname="DUAL.TOT_AMT" )
+ column=(type=long updatewhereclause=yes name=ji_amt dbname="DUAL.JI_AMT" )
+ column=(type=long updatewhereclause=yes name=ji_vat dbname="DUAL.JI_VAT" )
+ column=(type=long updatewhereclause=yes name=ji_tot dbname="DUAL.JI_TOT" )
+ column=(type=long updatewhereclause=yes name=cash_amt dbname="DUAL.CASH_AMT" )
+ column=(type=long updatewhereclause=yes name=eum_amt dbname="DUAL.EUM_AMT" )
+ retrieve="  SELECT '      ' AS CUST_CD,
+			'                              ' AS CUST_NM,
+			0 AS GOOD_AMT,
+			0 AS CLAIM_AMT,
+			0 AS RETURN_AMT,
+			0 AS TOT_AMT,
+			0 AS JI_AMT,
+			0 AS JI_VAT,
+			0 AS JI_TOT,
+			0 AS CASH_AMT,
+			0 AS EUM_AMT
+	 FROM DUAL
+" )
+data(null null null null null null null null null null null ) 
+text(band=header alignment="2" text="정  상" border="6" color="0" x="713" y="84" height="60" width="425"  name=good_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Claim" border="6" color="0" x="1157" y="84" height="60" width="425"  name=claim_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="반  품" border="6" color="0" x="1600" y="84" height="60" width="425"  name=return_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="합  계" border="6" color="0" x="2043" y="84" height="60" width="421"  name=tot_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="VAT" border="6" color="0" x="2926" y="84" height="60" width="425"  name=ji_vat_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="합  계" border="6" color="0" x="3369" y="84" height="60" width="425"  name=ji_tot_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+거   래   처" border="6" color="0" x="9" y="8" height="136" width="686"  name=cust_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="지불금액" border="6" color="0" x="2482" y="84" height="60" width="425"  name=ji_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="수   불   내   역" border="6" color="0" x="713" y="8" height="60" width="1751"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="세 금 계 산 서 내 역" border="6" color="0" x="2482" y="8" height="60" width="2199"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="현  금" border="6" color="0" x="3813" y="84" height="60" width="425"  name=cash_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="어  음" border="6" color="0" x="4256" y="84" height="60" width="425"  name=eum_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="5" color="0" x="9" y="4" height="60" width="215" format="[general]"  name=cust_cd edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="5" color="0" x="242" y="4" height="60" width="453" format="[general]"  name=cust_nm edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="5" color="0" x="713" y="4" height="60" width="425" format="[general]"  name=good_amt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="5" color="0" x="1157" y="4" height="60" width="425" format="[general]"  name=claim_amt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="5" color="0" x="1600" y="4" height="60" width="425" format="[general]"  name=return_amt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="5" color="0" x="2043" y="4" height="60" width="421" format="[general]"  name=tot_amt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="5" color="0" x="2482" y="4" height="60" width="425" format="[general]"  name=ji_amt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="5" color="0" x="2926" y="4" height="60" width="425" format="[general]"  name=ji_vat edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="5" color="0" x="3369" y="4" height="60" width="425" format="[general]"  name=ji_tot edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="5" color="0" x="3813" y="4" height="60" width="425" format="[general]"  name=cash_amt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="1" tabsequence=32766 border="5" color="0" x="4256" y="4" height="60" width="425" format="[general]"  name=eum_amt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

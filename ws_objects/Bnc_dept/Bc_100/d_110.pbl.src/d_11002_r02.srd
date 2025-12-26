@@ -1,0 +1,45 @@
+﻿$PBExportHeader$d_11002_r02.srd
+$PBExportComments$유통망전개계획(폐점)
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=168 color="536870912" )
+summary(height=4 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(6) update=yes updatewhereclause=yes key=yes name=yymm dbname="TB_11010_M.YYMM" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=shop_div dbname="Shop_Div" )
+ column=(type=char(6) update=yes updatewhereclause=yes key=yes name=shop_cd dbname="TB_11010_M.Shop_Cd" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=shop_nm dbname="Shop_Nm" )
+ retrieve="  SELECT YYmm                              AS YYMM,   
+         dbo.sf_inter_nm('910', Shop_Div)  AS Shop_Div,   
+         Shop_Cd                           AS Shop_Cd,  
+         dbo.SF_SHOP_NM(Shop_Cd, 'S')      AS Shop_Nm
+    FROM TB_11010_M   
+   WHERE YYmm  like :as_yyyy + '%'
+     AND Brand =    :as_brand 
+" update="TB_11010_M" updatewhere=1 updatekeyinplace=no arguments=(("as_yyyy", string),("as_brand", string)) )
+line(band=header x1="9" y1="12" x2="1198" y2="12"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="매장 폐점 계획" border="0" color="0" x="23" y="24" height="56" width="1143"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="폐점 대상 매장" border="0" color="0" x="512" y="96" height="56" width="672"  name=shop_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+line(band=header x1="9" y1="164" x2="1198" y2="164"  name=l_3 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="9" y1="84" x2="1198" y2="84"  name=l_5 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="유통망" border="0" color="0" x="261" y="96" height="56" width="229"  name=shop_div_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="년월" border="0" color="0" x="23" y="96" height="56" width="215"  name=yymm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+line(band=header x1="9" y1="12" x2="9" y2="260"  name=l_2 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="1198" y1="12" x2="1198" y2="260"  name=l_4 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="247" y1="84" x2="247" y2="300"  name=l_6 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="498" y1="84" x2="498" y2="300"  name=l_7 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="9" y1="4" x2="9" y2="168"  name=l_8 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="247" y1="4" x2="247" y2="168"  name=l_10 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="498" y1="4" x2="498" y2="168"  name=l_11 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="1198" y1="4" x2="1198" y2="168"  name=l_9 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="498" y1="0" x2="1202" y2="0"  name=l_12 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="9" y1="0" x2="251" y2="0"  name=l_13 visible="1~tif(getrow() = 1, 1,  if( yymm [-1] =  yymm , 0, 1))" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="251" y1="0" x2="498" y2="0"  name=l_14 visible="1~tif(getrow() = 1, 1,  if( yymm [-1] =  yymm and  shop_div [-1] =  shop_div , 0, 1))" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="23" y="16" height="64" width="215" format="@@@@/@@"  name=yymm edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="261" y="16" height="64" width="229" format="[general]"  name=shop_div edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="512" y="16" height="64" width="210" format="[general]"  name=shop_cd edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="727" y="16" height="64" width="462" format="[general]"  name=shop_nm edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+line(band=summary x1="9" y1="0" x2="1202" y2="0"  name=l_15 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

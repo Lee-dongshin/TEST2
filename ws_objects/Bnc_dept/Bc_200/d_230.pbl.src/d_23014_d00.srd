@@ -1,0 +1,13 @@
+﻿$PBExportHeader$d_23014_d00.srd
+$PBExportComments$자재클레임 Header 보조
+release 7;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=5 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=320 color="536870912"  height.autosize=yes)
+table(column=(type=char(10) updatewhereclause=yes name=a dbname="a" )
+ unbound = "yes"arguments=(("brand", string),("yymm", string)) )
+report(band=detail dataobject="d_23014_r01" x="14" y="20" height="120" width="4069" border="0"  height.autosize=yes criteria="" nest_arguments=(("brand"),("yymm")) trail_footer = yes  name=dw_1  slideup=directlyabove )
+report(band=detail dataobject="d_23014_r02" x="14" y="180" height="120" width="4064" border="0"  height.autosize=yes criteria="" nest_arguments=(("brand"),("yymm")) trail_footer = yes  name=dw_2  slideup=directlyabove )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

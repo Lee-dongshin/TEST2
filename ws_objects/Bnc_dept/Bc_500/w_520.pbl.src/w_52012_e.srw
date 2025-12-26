@@ -1,0 +1,878 @@
+﻿$PBExportHeader$w_52012_e.srw
+$PBExportComments$실입고 배분
+forward
+global type w_52012_e from w_com010_e
+end type
+type st_remark from statictext within w_52012_e
+end type
+type dw_temp from datawindow within w_52012_e
+end type
+type dw_db from datawindow within w_52012_e
+end type
+type dw_assort from datawindow within w_52012_e
+end type
+end forward
+
+global type w_52012_e from w_com010_e
+st_remark st_remark
+dw_temp dw_temp
+dw_db dw_db
+dw_assort dw_assort
+end type
+global w_52012_e w_52012_e
+
+type variables
+DataWindowChild idw_color , idw_house_cd, idw_brand
+String  is_style, is_chno, is_color, is_deal_type, is_yymmdd, is_house_cd, is_brand
+Long    il_deal_seq 
+Boolean ib_NewDeal
+end variables
+
+forward prototypes
+public subroutine wf_retrieve_set ()
+public subroutine wf_add_stock ()
+public function boolean wf_body_set ()
+public function boolean wf_deal ()
+end prototypes
+
+public subroutine wf_retrieve_set ();/* 기존 배분내역 조회 */
+String ls_shop_cd,   ls_find 
+Long   ll_row, ll_row_cnt, ll_assort_cnt 
+Long   i, k, ll_deal_qty  
+
+ll_row_cnt    = dw_db.RowCount()
+ll_assort_cnt = dw_assort.RowCount()
+IF ll_row_cnt < 1 THEN RETURN 
+
+dw_body.SetRedraw(False) 
+dw_body.Reset()
+For i = 1 to ll_row_cnt 
+	IF ls_shop_cd <> dw_db.object.shop_cd[i] THEN 
+      ls_shop_cd =  dw_db.object.shop_cd[i] 
+		ll_row     =  dw_body.insertRow(0)
+      dw_body.Setitem(ll_row, "shop_cd",   ls_shop_cd)
+      dw_body.Setitem(ll_row, "shop_nm",   dw_db.object.shop_nm[i])
+      dw_body.Setitem(ll_row, "shop_stat", dw_db.object.shop_stat[i])
+      dw_body.Setitem(ll_row, "deal_yn",   dw_db.object.deal_yn[i])
+	END IF 
+	ls_find = "color = '" + dw_db.object.color[i] + "' and size = '" + dw_db.object.size[i] + "'"
+   k = dw_assort.find(ls_find, 1, ll_assort_cnt)	
+	IF k > 0 THEN 
+		ll_deal_qty = dw_db.GetitemNumber(i, "deal_qty")
+		dw_body.Setitem(ll_row, "deal_bf_"  + String(k), ll_deal_qty)
+		dw_body.Setitem(ll_row, "deal_qty_" + String(k), ll_deal_qty)
+	END IF
+Next
+
+/* 배분가능량에 추가로 표시 */
+wf_add_stock()
+
+dw_body.ResetUpdate()
+dw_body.SetRedraw(True)
+
+end subroutine
+
+public subroutine wf_add_stock ();/* 배분내역이 존재할경우 배분가능량에 배분량만큼 추가로 처리*/
+Long   k, ll_deal_qty, ll_stock_qty, ll_stock_qty2 
+String ls_modify,      ls_Error
+
+FOR k = 1 TO dw_ASSORT.RowCount()
+  	 ll_deal_qty   = dw_body.GetitemNumber(1, "c_deal_" + String(k)) 
+	 ll_stock_qty  = dw_assort.Object.stock_qty[k] + ll_deal_qty 
+    ll_stock_qty2 = (dw_assort.object.stock_qty[k] / dw_assort.GetitemDecimal(k, "resv_rate") * 100) + ll_deal_qty 
+	 dw_assort.Setitem(k, "stock_qty", ll_stock_qty)
+    ls_modify = ' t_'        + String(k) + '.text="' + String(ll_stock_qty) + '"' + &
+                ' t_ord_'    + String(k) + '.text="' + String(ll_stock_qty2) + '"'
+    ls_Error  = dw_body.Modify(ls_modify)
+    IF (ls_Error <> "") THEN 
+		 MessageBox("Create Head Error", ls_Error + "~n~n" + ls_modify)
+		 Return 
+	 END IF
+NEXT
+
+end subroutine
+
+public function boolean wf_body_set ();String  ls_modify,   ls_error
+String  ls_color,    ls_size, ls_house_cd
+Long    ll_color_st, ll_color_wd, ll_color_cnt
+Long    ll_deal_qty, ll_deal_tot
+integer i, k
+
+/* 기존에 생성한 칼라 헤드 삭제 */
+ll_color_cnt = Long(dw_assort.Describe("evaluate('count(color for all distinct)',0)"))
+FOR i = 1 to ll_color_cnt
+   dw_body.Modify("Destroy t_color_" + String(i)) 
+NEXT 
+
+/* assort 내역 조회 */
+if LeftA(upper(is_style),1) = 'W' then 
+	ls_house_cd = "030000"
+else
+	ls_house_cd = "010000"
+end if
+
+il_rows = dw_assort.Retrieve(is_style, is_chno, is_color, is_house_cd)
+
+/* 배분 대상량 산출 (판매 비축 제외) */
+FOR i = 1 TO il_rows 
+	dw_assort.Setitem(i, "chk_qty" , dw_assort.object.stock_qty[i] * dw_assort.GetitemDecimal(i, "resv_rate") / 100)
+NEXT 
+
+/* Head 정보 Set */
+dw_head.Setitem(1, "ord_qty",   Long(dw_assort.Describe("evaluate('sum(ord_qty)',0)")))
+dw_head.Setitem(1, "in_qty",    Long(dw_assort.Describe("evaluate('sum(in_qty)',0)")))
+dw_head.Setitem(1, "open_qty",  Long(dw_assort.Describe("evaluate('sum(open_qty)',0)")))
+dw_head.Setitem(1, "resv_qty",  Long(dw_assort.Describe("evaluate('sum(resv_qty)',0)")))
+dw_head.Setitem(1, "deal_tot",  Long(dw_assort.Describe("evaluate('sum(stock_qty)',0)")))
+dw_head.Setitem(1, "deal_qty",  Long(dw_assort.Describe("evaluate('sum(chk_qty)',0)")))
+
+/* 칼라 및 사이즈 셋 */
+ll_color_st = 1298
+ls_color    = '@@'
+k           = 0
+
+FOR i = 1 TO 20 
+	IF i > il_rows THEN
+      ls_modify = ' t_size_'   + String(i) + '.Visible=0' + &
+                  ' t_'        + String(i) + '.Visible=0' + &
+                  ' t_ord_'    + String(i) + '.Visible=0' + &
+                  ' deal_bf_'  + String(i) + '.Visible=0' + &
+                  ' deal_qty_' + String(i) + '.Visible=0' + &
+                  ' c_bf_'     + String(i) + '.Visible=0' + &
+                  ' c_deal_'   + String(i) + '.Visible=0'
+   ELSE
+	   ls_size     = dw_assort.object.size[i] 
+		ll_deal_tot = dw_assort.object.stock_qty[i]
+	   ll_deal_qty = dw_assort.object.chk_qty[i] 
+      ls_modify = ' t_size_'   + String(i) + '.Text="' + ls_size + '"' + &
+		            ' t_size_'   + String(i) + '.Visible=1' + &
+                  ' t_'        + String(i) + '.text="' + String(ll_deal_tot) + '"' + &
+                  ' t_'        + String(i) + '.Visible=1' + &
+                  ' t_ord_'    + String(i) + '.text="' + String(ll_deal_qty) + '"' + &
+		            ' t_ord_'    + String(i) + '.Visible=1' + & 
+                  ' deal_bf_'  + String(i) + '.Visible=1' + &
+                  ' deal_qty_' + String(i) + '.Visible=1' + &
+                  ' c_bf_'     + String(i) + '.Visible=1' + &
+                  ' c_deal_'   + String(i) + '.Visible=1'
+      /* 색상 헤드 타이틀 생성 */
+		IF ls_color <> dw_assort.object.color[i] THEN 
+	      ls_color  = dw_assort.object.color[i] 
+			k++ 
+         ls_modify = ls_modify + 'create text(band=header alignment="2" text="' + ls_color + '" border="6" color="0"' + &
+                     ' x="' + String(ll_color_st) + '" y="4" height="56" width="283"' + &
+					      ' name=t_color_' + String(k) + ' font.face="굴림체" font.height="-9" font.weight="400"  font.family="1"' + &
+					      ' font.pitch="1" font.charset="129" background.mode="2" background.color="79741120")'	
+			ll_color_st = ll_color_st + 302
+		ELSE       /* 색상 헤드 타이틀 폭 확장  */
+			ll_color_wd = Long(dw_body.Describe(' t_color_' + String(k) + + '.width'))
+			ls_modify = ls_modify + ' t_color_' + String(k) + '.width="' + String(ll_color_wd + 302) + '"'
+			ll_color_st = ll_color_st + 302
+		END IF
+	END IF
+	ls_Error = dw_body.Modify(ls_modify)
+	IF (ls_Error <> "") THEN 
+		MessageBox("Create Head Error", ls_Error + "~n~n" + ls_modify)
+		Return False
+	END IF
+NEXT 
+
+Return True 
+end function
+
+public function boolean wf_deal ();/* 배분 처리 */
+DataStore  lds_Dealjob
+Long   i, k, ll_assort_Cnt, ll_index 
+Long   ll_deal_tot, ll_shop_tot, ll_size_deal, ll_shop_deal
+Dec    ldc_deal_qty
+
+il_rows = dw_temp.Retrieve(is_style, is_chno, is_color, is_deal_type, is_brand)
+IF il_rows < 1 THEN Return False
+
+ll_assort_Cnt = dw_assort.RowCount()
+
+lds_Dealjob = Create DataStore
+lds_Dealjob.DataObject = "d_52012_d98"
+
+dw_body.SetRedraw(False)
+dw_body.Reset()
+
+FOR i = 1 to il_rows 
+	dw_body.insertRow(0)
+	dw_body.SetItem(i, "shop_cd",   dw_temp.Object.shop_cd[i])
+	dw_body.SetItem(i, "shop_nm",   dw_temp.Object.shop_snm[i])
+	dw_body.SetItem(i, "shop_stat", dw_temp.Object.shop_stat[i])
+	dw_body.SetItem(i, "deal_yn",   dw_temp.Object.deal_yn[i])
+	dw_body.SetItem(i, "deal_rate", dw_temp.GetitemDecimal(i, "deal_rate"))
+   /*  배분통제면 제외 */
+	IF dw_temp.Object.deal_yn[i] = 'N' THEN CONTINUE
+   /* 매장별 배분량 산출 */
+	ll_shop_tot = dw_temp.GetitemNumber(i, "deal_qty") 
+	/* 총 배분 잔량  산출 */
+   ll_deal_tot = Long(dw_assort.Describe("evaluate('sum(chk_qty)',0)"))
+	lds_Dealjob.Reset()
+	FOR k = 1 TO ll_assort_cnt 
+		 /* 사이즈별 배분 잔량 */
+		 ll_size_deal = dw_assort.GetitemNumber(k, "chk_qty")
+		 ldc_deal_qty = ll_shop_tot * (ll_size_deal / ll_deal_tot)
+		 lds_Dealjob.insertRow(0)
+       lds_Dealjob.Setitem(k, "no" , k)
+       lds_Dealjob.Setitem(k, "deal_qty" , Truncate(ldc_deal_qty, 0))
+       lds_Dealjob.Setitem(k, "dvd" , ldc_deal_qty - Truncate(ldc_deal_qty, 0))
+	NEXT 
+	ll_shop_deal = Long(lds_Dealjob.Describe("evaluate('sum(deal_qty)',0)"))
+	Do While ll_shop_tot <> ll_shop_deal 
+		lds_Dealjob.SetSort("dvd d, no a")
+		lds_Dealjob.Sort()
+		For k = 1 to ll_assort_cnt 
+         lds_Dealjob.Setitem(k, "deal_qty" , lds_Dealjob.GetitemNumber(k,"deal_qty") + 1)
+			ll_shop_deal ++
+			IF ll_shop_tot = ll_shop_deal THEN EXIT
+		NEXT 
+   Loop 
+	/* 임시에 배분 내역을 dw_body로 이동 */
+	FOR k = 1 TO ll_assort_cnt 
+		 ll_index = lds_Dealjob.GetitemNumber(k, "no")
+       dw_body.Setitem(i, "deal_bf_"  + String(ll_index), lds_Dealjob.Object.deal_qty[k])
+       dw_body.Setitem(i, "deal_qty_" + String(ll_index), lds_Dealjob.Object.deal_qty[k])
+		 dw_assort.Setitem(ll_index, "chk_qty", dw_assort.Object.chk_qty[ll_index] - lds_Dealjob.Object.deal_qty[k])
+	NEXT
+NEXT
+dw_body.SetRedraw(True)
+Destroy  lds_Dealjob
+
+Return True
+
+end function
+
+on w_52012_e.create
+int iCurrent
+call super::create
+this.st_remark=create st_remark
+this.dw_temp=create dw_temp
+this.dw_db=create dw_db
+this.dw_assort=create dw_assort
+iCurrent=UpperBound(this.Control)
+this.Control[iCurrent+1]=this.st_remark
+this.Control[iCurrent+2]=this.dw_temp
+this.Control[iCurrent+3]=this.dw_db
+this.Control[iCurrent+4]=this.dw_assort
+end on
+
+on w_52012_e.destroy
+call super::destroy
+if IsValid(MenuID) then destroy(MenuID)
+destroy(this.st_remark)
+destroy(this.dw_temp)
+destroy(this.dw_db)
+destroy(this.dw_assort)
+end on
+
+event pfc_preopen;call super::pfc_preopen;inv_resize.of_Register(st_remark, "ScaleToRight")
+
+dw_assort.SetTransObject(SQLCA)
+dw_temp.SetTransObject(SQLCA)
+dw_db.SetTransObject(SQLCA)
+
+
+
+end event
+
+event type boolean ue_keycheck(string as_cb_div);call super::ue_keycheck;/*===========================================================================*/
+/* 작성자      : (주)지우정보 (김 태범)                                      */	
+/* 작성일      : 2002.12.11                                                  */	
+/* 수정일      : 2002.01.28                                                  */
+/*===========================================================================*/
+/* Description : 조회,추가,저장 버튼 클릭시 발생                             */
+/*               Key 부분이 되는 경우는 Instance Variables로 선언하고 사용함 */
+/*===========================================================================*/
+string   ls_title, ls_style_no
+
+IF as_cb_div = '1' THEN
+	ls_title = "조회오류"
+ELSEIF as_cb_div = '2' THEN
+	ls_title = "추가오류"
+ELSEIF as_cb_div = '3' THEN
+	ls_title = "저장오류"
+ELSE
+	ls_title = "오류"
+END IF
+
+IF dw_head.AcceptText() <> 1 THEN RETURN FALSE
+
+ls_style_no = dw_head.GetItemString(1, "style_no")
+if IsNull(ls_style_no) or Trim(ls_style_no) = "" then
+   MessageBox(ls_title,"품번 코드를 입력하십시요!")
+   dw_head.SetFocus()
+   dw_head.SetColumn("style_no")
+   return false
+end if
+is_style = MidA(ls_style_no, 1, 8)
+is_Chno  = MidA(ls_style_no, 9, 1)
+
+
+
+
+
+
+if gs_brand = 'N' and (MidA(is_style,1,1) = 'O' or MidA(is_style,1,1) = 'D') then
+   MessageBox(ls_title,"보끄레 직원은 올리브 데이터 조회에 제한이 있습니다.!")
+   dw_head.SetFocus()
+   dw_head.SetColumn("Style_no")
+   return false
+elseif gs_brand = 'O' and (MidA(is_style,1,1) = 'N' or MidA(is_style,1,1) = 'B' or MidA(is_style,1,1) = 'L' or MidA(is_style,1,1) = 'F' or MidA(is_style,1,1) = 'G'  or MidA(is_style,1,1) = 'J') then
+   MessageBox(ls_title,"올리브 직원은 보끄레 데이터 조회에 제한이 있습니다.!")
+   dw_head.SetFocus()
+   dw_head.SetColumn("Style_no")
+   return false	
+elseif gs_brand = 'B' and (MidA(is_style,1,1) = 'O' or MidA(is_style,1,1) = 'D') then
+   MessageBox(ls_title,"이터널 직원은 올리브 데이터 조회에 제한이 있습니다.!")
+   dw_head.SetFocus()
+   dw_head.SetColumn("Style_no")
+   return false		
+elseif gs_brand = 'G' and (MidA(is_style,1,1) = 'O' or MidA(is_style,1,1) = 'D') then
+   MessageBox(ls_title,"이터널 직원은 올리브 데이터 조회에 제한이 있습니다.!")
+   dw_head.SetFocus()
+   dw_head.SetColumn("Style_no")
+   return false			
+end if	
+
+
+
+is_color = dw_head.GetItemString(1, "color")
+if IsNull(is_color) or Trim(is_color) = "" then
+   MessageBox(ls_title,"색상 코드를 입력하십시요!")
+   dw_head.SetFocus()
+   dw_head.SetColumn("color")
+   return false
+end if
+
+is_deal_type = dw_head.GetItemString(1, "deal_type")
+if IsNull(is_deal_type) or Trim(is_deal_type) = "" then
+   MessageBox(ls_title,"배분타입 코드를 입력하십시요!")
+   dw_head.SetFocus()
+   dw_head.SetColumn("deal_type")
+   return false
+end if
+
+il_deal_seq = dw_head.GetItemNumber(1, "deal_seq")
+if IsNull(il_deal_seq)  then
+   MessageBox(ls_title,"배분차수를 입력하십시요!")
+   dw_head.SetFocus()
+   dw_head.SetColumn("deal_seq")
+   return false
+end if
+
+is_yymmdd = String(dw_head.GetItemDate(1, "yymmdd"), "yyyymmdd")
+
+is_brand = dw_head.GetItemString(1, "brand")
+if IsNull(is_brand) or Trim(is_brand) = "" then
+   MessageBox(ls_title,"매장구분용 브랜드를 입력하십시요!")
+   dw_head.SetFocus()
+   dw_head.SetColumn("brand")
+   return false
+end if
+
+
+
+return true
+end event
+
+event type integer ue_popup(string as_column, long al_row, string as_data, integer ai_div);call super::ue_popup;/*===========================================================================*/
+/* 작성자      : 김 태범                                                     */	
+/* 작성일      : 2001.12.12                                                  */	
+/* 수정일      : 2002.01.08                                                  */
+/*===========================================================================*/
+String     ls_style, ls_chno
+Boolean    lb_check 
+DataStore  lds_Source
+
+CHOOSE CASE as_column
+	CASE "style_no"				
+		   ls_style = MidA(as_data, 1, 8)
+			ls_chno  = MidA(as_data, 9, 1)
+			IF ai_div = 1 THEN 	
+				if gs_brand <> 'K' then
+					IF gf_style_chk(ls_style, ls_chno) THEN
+						RETURN 0
+					END IF 
+				end if
+			END IF
+		   gst_cd.ai_div          = ai_div
+			gst_cd.window_title    = "품번 코드 검색" 
+			gst_cd.datawindow_nm   = "d_com010" 
+			gst_cd.default_where   = ""
+
+			if gs_brand <> 'K' then
+				IF Trim(as_data) <> "" THEN
+					gst_cd.Item_where = "style LIKE  '" + ls_style + "%'"  + &
+											 " and chno like '" + ls_chno + "%'"
+				ELSE
+					gst_cd.Item_where = ""
+				END IF
+			else
+				gst_cd.Item_where = ""
+			end if
+			lds_Source = Create DataStore
+			OpenWithParm(W_COM200, lds_Source)
+
+			IF Isvalid(Message.PowerObjectParm) THEN
+				ib_itemchanged = True
+				lds_Source = Message.PowerObjectParm
+				dw_head.SetRow(al_row)
+				dw_head.SetColumn(as_column)
+				dw_head.SetItem(al_row, "style_no", lds_Source.GetItemString(1,"style_no"))
+				/* 다음컬럼으로 이동 */
+				dw_head.SetColumn("deal_type")
+				ib_itemchanged = False 
+				lb_check = TRUE 
+			ELSE
+				lb_check = FALSE 
+			END IF
+			Destroy  lds_Source
+END CHOOSE
+
+IF ai_div = 1 THEN 
+	IF lb_check THEN
+      RETURN 2 
+	ELSE
+		RETURN 1
+	END IF
+END IF
+
+RETURN 0
+
+end event
+
+event ue_retrieve;call super::ue_retrieve;/*===========================================================================*/
+/* 작성자      : (주)지우정보 (김 태범)                                      */	
+/* 작성일      : 2002.01.28                                                  */	
+/* 수정일      : 2002.04.15                                                  */
+/*===========================================================================*/
+
+/* dw_head 필수입력 column check */
+IF Trigger Event ue_keycheck('1') = FALSE THEN RETURN
+
+IF wf_body_set() = FALSE THEN RETURN
+
+il_rows = dw_db.retrieve(is_yymmdd, il_deal_seq, is_style, is_chno, is_color)
+
+IF il_rows > 0 THEN
+	wf_retrieve_set()
+	IF dw_db.Object.proc_yn[1] = 'Y' THEN 
+	   st_remark.Text = "이미 출고된 자료 입니다."
+		cb_delete.enabled = false
+	ELSE
+	   st_remark.Text = "이미 배분된 내역이 있습니다."
+		cb_delete.enabled = true		
+	END IF
+   ib_NewDeal = False
+ELSE
+	st_remark.text = '배분 처리중 .........'
+	ib_NewDeal = wf_Deal() 
+	st_remark.text = ''
+END IF
+
+IF il_rows > 0 THEN
+   dw_body.SetFocus()
+END IF
+
+This.Trigger Event ue_button(1, il_rows)
+
+IF ib_NewDeal THEN 
+	ib_changed        = true
+   cb_update.enabled = true
+   cb_excel.enabled  = false
+ELSEIF st_remark.Text = "이미 출고된 자료 입니다." THEN 
+   dw_body.Enabled = False
+END IF
+
+This.Trigger Event ue_msg(1, il_rows)
+
+end event
+
+event type long ue_update();call super::ue_update;/*===========================================================================*/
+/* 작성자      : (주)지우정보 (김 태범)                                      */	
+/* 작성일      : 2002.01.30                                                  */	
+/* 수정일      : 2002.01.30                                                  */
+/*===========================================================================*/
+long     i, k, ll_row_count, ll_assort_cnt, ll_find, ll_deal_qty, ll_resv_qty  
+datetime ld_datetime
+String   ls_shop_cd, ls_color, ls_size, ls_find, ls_shop_div, ls_ErrMsg
+String   ls_out_ymd
+
+ll_row_count = dw_body.RowCount()
+IF dw_body.AcceptText() <> 1 THEN RETURN -1
+
+/* 시스템 날짜를 가져온다 */
+IF gf_sysdate(ld_datetime) = FALSE THEN
+	Return 0
+END IF
+
+/* ORDER량 초과배분 여부 체크 */ 
+FOR k = 1 TO dw_ASSORT.RowCount()
+  	 ll_deal_qty = dw_body.GetitemNumber(1, "c_deal_" + String(k)) 
+	 IF ll_deal_qty > dw_assort.Object.stock_qty[k] THEN 
+		 MessageBox("오류", "[" + dw_assort.GetitemString(k, "color") + "/" + & 
+		                    dw_assort.GetitemString(k, "size") + "] 배분량이 초과 하였습니다,")
+		 Return -1 
+	 END IF
+NEXT
+
+ll_assort_cnt = dw_assort.RowCount()
+il_rows = 1
+FOR i=1 TO ll_row_count
+	IF il_rows <> 1 THEN EXIT 
+   idw_status = dw_body.GetItemStatus(i, 0, Primary!)
+   IF idw_status = NewModified! OR idw_status = DataModified! THEN	
+		ls_shop_cd = dw_body.GetitemString(i, "shop_cd")
+		ls_shop_div = MidA(ls_shop_cd, 2, 1)
+      FOR k = 1 TO ll_assort_cnt 
+			IF dw_body.GetItemStatus(i, "deal_qty_" + String(k), Primary!) = DataModified! THEN 
+				ll_deal_qty = dw_body.GetitemNumber(i, "deal_qty_" + String(k))
+				ls_color = dw_assort.GetitemString(k, "color")
+				ls_size  = dw_assort.GetitemString(k, "size") 
+				ls_find  = "shop_cd = '" + ls_shop_cd + "' and color = '" + ls_color + "' and size = '" + ls_size + "'"
+				ll_find = dw_db.find(ls_find, 1, dw_db.RowCount())
+				IF ll_find > 0 THEN
+					ll_resv_qty = dw_db.GetitemNumber(ll_find, "deal_qty", Primary!, True)
+					IF isnull(ll_resv_qty) THEN 
+						ll_resv_qty = ll_deal_qty 
+					ELSE
+						ll_resv_qty = ll_deal_qty - ll_resv_qty 
+					END IF
+					dw_db.Setitem(ll_find, "deal_qty", ll_deal_qty)
+               dw_db.Setitem(ll_find, "mod_id",   gs_user_id)
+               dw_db.Setitem(ll_find, "mod_dt",   ld_datetime)
+               dw_db.Setitem(ll_find, "rshop_cd", is_house_cd)					
+				ELSE
+					ll_find = dw_db.insertRow(0)
+               dw_db.Setitem(ll_find, "out_ymd",  is_yymmdd)
+               dw_db.Setitem(ll_find, "deal_seq", il_deal_seq)
+               dw_db.Setitem(ll_find, "style",    is_style)
+               dw_db.Setitem(ll_find, "chno",     is_chno)
+               dw_db.Setitem(ll_find, "shop_cd",  ls_shop_cd)
+               dw_db.Setitem(ll_find, "color",    ls_color)
+               dw_db.Setitem(ll_find, "size",     ls_size)
+               dw_db.Setitem(ll_find, "deal_fg",  '1')
+               dw_db.Setitem(ll_find, "deal_qty", ll_deal_qty)
+               dw_db.Setitem(ll_find, "reg_id",   gs_user_id)
+               dw_db.Setitem(ll_find, "rshop_cd", is_house_cd)										
+					ll_resv_qty = ll_deal_qty
+				END IF
+            /* 예약 재고량 처리 */
+	         IF gf_stresv_update (is_style,    is_chno,     ls_color,  ls_size, &
+				                     ls_shop_div, ll_resv_qty, is_house_cd, ls_ErrMsg) = FALSE THEN 
+		         il_rows = -1
+        			EXIT
+	         END IF
+			END IF
+		NEXT
+   END IF
+NEXT
+
+il_rows = dw_db.Update()
+
+if il_rows = 1 then
+	/* 작업용 datawindow 초기화(dw_body) */
+   dw_body.ResetUpdate()
+   commit  USING SQLCA;
+else
+   rollback  USING SQLCA;
+	IF isnull(ls_ErrMsg) = FALSE AND Trim(ls_ErrMsg) <> "" THEN 
+		MessageBox("SQL 오류", ls_ErrMsg)
+	END IF
+end if
+
+This.Trigger Event ue_button(3, il_rows)
+This.Trigger Event ue_msg(3, il_rows)
+return il_rows
+
+end event
+
+event ue_delete;/*===========================================================================*/
+/* 작성자      :                                     */	
+/* 작성일      : 2002.01.31                                                  */	
+/* 수정일      : 2002.07.18                                                  */
+/*===========================================================================*/
+
+//is_to_style, is_to_chno, is_to_color, is_to_ymd, il_deal_seq
+
+				
+  	   DECLARE SP_DelResv_Update PROCEDURE FOR SP_DelResv_Update  
+         @YYMMDD   = :is_yymmdd,   
+			@deal_seq = :il_deal_seq,
+         @style    = :is_style,   
+         @chno     = :is_chno,   
+         @color    = :is_color  ;
+
+		EXECUTE SP_DelResv_Update;
+		commit  USING SQLCA;  
+		MessageBox("알림!","삭제되었습니다!")
+      cb_delete.enabled = false
+	
+end event
+
+event pfc_close();call super::pfc_close;gf_user_connect_pgm(gs_user_id,"w_52012_e","0")
+end event
+
+type cb_close from w_com010_e`cb_close within w_52012_e
+end type
+
+type cb_delete from w_com010_e`cb_delete within w_52012_e
+end type
+
+type cb_insert from w_com010_e`cb_insert within w_52012_e
+boolean visible = false
+end type
+
+type cb_retrieve from w_com010_e`cb_retrieve within w_52012_e
+end type
+
+type cb_update from w_com010_e`cb_update within w_52012_e
+end type
+
+type cb_print from w_com010_e`cb_print within w_52012_e
+boolean visible = false
+end type
+
+type cb_preview from w_com010_e`cb_preview within w_52012_e
+boolean visible = false
+end type
+
+type gb_button from w_com010_e`gb_button within w_52012_e
+end type
+
+type cb_excel from w_com010_e`cb_excel within w_52012_e
+end type
+
+type dw_head from w_com010_e`dw_head within w_52012_e
+integer y = 256
+integer height = 268
+string dataobject = "d_52012_h01"
+end type
+
+event dw_head::constructor;call super::constructor;DataWindowChild ldw_child 
+
+This.GetChild("deal_type", ldw_child)
+ldw_child.SetTransObject(SQLCA)
+ldw_child.Retrieve('520')
+
+This.GetChild("color", idw_color)
+idw_color.SetTransObject(SQLCA)
+
+This.GetChild("house_cd", idw_house_cd)
+idw_house_cd.SetTransObject(SQLCA)
+idw_house_cd.Retrieve()
+
+
+This.GetChild("Brand", idw_brand)
+idw_brand.SetTransObject(SQLCA)
+idw_brand.Retrieve('001')
+
+
+string ls_filter_str
+ls_filter_str = ''	
+ls_filter_str = "shop_cd < '020000' or  shop_cd = 'A10000'  or  shop_cd = 'M10000'   "
+idw_house_cd.SetFilter(ls_filter_str)
+idw_house_cd.Filter( )
+
+end event
+
+event dw_head::itemchanged;call super::itemchanged;/*===========================================================================*/
+/* 작성자      : (주)지우정보 (김 태범)                                      */	
+/* 작성일      : 2002.01.28                                                  */	
+/* 수정일      : 2002.04.15                                                  */
+/*===========================================================================*/
+String ls_yymmdd, ls_dep_ymd
+
+CHOOSE CASE dwo.name
+	CASE "yymmdd"      
+		  ls_yymmdd = String(Date(Data),  "yyyymmdd") 
+		  IF gf_iwoldate_chk(gs_user_id, is_pgm_id, ls_yymmdd) = FALSE THEN 
+			  MessageBox("경고","소급할수 없는 일자입니다.")
+			  Return 1
+        END IF
+	CASE "style_no"	     //  Popup 검색창이 존재하는 항목 
+		IF ib_itemchanged THEN RETURN 1
+
+//		select dep_ymd 
+//			into :ls_dep_ymd
+//		from tb_12020_m a(nolock)
+//		where  style = :data;
+//		
+//		if len(ls_dep_ymd) = 8  then 
+//			  MessageBox("확인",ls_dep_ymd + "일자로 부진처리된 스타일입니다.. 영업 MD에 문의하세요.")
+//			  Return 1			
+//		end if
+		
+		return Parent.Trigger Event ue_Popup(dwo.name, row, data, 1)
+END CHOOSE
+
+end event
+
+event dw_head::itemfocuschanged;call super::itemfocuschanged;/*===========================================================================*/
+/* 작성자      : (주) 지우정보 (김 태범)                                     */	
+/* 작성일      : 1999.11.09                                                  */	
+/* 수정일      : 1999.11.09                                                  */
+/*===========================================================================*/
+String ls_style_no, ls_color
+
+CHOOSE CASE dwo.name
+	CASE "color"
+		ls_style_no = This.GetitemString(row, "style_no")
+		idw_color.Retrieve(LeftA(ls_style_no, 8), RightA(ls_style_no, 1))
+		idw_color.insertRow(1)
+		idw_color.Setitem(1, "color", "%")
+		idw_color.Setitem(1, "color_enm", "전체")
+END CHOOSE
+
+
+end event
+
+type ln_1 from w_com010_e`ln_1 within w_52012_e
+integer beginy = 532
+integer endy = 532
+end type
+
+type ln_2 from w_com010_e`ln_2 within w_52012_e
+integer beginy = 536
+integer endy = 536
+end type
+
+type dw_body from w_com010_e`dw_body within w_52012_e
+integer x = 0
+integer y = 548
+integer width = 3611
+integer height = 1504
+string dataobject = "d_52012_d01"
+boolean hscrollbar = true
+boolean hsplitscroll = true
+end type
+
+event dw_body::itemchanged;call super::itemchanged;/*===========================================================================*/
+/* 작성자      : 김 태범                                                      */	
+/* 작성일      : 2002.04.15                                                  */	
+/* 수정일      : 2002.04.15                                                  */
+/*===========================================================================*/
+IF LeftA(dwo.name, 8) = "deal_qty" and Long(Data) < 0 THEN
+	RETURN 1
+END IF 
+
+end event
+
+event dw_body::ue_keydown;/*===========================================================================*/
+/* 작성자      : (주)지우정보 (김 태범)                                      */	
+/* 작성일      : 1999.11.08                                                  */	
+/* 수정일      : 1999.11.08                                                  */
+/*===========================================================================*/
+
+String ls_column_name, ls_tag, ls_report
+
+ls_column_name = This.GetColumnName()
+
+IF KeyDown(21) THEN
+	ls_tag = This.Describe(ls_column_name + ".Tag")
+	gf_kor_eng(Handle(Parent), ls_tag, 2)
+END IF
+
+CHOOSE CASE key
+	CASE KeyEnter!
+		Send(Handle(This), 256, 9, long(0,0))
+		Return 1
+   CASE KeyF12!
+      char lc_kb[256]
+      GetKeyboardState (lc_kb)
+      lc_kb[17] = CharA (128)
+      SetKeyboardState (lc_kb)
+      Send (Handle (this), 256, 9, 0)
+      GetKeyboardState (lc_kb)
+      lc_kb[17] = CharA (0)
+      SetKeyboardState (lc_kb)
+	CASE KeyF1!
+		ls_report = This.Describe(ls_column_name + ".Protect")
+		IF ls_report = "1" THEN RETURN 0
+		ls_report = MidA(ls_report, 4, LenA(ls_report) - 4)
+		IF This.Describe("Evaluate(~"" + ls_report + "~", " + &
+								String(This.GetRow()) + ")") = '1' THEN RETURN 0
+		Parent.Trigger Event ue_popup (ls_column_name, This.GetRow(), This.GetText(), 2)
+END CHOOSE
+
+end event
+
+type dw_print from w_com010_e`dw_print within w_52012_e
+end type
+
+type st_remark from statictext within w_52012_e
+integer x = 18
+integer y = 164
+integer width = 1687
+integer height = 64
+boolean bringtotop = true
+integer textsize = -9
+integer weight = 700
+fontcharset fontcharset = hangeul!
+fontpitch fontpitch = fixed!
+fontfamily fontfamily = modern!
+string facename = "굴림체"
+long textcolor = 128
+long backcolor = 67108864
+boolean focusrectangle = false
+end type
+
+type dw_temp from datawindow within w_52012_e
+boolean visible = false
+integer x = 1573
+integer y = 344
+integer width = 411
+integer height = 432
+integer taborder = 20
+boolean bringtotop = true
+boolean titlebar = true
+string title = "temp"
+string dataobject = "d_52012_d03"
+boolean hscrollbar = true
+boolean vscrollbar = true
+boolean resizable = true
+boolean hsplitscroll = true
+boolean livescroll = true
+borderstyle borderstyle = stylelowered!
+end type
+
+type dw_db from datawindow within w_52012_e
+boolean visible = false
+integer x = 1993
+integer y = 348
+integer width = 411
+integer height = 432
+integer taborder = 30
+boolean bringtotop = true
+boolean titlebar = true
+string title = "db"
+string dataobject = "d_52012_d02"
+boolean hscrollbar = true
+boolean vscrollbar = true
+boolean resizable = true
+boolean hsplitscroll = true
+boolean livescroll = true
+borderstyle borderstyle = stylelowered!
+end type
+
+type dw_assort from datawindow within w_52012_e
+boolean visible = false
+integer x = 2423
+integer y = 372
+integer width = 521
+integer height = 472
+integer taborder = 30
+boolean bringtotop = true
+boolean titlebar = true
+string title = "assort"
+string dataobject = "d_com520"
+boolean hscrollbar = true
+boolean vscrollbar = true
+boolean resizable = true
+boolean hsplitscroll = true
+boolean livescroll = true
+borderstyle borderstyle = stylelowered!
+end type
+

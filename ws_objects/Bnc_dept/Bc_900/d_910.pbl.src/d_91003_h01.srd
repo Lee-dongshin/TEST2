@@ -1,0 +1,16 @@
+﻿$PBExportHeader$d_91003_h01.srd
+$PBExportComments$품종 코드 관리
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=104 color="536870912" )
+table(column=(type=char(1) updatewhereclause=no name=item dbname="item" )
+ column=(type=char(20) updatewhereclause=no name=item_nm dbname="item_nm" )
+ )
+text(band=detail alignment="1" text="코 드" border="0" color="0" x="0" y="28" height="56" width="169"  name=color_grp_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=detail alignment="1" text="품 종" border="0" color="0" x="379" y="28" height="56" width="160"  name=color_desc_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="192" y="24" height="60" width="160" format="[general]"  name=item  tag="OE" edit.limit=0 edit.case=upper edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33554431" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="562" y="24" height="60" width="549" format="[general]"  name=item_nm  tag="DK" edit.limit=0 edit.case=any edit.format="" edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33554431" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

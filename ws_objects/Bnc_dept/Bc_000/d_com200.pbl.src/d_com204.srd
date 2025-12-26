@@ -1,0 +1,20 @@
+﻿$PBExportHeader$d_com204.srd
+$PBExportComments$세탁표시
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(30) update=yes updatewhereclause=yes key=yes name=washing_gubn dbname="TB_CARE_WASHING.WASHING_GUBN" )
+ column=(type=char(3) update=yes updatewhereclause=yes name=washing1 dbname="TB_CARE_WASHING.WASHING1" )
+ column=(type=char(3) update=yes updatewhereclause=yes name=washing2 dbname="TB_CARE_WASHING.WASHING2" )
+ column=(type=char(3) update=yes updatewhereclause=yes name=washing3 dbname="TB_CARE_WASHING.WASHING3" )
+ column=(type=char(3) update=yes updatewhereclause=yes name=washing4 dbname="TB_CARE_WASHING.WASHING4" )
+ retrieve="PBSELECT( VERSION(400) TABLE(NAME=~"TB_CARE_WASHING~" ) COLUMN(NAME=~"TB_CARE_WASHING.WASHING_GUBN~") COLUMN(NAME=~"TB_CARE_WASHING.WASHING1~") COLUMN(NAME=~"TB_CARE_WASHING.WASHING2~") COLUMN(NAME=~"TB_CARE_WASHING.WASHING3~") COLUMN(NAME=~"TB_CARE_WASHING.WASHING4~")) " update="TB_CARE_WASHING" updatewhere=1 updatekeyinplace=no )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="0" x="9" y="4" height="76" width="850" format="[general]"  name=washing_gubn edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="0" x="869" y="4" height="76" width="265" format="[general]"  name=washing1 edit.limit=3 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="0" color="0" x="1143" y="4" height="76" width="265" format="[general]"  name=washing2 edit.limit=3 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="0" color="0" x="1417" y="4" height="76" width="265" format="[general]"  name=washing3 edit.limit=3 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=50 border="0" color="0" x="1691" y="4" height="76" width="265" format="[general]"  name=washing4 edit.limit=3 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,13 @@
+﻿$PBExportHeader$d_74021_d05.srd
+$PBExportComments$담당매장별 회원모집현황
+release 7;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=5 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=384 color="536870912"  height.autosize=yes)
+table(column=(type=char(10) updatewhereclause=yes name=a dbname="a" )
+ unbound = "yes"arguments=(("ps_gubn", string),("ps_frm_ymd", string),("ps_to_ymd", string),("ps_brand", string)) )
+report(band=detail dataobject="d_74021_d02" x="23" y="36" height="136" width="846" border="0"  height.autosize=yes criteria="" nest_arguments=((" ps_brand ")) trail_footer = yes  name=dw_3 )
+report(band=detail dataobject="d_74021_d01" x="887" y="36" height="320" width="2359" border="0"  height.autosize=yes criteria="" nest_arguments=((" ps_gubn "),(" ps_frm_ymd "),(" ps_to_ymd "),(" ps_brand ")) trail_footer = yes  name=dw_1  slideleft=yes  slideup=directlyabove )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

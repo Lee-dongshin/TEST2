@@ -1,0 +1,103 @@
+﻿$PBExportHeader$d_52001_d02.srd
+$PBExportComments$판매배분 일정관리
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=96 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=240 color="536870912" )
+table(column=(type=char(2) updatewhereclause=yes name=dd_1 dbname="DD_1" )
+ column=(type=char(2) updatewhereclause=yes name=dd_2 dbname="DD_2" )
+ column=(type=char(2) updatewhereclause=yes name=dd_3 dbname="DD_3" )
+ column=(type=char(2) updatewhereclause=yes name=dd_4 dbname="DD_4" )
+ column=(type=char(2) updatewhereclause=yes name=dd_5 dbname="DD_5" )
+ column=(type=char(2) updatewhereclause=yes name=dd_6 dbname="DD_6" )
+ column=(type=char(2) updatewhereclause=yes name=dd_7 dbname="DD_7" )
+ column=(type=char(20) updatewhereclause=yes name=remark_1 dbname="REMARK_1" )
+ column=(type=char(20) updatewhereclause=yes name=remark_2 dbname="REMARK_2" )
+ column=(type=char(20) updatewhereclause=yes name=remark_3 dbname="REMARK_3" )
+ column=(type=char(20) updatewhereclause=yes name=remark_4 dbname="REMARK_4" )
+ column=(type=char(20) updatewhereclause=yes name=remark_5 dbname="REMARK_5" )
+ column=(type=char(20) updatewhereclause=yes name=remark_6 dbname="REMARK_6" )
+ column=(type=char(20) updatewhereclause=yes name=remark_7 dbname="REMARK_7" )
+ column=(type=char(1) updatewhereclause=yes name=auto_yn1 dbname="AUTO_YN1" )
+ column=(type=char(1) updatewhereclause=yes name=auto_yn2 dbname="AUTO_YN2" )
+ column=(type=char(1) updatewhereclause=yes name=auto_yn3 dbname="AUTO_YN3" )
+ column=(type=char(1) updatewhereclause=yes name=auto_yn4 dbname="AUTO_YN4" )
+ column=(type=char(1) updatewhereclause=yes name=auto_yn5 dbname="AUTO_YN5" )
+ column=(type=char(1) updatewhereclause=yes name=auto_yn6 dbname="AUTO_YN6" )
+ column=(type=char(1) updatewhereclause=yes name=auto_yn7 dbname="AUTO_YN7" )
+ column=(type=char(1) updatewhereclause=yes name=holiday_yn1 dbname="HOLIDAY_YN1" )
+ column=(type=char(1) updatewhereclause=yes name=holiday_yn2 dbname="HOLIDAY_YN2" )
+ column=(type=char(1) updatewhereclause=yes name=holiday_yn3 dbname="HOLIDAY_YN3" )
+ column=(type=char(1) updatewhereclause=yes name=holiday_yn4 dbname="HOLIDAY_YN4" )
+ column=(type=char(1) updatewhereclause=yes name=holiday_yn5 dbname="HOLIDAY_YN5" )
+ column=(type=char(1) updatewhereclause=yes name=holiday_yn6 dbname="HOLIDAY_YN6" )
+ column=(type=char(1) updatewhereclause=yes name=holiday_yn7 dbname="HOLIDAY_YN7" )
+ retrieve="  SELECT '  '  DD_1, 
+         '  '  DD_2, 
+         '  '  DD_3, 
+         '  '  DD_4, 
+         '  '  DD_5,  
+         '  '  DD_6,  
+         '  '  DD_7, 
+         '                    '  REMARK_1, 
+         '                    '  REMARK_2, 
+         '                    '  REMARK_3, 
+         '                    '  REMARK_4, 
+         '                    '  REMARK_5,  
+         '                    '  REMARK_6,  
+         '                    '  REMARK_7, 
+         ' '  AUTO_YN1, 
+         ' '  AUTO_YN2, 
+         ' '  AUTO_YN3, 
+         ' '  AUTO_YN4, 
+         ' '  AUTO_YN5,  
+         ' '  AUTO_YN6,  
+         ' '  AUTO_YN7,  
+         ' '  HOLIDAY_YN1, 
+         ' '  HOLIDAY_YN2, 
+         ' '  HOLIDAY_YN3, 
+         ' '  HOLIDAY_YN4, 
+         ' '  HOLIDAY_YN5,  
+         ' '  HOLIDAY_YN6,  
+         ' '  HOLIDAY_YN7 
+    FROM DUAL    
+" )
+text(band=header alignment="2" text="일" border="4" color="255" x="151" y="16" height="56" width="123"  name=dd_1_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="토" border="4" color="16711680" x="2839" y="16" height="56" width="128"  name=dd_7_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="금" border="4" color="0" x="2391" y="16" height="56" width="128"  name=dd_6_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="목" border="4" color="0" x="1943" y="16" height="56" width="128"  name=dd_5_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="수" border="4" color="0" x="1495" y="16" height="56" width="128"  name=dd_4_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="화" border="4" color="0" x="1047" y="16" height="56" width="128"  name=dd_3_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="월" border="4" color="0" x="599" y="16" height="56" width="128"  name=dd_2_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0~tif( holiday_yn2 = 'Y', rgb(255, 0, 0), rgb(0, 0, 0))" x="471" y="20" height="76" width="82" format="[general]"  name=dd_2 edit.limit=2 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" font.underline="1" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0~tif( holiday_yn3 = 'Y', rgb(255, 0, 0), rgb(0, 0, 0))" x="919" y="20" height="76" width="82" format="[general]"  name=dd_3 edit.limit=2 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" font.underline="1" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0~tif( holiday_yn4 = 'Y', rgb(255, 0, 0), rgb(0, 0, 0))" x="1367" y="20" height="76" width="82" format="[general]"  name=dd_4 edit.limit=2 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" font.underline="1" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0~tif( holiday_yn5 = 'Y', rgb(255, 0, 0), rgb(0, 0, 0))" x="1815" y="20" height="76" width="82" format="[general]"  name=dd_5 edit.limit=2 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" font.underline="1" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0~tif( holiday_yn6 = 'Y', rgb(255, 0, 0), rgb(0, 0, 0))" x="2263" y="20" height="76" width="82" format="[general]"  name=dd_6 edit.limit=2 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" font.underline="1" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="16711680~tif( holiday_yn7 = 'Y', rgb(255, 0, 0), rgb(0, 0, 255))" x="2711" y="20" height="76" width="82" format="[general]"  name=dd_7 edit.limit=2 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" font.underline="1" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="255" x="27" y="20" height="76" width="82" format="[general]"  name=dd_1 edit.limit=2 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" font.underline="1" background.mode="1" background.color="553648127" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="255" x="142" y="20" height="72" width="283" format="[general]"  name=remark_1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="255~tif( holiday_yn2 = 'Y', rgb(255, 0, 0), rgb(0, 0, 0))" x="590" y="20" height="72" width="283" format="[general]"  name=remark_2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="255~tif( holiday_yn3 = 'Y', rgb(255, 0, 0), rgb(0, 0, 0))" x="1038" y="20" height="72" width="283" format="[general]"  name=remark_3 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="255~tif( holiday_yn4 = 'Y', rgb(255, 0, 0), rgb(0, 0, 0))" x="1486" y="20" height="72" width="283" format="[general]"  name=remark_4 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="255~tif( holiday_yn5 = 'Y', rgb(255, 0, 0), rgb(0, 0, 0))" x="1934" y="20" height="72" width="283" format="[general]"  name=remark_5 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="255~tif( holiday_yn6 = 'Y', rgb(255, 0, 0), rgb(0, 0, 0))" x="2382" y="20" height="72" width="283" format="[general]"  name=remark_6 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="255~tif( holiday_yn7 = 'Y', rgb(255, 0, 0), rgb(0, 0, 255))" x="2830" y="20" height="72" width="279" format="[general]"  name=remark_7 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="자동취소" border="0" color="0" x="114" y="156" height="56" width="293"  name=t_1 visible="1~tif( auto_yn1 = 'N', 1, 0)"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="자동취소" border="0" color="0" x="553" y="156" height="56" width="293"  name=t_2 visible="1~tif( auto_yn2 = 'N', 1, 0)"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="자동취소" border="0" color="0" x="1001" y="156" height="56" width="293"  name=t_3 visible="1~tif( auto_yn3 = 'N', 1, 0)"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="자동취소" border="0" color="0" x="1449" y="156" height="56" width="293"  name=t_4 visible="1~tif( auto_yn4 = 'N', 1, 0)"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="자동취소" border="0" color="0" x="1893" y="156" height="56" width="293"  name=t_5 visible="1~tif( auto_yn5 = 'N', 1, 0)"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="자동취소" border="0" color="0" x="2345" y="156" height="56" width="293"  name=t_6 visible="1~tif( auto_yn6 = 'N', 1, 0)"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="자동취소" border="0" color="0" x="2793" y="156" height="56" width="293"  name=t_7 visible="1~tif( auto_yn7 = 'N', 1, 0)"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+button(band=detail text=""filename=""action="0" border="0" color="0" x="5" y="4" height="236" width="448" vtextalign="0" htextalign="0"  name=b_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+button(band=detail text=""filename=""action="0" border="0" color="0" x="453" y="4" height="236" width="448" vtextalign="0" htextalign="0"  name=b_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+button(band=detail text=""filename=""action="0" border="0" color="0" x="901" y="4" height="236" width="448" vtextalign="0" htextalign="0"  name=b_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+button(band=detail text=""filename=""action="0" border="0" color="0" x="1349" y="4" height="236" width="448" vtextalign="0" htextalign="0"  name=b_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+button(band=detail text=""filename=""action="0" border="0" color="0" x="1797" y="4" height="236" width="448" vtextalign="0" htextalign="0"  name=b_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+button(band=detail text=""filename=""action="0" border="0" color="0" x="2245" y="4" height="236" width="448" vtextalign="0" htextalign="0"  name=b_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+button(band=detail text=""filename=""action="0" border="0" color="0" x="2693" y="4" height="236" width="448" vtextalign="0" htextalign="0"  name=b_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

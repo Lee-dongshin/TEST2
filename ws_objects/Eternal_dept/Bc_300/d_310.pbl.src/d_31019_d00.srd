@@ -1,0 +1,64 @@
+﻿$PBExportHeader$d_31019_d00.srd
+$PBExportComments$주간 투입 및 입고현황
+release 7;
+datawindow(units=0 timer_interval=0 color=1090519039 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no rows_per_detail = 6 )
+header(height=212 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=356 color="536870912"  height.autosize=yes)
+table(column=(type=char(1) updatewhereclause=yes name=oi_gubn dbname="oi_gubn" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=t_date dbname="t_date" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=week_cd dbname="TB_DATE.week_cd" )
+ column=(type=char(3) update=yes updatewhereclause=yes name=week_kor dbname="TB_DATE.week_kor" )
+ column=(type=char(1) updatewhereclause=yes name=brand dbname="TB_DATE.brand" )
+ column=(type=char(8) updatewhereclause=yes name=yymmdd dbname="TB_DATE.yymmdd" )
+ column=(type=char(1) updatewhereclause=yes name=make_type dbname="TB_DATE.make_type" )
+ column=(type=char(1) updatewhereclause=yes name=first_in dbname="TB_DATE.first_in" )
+ retrieve="select '0' as oi_gubn, 
+right(t_date,4) as t_date, 
+week_cd, week_kor, 
+:brand as brand, 
+t_date as yymmdd, 
+:make_type as make_type,
+:first_in	as first_in  
+from tb_date
+where t_date between convert(char(8),dateadd(dd,-5,:yymmdd),112) and :yymmdd	
+
+union all
+
+select '1' as oi_gubn, 
+right(t_date,4) as t_date, 
+week_cd, week_kor, 
+:brand as brand, 
+t_date as yymmdd, 
+:make_type as make_type  ,
+:first_in	as first_in  
+from tb_date
+where t_date between convert(char(8),dateadd(dd,-5,:yymmdd),112) and :yymmdd	" arguments=(("brand", string),("yymmdd", string),("make_type", string),("first_in", string)) )
+text(band=header alignment="2" text="주간투입 및 입고현황" border="4" color="0" x="1929" y="32" height="72" width="864"  name=t_3  font.face="굴림체" font.height="-12" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="" border="0" color="33554432" x="14" y="60" height="56" width="1417"  name=t_brand  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+line(band=header x1="9" y1="200" x2="4873" y2="200"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="업체/국내/해외/출고차순 " border="0" color="33554432" x="215" y="136" height="56" width="754"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82042848" )
+report(band=detail dataobject="d_31019_d01" x="2551" y="128" height="164" width="754" border="0"  height.autosize=yes criteria="" nest_arguments=(("brand"),("yymmdd[3]"),("oi_gubn"),("make_type"),("first_in")) trail_footer = yes  name=dw_3  slideup=directlyabove )
+report(band=detail dataobject="d_31019_d01" x="3333" y="128" height="164" width="754" border="0"  height.autosize=yes criteria="" nest_arguments=(("brand"),("yymmdd[4]"),("oi_gubn"),("make_type"),("first_in")) trail_footer = yes  name=dw_4  slideup=directlyabove )
+report(band=detail dataobject="d_31019_d01" x="4114" y="128" height="164" width="754" border="0"  height.autosize=yes criteria="" nest_arguments=(("brand"),("yymmdd[5]"),("oi_gubn"),("make_type"),("first_in")) trail_footer = yes  name=dw_5  slideup=directlyabove )
+report(band=detail dataobject="d_31019_d01" x="1774" y="128" height="164" width="754" border="0"  height.autosize=yes criteria="" nest_arguments=(("brand"),("yymmdd[2]"),("oi_gubn"),("make_type"),("first_in")) trail_footer = yes  name=dw_2  slideup=directlyabove )
+text(band=detail alignment="2" text="날짜" border="0" color="33554432" x="18" y="0" height="56" width="183"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82042848" )
+text(band=detail alignment="2" text="요일" border="0" color="33554432" x="18" y="60" height="56" width="183"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82042848" )
+compute(band=detail alignment="2" expression="case( oi_gubn when '0' then '투입' when '1' then '입고')"border="0" color="0" x="23" y="128" height="160" width="178" format="[GENERAL]"  name=compute_1  font.face="Arial" font.height="-12" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="82042848" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="0" color="33554432" x="215" y="0" height="56" width="754" format="@@월 @@일" row_in_detail=1  name=t_date_1 edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="82042848" )
+column(band=detail id=4 alignment="0" tabsequence=30 border="0" color="33554432~tcase( week_cd when '1' then rgb(255,0,0) when '7' then rgb(0,0,255) else rgb(0,0,0) )" x="215" y="60" height="56" width="754" format="[general]" row_in_detail=1  name=week_kor_1 edit.limit=3 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="82042848" )
+column(band=detail id=2 alignment="0" tabsequence=40 border="0" color="33554432" x="997" y="0" height="56" width="754" format="@@월 @@일" row_in_detail=2  name=t_date_2 edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="82042848" )
+column(band=detail id=2 alignment="0" tabsequence=70 border="0" color="33554432" x="1774" y="0" height="56" width="754" format="@@월 @@일" row_in_detail=3  name=t_date_3 edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="82042848" )
+column(band=detail id=2 alignment="0" tabsequence=100 border="0" color="33554432" x="2551" y="0" height="56" width="754" format="@@월 @@일" row_in_detail=4  name=t_date_4 edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="82042848" )
+column(band=detail id=2 alignment="0" tabsequence=130 border="0" color="33554432" x="3333" y="0" height="56" width="754" format="@@월 @@일" row_in_detail=5  name=t_date_5 edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="82042848" )
+column(band=detail id=2 alignment="0" tabsequence=160 border="0" color="33554432" x="4114" y="0" height="56" width="754" format="@@월 @@일" row_in_detail=6  name=t_date_6 edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="82042848" )
+column(band=detail id=4 alignment="0" tabsequence=120 border="0" color="33554432~tcase( week_cd when '1' then rgb(255,0,0) when '7' then rgb(0,0,255) else rgb(0,0,0) )" x="2551" y="60" height="56" width="754" format="[general]" row_in_detail=4  name=week_kor_4 edit.limit=3 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="82042848" )
+column(band=detail id=4 alignment="0" tabsequence=150 border="0" color="33554432~tcase( week_cd when '1' then rgb(255,0,0) when '7' then rgb(0,0,255) else rgb(0,0,0) )" x="3333" y="60" height="56" width="754" format="[general]" row_in_detail=5  name=week_kor_5 edit.limit=3 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="82042848" )
+column(band=detail id=4 alignment="0" tabsequence=180 border="0" color="33554432~tcase( week_cd when '1' then rgb(255,0,0) when '7' then rgb(0,0,255) else rgb(0,0,0) )" x="4114" y="60" height="56" width="754" format="[general]" row_in_detail=6  name=week_kor_6 edit.limit=3 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="82042848" )
+column(band=detail id=4 alignment="0" tabsequence=60 border="0" color="33554432~tcase( week_cd when '1' then rgb(255,0,0) when '7' then rgb(0,0,255) else rgb(0,0,0) )" x="997" y="60" height="56" width="754" format="[general]" row_in_detail=2  name=week_kor_2 edit.limit=3 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="82042848" )
+column(band=detail id=4 alignment="0" tabsequence=90 border="0" color="33554432~tcase( week_cd when '1' then rgb(255,0,0) when '7' then rgb(0,0,255) else rgb(0,0,0) )" x="1774" y="60" height="56" width="754" format="[general]" row_in_detail=3  name=week_kor_3 edit.limit=3 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="82042848" )
+report(band=detail dataobject="d_31019_d01" x="215" y="128" height="164" width="754" border="0"  height.autosize=yes criteria="" nest_arguments=(("brand"),("yymmdd[0]"),("oi_gubn"),("make_type"),("first_in")) trail_footer = yes  name=dw_6  slideup=directlyabove )
+report(band=detail dataobject="d_31019_d01" x="997" y="128" height="164" width="754" border="0"  height.autosize=yes criteria="" nest_arguments=(("brand"),("yymmdd[1]"),("oi_gubn"),("make_type"),("first_in")) trail_footer = yes  name=dw_1  slideup=directlyabove )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

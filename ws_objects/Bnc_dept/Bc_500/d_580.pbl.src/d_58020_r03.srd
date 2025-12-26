@@ -1,0 +1,15 @@
+﻿$PBExportHeader$d_58020_r03.srd
+$PBExportComments$온앤온 미수금 정리
+release 7;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=5 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=164 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=316 color="536870912"  height.autosize=yes)
+table(column=(type=char(10) updatewhereclause=yes name=a dbname="a" )
+ unbound = "yes"arguments=(("from_date", string),("to_date", string)) )
+text(band=header alignment="0" text="온앤온 미수금 정리" border="0" color="0" x="101" y="16" height="112" width="1106"  name=t_1  font.face="굴림체" font.height="-18" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+report(band=detail dataobject="d_58020_r01" x="14" y="20" height="120" width="4992" border="0"  height.autosize=yes criteria="" nest_arguments=((" from_date "),(" to_date ")) trail_footer = yes  name=dw_1  slideup=directlyabove )
+report(band=detail dataobject="d_58020_r02" x="14" y="176" height="120" width="3237" border="0"  height.autosize=yes criteria="" nest_arguments=((" from_date "),(" to_date ")) trail_footer = yes  name=dw_2  slideleft=yes  slideup=directlyabove )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

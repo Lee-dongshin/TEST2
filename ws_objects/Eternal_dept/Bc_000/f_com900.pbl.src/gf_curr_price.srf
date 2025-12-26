@@ -1,0 +1,21 @@
+﻿$PBExportHeader$gf_curr_price.srf
+$PBExportComments$기준일 현재tag가 산출
+global type gf_curr_price from function_object
+end type
+
+forward prototypes
+global function integer gf_curr_price (string as_style, string as_yymmdd, ref decimal as_curr_price)
+end prototypes
+
+global function integer gf_curr_price (string as_style, string as_yymmdd, ref decimal as_curr_price);
+select dbo.SF_curr_PRICE(:as_style, :as_yymmdd)
+into :as_curr_price
+from dual;
+
+
+IF ISNULL(as_style)  or ISNULL(as_yymmdd) THEN RETURN 100
+
+RETURN sqlca.sqlcode 
+
+end function
+

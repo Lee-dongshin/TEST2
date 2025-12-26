@@ -1,0 +1,27 @@
+﻿$PBExportHeader$d_55028_d34.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(255) updatewhereclause=yes name=shop_nm dbname="shop_nm" )
+ column=(type=decimal(0) updatewhereclause=yes name=sale_qty dbname="sale_qty" )
+ retrieve="select top 8 replace(replace(dbo.sf_shop_nm(shop_cd, 's'),'(올리브)',''),'(W.)','') as shop_nm, 
+ case when :As_sale_gubn = '0' then sum(isnull(sale_qty,0)) - sum(isnull(sale_qty9,0))
+		when :As_sale_gubn = '1' then sum(isnull(sale_qty1,0)) 
+		else sum(isnull(sale_qty,0)) end as sale_qty
+from tb_44012_s
+where style    = :As_style
+and   chno  like :as_chno + '%'
+and   shop_div in ('G','K','D')
+group by shop_cd
+having  case when :As_sale_gubn = '0' then sum(isnull(sale_qty,0)) - sum(isnull(sale_qty9,0))
+		when :As_sale_gubn = '1' then sum(isnull(sale_qty1,0)) 
+		else sum(isnull(sale_qty,0)) end  > 0
+order by 2 desc" arguments=(("as_style", string),("as_chno", string),("as_sale_gubn", string)) )
+text(band=header alignment="2" text="매장명" border="0" color="0" x="14" y="8" height="60" width="466"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="판매수량" border="0" color="0" x="494" y="8" height="60" width="238"  name=sale_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="14" y="4" height="60" width="430" format="[general]"  name=shop_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="457" y="4" height="60" width="133" format="#,###"  name=sale_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

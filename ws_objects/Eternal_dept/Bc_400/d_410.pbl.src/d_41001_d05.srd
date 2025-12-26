@@ -1,0 +1,158 @@
+﻿$PBExportHeader$d_41001_d05.srd
+$PBExportComments$입고등록 추가분 저장용
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes key=yes name=yymmdd dbname="TB_41010_H.YYMMDD" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=cust_cd dbname="TB_41010_H.CUST_CD" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=in_no dbname="TB_41010_H.IN_NO" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=no dbname="TB_41010_H.NO" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=in_gubn dbname="TB_41010_H.IN_GUBN" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=jup_gubn dbname="TB_41010_H.JUP_GUBN" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=house_cd dbname="TB_41010_H.HOUSE_CD" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=style dbname="TB_41010_H.STYLE" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=chno dbname="TB_41010_H.CHNO" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=color dbname="TB_41010_H.COLOR" )
+ column=(type=char(3) update=yes updatewhereclause=yes name=size dbname="TB_41010_H.SIZE" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=class dbname="TB_41010_H.CLASS" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=dc_rate dbname="TB_41010_H.DC_RATE" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=make_price dbname="TB_41010_H.MAKE_PRICE" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=real_make_amt dbname="TB_41010_H.REAL_MAKE_AMT" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=qty dbname="TB_41010_H.QTY" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=amt dbname="TB_41010_H.AMT" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=close_yn dbname="TB_41010_H.CLOSE_YN" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=iwol_yn dbname="TB_41010_H.IWOL_YN" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=bill_date dbname="TB_41010_H.BILL_DATE" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=bill_no dbname="TB_41010_H.BILL_NO" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=trigger_yn dbname="TB_41010_H.TRIGGER_YN" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=brand dbname="TB_41010_H.BRAND" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=year dbname="TB_41010_H.YEAR" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=season dbname="TB_41010_H.SEASON" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=item dbname="TB_41010_H.ITEM" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=sojae dbname="TB_41010_H.SOJAE" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=iche_style dbname="TB_41010_H.ICHE_STYLE" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=iche_chno dbname="TB_41010_H.ICHE_CHNO" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=pay_gubn dbname="TB_41010_H.pay_gubn" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="TB_41010_H.REG_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="TB_41010_H.REG_DT" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="TB_41010_H.MOD_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="TB_41010_H.MOD_DT" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=dlvy_claim dbname="TB_41010_H.dlvy_claim" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=qty_chn dbname="TB_41010_H.qty_chn" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=qty_rus dbname="TB_41010_H.qty_rus" )
+ retrieve="select	YYMMDD,	
+			CUST_CD,
+			IN_NO,
+			NO,
+			IN_GUBN,
+			JUP_GUBN,
+			HOUSE_CD,
+			STYLE,
+			CHNO,
+			COLOR,
+			SIZE,
+			CLASS,
+			DC_RATE,
+			MAKE_PRICE,
+			REAL_MAKE_AMT,
+			QTY,
+			AMT,
+			CLOSE_YN,
+			IWOL_YN,
+			BILL_DATE,
+			BILL_NO,
+			TRIGGER_YN,
+			BRAND,
+			YEAR,
+			SEASON,
+			ITEM,
+			SOJAE,
+			ICHE_STYLE,
+			ICHE_CHNO,
+			pay_gubn,
+			REG_ID,
+			REG_DT,
+			MOD_ID,
+			MOD_DT,
+			dlvy_claim,
+			qty_chn,
+			qty_rus
+
+from tb_41010_h
+where style = 'x'" update="tb_41010_h" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="Yymmdd" border="2" color="0" x="5" y="4" height="60" width="247"  name=yymmdd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Cust Cd" border="2" color="0" x="256" y="4" height="60" width="215"  name=cust_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="In No" border="2" color="0" x="475" y="4" height="60" width="137"  name=in_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="No" border="2" color="0" x="617" y="4" height="60" width="137"  name=no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Dc Rate" border="2" color="0" x="2309" y="4" height="60" width="329"  name=dc_rate_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Make Price" border="2" color="0" x="2642" y="4" height="60" width="329"  name=make_price_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="In Gubn" border="2" color="0" x="759" y="4" height="60" width="210"  name=in_gubn_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Jup Gubn" border="2" color="0" x="974" y="4" height="60" width="251"  name=jup_gubn_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="House Cd" border="2" color="0" x="1234" y="4" height="60" width="261"  name=house_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Style" border="2" color="0" x="1495" y="4" height="60" width="247"  name=style_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Chno" border="2" color="0" x="1746" y="4" height="60" width="137"  name=chno_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Color" border="2" color="0" x="1888" y="4" height="60" width="137"  name=color_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Size" border="2" color="0" x="2030" y="4" height="60" width="119"  name=size_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Class" border="2" color="0" x="2153" y="4" height="60" width="151"  name=class_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Real Make Amt" border="2" color="0" x="2976" y="4" height="60" width="411"  name=real_make_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Qty" border="2" color="0" x="3397" y="4" height="60" width="329"  name=qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Amt" border="2" color="0" x="3730" y="4" height="60" width="325"  name=amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Close Yn" border="2" color="0" x="4059" y="4" height="60" width="242"  name=close_yn_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Iwol Yn" border="2" color="0" x="4306" y="4" height="60" width="192"  name=iwol_yn_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Bill Date" border="2" color="0" x="4503" y="4" height="60" width="302"  name=bill_date_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Bill No" border="2" color="0" x="4809" y="4" height="60" width="174"  name=bill_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Year" border="2" color="0" x="5426" y="4" height="60" width="137"  name=year_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Trigger Yn" border="2" color="0" x="4992" y="4" height="60" width="270"  name=trigger_yn_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Brand" border="2" color="0" x="5266" y="4" height="60" width="155"  name=brand_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Season" border="2" color="0" x="5568" y="4" height="60" width="201"  name=season_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Sojae" border="2" color="0" x="5774" y="4" height="60" width="151"  name=sojae_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Mod Id" border="2" color="0" x="7621" y="4" height="60" width="192"  name=mod_id_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Mod Dt" border="2" color="0" x="7817" y="4" height="60" width="603"  name=mod_dt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Iche Style" border="2" color="0" x="6002" y="4" height="60" width="265"  name=iche_style_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Iche Chno" border="2" color="0" x="6272" y="4" height="60" width="265"  name=iche_chno_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Pay Gubn" border="2" color="0" x="6542" y="4" height="60" width="265"  name=pay_gubn_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Reg Id" border="2" color="0" x="6811" y="4" height="60" width="192"  name=reg_id_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Reg Dt" border="2" color="0" x="7008" y="4" height="60" width="603"  name=reg_dt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Dlvy Claim" border="2" color="0" x="8425" y="4" height="60" width="279"  name=dlvy_claim_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="2" color="0" x="5" y="4" height="60" width="247" format="[general]"  name=yymmdd edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="2" color="0" x="256" y="4" height="60" width="215" format="[general]"  name=cust_cd edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="2" color="0" x="475" y="4" height="60" width="137" format="[general]"  name=in_no edit.limit=4 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="2" color="0" x="617" y="4" height="60" width="137" format="[general]"  name=no edit.limit=4 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="1" tabsequence=130 border="2" color="0" x="2309" y="4" height="60" width="329" format="[general]"  name=dc_rate edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="1" tabsequence=140 border="2" color="0" x="2642" y="4" height="60" width="329" format="[general]"  name=make_price edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=50 border="2" color="0" x="763" y="4" height="60" width="210" format="[general]"  name=in_gubn edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=60 border="2" color="0" x="978" y="4" height="60" width="251" format="[general]"  name=jup_gubn edit.limit=2 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=70 border="2" color="0" x="1234" y="4" height="60" width="261" format="[general]"  name=house_cd edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=80 border="2" color="0" x="1495" y="4" height="60" width="247" format="[general]"  name=style edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=90 border="2" color="0" x="1746" y="4" height="60" width="137" format="[general]"  name=chno edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=100 border="2" color="0" x="1888" y="4" height="60" width="137" format="[general]"  name=color edit.limit=2 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=110 border="2" color="0" x="2030" y="4" height="60" width="119" format="[general]"  name=size edit.limit=3 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=120 border="2" color="0" x="2153" y="4" height="60" width="151" format="[general]"  name=class edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="1" tabsequence=150 border="2" color="0" x="2976" y="4" height="60" width="411" format="[general]"  name=real_make_amt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="1" tabsequence=160 border="2" color="0" x="3397" y="4" height="60" width="329" format="[general]"  name=qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=17 alignment="1" tabsequence=170 border="2" color="0" x="3730" y="4" height="60" width="325" format="[general]"  name=amt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="0" tabsequence=180 border="2" color="0" x="4059" y="4" height="60" width="242" format="[general]"  name=close_yn edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=19 alignment="0" tabsequence=190 border="2" color="0" x="4306" y="4" height="60" width="192" format="[general]"  name=iwol_yn edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=20 alignment="0" tabsequence=200 border="2" color="0" x="4503" y="4" height="60" width="302" format="[general]"  name=bill_date edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=21 alignment="0" tabsequence=210 border="2" color="0" x="4809" y="4" height="60" width="174" format="[general]"  name=bill_no edit.limit=4 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=24 alignment="0" tabsequence=240 border="2" color="0" x="5426" y="4" height="60" width="137" format="[general]"  name=year edit.limit=4 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=22 alignment="0" tabsequence=220 border="2" color="0" x="4992" y="4" height="60" width="270" format="[general]"  name=trigger_yn edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=23 alignment="0" tabsequence=230 border="2" color="0" x="5266" y="4" height="60" width="155" format="[general]"  name=brand edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=25 alignment="0" tabsequence=250 border="2" color="0" x="5568" y="4" height="60" width="201" format="[general]"  name=season edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=27 alignment="0" tabsequence=260 border="2" color="0" x="5774" y="4" height="60" width="151" format="[general]"  name=sojae edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=26 alignment="0" tabsequence=32766 border="0" color="0" x="5929" y="4" height="60" width="64" format="[general]"  name=item edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=33 alignment="0" tabsequence=320 border="2" color="0" x="7621" y="4" height="60" width="192" format="[general]"  name=mod_id edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=34 alignment="0" tabsequence=330 border="2" color="0" x="7817" y="4" height="60" width="603" format="[shortdate] [time]"  name=mod_dt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=28 alignment="0" tabsequence=270 border="2" color="0" x="6002" y="4" height="60" width="265" format="[general]"  name=iche_style edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=29 alignment="0" tabsequence=280 border="2" color="0" x="6272" y="4" height="60" width="265" format="[general]"  name=iche_chno edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=30 alignment="0" tabsequence=290 border="2" color="0" x="6542" y="4" height="60" width="265" format="[general]"  name=pay_gubn edit.limit=2 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=31 alignment="0" tabsequence=300 border="2" color="0" x="6811" y="4" height="60" width="192" format="[general]"  name=reg_id edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=32 alignment="0" tabsequence=310 border="2" color="0" x="7008" y="4" height="60" width="603" format="[shortdate] [time]"  name=reg_dt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=35 alignment="0" tabsequence=340 border="2" color="0" x="8425" y="4" height="60" width="279" format="[general]"  name=dlvy_claim edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=36 alignment="0" tabsequence=32766 border="0" color="0" x="8704" y="0" height="56" width="2350" format="[general]"  name=qty_chn edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=37 alignment="0" tabsequence=0 border="0" color="0" x="11054" y="0" height="56" width="2350"  name=qty_rus  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,26 @@
+﻿$PBExportHeader$gf_acc_nm.srf
+$PBExportComments$계정코드 명칭 읽어온다.
+global type gf_acc_nm from function_object
+end type
+
+forward prototypes
+global function long gf_acc_nm (string as_acc_cd, string as_flag, ref string as_acc_nm)
+end prototypes
+
+global function long gf_acc_nm (string as_acc_cd, string as_flag, ref string as_acc_nm);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 작 성 일  : 2002/06/26                                     */
+/* 수 정 일  : 2002/06/26                                     */
+/* 내    용  : 계정코드명을 읽어온다.('L':명칭, 'S':약칭)     */
+/*============================================================*/
+
+SELECT dbo.sf_acc_nm(:as_acc_cd, :as_flag)
+  INTO :as_acc_nm 
+  FROM DUAL ;
+
+IF ISNULL(as_acc_nm) THEN RETURN 100
+
+RETURN sqlca.sqlcode 
+
+end function
+

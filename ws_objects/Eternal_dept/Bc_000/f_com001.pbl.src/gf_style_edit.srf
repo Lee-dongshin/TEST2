@@ -1,0 +1,99 @@
+﻿$PBExportHeader$gf_style_edit.srf
+$PBExportComments$입력 품번 편집
+global type gf_style_edit from function_object
+end type
+
+forward prototypes
+global subroutine gf_style_edit (string as_style_bf, string as_data, ref string as_style, ref string as_chno)
+end prototypes
+
+global subroutine gf_style_edit (string as_style_bf, string as_data, ref string as_style, ref string as_chno);Long   ll_len 
+String ls_string, ls_brand, ls_year, ls_season, ls_item, ls_seq 
+String ls_bujin_chk, ls_dep_ymd, ls_dep_seq, ls_style
+
+ls_brand  = MidA(as_style_bf, 1, 1)
+ls_year   = MidA(as_style_bf, 3, 1)
+ls_season = MidA(as_style_bf, 4, 1)
+ls_item   = MidA(as_style_bf, 5, 1)
+ls_seq    = MidA(as_style_bf, 6, 3)
+ls_String = Trim(upper(as_data))
+
+
+ll_len = LenA(ls_string)
+CHOOSE CASE ll_len 
+	CASE IS < 4 
+		IF Match(LeftA(ls_string, 1), "[0-9]") THEN
+         as_style = ls_brand + '_' + ls_year + ls_season + ls_item + LeftA(ls_seq, 3 - LenA(ls_string)) + ls_string
+	      as_chno  = '%' 
+		ELSEIF Match(LeftA(ls_string, 2), "[A-Z][0-9]") THEN
+         as_style = ls_brand + '_' + ls_year + ls_season + ls_string
+	      as_chno  = '%' 
+		ELSE
+         as_style = ls_string + '%' 
+	      as_chno  = '%' 
+		END IF
+	CASE 4 
+		IF Match(ls_string, "[0-9][0-9][0-9].") THEN 
+         as_style = ls_brand + '_' + ls_year + ls_season + ls_item + LeftA(ls_string, 3)
+         as_chno  = RightA(ls_string, 1)
+		ELSEIF Match(ls_string, "[A-Z][0-9][0-9].") THEN
+         as_style = ls_brand + '_' + ls_year + ls_season + ls_string
+         as_chno  = '%'			
+		ELSEIF Match(ls_string, "[A-Z][0-9][0-9][0-9]") THEN
+         as_style = ls_brand + '_' + ls_year + ls_season + ls_string
+         as_chno  = '%'
+		ELSEIF Match(ls_string, "[A-Z][A-Z][0-9][0-9]") THEN
+         as_style = ls_brand + '_' + ls_year + ls_string + '%'
+         as_chno  = '%'
+		ELSEIF Match(ls_string, "[0-9][A-Z][A-Z][0-9]") THEN
+         as_style = ls_brand + '_' + ls_string + '%'
+         as_chno  = '%'
+	   ELSE
+         as_style = ls_string + '%' 
+	      as_chno  = '%' 
+		END IF
+	CASE 5
+		IF Match(ls_string, "[A-Z][0-9][0-9][0-9].") THEN 
+         as_style = ls_brand + '_' + ls_year + ls_season + LeftA(ls_string, 4)
+         as_chno  = RightA(ls_string, 1)
+		ELSEIF Match(ls_string, "[A-Z][A-Z][0-9][0-9][0-9]") THEN 
+         as_style = ls_brand + '_' + ls_year + ls_string 
+         as_chno  = '%'
+		ELSEIF Match(ls_string, "[0-9][A-Z][A-Z][0-9][0-9]") THEN 
+         as_style = ls_brand + '_' + ls_string + '%'
+         as_chno  = '%'
+	   ELSE
+         as_style = ls_string + '%' 
+	      as_chno  = '%' 
+		END IF
+	CASE 6 
+		IF Match(ls_string, "[A-Z][A-Z][0-9][0-9][0-9].") THEN 
+         as_style = ls_brand + '_' + ls_year + LeftA(ls_string, 5)
+         as_chno  = RightA(ls_string, 1)
+		ELSEIF Match(ls_string, "[0-9][A-Z][A-Z][0-9][0-9][0-9]") THEN 
+         as_style = ls_brand + '_' + ls_string
+         as_chno  = '%'
+	   ELSE
+         as_style = ls_string + '%' 
+	      as_chno  = '%' 
+		END IF
+	CASE 9 
+		as_style = LeftA(ls_string, 8) 
+      as_chno  = RightA(ls_string, 1)
+	CASE ELSE
+      as_style = LeftA(ls_string, 8) + '%' 
+      as_chno  = '%' 
+END CHOOSE
+
+//select isnull(dep_fg, 'N'), isnull(dep_ymd, 'XXXXXXXX'), isnull(dep_seq, 'XX')
+//into :ls_bujin_chk, :ls_dep_ymd, :ls_dep_seq
+//from beaucre.dbo.tb_12020_m with (nolock)
+//where style like :as_style + '%';
+//
+//if ls_bujin_chk = "Y" then 
+//	messagebox("부진체크", ls_dep_ymd + "-" + ls_dep_seq + "차로 부진처리된 제품입니다!")
+//end if 	
+
+Return 
+end subroutine
+

@@ -1,0 +1,19 @@
+﻿$PBExportHeader$gf_ftp_setpath.srf
+global type gf_ftp_setpath from function_object
+end type
+
+forward prototypes
+global function integer gf_ftp_setpath (string ls_remotepath)
+end prototypes
+
+global function integer gf_ftp_setpath (string ls_remotepath);ulong ul_set
+
+ul_set = u_ftp.FtpSetCurrentDirectoryA(ll_connect, ls_remotepath)
+
+if ul_set = 0 then
+	return -1
+else
+	return 1
+end if
+end function
+

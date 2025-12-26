@@ -1,0 +1,85 @@
+23  Matches Found On "gf_stresv_update":
+
+Entry Name: C:\bnc_dept\Bc_500\w_520.pbl(w_52011_e)
+  Event Name: ue_update()
+    0076:              IF gf_stresv_update (is_to_style, is_to_chno,  is_to_color, ls_size, &
+ 
+Entry Name: C:\bnc_dept\Bc_500\w_520.pbl(w_52012_e)
+  Event Name: ue_update()
+    0071:           IF gf_stresv_update (is_style,    is_chno,     ls_color,  ls_size, &
+ 
+Entry Name: C:\bnc_dept\Bc_500\w_520.pbl(w_52013_e)
+  Event Name: ue_update()
+    0074:           IF gf_stresv_update (is_style,    is_chno,     ls_color, ls_size, &
+ 
+Entry Name: C:\bnc_dept\Bc_500\w_520.pbl(w_52013_test)
+  Event Name: ue_update()
+    0074:           IF gf_stresv_update (is_style,    is_chno,     ls_color, ls_size, &
+ 
+Entry Name: C:\bnc_dept\Bc_500\w_520.pbl(w_52014_e)
+  Event Name: ue_update()
+    0075:           IF gf_stresv_update (is_style,    is_chno,     is_color,   ls_size, &
+ 
+Entry Name: C:\bnc_dept\Bc_500\w_520.pbl(w_52015_e)
+  Event Name: ue_update()
+    0069:           IF gf_stresv_update (is_to_style, is_to_chno,  is_to_color, ls_size, &
+ 
+Entry Name: C:\bnc_dept\Bc_500\w_520.pbl(w_52015_t)
+  Event Name: ue_update
+    0069:       IF gf_stresv_update (is_to_style, is_to_chno,  is_to_color, ls_size, &
+ 
+Entry Name: C:\bnc_dept\Bc_500\w_520.pbl(w_52016_e)
+  Event Name: ue_update()
+    0033:   IF gf_stresv_update (ls_style, ls_chno, ls_color, ls_size, ls_shop_div, ll_new_qty - ll_old_qty, ls_ErrMsg) = FALSE THEN 
+ 
+Entry Name: C:\bnc_dept\Bc_500\w_520.pbl(w_52021_e)
+  Event Name: ue_update()
+    0071:       IF gf_stresv_update (is_to_style, is_to_chno,  is_to_color, ls_size, &
+    0116:       IF gf_stresv_update (is_to_style, is_to_chno,  is_to_color, ls_size, &
+ 
+Entry Name: C:\bnc_dept\Bc_500\w_520.pbl(w_52024_e)
+  Event Name: ue_update()
+    0071:           IF gf_stresv_update (is_style,    is_chno,     is_color,   ls_size, &
+ 
+Entry Name: C:\bnc_dept\Bc_500\w_520.pbl(w_52025_e)
+  Event Name: ue_update()
+    0076:           IF gf_stresv_update (is_style,    is_chno,     ls_color,   ls_size, &
+ 
+Entry Name: C:\bnc_dept\Bc_500\w_520.pbl(w_52027_e)
+  Event Name: ue_update()
+    0075:           IF gf_stresv_update (is_style,    is_chno,     is_color,   ls_size, &
+ 
+Entry Name: C:\bnc_dept\Bc_500\w_520.pbl(w_52028_e)
+  Event Name: ue_update()
+    0071:       IF gf_stresv_update (is_to_style, is_to_chno,  is_to_color, ls_size, &
+    0114:       IF gf_stresv_update (is_to_style, is_to_chno,  is_to_color, ls_size, &
+ 
+Entry Name: C:\bnc_dept\Bc_500\w_520.pbl(w_52030_e)
+  Event Name: ue_update()
+    0073:       IF gf_stresv_update (is_to_style, is_to_chno,  is_to_color, ls_size, &
+    0118:       IF gf_stresv_update (is_to_style, is_to_chno,  is_to_color, ls_size, &
+ 
+Entry Name: C:\bnc_dept\Bc_500\w_520.pbl(w_52031_e)
+  Event Name: ue_update()
+    0078:           IF gf_stresv_update (is_style,    is_chno,     ls_color,   ls_size, &
+ 
+Entry Name: C:\bnc_dept\Bc_400\w_420.pbl(w_42005_e)
+  Control/Function: wf_resv_del
+    0034:       IF gf_stresv_update (ls_style,    ls_chno,     ls_color,   ls_size, &
+ 
+Entry Name: C:\bnc_dept\Bc_400\w_420.pbl(w_42050_e)
+  Event Name: ue_update()
+    0059: //   IF gf_stresv_update (ls_style,    ls_chno,     ls_color,   ls_size, &
+ 
+Entry Name: C:\bnc_dept\Bc_400\w_470.pbl(w_47020_e)
+  Event Name: ue_update()
+    0033:   IF gf_stresv_update (ls_style, ls_chno, ls_color, ls_size, ls_shop_div, ll_new_qty - ll_old_qty, ls_ErrMsg) = FALSE THEN 
+ 
+Entry Name: C:\bnc_dept\Bc_400\w_470.pbl(w_47032_e)
+  Event Name: ue_update()
+    0033:   IF gf_stresv_update (ls_style, ls_chno, ls_color, ls_size, ls_shop_div, ll_new_qty - ll_old_qty, ls_ErrMsg) = FALSE THEN 
+ 
+Entry Name: C:\bnc_dept\Bc_000\f_com001.pbl(gf_stresv_update)
+  Functions For: gf_stresv_update
+    global function boolean gf_stresv_update (string as_style, string as_chno, string as_color, string as_size, string as_shop_div, long al_qty, string as_house, ref string as_errmsg)
+ 

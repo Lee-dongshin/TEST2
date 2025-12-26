@@ -1,0 +1,21 @@
+﻿$PBExportHeader$d_eis_menu.srd
+$PBExportComments$메뉴 LIST[EIS]
+release 7;
+datawindow(units=0 timer_interval=0 color=30864051 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=4 color="79741120" )
+summary(height=0 color="536870912" )
+footer(height=0 color="79741120" )
+detail(height=92 color="536870912" )
+table(column=(type=char(9) updatewhereclause=yes name=pgm_id dbname="TB_93030_H.PGM_ID" )
+ column=(type=char(33) updatewhereclause=yes name=pgm_nm dbname="PGM_NM" )
+ retrieve="  SELECT A.PGM_ID   AS PGM_ID, 
+         isnull(A.display_seq, '00') + '.' + B.PGM_NM   AS PGM_NM 
+    FROM TB_93030_H A, 
+         TB_93020_M B 
+   WHERE A.MENU_ID LIKE :as_menu_id
+     AND A.PGM_ID  =    B.PGM_ID
+	ORDER BY A.DISPLAY_SEQ
+" arguments=(("as_menu_id", string)) )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="16777215~trgb(0,89,82)" x="9" y="4" height="76" width="745" format="[general]"  name=pgm_nm edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

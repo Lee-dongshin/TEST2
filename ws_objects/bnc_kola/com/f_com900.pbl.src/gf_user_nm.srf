@@ -1,0 +1,28 @@
+﻿$PBExportHeader$gf_user_nm.srf
+$PBExportComments$사용자명을 읽어온다.
+global type gf_user_nm from function_object
+end type
+
+forward prototypes
+global function integer gf_user_nm (string as_user_id, ref string as_user_nm)
+end prototypes
+
+global function integer gf_user_nm (string as_user_id, ref string as_user_nm);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 작 성 일  : 2001/09/14                                     */
+/* 수 정 일  : 2001/09/14                                     */
+/* 내    용  : 사용자명을 읽어온다.                           */
+/*============================================================*/
+
+SELECT dbo.SF_USER_NM(:as_user_id)
+  INTO :as_user_nm 
+  FROM DUAL ;
+
+//messagebox("as_user_nm", as_user_nm)
+
+IF ISNULL(as_user_nm) THEN RETURN 100
+
+RETURN sqlca.sqlcode 
+
+end function
+

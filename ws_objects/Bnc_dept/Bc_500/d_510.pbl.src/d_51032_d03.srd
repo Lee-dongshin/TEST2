@@ -1,0 +1,177 @@
+﻿$PBExportHeader$d_51032_d03.srd
+$PBExportComments$매장파트타임근태관리
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=92 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(6) updatewhereclause=yes name=c_empno dbname="TB_51062_d.empno" )
+ column=(type=char(20) updatewhereclause=yes name=emp_nm dbname="EMP_NM" )
+ column=(type=char(6) updatewhereclause=yes name=tb_51061_m_shop_cd dbname="TB_51061_m.shop_cd" )
+ column=(type=char(20) updatewhereclause=yes name=c_shop_snm dbname="TB_51062_d.shop_snm" )
+ column=(type=char(6) updatewhereclause=yes name=tb_51061_m_person_id dbname="TB_51061_m.person_id" )
+ column=(type=char(30) updatewhereclause=yes name=tb_51061_m_person_nm dbname="TB_51061_m.person_nm" )
+ column=(type=char(20) updatewhereclause=yes name=tb_51061_m_tel1 dbname="TB_51061_m.tel1" )
+ column=(type=decimal(0) updatewhereclause=yes name=tb_51061_m_amt dbname="TB_51061_m.amt" )
+ column=(type=char(6) updatewhereclause=yes name=a_yymm dbname="TB_51062_d.yymm" )
+ column=(type=char(6) updatewhereclause=yes name=a_person_id dbname="TB_51062_d.person_id" )
+ column=(type=char(1) updatewhereclause=yes name=a_d1 dbname="TB_51062_d.d1" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=a_d2 dbname="TB_51062_d.d2" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=a_d3 dbname="TB_51062_d.d3" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=a_d4 dbname="TB_51062_d.d4" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=a_d5 dbname="TB_51062_d.d5" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=a_d6 dbname="TB_51062_d.d6" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=a_d7 dbname="TB_51062_d.d7" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=a_d8 dbname="TB_51062_d.d8" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=a_d9 dbname="TB_51062_d.d9" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=a_d10 dbname="TB_51062_d.d10" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=a_d11 dbname="TB_51062_d.d11" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=a_d12 dbname="TB_51062_d.d12" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=a_d13 dbname="TB_51062_d.d13" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=a_d14 dbname="TB_51062_d.d14" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=a_d15 dbname="TB_51062_d.d15" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=a_d16 dbname="TB_51062_d.d16" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=a_d17 dbname="TB_51062_d.d17" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=a_d18 dbname="TB_51062_d.d18" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=a_d19 dbname="TB_51062_d.d19" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=a_d20 dbname="TB_51062_d.d20" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=a_d21 dbname="TB_51062_d.d21" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=a_d22 dbname="TB_51062_d.d22" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=a_d23 dbname="TB_51062_d.d23" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=a_d24 dbname="TB_51062_d.d24" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=a_d25 dbname="TB_51062_d.d25" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=a_d26 dbname="TB_51062_d.d26" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=a_d27 dbname="TB_51062_d.d27" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=a_d28 dbname="TB_51062_d.d28" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=a_d29 dbname="TB_51062_d.d29" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=a_d30 dbname="TB_51062_d.d30" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=a_d31 dbname="TB_51062_d.d31" values="	Y/	N" )
+ retrieve="select	c.empno, 
+			dbo.sf_emp_nm(c.EMPNO) AS EMP_NM,  
+			b.shop_cd,
+			c.shop_snm, 
+			b.person_id, 
+			b.person_nm, 
+			b.tel1,
+			b.amt,
+			a.yymm,
+			a.person_id,
+			a.d1,
+			a.d2,
+			a.d3,
+			a.d4,
+			a.d5,
+			a.d6,
+			a.d7,
+			a.d8,
+			a.d9,
+			a.d10,
+			a.d11,
+			a.d12,
+			a.d13,
+			a.d14,
+			a.d15,
+			a.d16,
+			a.d17,
+			a.d18,
+			a.d19,
+			a.d20,
+			a.d21,
+			a.d22,
+			a.d23,
+			a.d24,
+			a.d25,
+			a.d26,
+			a.d27,
+			a.d28,
+			a.d29,
+			a.d30,
+			a.d31
+from		tb_51062_d a with (nolock)	left outer join tb_51061_m b on a.person_id = b.person_id
+												left outer join tb_91100_m c with (nolock) on b.shop_cd = c.shop_cd
+												left outer join vi_91102_1 d on b.shop_cd = d.cust_code and c.empno = d.empno" )
+text(band=header alignment="2" text="담당자" border="6" color="0" x="9" y="12" height="68" width="315"  name=emp_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="담당사원코드" border="0" color="0" x="5083" y="12" height="72" width="334"  name=c_empno_t visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="매장코드" border="0" color="0" x="5504" y="12" height="72" width="315"  name=tb_51061_m_shop_cd_t visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="Person Id:" border="0" color="0" x="5865" y="12" height="72" width="315"  name=tb_51061_m_person_id_t visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="PT사원코드" border="0" color="0" x="6272" y="12" height="72" width="315"  name=a_person_id_t visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="매장명" border="6" color="0" x="343" y="12" height="68" width="315"  name=c_shop_snm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Pt성명" border="6" color="0" x="677" y="12" height="68" width="320"  name=tb_51061_m_person_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="연락처" border="6" color="0" x="1015" y="12" height="68" width="421"  name=tb_51061_m_tel1_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="단가" border="6" color="0" x="1454" y="12" height="68" width="325"  name=tb_51061_m_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="1" border="6" color="0" x="2130" y="12" height="68" width="73"  name=a_d1_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="4" border="6" color="0" x="2405" y="12" height="68" width="73"  name=a_d4_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="5" border="6" color="0" x="2496" y="12" height="68" width="73"  name=a_d5_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="6" border="6" color="0" x="2587" y="12" height="68" width="73"  name=a_d6_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="7" border="6" color="0" x="2679" y="12" height="68" width="73"  name=a_d7_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="8" border="6" color="0" x="2770" y="12" height="68" width="73"  name=a_d8_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="9" border="6" color="0" x="2862" y="12" height="68" width="73"  name=a_d9_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="10" border="6" color="0" x="2953" y="12" height="68" width="73"  name=a_d10_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="2" border="6" color="0" x="2222" y="12" height="68" width="73"  name=a_d2_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="3" border="6" color="0" x="2313" y="12" height="68" width="73"  name=a_d3_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="11" border="6" color="0" x="3045" y="12" height="68" width="73"  name=a_d11_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="12" border="6" color="0" x="3136" y="12" height="68" width="73"  name=a_d12_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="31" border="6" color="0" x="4873" y="12" height="68" width="73"  name=a_d31_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="30" border="6" color="0" x="4782" y="12" height="68" width="73"  name=a_d30_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="29" border="6" color="0" x="4690" y="12" height="68" width="73"  name=a_d29_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="28" border="6" color="0" x="4599" y="12" height="68" width="73"  name=a_d28_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="27" border="6" color="0" x="4507" y="12" height="68" width="73"  name=a_d27_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="26" border="6" color="0" x="4416" y="12" height="68" width="73"  name=a_d26_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="25" border="6" color="0" x="4325" y="12" height="68" width="73"  name=a_d25_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="24" border="6" color="0" x="4233" y="12" height="68" width="73"  name=a_d24_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="23" border="6" color="0" x="4142" y="12" height="68" width="73"  name=a_d23_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="22" border="6" color="0" x="4050" y="12" height="68" width="73"  name=a_d22_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="21" border="6" color="0" x="3959" y="12" height="68" width="73"  name=a_d21_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="20" border="6" color="0" x="3867" y="12" height="68" width="73"  name=a_d20_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="19" border="6" color="0" x="3776" y="12" height="68" width="73"  name=a_d19_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="18" border="6" color="0" x="3685" y="12" height="68" width="73"  name=a_d18_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="17" border="6" color="0" x="3593" y="12" height="68" width="73"  name=a_d17_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="16" border="6" color="0" x="3502" y="12" height="68" width="73"  name=a_d16_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="15" border="6" color="0" x="3410" y="12" height="68" width="73"  name=a_d15_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="14" border="6" color="0" x="3319" y="12" height="68" width="73"  name=a_d14_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="13" border="6" color="0" x="3227" y="12" height="68" width="73"  name=a_d13_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="근무월" border="6" color="0" x="1797" y="12" height="68" width="315"  name=a_yymm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="64" width="315" format="[general]"  name=emp_nm edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15780518" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="5152" y="4" height="64" width="192" format="[general]"  name=c_empno visible="1~t0" edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="5518" y="4" height="64" width="192" format="[general]"  name=tb_51061_m_shop_cd visible="1~t0" edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="5984" y="4" height="64" width="192" format="[general]"  name=tb_51061_m_person_id visible="1~t0" edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="6341" y="4" height="64" width="192" format="[general]"  name=a_person_id visible="1~t0" edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="2" tabsequence=20 border="0" color="0" x="2130" y="4" height="60" width="73" format="[general]"  name=a_d1 checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="2" tabsequence=30 border="0" color="0" x="2222" y="4" height="60" width="73" format="[general]"  name=a_d2 checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="2" tabsequence=40 border="0" color="0" x="2313" y="4" height="60" width="73" format="[general]"  name=a_d3 checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="2" tabsequence=50 border="0" color="0" x="2405" y="4" height="60" width="73" format="[general]"  name=a_d4 checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="2" tabsequence=60 border="0" color="0" x="2496" y="4" height="60" width="73" format="[general]"  name=a_d5 checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="2" tabsequence=70 border="0" color="0" x="2587" y="4" height="60" width="73" format="[general]"  name=a_d6 checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=17 alignment="2" tabsequence=80 border="0" color="0" x="2674" y="4" height="60" width="73" format="[general]"  name=a_d7 checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="2" tabsequence=90 border="0" color="0" x="2766" y="4" height="60" width="73" format="[general]"  name=a_d8 checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=19 alignment="2" tabsequence=100 border="0" color="0" x="2857" y="4" height="60" width="73" format="[general]"  name=a_d9 checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=20 alignment="2" tabsequence=110 border="0" color="0" x="2949" y="4" height="60" width="73" format="[general]"  name=a_d10 checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=21 alignment="2" tabsequence=120 border="0" color="0" x="3045" y="4" height="60" width="73" format="[general]"  name=a_d11 checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=22 alignment="2" tabsequence=130 border="0" color="0" x="3136" y="4" height="60" width="73" format="[general]"  name=a_d12 checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=41 alignment="2" tabsequence=320 border="0" color="0" x="4873" y="4" height="60" width="73" format="[general]"  name=a_d31 checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=40 alignment="2" tabsequence=310 border="0" color="0" x="4782" y="4" height="60" width="73" format="[general]"  name=a_d30 checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=39 alignment="2" tabsequence=300 border="0" color="0" x="4690" y="4" height="60" width="73" format="[general]"  name=a_d29 checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=38 alignment="2" tabsequence=290 border="0" color="0" x="4599" y="4" height="60" width="73" format="[general]"  name=a_d28 checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=37 alignment="2" tabsequence=280 border="0" color="0" x="4507" y="4" height="60" width="73" format="[general]"  name=a_d27 checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=36 alignment="2" tabsequence=270 border="0" color="0" x="4416" y="4" height="60" width="73" format="[general]"  name=a_d26 checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=35 alignment="2" tabsequence=260 border="0" color="0" x="4325" y="4" height="60" width="73" format="[general]"  name=a_d25 checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=34 alignment="2" tabsequence=250 border="0" color="0" x="4233" y="4" height="60" width="73" format="[general]"  name=a_d24 checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=33 alignment="2" tabsequence=240 border="0" color="0" x="4142" y="4" height="60" width="73" format="[general]"  name=a_d23 checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=32 alignment="2" tabsequence=230 border="0" color="0" x="4050" y="4" height="60" width="73" format="[general]"  name=a_d22 checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=31 alignment="2" tabsequence=220 border="0" color="0" x="3959" y="4" height="60" width="73" format="[general]"  name=a_d21 checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=30 alignment="2" tabsequence=210 border="0" color="0" x="3867" y="4" height="60" width="73" format="[general]"  name=a_d20 checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=29 alignment="2" tabsequence=200 border="0" color="0" x="3776" y="4" height="60" width="73" format="[general]"  name=a_d19 checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=28 alignment="2" tabsequence=190 border="0" color="0" x="3685" y="4" height="60" width="73" format="[general]"  name=a_d18 checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=27 alignment="2" tabsequence=180 border="0" color="0" x="3593" y="4" height="60" width="73" format="[general]"  name=a_d17 checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=26 alignment="2" tabsequence=170 border="0" color="0" x="3502" y="4" height="60" width="73" format="[general]"  name=a_d16 checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=25 alignment="2" tabsequence=160 border="0" color="0" x="3410" y="4" height="60" width="73" format="[general]"  name=a_d15 checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=24 alignment="2" tabsequence=150 border="0" color="0" x="3319" y="4" height="60" width="73" format="[general]"  name=a_d14 checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=23 alignment="2" tabsequence=140 border="0" color="0" x="3227" y="4" height="60" width="73" format="[general]"  name=a_d13 checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=10 border="5" color="0" x="1797" y="4" height="64" width="315" format="[general]"  name=a_yymm edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="338" y="4" height="64" width="320" format="[general]"  name=c_shop_snm edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15780518" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="672" y="4" height="64" width="325" format="[general]"  name=tb_51061_m_person_nm edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="1010" y="4" height="64" width="425" format="[general]"  name=tb_51061_m_tel1 edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="1449" y="4" height="64" width="329" format="[general]"  name=tb_51061_m_amt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

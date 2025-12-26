@@ -1,0 +1,169 @@
+﻿$PBExportHeader$gf_connect_dbms.srf
+$PBExportComments$DBMS와 CONNECT하는 함수
+global type gf_connect_dbms from function_object
+end type
+
+forward prototypes
+global function boolean gf_connect_dbms (ref transaction tr_sqlca)
+end prototypes
+
+global function boolean gf_connect_dbms (ref transaction tr_sqlca);/*------------------------------------------------------------*/
+/* 작 성 자  : 지우정보                                       */
+/* 내    용  : DBMS에 Connect한다.                            */
+/*------------------------------------------------------------*/
+string 		ls_ini_file,ls_compname, ls_Ipaddr
+LONG ll_buf
+String ls_publicip, ls_host, ls_svr_ip
+long i_pos1, i_pos2
+INTEGER ll_result, li_rc,li_find
+string rtn, ls_file_name, ls_file_path,ls_string, ls_file_date
+
+
+ll_buf = 25
+//
+ls_Ipaddr = space(100) // 메모리 할당! = space(ll_buf) // 메모리 할당!
+//
+ls_compname = space(ll_buf) // 메모리 할당!
+////
+//GetIPAddress(ls_Ipaddr,Len(ls_Ipaddr))
+////
+GetComputerNameA(ls_compname, ll_buf)
+////
+////messagebox("IP", ls_Ipaddr)
+////
+//if mid(ls_Ipaddr,1,7) <> "172.16." then
+////	oleobject req
+////	req = CREATE oleobject
+////	li_rc = req.ConnectToNewObject("Msxml2.XMLHTTP.3.0")
+////	IF li_rc < 0 THEN
+////	 ls_publicip = ''
+////	ELSE
+////	 req.open (2, "http://www.formyip.com" , false)
+////	 req.send ()
+////	 ls_publicip = Trim(req.responsetext)
+////	 ls_host = '<strong>Your IP is '
+////	 i_pos1 = pos(ls_publicip, ls_host) + len(ls_host)
+////	 ls_host = '</strong>'
+////	 i_pos2 = pos(ls_publicip, ls_host)
+////	 i_pos2 = i_pos2 - i_pos1
+////	 ls_publicip = MID(ls_publicip, i_pos1, i_pos2)
+////	END IF
+////	req.DisconnectObject()
+////	Destroy req
+////	
+////	ls_Ipaddr = ls_publicip
+////
+////	if ls_publicip <> "125.140.115.254" and ls_publicip <> "175.208.191.122" and ls_publicip <> "220.118.68.253"  then
+//		ls_compname = ls_compname + ' / ' + ls_Ipaddr	
+////	end if	
+//	
+//end if	
+
+	ls_compname = ls_compname + ' / EIS' 
+//
+
+
+////////////---------------------------------------------------------------------------------------------
+
+
+ 
+
+		ll_buf = 25
+	
+	
+		oleobject req
+		
+		req = CREATE oleobject
+		
+		li_rc = req.ConnectToNewObject("Msxml2.XMLHTTP.3.0")
+		
+	
+		ls_string = "http://smartstore.ibeaucre.co.kr/svrIP.asp"
+		
+	
+		IF li_rc < 0 THEN
+		 ls_svr_ip =  "211.118.198.181" //"220.118.68.121"
+		ELSE
+		 req.open ("POST", ls_string , false)
+		 req.SetRequestHeader("Content-Type","application/x-www-form-urlencoded")
+		 req.send ()
+		 ls_svr_ip = Trim(req.responsetext)
+		
+		END IF
+		
+		req.DisconnectObject()
+		Destroy req				
+
+
+
+
+if IsNull(ls_svr_ip) or ls_svr_ip = "" then
+	 ls_svr_ip =  "211.118.198.181" //"220.118.68.121"  
+end if
+
+
+
+ // ls_svr_ip =  "211.118.198.181"
+
+
+////////////---------------------------------------------------------------------------------------------
+
+
+
+// *** Connect of DBMS((주)보끄레 머천다이징)************
+if (isNull(tr_SQLCA.DBHandle()) or tr_SQLCA.DBHandle() = 0) then
+		/*
+		tr_SQLCA.DBMS       = "MSS Microsoft SQL Server 6.x"	
+		tr_SQLCA.Database   = "eternal" 
+		tr_SQLCA.ServerName = ls_svr_ip //"220.118.68.121"//,1436"   //"172.16.1.200" 
+		tr_SQLCA.LogID      = "bc_dept" 
+		tr_SQLCA.LogPass    = "dept"
+		tr_SQLCA.AutoCommit = FALSE 
+		tr_SQLCA.DBParm     = "CommitOnDisconnect='No' , Host= '" + ls_compname + "'"
+		*/
+		
+		// Profile ETERNAL
+		tr_SQLCA.DBMS = "MSOLEDBSQL SQL Server"
+		tr_SQLCA.LogPass = "dept"
+		tr_SQLCA.ServerName = "211.118.198.183,1433"
+		tr_SQLCA.LogId = "BC_DEPT"
+		tr_SQLCA.AutoCommit = False
+		tr_SQLCA.DBParm = "Database='eternal',Provider='MSOLEDBSQL19'"
+		
+		CONNECT USING tr_SQLCA ;
+	
+		if (tr_SQLCA.SQLCODE<> 0) then	
+			/*
+			tr_SQLCA.DBMS       = "MSS Microsoft SQL Server 6.x"	
+			tr_SQLCA.Database   = "eternal" 
+			tr_SQLCA.ServerName = "mis_svr"   //"172.16.1.200" 	
+			tr_SQLCA.LogID      = "bc_dept" 
+			tr_SQLCA.LogPass    = "dept" 
+			tr_SQLCA.AutoCommit = FALSE 
+			tr_SQLCA.DBParm     = "CommitOnDisconnect='No' , Host= '" + ls_compname + "'"		
+			*/
+			
+			// Profile ETERNAL
+			tr_SQLCA.DBMS = "MSOLEDBSQL SQL Server"
+			tr_SQLCA.LogPass = "dept"
+			tr_SQLCA.ServerName = "211.118.198.183,1433"
+			tr_SQLCA.LogId = "BC_DEPT"
+			tr_SQLCA.AutoCommit = False
+			tr_SQLCA.DBParm = "Database='eternal',Provider='MSOLEDBSQL19'"
+				CONNECT USING tr_SQLCA ;
+				
+				if (tr_SQLCA.SQLCODE<> 0) then
+						MessageBox ("데이타베이스 연결 에러", "데이타베이스가 연결되지 않았습니다.")
+						Return FALSE
+				end if
+			
+		end if
+				
+		
+end if
+
+
+
+
+end function
+

@@ -1,0 +1,20 @@
+﻿$PBExportHeader$d_12a10_spec_set.srd
+$PBExportComments$작업지시서[Assort]
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=char(4) updatewhereclause=yes name=inter_cd dbname="tb_91011_c.inter_cd" )
+ column=(type=char(10) updatewhereclause=yes name=inter_cd1 dbname="tb_91011_c.inter_cd1" )
+ retrieve="		SELECT inter_cd, inter_cd1
+		FROM   tb_91011_c (nolock)
+		WHERE inter_grp = ~"128~"	" )
+data("A10","1","A20","1","A30","1","A40","1","A50","1","A60","1","A70","1","A80","1","B10","2","B20","2","B30","2","B40","2","B50","2","B60","2","B70","2","B80","2",) 
+text(band=header alignment="2" text="Inter Cd" border="0" color="0" x="9" y="8" height="64" width="206"  name=inter_cd_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Inter Cd1" border="0" color="0" x="224" y="8" height="64" width="302"  name=inter_cd1_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="76" width="206" format="[general]"  name=inter_cd edit.limit=4 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="224" y="8" height="76" width="302" format="[general]"  name=inter_cd1 edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

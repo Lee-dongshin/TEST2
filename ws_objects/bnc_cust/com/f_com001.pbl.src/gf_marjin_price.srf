@@ -1,0 +1,24 @@
+﻿$PBExportHeader$gf_marjin_price.srf
+$PBExportComments$매장에따른 마진적용단가 산출
+global type gf_marjin_price from function_object
+end type
+
+forward prototypes
+global function long gf_marjin_price (string as_shop_cd, long al_price, decimal adc_marjin, ref long al_marjin_price)
+end prototypes
+
+global function long gf_marjin_price (string as_shop_cd, long al_price, decimal adc_marjin, ref long al_marjin_price);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 작 성 일  : 2002/01/21                                     */
+/* 수 정 일  : 2002/01/21                                     */
+/* 내    용  : 매장금액산출 구분에 따른 마진적용단가 산출     */
+/*============================================================*/
+
+SELECT dbo.sf_marjin_price(:as_shop_cd, :al_price, :adc_marjin)
+  INTO :al_marjin_price
+  FROM DUAL ;
+
+RETURN sqlca.sqlcode 
+
+end function
+

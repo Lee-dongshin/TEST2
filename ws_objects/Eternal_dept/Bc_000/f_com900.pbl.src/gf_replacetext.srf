@@ -1,0 +1,27 @@
+﻿$PBExportHeader$gf_replacetext.srf
+global type gf_replacetext from function_object
+end type
+
+forward prototypes
+global function string gf_replacetext (string as_srcstr, string as_orgstr, string as_replacestr)
+end prototypes
+
+global function string gf_replacetext (string as_srcstr, string as_orgstr, string as_replacestr);string ls_return
+long start_pos=1
+
+ls_return = as_srcstr
+
+start_pos = PosA(ls_return, as_orgstr, start_pos)
+
+DO WHILE start_pos > 0
+
+    ls_return = ReplaceA(ls_return, start_pos, LenA(as_orgstr), as_replacestr)
+
+    start_pos = PosA(ls_return, as_orgstr, start_pos+LenA(as_replacestr))
+
+LOOP
+
+return ls_return
+
+end function
+

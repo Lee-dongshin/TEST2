@@ -1,0 +1,15 @@
+﻿$PBExportHeader$d_com330.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(1) updatewhereclause=yes name=value_grade dbname="tb_33042_C.VALUE_GRADE" )
+ column=(type=char(20) updatewhereclause=yes name=grade_name dbname="tb_33042_C.GRADE_NAME" )
+ retrieve="  SELECT tb_33042_C.VALUE_GRADE,  tb_33042_C.GRADE_NAME  
+    FROM tb_33042_C   
+  WHERE  tb_33042_C.VALUE_CODE = :AS_VALUE_CODE;
+" arguments=(("AS_VALUE_CODE", string)) )
+compute(band=detail alignment="0" expression="value_grade + ' ' + grade_name"border="0" color="0" x="9" y="0" height="68" width="645" format="[GENERAL]"  name=value_name  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

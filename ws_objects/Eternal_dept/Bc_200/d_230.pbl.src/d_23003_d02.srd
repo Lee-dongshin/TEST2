@@ -1,0 +1,152 @@
+﻿$PBExportHeader$d_23003_d02.srd
+$PBExportComments$자재매입계산서등록
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(2) updatewhereclause=yes name=slip_bonji dbname="slip_bonji" )
+ column=(type=char(1) updatewhereclause=yes name=bill_io dbname="bill_io" )
+ column=(type=char(10) updatewhereclause=yes name=issue_date dbname="issue_date" )
+ column=(type=char(4) updatewhereclause=yes name=bill_no dbname="bill_no" )
+ column=(type=decimal(0) updatewhereclause=yes name=kown dbname="DUAL.kown" )
+ column=(type=decimal(0) updatewhereclause=yes name=ho dbname="DUAL.ho" )
+ column=(type=char(1) updatewhereclause=yes name=report_bungi dbname="report_bungi" )
+ column=(type=char(1) updatewhereclause=yes name=bill_type dbname="bill_type" )
+ column=(type=char(6) updatewhereclause=yes name=cust_code dbname="cust_code" )
+ column=(type=char(1) updatewhereclause=yes name=bill_gubn dbname="bill_gubn" )
+ column=(type=char(20) updatewhereclause=yes name=ownr_name dbname="ownr_name" )
+ column=(type=char(14) updatewhereclause=yes name=cust_idno dbname="cust_idno" )
+ column=(type=char(20) updatewhereclause=yes name=cust_name dbname="cust_name" )
+ column=(type=char(50) updatewhereclause=yes name=cust_addr dbname="cust_addr" )
+ column=(type=decimal(0) updatewhereclause=yes name=qty dbname="DUAL.qty" )
+ column=(type=decimal(0) updatewhereclause=yes name=amt dbname="DUAL.amt" )
+ column=(type=decimal(0) updatewhereclause=yes name=vat dbname="DUAL.vat" )
+ column=(type=decimal(0) updatewhereclause=yes name=sukm_amt dbname="DUAL.sukm_amt" )
+ column=(type=char(1) updatewhereclause=yes name=sukm_yn dbname="sukm_yn" )
+ column=(type=char(100) updatewhereclause=yes name=rmk dbname="rmk" )
+ column=(type=char(10) updatewhereclause=yes name=slip_date dbname="slip_date" )
+ column=(type=char(4) updatewhereclause=yes name=slip_no dbname="slip_no" )
+ column=(type=char(4) updatewhereclause=yes name=slip_serl dbname="slip_serl" )
+ column=(type=char(1) updatewhereclause=yes name=bill_kind dbname="bill_kind" )
+ column=(type=char(1) updatewhereclause=yes name=gubn dbname="gubn" )
+ column=(type=char(1) updatewhereclause=yes name=mat_gubn dbname="mat_gubn" )
+ column=(type=char(40) updatewhereclause=yes name=upte dbname="upte" )
+ column=(type=char(40) updatewhereclause=yes name=jongmok dbname="jongmok" )
+ column=(type=char(6) updatewhereclause=yes name=uid dbname="uid" )
+ column=(type=char(10) updatewhereclause=yes name=idate dbname="idate" )
+ column=(type=decimal(0) updatewhereclause=yes name=pre_in_amt dbname="DUAL.pre_in_amt" )
+ column=(type=char(10) updatewhereclause=yes name=jiguk_date dbname="jiguk_date" )
+ column=(type=char(6) updatewhereclause=yes name=bari_empno dbname="bari_empno" )
+ column=(type=char(1) updatewhereclause=yes name=brand dbname="brand" )
+ column=(type=char(4) updatewhereclause=yes name=bill_serl dbname="bill_serl" )
+ column=(type=char(9) updatewhereclause=yes name=mat_code dbname="mat_code" )
+ column=(type=char(1) updatewhereclause=yes name=chno dbname="chno" )
+ column=(type=char(2) updatewhereclause=yes name=color dbname="color" )
+ column=(type=char(15) updatewhereclause=yes name=spec dbname="spec" )
+ column=(type=decimal(0) updatewhereclause=yes name=in_qty dbname="DUAL.in_qty" )
+ column=(type=decimal(0) updatewhereclause=yes name=in_price dbname="DUAL.in_price" )
+ column=(type=decimal(0) updatewhereclause=yes name=gong_amt dbname="DUAL.gong_amt" )
+ column=(type=decimal(0) updatewhereclause=yes name=vat_1 dbname="DUAL.vat" )
+ column=(type=char(1) updatewhereclause=yes name=bill_yn dbname="bill_yn" )
+ column=(type=char(1) updatewhereclause=yes name=brand_2 dbname="brand" )
+ column=(type=char(2) updatewhereclause=yes name=house dbname="house" )
+ column=(type=char(9) updatewhereclause=yes name=order_origin dbname="order_origin" )
+ column=(type=char(1) updatewhereclause=yes name=origin_chno dbname="origin_chno" )
+ column=(type=char(10) updatewhereclause=yes name=in_date dbname="in_date" )
+ column=(type=char(4) updatewhereclause=yes name=in_no dbname="in_no" )
+ column=(type=char(4) updatewhereclause=yes name=no dbname="no" )
+ column=(type=char(6) updatewhereclause=yes name=uid_3 dbname="uid" )
+ column=(type=char(10) updatewhereclause=yes name=idate_4 dbname="idate" )
+ column=(type=char(4) updatewhereclause=yes name=year dbname="year" )
+ column=(type=char(1) updatewhereclause=yes name=season dbname="season" )
+ column=(type=char(1) updatewhereclause=yes name=mat_gubn_5 dbname="mat_gubn" )
+ retrieve="	select
+     'XX'                                                        slip_bonji,
+     'X'                                                         bill_io,
+     'XXXXXXXXXX'                                                issue_date,
+     'XXXX'                                                      bill_no,
+     9999999999                                                  kown,
+     9999999999                                                  ho,
+     'X'                                                         report_bungi,
+     'X'                                                         bill_type,
+     'XXXXXX'                                                    cust_code,
+     'X'                                                         bill_gubn,
+     'XXXXXXXXXXXXXXXXXXXX'                                      ownr_name,
+     'XXXXXXXXXXXXXX'                                            cust_idno,
+     'XXXXXXXXXXXXXXXXXXXX'                                      cust_name,
+     'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'        cust_addr,
+     9999999999                                                  qty,
+     9999999999                                                  amt,
+     9999999999                                                  vat,
+     9999999999                                                  sukm_amt,
+     'X'                                                         sukm_yn,
+     'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'rmk,
+     'XXXXXXXXXX'                                                slip_date,
+     'XXXX'                                                      slip_no,
+     'XXXX'                                                      slip_serl,
+     'X'                                                         bill_kind,
+     'X'                                                         gubn,
+     'X'                                                         mat_gubn,
+     'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'                  upte,
+     'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'                  jongmok,
+     'XXXXXX'                                                    uid,
+     'XXXXXXXXXX'                                                idate,
+     9999999999                                                  pre_in_amt,
+     'XXXXXXXXXX'                                                jiguk_date,
+     'XXXXXX'                                                    bari_empno,
+     'X'                                                         brand,
+
+     'XXXX'                                                      bill_serl,
+     'XXXXXXXXX'                                                 mat_code,
+     'X'                                                         chno,
+     'XX'                                                        color,
+     'XXXXXXXXXXXXXXX'                                           spec,
+     9999999999                                                  in_qty,
+     9999999999                                                  in_price,
+     9999999999                                                  gong_amt,
+     9999999999                                                  vat,
+     'X'                                                         bill_yn,
+     'X'                                                         brand,
+     'XX'                                                        house,
+     'XXXXXXXXX'                                                 order_origin,
+     'X'                                                         origin_chno,
+     'XXXXXXXXXX'                                                in_date,
+     'XXXX'                                                      in_no,
+     'XXXX'                                                      no,
+     'XXXXXX'                                                    uid,
+     'XXXXXXXXXX'                                                idate,
+     'XXXX'                                                      year,
+     'X'                                                         season,
+     'X'                                                         mat_gubn
+	from	dual"  sort="mat_gubn A " )
+data(null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null ) 
+group(level=1 header.height=0 trailer.height=76 by=("mat_gubn" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="Bill Serl" border="6" color="33554432" x="9" y="8" height="60" width="215"  name=bill_serl_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="Vat" border="6" color="33554432" x="2341" y="8" height="60" width="329"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="Mat Code" border="6" color="33554432" x="242" y="8" height="60" width="274"  name=mat_code_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="Chno" border="6" color="33554432" x="535" y="8" height="60" width="137"  name=chno_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="Spec" border="6" color="33554432" x="846" y="8" height="60" width="439"  name=spec_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="In Qty" border="6" color="33554432" x="1303" y="8" height="60" width="329"  name=in_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="In Price" border="6" color="33554432" x="1650" y="8" height="60" width="325"  name=in_price_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="Gong Amt" border="6" color="33554432" x="1993" y="8" height="60" width="329"  name=gong_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="Color" border="6" color="33554432" x="690" y="8" height="60" width="137"  name=color_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=35 alignment="0" tabsequence=32766 border="5" color="33554432" x="9" y="4" height="60" width="215" format="[general]"  name=bill_serl edit.limit=4 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=36 alignment="0" tabsequence=32766 border="5" color="33554432" x="242" y="4" height="60" width="274" format="[general]"  name=mat_code edit.limit=9 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=37 alignment="0" tabsequence=32766 border="5" color="33554432" x="535" y="4" height="60" width="137" format="[general]"  name=chno edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=39 alignment="0" tabsequence=32766 border="5" color="33554432" x="846" y="4" height="60" width="439" format="[general]"  name=spec edit.limit=15 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=40 alignment="1" tabsequence=32766 border="5" color="33554432" x="1303" y="4" height="60" width="329" format="[general]"  name=in_qty edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=41 alignment="1" tabsequence=32766 border="5" color="33554432" x="1650" y="4" height="60" width="325" format="[general]"  name=in_price edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=42 alignment="1" tabsequence=32766 border="5" color="33554432" x="1993" y="4" height="60" width="329" format="[general]"  name=gong_amt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=43 alignment="1" tabsequence=32766 border="5" color="33554432" x="2341" y="4" height="60" width="329" format="[general]"  name=vat_1 edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=38 alignment="0" tabsequence=32766 border="5" color="33554432" x="690" y="4" height="60" width="137" format="[general]"  name=color edit.limit=2 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="80269524" )
+compute(band=trailer.1 alignment="1" expression="sum(in_qty for group 1)"border="5" color="33554432" x="1303" y="4" height="60" width="329" format="[general]"  name=compute_9  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(in_price for group 1)"border="5" color="33554432" x="1650" y="4" height="60" width="325" format="[general]"  name=compute_10  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(gong_amt for group 1)"border="5" color="33554432" x="1993" y="4" height="60" width="329" format="[general]"  name=compute_11  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(vat for group 1)"border="5" color="33554432" x="2341" y="4" height="60" width="329" format="[general]"  name=compute_12  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(in_price for all)"border="0" color="33554432" x="17198" y="16" height="60" width="325" format="[general]"  name=compute_21  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(gong_amt for all)"border="0" color="33554432" x="17541" y="16" height="60" width="329" format="[general]"  name=compute_22  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(vat for all)"border="0" color="33554432" x="17888" y="16" height="60" width="329" format="[general]"  name=compute_23  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

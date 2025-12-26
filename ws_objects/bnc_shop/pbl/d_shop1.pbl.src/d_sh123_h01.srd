@@ -1,0 +1,32 @@
+﻿$PBExportHeader$d_sh123_h01.srd
+$PBExportComments$백화점입출등록
+release 7;
+datawindow(units=0 timer_interval=0 color=82042848 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=152 color="536870912" )
+table(column=(type=char(4) updatewhereclause=yes name=year dbname="year" initial="%" )
+ column=(type=char(1) updatewhereclause=yes name=season dbname="season" initial="%" )
+ column=(type=char(8) updatewhereclause=yes name=frm_ymd dbname="frm_ymd" )
+ column=(type=char(8) updatewhereclause=yes name=to_ymd dbname="to_ymd" )
+ column=(type=char(1) updatewhereclause=yes name=shop_type dbname="shop_type" initial="1" )
+ column=(type=char(1) updatewhereclause=yes name=brand dbname="brand" initial="N" )
+ retrieve="select 	'2003'		as year,
+			's'			as season,
+			'20030201'	as frm_ymd,
+			'20030221'	as to_ymd,
+			'1'			as shop_type,
+			'N'			as brand" )
+text(band=detail alignment="1" text="년도/시즌" border="0" color="0" x="2331" y="44" height="60" width="384"  name=year_t visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="5" color="0" x="2331" y="44" height="60" width="302" format="[general]"  name=year visible="1~t0" edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="5" color="0" x="2331" y="44" height="60" width="352" format="[general]"  name=season visible="1~t0" edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="~~" border="0" color="0" x="498" y="8" height="56" width="73"  name=to_ymd_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="기간" border="0" color="0" x="27" y="8" height="60" width="146"  name=frm_ymd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82042848" )
+column(band=detail id=3 alignment="0" tabsequence=10 border="5" color="0" x="192" y="8" height="60" width="288" format="[general]"  name=frm_ymd editmask.mask="XXXX/XX/XX" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=20 border="5" color="0" x="585" y="8" height="60" width="288" format="[general]"  name=to_ymd editmask.mask="XXXX/XX/XX" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="매장형태" border="0" color="0" x="937" y="8" height="56" width="302"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82042848" )
+column(band=detail id=5 alignment="0" tabsequence=30 border="5" color="0" x="1262" y="8" height="60" width="448" format="[general]"  name=shop_type edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=40 border="5" color="0" x="197" y="88" height="60" width="498"  name=brand edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="브랜드" border="0" color="0" x="9" y="88" height="56" width="169"  name=brand_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82042848" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

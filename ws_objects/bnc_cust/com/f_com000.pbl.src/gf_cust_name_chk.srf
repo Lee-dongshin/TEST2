@@ -1,0 +1,35 @@
+﻿$PBExportHeader$gf_cust_name_chk.srf
+$PBExportComments$고객 명 체크
+global type gf_cust_name_chk from function_object
+end type
+
+forward prototypes
+global function boolean gf_cust_name_chk (string as_user_name, ref string as_user_name2, ref string as_jumin, ref string as_card_no)
+end prototypes
+
+global function boolean gf_cust_name_chk (string as_user_name, ref string as_user_name2, ref string as_jumin, ref string as_card_no);/*============================================================*/
+/* 작 성 자  : 지우정보(김영일)                               */
+/* 작 성 일  : 2002/02/18                                     */
+/* 수 정 일  : 2002/02/18                                     */
+/* 내    용  : 회원이 있는지 체크한다.                        */
+/*============================================================*/
+long ls_cnt
+
+SELECT count(jumin)
+INTO  :ls_cnt
+FROM TB_71010_M
+WHERE user_name like :as_user_name + "%";
+
+IF ls_cnt <> 1 Then 
+	RETURN False
+ELSE
+	SELECT user_name,jumin,card_no
+	INTO  :as_user_name2,:as_jumin,:as_card_no
+	FROM TB_71010_M
+	WHERE user_name like :as_user_name + "%";
+	RETURN True
+END IF
+
+
+end function
+

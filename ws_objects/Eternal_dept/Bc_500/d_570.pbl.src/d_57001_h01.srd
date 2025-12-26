@@ -1,0 +1,16 @@
+﻿$PBExportHeader$d_57001_h01.srd
+$PBExportComments$메세지관리
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=88 color="536870912" )
+table(column=(type=char(1) updatewhereclause=no name=brand dbname="brand" initial="%" )
+ column=(type=char(1) updatewhereclause=no name=gubun dbname="gubun" initial="%" values="전체	%/협력업체	X/매장	T/" )
+ )
+text(band=detail alignment="1" text="브랜드" border="0" color="0" x="5" y="12" height="56" width="302"  name=brand_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="조회구분" border="0" color="0" x="782" y="12" height="56" width="256"  name=gubun_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="1065" y="12" height="60" width="370" format="[general]"  name=gubun ddlb.limit=3 ddlb.allowedit=no ddlb.case=any ddlb.useasborder=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="334" y="12" height="60" width="366" format="[general]"  name=brand edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,26 @@
+﻿$PBExportHeader$gf_ftp_getfile.srf
+global type gf_ftp_getfile from function_object
+end type
+
+forward prototypes
+global function integer gf_ftp_getfile (string ls_remotefile, string ls_localpath, boolean bl_ascii)
+end prototypes
+
+global function integer gf_ftp_getfile (string ls_remotefile, string ls_localpath, boolean bl_ascii);ulong ul_mode, ul_rtn
+
+IF bl_ascii = TRUE then
+	ul_mode = u_ftp.FTP_TRANSFER_TYPE_ASCII
+ELSE
+	ul_mode = u_ftp.FTP_TRANSFER_TYPE_BINARY
+END IF
+
+ul_rtn = u_ftp.FtpGetFileA(ll_connect, ls_remotefile, ls_localpath, FALSE, 0, ul_mode, 0)
+
+if ul_rtn <> 0 then
+	return 1
+else
+	return -1
+end if
+
+end function
+

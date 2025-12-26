@@ -1,0 +1,27 @@
+﻿$PBExportHeader$d_43006_d10.srd
+$PBExportComments$창고재고
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(2) updatewhereclause=yes name=size dbname="tb_44012_s.size" )
+ column=(type=decimal(0) updatewhereclause=yes name=stock_qty dbname="stock_qty" )
+ retrieve="   select size, 
+          sum(in_qty + iwol_qty - out_qty - etc_outqty + rtrn_qty)   as stock_qty
+      from tb_44012_s 
+     where shop_cd    = '010000'
+       and shop_type  = '1'
+       and style      = :as_style
+       and chno       like :as_chno +'%'
+       and color      like :as_color + '%'
+		 and  year > left(convert(char(08), dateadd(year, -10, getdate()), 112),4)
+   group by size;
+" arguments=(("as_style", string),("as_chno", string),("as_color", string)) )
+text(band=header alignment="2" text="사이즈" border="6" color="0" x="23" y="4" height="60" width="169"  name=size_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="창고재고량" border="6" color="0" x="210" y="4" height="60" width="325"  name=stock_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="23" y="4" height="60" width="169" format="[general]"  name=size edit.limit=2 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="31323131" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="210" y="4" height="60" width="325" format="[general]"  name=stock_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33554431" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

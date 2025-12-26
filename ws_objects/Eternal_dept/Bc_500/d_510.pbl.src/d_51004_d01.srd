@@ -1,0 +1,97 @@
+﻿$PBExportHeader$d_51004_d01.srd
+$PBExportComments$표준재고 설정
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=112 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=80 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(6) update=yes updatewhereclause=no key=yes name=yymm dbname="YYMM" )
+ column=(type=char(6) update=yes updatewhereclause=no key=yes name=shop_cd dbname="SHOP_CD" )
+ column=(type=char(30) updatewhereclause=no name=shop_nm dbname="SHOP_NM" )
+ column=(type=char(2) update=yes updatewhereclause=no key=yes name=sale_type dbname="SALE_TYPE" )
+ column=(type=decimal(0) updatewhereclause=no name=plan_amt dbname="PLAN_AMT" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=turn_rate dbname="TURN_RATE" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=limt_qty dbname="LIMIT_QTY" )
+ column=(type=char(10) update=yes updatewhereclause=no name=limit_amt dbname="LIMIT_AMT" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=up_rate dbname="UP_RATE" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=uplimit_qty dbname="UPLIMIT_QTY" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=uplimit_amt dbname="UPLIMIT_AMT" )
+ column=(type=char(6) update=yes updatewhereclause=no name=mod_id dbname="MOD_ID" )
+ column=(type=datetime update=yes updatewhereclause=no name=mod_dt dbname="MOD_DT" )
+ column=(type=decimal(0) updatewhereclause=no name=out_qty dbname="OUT_QTY" )
+ column=(type=decimal(0) updatewhereclause=no name=rtrn_qty dbname="RTRN_QTY" )
+ column=(type=decimal(0) updatewhereclause=no name=sale_qty dbname="SALE_QTY" )
+ column=(type=decimal(0) updatewhereclause=no name=out_amt dbname="OUT_AMT" )
+ column=(type=decimal(0) updatewhereclause=no name=rtrn_amt dbname="RTRN_AMT" )
+ column=(type=decimal(0) updatewhereclause=no name=sale_tagamt dbname="SALE_TAGAMT" )
+ column=(type=decimal(2) updatewhereclause=no name=plan_rate dbname="PLAN_RATE" )
+ column=(type=decimal(0) updatewhereclause=no name=price dbname="PRICE" )
+ procedure="1 execute dbo.SP_51004_D01;1 @ps_brand = :ps_brand, @ps_yymm = :ps_yymm, @ps_year1 = :ps_year1, @ps_season1 = :ps_season1, @ps_year2 = :ps_year2, @ps_season2 = :ps_season2, @pdc_price = :pdc_price, @pdc_plan_rate = :pdc_plan_rate" update="TB_51010_H" updatewhere=0 updatekeyinplace=yes arguments=(("ps_brand", string),("ps_yymm", string),("ps_year1", string),("ps_season1", string),("ps_year2", string),("ps_season2", string),("pdc_price", number),("pdc_plan_rate", number)) )
+text(band=header alignment="2" text="
+출고량" border="6" color="0" x="750" y="8" height="96" width="270"  name=out_qty1_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+판매량" border="6" color="0" x="1038" y="8" height="96" width="270"  name=sale_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+재고량" border="6" color="0" x="1326" y="8" height="96" width="270"  name=stock_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="목표
+회전율" border="6" color="0" x="1961" y="8" height="96" width="197"  name=turn_rate_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="월간
+적정재고" border="6" color="0" x="2738" y="8" height="96" width="329"  name=limit_mon_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="월
+목표금액" border="6" color="0" x="2391" y="8" height="96" width="329"  name=plan_amt1_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+재고금액" border="6" color="0" x="1614" y="8" height="96" width="329"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="목표대비
+적정재고량" border="6" color="0" x="3337" y="8" height="96" width="329"  name=limit_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+UP" border="6" color="0" x="4032" y="8" height="96" width="197"  name=up_rate_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="목표대비
+적정재고액" border="6" color="0" x="3685" y="8" height="96" width="329"  name=limit_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="UP목표대비
+적정재고량" border="6" color="0" x="4247" y="8" height="96" width="329"  name=uplimit_qty1_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="UP목표대비
+적정재고액" border="6" color="0" x="4594" y="8" height="96" width="329"  name=uplimit_amt1_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+판매율" border="6" color="0" x="2176" y="8" height="96" width="197"  name=sale_rate_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="월중재고
+보유기간" border="6" color="0" x="3086" y="8" height="96" width="233"  name=stock_term_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+매      장" border="6" color="0" x="9" y="8" height="96" width="722"  name=shop_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="5" color="0" x="9" y="4" height="60" width="169" format="[general]"  name=shop_cd edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=10 border="5" color="0" x="1961" y="4" height="60" width="197" format="0"  name=turn_rate edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=9 alignment="1" tabsequence=20 border="5" color="0" x="4032" y="4" height="60" width="197" format="0"  name=up_rate edit.limit=2 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="5" color="0" x="197" y="4" height="60" width="535" format="[general]"  name=shop_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression=" out_qty  -  rtrn_qty "border="5" color="0" x="750" y="4" height="60" width="270" format="#,##0"  name=out_qty1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="1" tabsequence=32766 border="5" color="0" x="1038" y="4" height="60" width="270" format="#,##0"  name=sale_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression=" out_qty1  -  sale_qty "border="5" color="0" x="1326" y="4" height="60" width="270" format="#,##0"  name=stock_qty  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression=" (  out_amt  -  rtrn_amt  -  sale_tagamt  )  / 1000"border="5" color="0" x="1614" y="4" height="60" width="329" format="#,##0"  name=stock_amt  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="Round( sale_qty  /  out_qty1 * 100, 0 )"border="5" color="0" x="2176" y="4" height="60" width="197" format="0"  name=sale_rate1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="Round( (plan_amt1 ) /  (  turn_rate  / 100 ), 0 )  "border="5" color="0" x="2738" y="4" height="60" width="329" format="#,##0"  name=limit_mon  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="Round( Round( plan_amt / 1000, 0 )  *  (  plan_rate  / 100 ), 0 ) "border="5" color="0" x="2395" y="4" height="60" width="329" format="#,##0"  name=plan_amt1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="30 -  Round(  Round(  sale_rate  *  100, 0 )  * 30 / 100, 0 ) "border="5" color="0" x="3086" y="4" height="60" width="233" format="#,##0"  name=stock_term  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="Round( limit_mon  *  stock_term  / 30, 0 ) "border="5" color="0" x="3685" y="4" height="60" width="329" format="#,##0"  name=limit_amt1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression=" Round( limit_amt1  /  (price/1000), 0 ) "border="5" color="0" x="3337" y="4" height="60" width="329" format="#,##0"  name=limit_qty1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression=" Round(  ( limit_qty1  /  ( ( 100 -  up_rate ) / 100 )  ) / 10, 0) * 10 "border="5" color="0" x="4247" y="4" height="60" width="329" format="#,##0"  name=uplimit_qty1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression=" Round( limit_amt1  /  ( ( 100 -  up_rate ) / 100 ), 0 ) "border="5" color="0" x="4594" y="4" height="60" width="329" format="#,##0"  name=uplimit_amt1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="5" color="0" x="2391" y="120" height="60" width="329" format="[general]"  name=plan_amt visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression=" sale_qty  /  out_qty1"border="5" color="0" x="2176" y="120" height="60" width="197" format=""  name=sale_rate visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="1" expression=" sale_qty_all  /  out_qty1_all"border="5" color="0" x="2176" y="116" height="60" width="197" format="[GENERAL]"  name=sale_rate_all visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=footer alignment="2" text="합      계" border="6" color="0" x="9" y="8" height="60" width="722"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="1" expression="sum(plan_amt for all)"border="5" color="0" x="2391" y="116" height="60" width="329" format="[general]"  name=plan_amt_all visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="1" expression="sum( out_qty  -  rtrn_qty  for all)"border="5" color="0" x="750" y="8" height="60" width="270" format="#,##0"  name=out_qty1_all  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="1" expression="sum(sale_qty for all)"border="5" color="0" x="1038" y="8" height="60" width="270" format="#,##0"  name=sale_qty_all  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="1" expression="sum( out_qty1  -  sale_qty  for all)"border="5" color="0" x="1326" y="8" height="60" width="270" format="#,##0"  name=stock_qty_all  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="1" expression="sum( (  out_amt  -  rtrn_amt  -  sale_tagamt  )  / 1000 for all)"border="5" color="0" x="1614" y="8" height="60" width="329" format="#,##0"  name=stock_amt_all  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="1" expression="avg(turn_rate for all)"border="5" color="0" x="1961" y="8" height="60" width="197" format="0"  name=turn_rate_all  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+compute(band=footer alignment="1" expression="Round( limit_mon_all  *  stock_term_all  / 30, 0 ) "border="5" color="0" x="3685" y="8" height="60" width="329" format="#,##0"  name=limit_amt1_all  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="1" expression=" Round( limit_amt1_all  /  (price /1000), 0 ) "border="5" color="0" x="3337" y="8" height="60" width="329" format="#,##0"  name=limit_qty1_all  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="1" expression="Round( Round( plan_amt_all / 1000, 0 )  *  (  plan_rate  / 100 ), 0 ) "border="5" color="0" x="2391" y="8" height="60" width="329" format="#,##0"  name=plan_amt1_all  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="1" expression="Round( sale_qty_all  /  out_qty1_all * 100, 0 )"border="5" color="0" x="2176" y="8" height="60" width="197" format="0"  name=sale_rate1_all  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="1" expression="Round( plan_amt1_all  /  (  turn_rate_all  / 100 ), 0 ) "border="5" color="0" x="2738" y="8" height="60" width="329" format="#,##0"  name=limit_mon_all  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="1" expression="30 -  Round(  Round(  sale_rate_all  *  100, 0 )  * 30 / 100, 0 ) "border="5" color="0" x="3086" y="8" height="60" width="233" format="#,##0"  name=stock_term_all  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="1" expression="avg(up_rate for all)"border="5" color="0" x="4032" y="8" height="60" width="197" format="0"  name=up_rate_all  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+compute(band=footer alignment="1" expression=" Round(  ( limit_qty1_all  /  ( ( 100 -  up_rate_all ) / 100 )  ) / 10, 0) * 10 "border="5" color="0" x="4247" y="8" height="60" width="329" format="#,##0"  name=uplimit_qty1_all  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="1" expression=" Round( limit_amt1_all  /  ( ( 100 -  up_rate_all ) / 100 ), 0 ) "border="5" color="0" x="4594" y="8" height="60" width="329" format="#,##0"  name=uplimit_amt1_all  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

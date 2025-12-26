@@ -1,0 +1,96 @@
+﻿$PBExportHeader$d_54031_d01.srd
+$PBExportComments$부진모델 현황
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=16 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes key=yes name=style dbname="tb_54020_h.style" )
+ column=(type=char(1) updatewhereclause=yes name=brand dbname="tb_54020_h.brand" )
+ column=(type=char(4) updatewhereclause=yes name=year dbname="tb_54020_h.year" )
+ column=(type=char(1) updatewhereclause=yes name=season dbname="tb_54020_h.season" )
+ column=(type=char(1) updatewhereclause=yes name=sojae dbname="tb_54020_h.sojae" )
+ column=(type=char(1) updatewhereclause=yes name=item dbname="tb_54020_h.item" )
+ column=(type=char(3) updatewhereclause=yes name=out_seq dbname="tb_54020_h.out_seq" )
+ column=(type=char(2) updatewhereclause=yes name=dep_seq dbname="tb_54020_h.dep_seq" )
+ column=(type=char(8) updatewhereclause=yes name=dep_ymd dbname="tb_54020_h.dep_ymd" )
+ column=(type=char(1) updatewhereclause=yes name=dep_fg dbname="tb_54020_h.dep_fg" )
+ column=(type=char(7) updatewhereclause=yes name=dep_name dbname="dep_name" )
+ column=(type=char(1) updatewhereclause=yes name=sel_yn dbname="tb_54020_h.sel_yn" )
+ column=(type=char(1) updatewhereclause=yes name=rtrn_yn dbname="tb_54020_h.rtrn_yn" )
+ column=(type=char(6) updatewhereclause=yes name=reg_id dbname="tb_54020_h.reg_id" )
+ column=(type=datetime updatewhereclause=yes name=reg_dt dbname="tb_54020_h.reg_dt" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="tb_54020_h.mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="tb_54020_h.mod_dt" )
+ column=(type=decimal(0) updatewhereclause=yes name=tag_price dbname="TAG_PRICE" )
+ column=(type=decimal(6) updatewhereclause=yes name=sale_price dbname="SALE_PRICE" )
+ column=(type=char(1) updatewhereclause=yes name=dotcom dbname="tb_54020_h.dotcom" values="	Y/	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=dotcom_cancel dbname="tb_54020_h.dotcom_cancel" values="	Y/	N" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=cancel_ymd dbname="tb_54020_h.canceL_ymd" )
+ column=(type=char(1) updatewhereclause=yes name=new_chk dbname="new_chk" )
+ retrieve="  SELECT A.style,   
+         A.brand,   
+         A.year,   
+         A.season,   
+         A.sojae,   
+         A.item,   
+         A.out_seq,   
+         A.dep_seq,   
+         A.dep_ymd,   
+         A.dep_fg,
+         (case   A.dep_fg  when 'y'  then  '부진'
+                        when 'o'  then  '시즌Out'
+                        when 'n'  then  '미확정'
+         end) as dep_name,
+         A.sel_yn,   
+         A.rtrn_yn,   
+         A.reg_id,   
+         A.reg_dt,   
+         A.mod_id,   
+         A.mod_dt, 
+			DBO.SF_FIRST_PRICE(A.STYLE)		AS TAG_PRICE,
+	       (SELECT
+					case when  min(b.sale_price) <> 0 then min(b.sale_price)
+ 		       else dbo.sf_first_price(B.style) * (100 - max(b.dc_rate)) / 100 end
+	        FROM tb_56012_d B (NOLOCK)
+      	  WHERE B.STYLE = A.STYLE
+			 AND  b.SHOP_TYPE = '4'
+			 AND  b.SHOP_CD NOT LIKE '_X3300'
+			group by b.style )  AS SALE_PRICE,
+			a.dotcom,
+			a.dotcom_cancel,
+			a.canceL_ymd,
+			case when len(isnull(a.canceL_ymd,'')) <> 8 then 'N' else 'O' end as new_chk
+    FROM tb_54020_h A (NOLOCK)  
+   WHERE A.brand    =  :as_brand
+     AND A.year     =  :as_year
+     AND A.SEASON   =  :as_season
+	  AND ISNULL(A.DOTCOM,'N') = 'Y'
+     AND A.SOJAE LIKE  :as_sojae + '%'
+     AND A.ITEM  LIKE  :as_item + '%'
+     AND A.DEP_SEQ LIKE :as_dep_seq + '%'   
+     and A.DEP_FG  LIKE :as_dep_fg + '%'  
+" update="tb_54020_h" updatewhere=0 updatekeyinplace=no arguments=(("as_brand", string),("as_year", string),("as_season", string),("as_sojae", string),("as_item", string),("as_dep_seq", string),("as_dep_fg", string))  sort="dep_seq A out_seq A style A " )
+text(band=header alignment="2" text="부진차수" border="6" color="0" x="0" y="8" height="60" width="329"  name=dep_seq_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="부진확정일" border="6" color="0" x="347" y="8" height="60" width="393"  name=dep_ymd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="닷컴용" border="6" color="0" x="754" y="8" height="60" width="169"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+text(band=header alignment="2" text="해제" border="6" color="255" x="937" y="8" height="60" width="169"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+text(band=header alignment="2" text="해제일자" border="6" color="0" x="1120" y="8" height="60" width="370"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+text(band=header alignment="2" text="출고차수" border="6" color="0" x="1504" y="8" height="60" width="251"  name=out_seq_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="품번" border="6" color="0" x="1769" y="8" height="60" width="370"  name=style_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="행사판매가" border="6" color="0" x="2153" y="8" height="60" width="334"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="소비자가" border="6" color="0" x="2501" y="8" height="60" width="334"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=8 alignment="2" tabsequence=32766 border="5" color="0" x="0" y="4" height="60" width="329" format="[general]"  name=dep_seq edit.limit=2 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15780518" )
+column(band=detail id=9 alignment="2" tabsequence=32766 border="5" color="0" x="347" y="4" height="60" width="393" format="@@@@/@@/@@"  name=dep_ymd edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15780518" )
+column(band=detail id=7 alignment="2" tabsequence=32766 border="5" color="0" x="1504" y="4" height="60" width="251" format="[general]"  name=out_seq edit.limit=3 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="5" color="0" x="1769" y="4" height="60" width="370" format="[general]"  name=style edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=19 alignment="1" tabsequence=32766 border="5" color="0" x="2153" y="4" height="60" width="334" format="#,###"  name=sale_price edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=18 alignment="1" tabsequence=32766 border="5" color="0" x="2501" y="4" height="60" width="334" format="#,###"  name=tag_price edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=20 alignment="2" tabsequence=32766 border="5" color="0" x="754" y="4" height="60" width="165" format="[general]"  name=dotcom checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15780518" )
+column(band=detail id=23 alignment="0" tabsequence=32766 border="0" color="0" x="2871" y="8" height="56" width="78" format="[general]"  name=new_chk edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15780518" )
+column(band=detail id=21 alignment="2" tabsequence=10 border="5" color="255" x="937" y="4" height="60" width="169" format="[general]" protect="0~tif( new_chk = 'O' , 1,0)"  name=dotcom_cancel checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=22 alignment="2" tabsequence=32766 border="5" color="255" x="1120" y="4" height="60" width="370" format="@@@@/@@/@@"  name=cancel_ymd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+
+sparse(names="dep_seq	dep_ymd")htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,43 @@
+﻿$PBExportHeader$d_com205.srd
+$PBExportComments$세탁표시
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(30) updatewhereclause=yes key=yes name=washing_gubn dbname="tb_washing_type.WASHING_GUBN" )
+ column=(type=char(3) updatewhereclause=yes name=washing1 dbname="tb_washing_type.WASHING1" )
+ column=(type=char(3) updatewhereclause=yes name=washing2 dbname="tb_washing_type.WASHING2" )
+ column=(type=char(3) updatewhereclause=yes name=washing3 dbname="tb_washing_type.WASHING3" )
+ column=(type=char(3) updatewhereclause=yes name=washing4 dbname="tb_washing_type.WASHING4" )
+ column=(type=char(3) updatewhereclause=yes name=washing5 dbname="tb_washing_type.WASHING5" )
+ column=(type=char(3) updatewhereclause=yes name=washing6 dbname="tb_washing_type.WASHING6" )
+ column=(type=char(2) updatewhereclause=yes name=washing_type dbname="tb_washing_type.WASHING_type" )
+ retrieve="  SELECT WASHING_GUBN,   
+         WASHING1,   
+         WASHING2,   
+         WASHING3,   
+         WASHING4,
+         WASHING5,
+         WASHING6,
+			WASHING_type  
+    FROM TB_WASHING_TYPE   
+" update="TB_WASHING_TYPE" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="0" text="Washing Gubn" border="0" color="0" x="9" y="4" height="76" width="786"  name=t_1  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Washing1" border="0" color="0" x="805" y="4" height="76" width="178"  name=t_2  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Washing2" border="0" color="0" x="992" y="4" height="76" width="160"  name=t_3  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Washing3" border="0" color="0" x="1161" y="4" height="76" width="142"  name=t_4  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Washing4" border="0" color="0" x="1312" y="4" height="76" width="160"  name=t_5  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Washing5" border="0" color="0" x="1481" y="4" height="76" width="160"  name=t_6  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Washing6" border="0" color="0" x="1650" y="4" height="76" width="183"  name=t_7  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="0" height="76" width="786" format="[general]"  name=washing_gubn edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="805" y="0" height="76" width="178" format="[general]"  name=washing1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="992" y="0" height="76" width="160" format="[general]"  name=washing2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1161" y="0" height="76" width="142" format="[general]"  name=washing3 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1312" y="0" height="76" width="160" format="[general]"  name=washing4 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1481" y="0" height="76" width="160" format="[general]"  name=washing5 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="1650" y="0" height="76" width="183" format="[general]"  name=washing6 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=0 border="0" color="0" x="1847" y="0" height="76" width="27"  name=washing_type  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Washing Type" border="0" color="0" x="1842" y="4" height="76" width="32"  name=t_8  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

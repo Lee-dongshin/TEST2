@@ -1,0 +1,64 @@
+﻿$PBExportHeader$d_91018_d02.srd
+$PBExportComments$중국온앤온매장
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=1204 color="536870912" )
+table(column=(type=char(6) update=yes updatewhereclause=yes key=yes name=shop_cd dbname="tb_91100_c.shop_cd" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=shop_cnm dbname="tb_91100_c.shop_cnm" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=shop_knm dbname="tb_91100_c.shop_knm" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=area dbname="tb_91100_c.area" )
+ column=(type=char(240) update=yes updatewhereclause=yes name=address_c dbname="tb_91100_c.address_c" )
+ column=(type=char(240) update=yes updatewhereclause=yes name=address_k dbname="tb_91100_c.address_k" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=phone dbname="tb_91100_c.phone" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=fax dbname="tb_91100_c.fax" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=closed dbname="tb_91100_c.closed" values="정상	0/폐점	1/" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=shop_flag_c dbname="tb_91100_c.shop_flag_c" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=shop_flag_k dbname="tb_91100_c.shop_flag_k" )
+ column=(type=char(60) update=yes updatewhereclause=yes name=shop_type_c dbname="tb_91100_c.shop_type_c" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=shop_type_k dbname="tb_91100_c.shop_type_k" )
+ column=(type=char(40) update=yes updatewhereclause=yes name=city_c dbname="tb_91100_c.city_c" )
+ column=(type=char(40) update=yes updatewhereclause=yes name=city_k dbname="tb_91100_c.city_k" )
+ retrieve="
+select 
+shop_cd, 
+shop_cnm,                       
+shop_knm ,                      
+area, 
+address_c,                                                                                                                
+address_k,                                                                                                                
+phone,                
+fax,                  
+closed ,
+shop_flag_c,                    
+shop_flag_k,                   
+shop_type_c,                  
+shop_type_k,                 
+city_c,               
+city_k               
+from tb_91100_c 
+where shop_cd = :as_shop_cd" update="tb_91100_c" updatewhere=0 updatekeyinplace=no arguments=(("as_shop_cd", string)) )
+text(band=detail alignment="1" text="매장명:" border="0" color="0" x="37" y="56" height="60" width="293"  name=shop_cnm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="5" color="0" x="1015" y="56" height="60" width="827" format="[general]"  name=shop_knm edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="주소:" border="0" color="0" x="37" y="168" height="60" width="293"  name=address_c_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=30 border="5" color="0" x="347" y="252" height="60" width="1883" format="[general]"  name=address_k edit.limit=240 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="Fax:" border="0" color="0" x="1093" y="368" height="60" width="361"  name=fax_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="5" color="0" x="1472" y="368" height="60" width="576" format="[general]"  name=fax edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="전화번호:" border="0" color="0" x="37" y="368" height="56" width="293"  name=phone_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="5" color="0" x="347" y="368" height="60" width="576" format="[general]"  name=phone edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="폐점여부:" border="0" color="0" x="37" y="480" height="60" width="293"  name=closed_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="매장구분:" border="0" color="0" x="37" y="592" height="60" width="293"  name=shop_flag_c_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=40 border="5" color="0" x="1015" y="592" height="60" width="827" format="[general]"  name=shop_flag_k edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="매장유형:" border="0" color="0" x="37" y="700" height="60" width="293"  name=shop_type_c_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="0" tabsequence=50 border="5" color="0" x="1015" y="700" height="60" width="827" format="[general]"  name=shop_type_k edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="지역:" border="0" color="0" x="37" y="808" height="60" width="293"  name=city_c_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="0" tabsequence=60 border="5" color="0" x="1015" y="808" height="60" width="827" format="[general]"  name=city_k edit.limit=40 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="5" color="0" x="343" y="480" height="60" width="283" format="[general]"  name=closed ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="5" color="0" x="347" y="592" height="60" width="640" format="[general]"  name=shop_flag_c edit.limit=60 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Shruti" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="1" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="5" color="0" x="347" y="704" height="60" width="640" format="[general]"  name=shop_type_c edit.limit=60 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Shruti" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="1" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="5" color="0" x="347" y="808" height="60" width="640" format="[general]"  name=city_c edit.limit=40 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Shruti" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="1" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="5" color="0" x="347" y="168" height="60" width="1883" format="[general]"  name=address_c edit.limit=240 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Shruti" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="1" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="5" color="0" x="347" y="56" height="60" width="640" format="[general]"  name=shop_cnm edit.limit=60 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="MS Song" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

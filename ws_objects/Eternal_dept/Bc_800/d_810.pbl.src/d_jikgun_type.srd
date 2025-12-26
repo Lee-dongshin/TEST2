@@ -1,0 +1,16 @@
+﻿$PBExportHeader$d_jikgun_type.srd
+$PBExportComments$직군타입
+release 7;
+datawindow(units=0 timer_interval=0 color=82042848 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=56 color="536870912" )
+table(column=(type=char(4) updatewhereclause=yes name=jikgun_type dbname="jikgun_type" )
+ column=(type=char(30) updatewhereclause=yes name=jikgun_type_nm dbname="jikgun_type_nm" )
+ retrieve="	select distinct upper(jikgun_type) as jikgun_type,
+		dbo.sf_inter_nm('813',jikgun_type)	as jikgun_type_nm
+ from tb_81103_c a(nolock)" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="0" y="0" height="56" width="87" format="[general]"  name=jikgun_type edit.limit=0 edit.case=upper edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="0" tabsequence=0 border="0" color="0" x="110" y="0" height="56" width="814"  name=jikgun_type_nm  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

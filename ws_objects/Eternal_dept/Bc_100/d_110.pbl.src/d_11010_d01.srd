@@ -1,0 +1,45 @@
+﻿$PBExportHeader$d_11010_d01.srd
+$PBExportComments$시즌별총괄 매출계획[매출목표, 할인율]
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=208 color="536870912" )
+table(column=(type=decimal(6) updatewhereclause=yes name=plan_amt dbname="plan_amt" )
+ column=(type=decimal(6) updatewhereclause=yes name=plan_amt_1 dbname="plan_amt_1" )
+ column=(type=decimal(6) updatewhereclause=yes name=plan_amt_2 dbname="plan_amt_2" )
+ column=(type=decimal(6) updatewhereclause=yes name=plan_amt_3 dbname="plan_amt_3" )
+ column=(type=decimal(6) updatewhereclause=yes name=plan_amt_4 dbname="plan_amt_4" )
+ column=(type=long updatewhereclause=yes name=rate_1 dbname="VI_11040_1.rate_1" )
+ column=(type=long updatewhereclause=yes name=rate_2 dbname="VI_11040_1.rate_2" )
+ column=(type=long updatewhereclause=yes name=rate_3 dbname="VI_11040_1.rate_3" )
+ column=(type=long updatewhereclause=yes name=rate_4 dbname="VI_11040_1.rate_4" )
+ retrieve="  select sum(plan_amt)  / 1000   as plan_amt, 
+         sum(case when sale_div = '1' then plan_amt end) / 1000 plan_amt_1,
+         sum(case when sale_div = '2' then plan_amt end) / 1000 plan_amt_2,
+         sum(case when sale_div = '3' then plan_amt end) / 1000 plan_amt_3,
+         sum(case when sale_div = '4' then plan_amt end) / 1000 plan_amt_4,
+         0   rate_1, 
+         0   rate_2, 
+         0   rate_3, 
+         0   rate_4 
+    from vi_11040_1 
+   where brand  = :as_brand 
+     and year   = :as_year 
+     and season = :as_season
+	  and last_yn= 'Y' 
+" arguments=(("as_brand", string),("as_year", string),("as_season", string)) )
+text(band=detail alignment="2" text="영업 년 매출 목표" border="6" color="0" x="9" y="0" height="56" width="2139"  name=sale_bamt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="466" y="64" height="64" width="329" format="#,##"  name=plan_amt_1 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30988504" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="805" y="64" height="64" width="329" format="#,##"  name=plan_amt_2 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30988504" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="1143" y="64" height="64" width="329" format="#,##"  name=plan_amt_3 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30988504" )
+column(band=detail id=6 alignment="1" tabsequence=10 border="0" color="0" x="466" y="136" height="64" width="329" format="[general]"  name=rate_1 editmask.mask="##0" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="1" tabsequence=20 border="0" color="0" x="805" y="136" height="64" width="329" format="[general]"  name=rate_2 editmask.mask="##0" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="1" tabsequence=30 border="0" color="0" x="1143" y="136" height="64" width="329" format="[general]"  name=rate_3 editmask.mask="##0" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="1" tabsequence=40 border="0" color="0" x="1481" y="136" height="64" width="329" format="[general]"  name=rate_4 editmask.mask="##0" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="실판 목표 금액" border="6" color="0" x="9" y="68" height="60" width="448"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="평균 할인율" border="6" color="0" x="9" y="140" height="60" width="448"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="1481" y="64" height="64" width="329" format="#,##"  name=plan_amt_4 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30988504" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="0" x="1819" y="64" height="64" width="329" format="#,##0"  name=plan_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30988504" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

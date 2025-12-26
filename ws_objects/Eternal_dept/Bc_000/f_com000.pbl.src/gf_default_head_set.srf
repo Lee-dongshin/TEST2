@@ -1,0 +1,49 @@
+﻿$PBExportHeader$gf_default_head_set.srf
+global type gf_default_head_set from function_object
+end type
+
+forward prototypes
+global function integer gf_default_head_set (string as_field, string as_style, ref string as_brand, ref string as_year, ref string as_season)
+end prototypes
+
+global function integer gf_default_head_set (string as_field, string as_style, ref string as_brand, ref string as_year, ref string as_season);	if as_style = '' or isnull(as_style) or LenA(as_style) < 4 then
+		return 0
+	end if
+	
+	
+	if as_field = "style" or as_field = "style_no" or as_field = "ord_origin" then 
+		select brand, year, season 
+			into :as_brand, :as_year, :as_season
+		from tb_12020_m (nolock)
+		where style like left(:as_style,8) + '%';
+	end if
+
+	
+	if as_field = "mat_cd" or as_field = "ord_origin" then
+		if as_brand = '' or isnull(as_brand) then
+			select brand, mat_year, mat_season 
+				into :as_brand, :as_year, :as_season
+			from tb_21010_m (nolock)
+			where mat_cd like left(:as_style,9) + '%';
+		else 
+			return 1
+		end if
+		
+		if as_brand = '' or isnull(as_brand) then
+			select brand, mat_year, mat_season 
+				into :as_brand, :as_year, :as_season
+			from tb_21000_m (nolock)
+			where mat_cd like left(:as_style,9) + '%';
+		else 
+			return 1
+		end if
+	end if	
+
+
+	if as_brand = '' or isnull(as_brand) then
+		return 0
+	else 
+		return 1
+	end if
+end function
+

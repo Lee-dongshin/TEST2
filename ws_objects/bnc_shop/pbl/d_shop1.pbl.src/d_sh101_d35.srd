@@ -1,0 +1,35 @@
+﻿$PBExportHeader$d_sh101_d35.srd
+$PBExportComments$KM_VMD 최근 정보(weekly_view & shop_vmd)
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="KM_VMD 최근 정보(weekly_view)" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=192 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=100 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=s_data1 dbname="s_data1" )
+ column=(type=char(255) updatewhereclause=yes name=s_data2 dbname="s_data2" )
+ column=(type=char(200) updatewhereclause=yes name=km_new dbname="km_new" )
+ retrieve="
+
+
+SELECT '주차코디' as s_data1,
+	d_title as s_data2,
+	'http://with.ibeaucre.co.kr/include/proc/loginProc.asp?uid=' + :as_shop_cd + '&upw=' + :as_passwd + '&cm=mg&pg=' + 'wv&num=' + convert(varchar(10),d_num,112) as km_new
+FROM km.dbo.VMD_Weekly
+WHERE convert(char(8),d_date,112) >=  convert(char(8),getdate()-30,112)
+	and d_brand = left(:as_shop_cd,1)
+
+UNION ALL
+
+SELECT	shop_cd as s_data1,
+	replace(shop_snm,'(올리브)','') as s_data2,
+	'http://with.ibeaucre.co.kr/include/proc/loginProc.asp?uid=' + :as_shop_cd + '&upw=' + :as_passwd + '&cm=mg&pg=' + 'sh&num=' + convert(varchar(10),d_num,112) as km_new
+FROM km.dbo.VMD_shop
+WHERE convert(char(8),rcdymd,112) >=  convert(char(8),getdate()-7,112)
+	and brand = left(:as_shop_cd,1)
+" arguments=(("as_shop_cd", string),("as_passwd", string)) )
+text(band=header alignment="0" text="Weekly View - Shop vmd" border="0" color="0" x="50" y="60" height="92" width="1349"  name=t_1  font.face="굴림" font.height="-15" font.weight="700"  font.family="1" font.pitch="2" font.charset="129" font.italic="1" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="255" x="0" y="28" height="64" width="384" format="[general]"  name=s_data1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="16711680" x="411" y="28" height="64" width="1403" format="[general]"  name=s_data2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

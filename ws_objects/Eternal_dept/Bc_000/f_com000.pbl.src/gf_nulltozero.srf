@@ -1,0 +1,22 @@
+﻿$PBExportHeader$gf_nulltozero.srf
+$PBExportComments$널 값을 0으로 바꿔준다
+global type gf_nulltozero from function_object
+end type
+
+forward prototypes
+global function decimal gf_nulltozero (decimal as_target)
+end prototypes
+
+global function decimal gf_nulltozero (decimal as_target);/*============================================================*/
+/* 작 성 자  : 최용운                                         */
+/* 내    용  : NULL 값인 변수를 0 으로 바꿔준다.              */
+/*============================================================*/
+decimal ll_ret
+
+ll_ret = as_target
+if isnull(as_target) then ll_ret = 0
+
+return ll_ret
+
+end function
+

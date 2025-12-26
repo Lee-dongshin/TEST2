@@ -1,0 +1,32 @@
+﻿$PBExportHeader$gs_vari_cd.srs
+$PBExportComments$변수들....
+global type gs_vari_cd from structure
+	string		gs_cd1
+	string		gs_cd2
+	string		gs_cd3
+	string		gs_cd4
+	string		gs_cd5
+	string		gs_cd6
+	string		gs_cd7
+	string		gs_cd8
+	string		gs_cd9
+	long		gl_cd1
+	long		gl_cd2
+	long		gl_cd3
+	long		gl_cd4
+	long		gl_cd5
+	long		gl_cd6
+	long		gl_cd7
+	long		gl_cd8
+	long		gl_cd9
+	double		gdb_cd1
+	double		gdb_cd2
+	double		gdb_cd3
+	double		gdb_cd4
+	double		gdb_cd5
+	decimal{0}		gdc_cd1
+	decimal{0}		gdc_cd2
+	decimal{0}		gdc_cd3
+	decimal{0}		gdc_cd4
+end type
+

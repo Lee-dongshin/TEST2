@@ -1,0 +1,38 @@
+﻿$PBExportHeader$d_54013_d11.srd
+$PBExportComments$예약판매내역
+release 7;
+datawindow(units=0 timer_interval=0 color=82899184 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(6) updatewhereclause=yes name=shop_cd dbname="tb_53016_h.shop_cd" )
+ column=(type=char(30) updatewhereclause=yes name=shop_nm dbname="shop_nm" )
+ column=(type=char(9) updatewhereclause=yes name=style_no dbname="style_no" )
+ column=(type=char(44) updatewhereclause=yes name=color dbname="color" )
+ column=(type=char(2) updatewhereclause=yes name=size dbname="tb_53016_h.size" )
+ column=(type=decimal(0) updatewhereclause=yes name=sale_qty dbname="sale_qty" )
+ column=(type=decimal(0) updatewhereclause=yes name=stock dbname="stock" )
+ retrieve="select shop_cd, dbo.sf_shop_nm(shop_cd, 's') as shop_nm, style + chno as style_no , color + ' ' + dbo.sf_color_nm(color,'e') as color, size, sum(sale_qty) as sale_qty,
+		 case when dbo.sf_shop_stock2(shop_cd, shop_type, style, chno, color, size) < 0 then 0 else dbo.sf_shop_stock2(shop_cd, shop_type, style, chno, color, size) end  as stock
+from tb_53016_h (nolock)
+where brand = :as_brand
+and style = :As_style
+and color = :As_color
+group by shop_cd, shop_type, style , chno , color , size 
+" arguments=(("as_brand", string),("as_style", string),("as_color", string)) )
+text(band=header alignment="2" text="매장" border="6" color="0" x="5" y="4" height="56" width="759"  name=shop_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="품번" border="6" color="0" x="777" y="4" height="56" width="494"  name=style_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Color" border="6" color="0" x="1285" y="4" height="56" width="539"  name=color_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Size" border="6" color="0" x="1842" y="4" height="56" width="160"  name=size_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="예약판매" border="6" color="0" x="2016" y="4" height="56" width="288"  name=sale_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="매장재고" border="6" color="0" x="2318" y="4" height="56" width="297"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1842" y="4" height="60" width="160" format="[general]"  name=size edit.limit=2 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33417214" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="14" y="4" height="60" width="192" format="[general]"  name=shop_cd edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="219" y="4" height="60" width="549" format="[general]"  name=shop_nm edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="782" y="4" height="60" width="489" format="[general]"  name=style_no edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33417214" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1285" y="4" height="60" width="539" format="[general]"  name=color edit.limit=23 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33417214" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="255" x="2016" y="4" height="60" width="288" format="#,###"  name=sale_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30539508" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="16711680" x="2318" y="4" height="56" width="297" format="#,###"  name=stock edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30539508" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,13 @@
+﻿$PBExportHeader$d_74015_h01.srd
+$PBExportComments$Point사용조회
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=220 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=no name=point dbname="point" initial="3000" )
+ )
+text(band=detail alignment="1" text="Point:" border="0" color="0" x="69" y="76" height="56" width="197"  name=fr_ymd_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=10 border="5" color="0" x="288" y="76" height="56" width="256" format="#,##0"  name=point edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

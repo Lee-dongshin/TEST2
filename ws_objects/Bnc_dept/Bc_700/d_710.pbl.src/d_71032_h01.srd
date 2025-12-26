@@ -1,0 +1,18 @@
+﻿$PBExportHeader$d_71032_h01.srd
+$PBExportComments$고객정보지수
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=144 color="536870912" )
+table(column=(type=char(12) updatewhereclause=no name=category dbname="category" initial="order_t" values="총구매회수	order_t/총구매수량	item_t/총구매금액	amt_t/총반품금액	return_t/최근1년 구매회수	order_y/최근1년 구매수량	item_y/최근1년 구매금액	amt_y/최근1년 반품금액	return_y/최근6개월 구매회수	order_6/최근6개월 구매수량	item_6/최근6개월 구매금액	amt_6/최근6개월 반품금액	return_6/기본 Scoring	kis_score/보끄레 Scoring	b_score/온앤온 Scoring	n_score/올리브 Scoring	o_score/더블유닷 Scoring	w_score/브랜드매니아 1	brand_m34/브랜드매니아 2	brand_m23/세일매니아 1	sale_m80/세일매니아 2	sale_m75/제품단가매니아 1	prd_150tw_80/제품단가매니아 2	prd_150tw_75/구매금액매니아 1	ord_350tw_80/구매금액매니아 2	ord_350tw_75/" )
+ column=(type=char(13) updatewhereclause=no name=jumin dbname="jumin" initial="%" )
+ column=(type=char(2) updatewhereclause=no name=graphtype dbname="name_1" initial="12" values="라인	12/막대	7/파이	13/" )
+ )
+text(band=detail alignment="1" text="구분:" border="0" color="0" x="32" y="32" height="56" width="174"  name=category_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="224" y="32" height="56" width="695" format="[general]"  name=category ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.required=yes ddlb.vscrollbar=yes ddlb.useasborder=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="0" text="(- 없이)" border="0" color="255" x="1742" y="32" height="56" width="247"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="분류번호:" border="0" color="0" x="937" y="32" height="56" width="306"  name=jumin_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="1257" y="32" height="56" width="457" format="[general]"  name=jumin edit.limit=13 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,19 @@
+﻿$PBExportHeader$d_com992.srd
+$PBExportComments$프로그램명[검색창]
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(9) updatewhereclause=yes key=yes name=pgm_id dbname="TB_93020_M.PGM_ID" )
+ column=(type=char(30) updatewhereclause=yes name=pgm_nm dbname="TB_93020_M.PGM_NM" )
+ retrieve="SELECT PGM_ID, PGM_NM 
+  FROM TB_93020_M  with (nolock)
+ " update="TB_93020_M" updatewhere=0 updatekeyinplace=no )
+text(band=header alignment="0" text="프로그램 명칭" border="6" color="0" x="571" y="8" height="56" width="978"  name=pgm_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="프로그램 ID" border="6" color="0" x="27" y="8" height="56" width="526"  name=pgm_id_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="571" y="4" height="56" width="978" format="[general]" protect="0~tif( isrownew(), 0, 1 )"  name=pgm_nm  tag="DK" edit.limit=30 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="0" background.color="553648127~tif( isrownew(), 16777215, 553648127 )" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="27" y="4" height="56" width="526" format="[general]" protect="0~tif( isrownew(), 0, 1 )"  name=pgm_id  tag="OE" edit.limit=10 edit.case=upper edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="0" background.color="553648127~tif( isrownew(), 16777215, 553648127 )" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

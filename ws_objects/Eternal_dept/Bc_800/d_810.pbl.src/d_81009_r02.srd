@@ -1,0 +1,22 @@
+﻿$PBExportHeader$d_81009_r02.srd
+$PBExportComments$인사종합평가조회
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=60 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=60 color="536870912" )
+table(column=(type=char(50) updatewhereclause=yes name=kpi_grp dbname="kpi_grp" )
+ column=(type=decimal(0) updatewhereclause=yes name=allot dbname="allot" )
+ column=(type=decimal(1) updatewhereclause=yes name=point dbname="point" )
+ procedure="1 execute dbo.sp_81009_d02;1 @yyyy = :yyyy, @empno = :empno" arguments=(("yyyy", string),("empno", string)) )
+text(band=header alignment="2" text="항목설정" border="6" color="0" x="14" y="8" height="56" width="626"  name=kpi_grp_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82042848" )
+text(band=header alignment="2" text="배점" border="6" color="0" x="654" y="8" height="56" width="233"  name=allot_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82042848" )
+text(band=header alignment="2" text="점수" border="6" color="0" x="901" y="8" height="56" width="233"  name=point_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82042848" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="654" y="0" height="56" width="233"  name=allot edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30601200" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="901" y="0" height="56" width="233"  name=point edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30601200" )
+compute(band=summary alignment="2" expression="sum(point for all)/sum(allot for all)"border="0" color="0" x="654" y="4" height="56" width="480" format="### %"  name=compute_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82042848" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="14" y="0" height="56" width="626" format="[general]"  name=kpi_grp edit.limit=50 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30601200" )
+text(band=summary alignment="2" text="평점" border="0" color="0" x="14" y="4" height="56" width="626"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82042848" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

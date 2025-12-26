@@ -1,0 +1,42 @@
+﻿$PBExportHeader$d_cu303_d01.srd
+$PBExportComments$메시지관리[받은메시지정보]
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=4 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes key=yes name=yymmdd dbname="TB_57011_H.yymmdd" )
+ column=(type=char(6) updatewhereclause=yes key=yes name=send_id dbname="TB_57011_H.send_id" )
+ column=(type=long updatewhereclause=yes key=yes name=mes_seq dbname="TB_57011_H.mes_seq" )
+ column=(type=char(6) updatewhereclause=yes key=yes name=recv_id dbname="TB_57011_H.recv_id" )
+ column=(type=datetime updatewhereclause=yes key=yes name=send_dt dbname="TB_57011_H.send_dt" )
+ column=(type=char(1) updatewhereclause=yes name=confirm_yn dbname="TB_57011_H.confirm_yn" )
+ column=(type=datetime updatewhereclause=yes name=confirm_dt dbname="TB_57011_H.confirm_dt" )
+ column=(type=char(6) updatewhereclause=yes name=reg_id dbname="TB_57011_H.Reg_id" )
+ column=(type=datetime updatewhereclause=yes name=reg_dt dbname="TB_57011_H.Reg_Dt" )
+ column=(type=char(6) updatewhereclause=yes name=mod_id dbname="TB_57011_H.Mod_id" )
+ column=(type=datetime updatewhereclause=yes name=mod_dt dbname="TB_57011_H.Mod_Dt" )
+ retrieve="  SELECT yymmdd,   
+         send_id,   
+         mes_seq,   
+         recv_id,   
+         send_dt,   
+         confirm_yn,   
+         confirm_dt,   
+         Reg_id,   
+         Reg_Dt,   
+         Mod_id,   
+         Mod_Dt  
+    FROM TB_57011_H  
+   WHERE recv_id = :as_recv_id 
+     AND	confirm_yn like :as_confirm_yn + '%' 
+   ORDER BY send_dt desc 
+" update="TB_57011_H" updatewhere=1 updatekeyinplace=no arguments=(("as_recv_id", string),("as_confirm_yn", string)) )
+text(band=header alignment="2" text="수신일시" border="6" color="0" x="169" y="4" height="56" width="571"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269528" )
+text(band=header alignment="2" text="구분" border="6" color="0" x="14" y="4" height="56" width="137"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269528" )
+text(band=detail alignment="2" text="확인" border="0" color="0" x="14" y="8" height="56" width="137"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+bitmap(band=detail filename="new02.gif" x="23" y="8" height="44" width="114" border="0"  name=p_1 visible="1~tif( confirm_yn ='N',1,0)" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0" x="169" y="8" height="56" width="571" format="[shortdate] [time]"  name=send_dt editmask.mask="yyyy-mm-dd hh:mm:ss" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

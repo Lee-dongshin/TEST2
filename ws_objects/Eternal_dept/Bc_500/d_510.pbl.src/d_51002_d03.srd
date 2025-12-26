@@ -1,0 +1,47 @@
+﻿$PBExportHeader$d_51002_d03.srd
+$PBExportComments$일 매출 계획 등록
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=96 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=108 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes key=yes name=plan_ymd dbname="TB_51020_H.PLAN_YMD" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=brand dbname="TB_51020_H.BRAND" )
+ column=(type=char(2) update=yes updatewhereclause=yes key=yes name=sale_type dbname="TB_51020_H.SALE_TYPE" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=plan_amt dbname="TB_51020_H.PLAN_AMT" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="TB_51020_H.REG_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="TB_51020_H.REG_DT" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="TB_51020_H.MOD_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="TB_51020_H.MOD_DT" )
+ retrieve="  SELECT PLAN_YMD,   
+         BRAND,   
+         SALE_TYPE,   
+         PLAN_AMT,   
+         REG_ID,   
+         REG_DT,   
+         MOD_ID,   
+         MOD_DT  
+    FROM TB_51020_H   
+   WHERE PLAN_YMD BETWEEN :as_yymm + '01' AND :as_yymm + '31'
+     AND BRAND    = :as_brand
+   ORDER BY PLAN_YMD
+" update="TB_51020_H" updatewhere=0 updatekeyinplace=yes arguments=(("as_brand", string),("as_yymm", string)) )
+text(band=header alignment="2" text="Plan Ymd" border="6" color="0" x="18" y="16" height="64" width="261"  name=plan_ymd_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Brand" border="6" color="0" x="297" y="16" height="64" width="155"  name=brand_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Sale Type" border="6" color="0" x="471" y="16" height="64" width="265"  name=sale_type_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Plan Amt" border="6" color="0" x="754" y="16" height="64" width="329"  name=plan_amt_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Reg Id" border="6" color="0" x="1102" y="16" height="64" width="192"  name=reg_id_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Reg Dt" border="6" color="0" x="1312" y="16" height="64" width="599"  name=reg_dt_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Mod Id" border="6" color="0" x="1929" y="16" height="64" width="192"  name=mod_id_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Mod Dt" border="6" color="0" x="2139" y="16" height="64" width="603"  name=mod_dt_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="18" y="16" height="76" width="247" format="[general]"  name=plan_ymd edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="297" y="16" height="76" width="55" format="[general]"  name=brand edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="5" color="0" x="471" y="16" height="76" width="82" format="[general]"  name=sale_type edit.limit=2 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=40 border="5" color="0" x="754" y="16" height="76" width="329" format="[general]"  name=plan_amt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=50 border="5" color="0" x="1102" y="16" height="76" width="192" format="[general]"  name=reg_id edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=60 border="5" color="0" x="1312" y="16" height="76" width="599" format="[shortdate] [time]"  name=reg_dt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=70 border="5" color="0" x="1929" y="16" height="76" width="192" format="[general]"  name=mod_id edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=80 border="5" color="0" x="2139" y="16" height="76" width="603" format="[shortdate] [time]"  name=mod_dt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

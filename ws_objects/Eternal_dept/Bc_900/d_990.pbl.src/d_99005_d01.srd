@@ -1,0 +1,28 @@
+﻿$PBExportHeader$d_99005_d01.srd
+$PBExportComments$도서대여조회
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=4 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no  crosstab.dynamic = yes grid.lines=0 grid.columnmove=no selected.mouse=no )
+header[1](height=0 color="536870912" )
+header[2](height=100 color="536870912" )
+summary(height=104 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(20) updatewhereclause=yes name=person_id dbname="person_id" )
+ column=(type=char(20) updatewhereclause=yes name=person_nm dbname="person_nm" )
+ column=(type=number updatewhereclause=yes name=book_cnt dbname="book_cnt" )
+ procedure="1 execute dbo.sp_99005_d01;1 "  sort="person_id A person_nm A " )
+text(band=header[2] alignment="2" text="No" border="6" color="0" x="9" y="20" height="72" width="142"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=header[2] alignment="2" text="사번" border="6" color="0" x="160" y="20" height="72" width="242"  name=person_id_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=header[2] alignment="2" text="성명" border="6" color="0" x="411" y="20" height="72" width="325"  name=person_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=header[2] alignment="2" text="@book_fg_nm" border="6" color="0" x="745" y="20" height="72" width="334"  name=book_cnt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+compute(band=detail alignment="2" expression="getrow()"border="6" color="33554432" x="9" y="4" height="72" width="142" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="33554432" x="160" y="4" height="76" width="242" format="[general]"  name=person_id edit.limit=12 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="33554432" x="411" y="4" height="76" width="325" format="[general]"  name=person_nm edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="745" y="4" height="76" width="334" format="#,##0"  name=book_cnt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes crosstab.repeat=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+compute(band=summary alignment="2" expression="~"총  계~""border="0" color="33554432" x="160" y="4" height="76" width="242" format="[general]"  name=compute_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33550815" )
+text(band=summary alignment="0" text="" border="0" color="0" x="411" y="4" height="76" width="325"  name=t_1  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="33550815" )
+compute(band=summary alignment="2" expression="sum(book_cnt for all )"border="0" color="0" x="745" y="4" height="76" width="334" format="#,##0"  name=compute_5  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33550815" )
+ crosstab(band = foreground  crosstabonly = yes 
+ columns = "book_fg_nm" rows = "person_id, person_nm" values = "sum(book_cnt for crosstab)" sourcenames = "person_id, person_nm, book_fg_nm, book_cnt")
+sparse(names="person_id")htmltable(border="0" cellpadding="1" cellspacing="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

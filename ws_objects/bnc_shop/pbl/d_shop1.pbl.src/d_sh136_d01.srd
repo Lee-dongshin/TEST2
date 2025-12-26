@@ -1,0 +1,45 @@
+﻿$PBExportHeader$d_sh136_d01.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=80 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=out_ymd dbname="tb_52031_h.out_ymd" )
+ column=(type=char(8) updatewhereclause=yes name=style dbname="tb_52031_h.style" )
+ column=(type=char(23) updatewhereclause=yes name=color dbname="color" )
+ column=(type=char(2) updatewhereclause=yes name=size dbname="tb_52031_h.size" )
+ column=(type=decimal(0) updatewhereclause=yes name=tag_price dbname="tag_price" )
+ column=(type=decimal(0) updatewhereclause=yes name=deal_qty dbname="deal_qty" )
+ retrieve="select 	out_ymd, style, 
+	color + ' ' + dbo.sf_color_nm(color,'k') as color, 
+	size, 
+	dbo.sf_first_price(style)		as tag_price,
+	sum(deal_qty)	as deal_qty
+from tb_52031_h (nolock)
+where out_ymd between :as_fr_ymd and :as_to_ymd
+and shop_cd = :as_shop_cd
+and deal_fg = '2'
+and deal_seq = case when left(style,1) = 'N' then case when out_ymd = '20101122' then 2 else 9 end
+		    when left(style,1) = 'O' then 51
+		    else 109 end
+group by out_ymd, style,color,size
+having sum(deal_qty) <> 0" arguments=(("as_fr_ymd", string),("as_to_ymd", string),("as_shop_cd", string)) )
+text(band=header alignment="2" text="배분수량" border="6" color="0" x="2085" y="8" height="60" width="315"  name=deal_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="소비자가" border="6" color="0" x="1687" y="8" height="60" width="384"  name=tag_price_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="사이즈" border="6" color="0" x="1481" y="8" height="60" width="192"  name=size_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="색상" border="6" color="0" x="809" y="8" height="60" width="658"  name=color_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="품번" border="6" color="0" x="366" y="8" height="60" width="430"  name=style_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="배분일자" border="6" color="0" x="0" y="4" height="64" width="352"  name=out_ymd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="1687" y="4" height="60" width="384" format="#,###"  name=tag_price edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1481" y="4" height="60" width="192" format="[general]"  name=size edit.limit=2 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="809" y="4" height="60" width="658" format="[general]"  name=color edit.limit=23 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="366" y="4" height="60" width="430" format="[general]"  name=style edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="0" y="4" height="60" width="352" format="@@@@/@@/@@"  name=out_ymd edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="16711680" x="2085" y="4" height="60" width="315" format="#,###"  name=deal_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33413626" )
+line(band=summary x1="5" y1="0" x2="2391" y2="0"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=summary x1="5" y1="4" x2="2391" y2="4"  name=l_2 pen.style="0" pen.width="5" pen.color="16777215"  background.mode="2" background.color="16777215" )
+text(band=summary alignment="2" text="[ 합     계 ]" border="0" color="0" x="9" y="16" height="56" width="443"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(deal_qty for all)"border="0" color="16711680" x="2085" y="16" height="60" width="315" format="#,###"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33413626" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

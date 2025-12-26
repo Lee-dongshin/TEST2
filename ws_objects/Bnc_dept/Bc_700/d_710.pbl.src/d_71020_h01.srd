@@ -1,0 +1,19 @@
+﻿$PBExportHeader$d_71020_h01.srd
+$PBExportComments$이벤트진행내역
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=172 color="536870912" )
+table(column=(type=datetime updatewhereclause=no name=reg_from dbname="reg_from" )
+ column=(type=datetime updatewhereclause=no name=reg_to dbname="reg_to" )
+ column=(type=char(1) updatewhereclause=no name=brand dbname="brand" initial="%" )
+ )
+text(band=detail alignment="1" text="구매일자:" border="0" color="0" x="18" y="36" height="56" width="329"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="2" tabsequence=10 border="5" color="0" x="370" y="36" height="56" width="306" format="[shortdate] [time]"  name=reg_from  tag="OE" editmask.mask="yyyy/mm/dd"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="~~" border="0" color="0" x="699" y="36" height="56" width="64"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=20 border="5" color="0" x="800" y="36" height="56" width="293" format="[shortdate] [time]"  name=reg_to  tag="OE" editmask.mask="yyyy/mm/dd"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="브랜드:" border="0" color="0" x="1175" y="36" height="56" width="283"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=40 border="5" color="0" x="1481" y="36" height="60" width="526" format="[general]"  name=brand  tag="OE" edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

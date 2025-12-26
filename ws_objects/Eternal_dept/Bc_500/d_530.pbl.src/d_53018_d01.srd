@@ -1,0 +1,78 @@
+﻿$PBExportHeader$d_53018_d01.srd
+$PBExportComments$타사 매출 현황
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=4 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no  crosstab.dynamic = yes grid.lines=0 grid.columnmove=no selected.mouse=no )
+header[1](height=0 color="536870912" )
+header[2](height=0 color="536870912" )
+header[3](height=80 color="536870912" )
+summary(height=76 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(20) updatewhereclause=yes name=yymmdd dbname="yymmdd" )
+ column=(type=char(20) updatewhereclause=yes name=shop_cd dbname="shop_cd" )
+ column=(type=char(20) updatewhereclause=yes name=shop_nm dbname="shop_nm" )
+ column=(type=number updatewhereclause=yes name=sale_amt dbname="sale_amt" )
+ retrieve="  SELECT yymmdd,SHOP_CD, dbo.sf_shop_nm(SHOP_CD, 'S') AS SHOP_NM,
+         CASE SHOP_TYPE 
+          WHEN '1' THEN 'A' 
+          WHEN '3' THEN 'A1' END AS OTHR_BRAND,
+         CASE SHOP_TYPE 
+          WHEN '1' THEN '정상매출' 
+          WHEN '3' THEN '기획매출' END AS OTHR_BRAND_NM,
+         ISNULL(SUM(SALE_AMT), 0) AS SALE_AMT
+    FROM TB_53010_H  WITH (NOLOCK)
+   WHERE YYMMDD between :as_sale_dt and :as_sale_dt1
+     AND SHOP_CD LIKE :as_brand + :as_shop_div + :as_shop_cd
+     AND SHOP_TYPE IN ('1', '3')
+   GROUP BY SHOP_CD, SHOP_TYPE, yymmdd
+
+  UNION ALL 
+
+  SELECT SALE_YMD,SHOP_CD, dbo.sf_shop_nm(SHOP_CD, 'S') AS SHOP_NM,
+			OTHR_BRAND, dbo.sf_inter_nm('012', OTHR_BRAND) AS OTHR_BRAND_NM,
+			ISNULL(SALE_AMT, 0) AS SALE_AMT
+  FROM TB_53030_H WITH (NOLOCK)
+   WHERE SALE_YMD between :as_sale_dt and :as_sale_dt1
+     AND SHOP_CD LIKE :as_brand + :as_shop_div + :as_shop_cd
+  and   OTHR_BRAND IN (select  INTER_CD from tb_91011_c
+								WHERE INTER_GRP = '012'
+								AND   INTER_CD2 = 'Y'
+								AND   INTER_CD  LIKE :AS_BRAND + '__')  
+  
+   UNION ALL
+
+  SELECT distinct a.SALE_YMD, a.SHOP_CD, dbo.sf_shop_nm(a.SHOP_CD, 'S') 						AS SHOP_NM,
+  	                upper(:as_brand) + '51' 				  									as OTHR_BRAND, 
+                   dbo.sf_inter_nm('012', :as_brand + '51')    						AS OTHR_BRAND_NM,
+                	 (select sum(isnull(c.real_sale_amt,0)) from tb_44020_s c WITH (NOLOCK)
+               	  where	c.yymmdd = a.sale_ymd
+                    and   c.shop_cd = b.in_shop_cd)	  								AS SALE_AMT
+   FROM TB_53030_H a WITH (NOLOCK) , tb_53031_M b
+   whERE a.SALE_YMD between :as_sale_dt and :as_sale_dt1
+    AND a.SHOP_CD LIKE :as_brand + :as_shop_div + :as_shop_cd
+   and   a.shop_cd = b.shop_cd
+   	 " arguments=(("as_brand", string),("as_sale_dt", string),("as_sale_dt1", string),("as_shop_cd", string),("as_shop_div", string))  sort="yymmdd A shop_cd A shop_nm A " )
+group(level=1 header.height=0 trailer.height=96 by=("yymmdd" ) header.color="536870912" trailer.color="536870912" )
+group(level=2 header.height=0 trailer.height=0 by=("shop_cd" ) header.color="536870912" trailer.color="536870912" )
+text(band=header[1] alignment="0" text="Sum Of Sale Amt" border="0" color="0" x="9" y="4" height="52" width="270"  name=t_1  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header[1] alignment="0" text="Othr Brand" border="0" color="0" x="288" y="4" height="52" width="229"  name=t_2  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header[1] alignment="0" text="Othr Brand Nm" border="0" color="0" x="526" y="4" height="52" width="485"  name=t_3  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header[2] alignment="0" text="@othr_brand" border="0" color="0" x="1019" y="4" height="52" width="320"  name=t_4  font.face="MS Sans Serif" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header[3] alignment="2" text="일자" border="6" color="16777215" x="9" y="12" height="60" width="270"  name=yymmdd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421376" )
+text(band=header[3] alignment="2" text="매장코드" border="6" color="16777215" x="288" y="12" height="60" width="229"  name=shop_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421376" )
+text(band=header[3] alignment="2" text="매장명" border="6" color="16777215" x="526" y="12" height="60" width="485"  name=shop_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421376" )
+text(band=header[3] alignment="2" text="@othr_brand_nm" border="6" color="16777215" x="1019" y="12" height="60" width="320"  name=sale_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421376" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="2" color="33554432" x="9" y="4" height="60" width="270" format="[general]"  name=yymmdd edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="33554432" x="288" y="4" height="60" width="229" format="[general]"  name=shop_cd edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="2" color="33554432" x="526" y="4" height="60" width="485" format="[general]"  name=shop_nm edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="2" color="33554432" x="1019" y="4" height="60" width="320" format="#,##0"  name=sale_amt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes crosstab.repeat=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.2 alignment="1" expression="shop_cd + ~" Total~""border="0" color="33554432" x="288" y="4" height="60" width="229" format="[general]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.2 alignment="1" expression="sum(sale_amt for group 2)"border="2" color="33554432" x="1019" y="4" height="60" width="320" format="#,##0"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="mid(yymmdd,5,4) + ~" 일계~""border="0" color="33554432" x="9" y="4" height="60" width="270" format="[general]"  name=compute_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33484273" )
+compute(band=trailer.1 alignment="1" expression="sum(sale_amt for group 1)"border="2" color="33554432" x="1019" y="4" height="60" width="320" format="#,##0"  name=compute_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33484273" )
+compute(band=summary alignment="1" expression="~"[ 총 계 ]~""border="0" color="0" x="9" y="8" height="60" width="270" format="[general]"  name=compute_9  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33487085" )
+compute(band=summary alignment="1" expression="sum(sale_amt for all )"border="2" color="0" x="1019" y="8" height="60" width="320" format="#,##0"  name=compute_10  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33487085" )
+ crosstab(band = foreground  crosstabonly = yes 
+ columns = "othr_brand, othr_brand_nm" rows = "yymmdd, shop_cd, shop_nm" values = "sum(sale_amt for crosstab)" sourcenames = "yymmdd, shop_cd, shop_nm, othr_brand, othr_brand_nm, sale_amt")
+sparse(names="yymmdd	shop_cd")htmltable(border="0" cellpadding="1" cellspacing="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

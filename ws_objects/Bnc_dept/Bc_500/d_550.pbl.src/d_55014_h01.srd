@@ -1,0 +1,53 @@
+﻿$PBExportHeader$d_55014_h01.srd
+$PBExportComments$년도시즌별재고내역조회
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=292 color="536870912" )
+table(column=(type=char(1) updatewhereclause=yes name=brand dbname="brand" )
+ column=(type=char(8) updatewhereclause=yes name=yymmdd dbname="yymmdd" )
+ column=(type=char(8) updatewhereclause=yes name=style dbname="style" )
+ column=(type=char(1) updatewhereclause=yes name=chno dbname="chno" )
+ column=(type=char(2) updatewhereclause=yes name=color dbname="color" )
+ column=(type=long updatewhereclause=yes name=tag_price dbname="DUAL.tag_price" )
+ column=(type=char(1) updatewhereclause=yes name=order_gubn dbname="order_gubn" initial="A" values="지역별	A/판매율순	B/지역//판매율순	C/" )
+ column=(type=char(10) updatewhereclause=yes name=area_cd dbname="area_cd" initial="%" )
+ column=(type=char(1) updatewhereclause=yes name=chno_yn dbname="chno_yn" initial="N" values="차수무시 :	Y/차수무시 :	N" )
+ column=(type=char(26) updatewhereclause=yes name=bujin_chk dbname="bujin_chk" )
+ column=(type=char(1) updatewhereclause=yes name=color_yn dbname="color_yn" values="칼라무시	Y/칼라무시	N" )
+ retrieve="select 
+'n'				brand,
+'20011001'		yymmdd,
+'nw2mj204'		style,
+'0'				chno,
+'01'				color,
+25000000			tag_price,
+'A'				order_gubn,
+'01        '				area_cd,
+'Y'				chno_yn,
+'                          '   bujin_chk,
+'N'				color_yn
+from dual
+" )
+text(band=detail alignment="1" text="품번브랜드:" border="0" color="0" x="9" y="20" height="56" width="439"  name=brand_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="스타일:" border="0" color="0" x="37" y="116" height="60" width="411"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="5" color="0" x="983" y="116" height="60" width="101" format="[general]"  name=chno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+button(band=detail text=""filename=""action="0" border="0" color="0" x="887" y="108" height="76" width="87" vtextalign="0" htextalign="0"  name=cb_style  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="67108864" )
+text(band=detail alignment="1" text="조회기준:" border="0" color="0" x="37" y="212" height="60" width="411"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=20 border="5" color="0" x="1536" y="20" height="60" width="608" format="@@@@/@@/@@"  name=yymmdd editmask.mask="XXXX/XX/XX" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=90 border="5" color="0" x="1536" y="212" height="60" width="608" format="[general]"  name=area_cd edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="기준일:" border="0" color="0" x="1106" y="20" height="60" width="411"  name=base_yymmdd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="지역구분:" border="0" color="0" x="1106" y="212" height="60" width="411"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="466" y="20" height="60" width="608" format="[general]"  name=brand edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="2" tabsequence=30 border="5" color="0" x="466" y="116" height="60" width="416" format="[general]"  name=style edit.limit=0 edit.case=upper edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="0" tabsequence=80 border="5" color="0" x="466" y="212" height="60" width="608" format="[general]"  name=order_gubn ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.useasborder=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="0" tabsequence=50 border="0" color="0" x="1152" y="120" height="56" width="338" format="[general]"  name=chno_yn checkbox.text="차수무시 :" checkbox.on="Y" checkbox.off="N" checkbox.lefttext=yes checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="5" color="128" x="2642" y="216" height="60" width="416" format="#,##0"  name=tag_price edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=detail alignment="1" text="가   격:" border="0" color="0" x="2213" y="216" height="60" width="411"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="색  상:" border="0" color="0" x="1504" y="120" height="60" width="411"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=60 border="5" color="0" x="1934" y="120" height="60" width="608" format="[general]"  name=color edit.name="색상" dddw.name=d_com901 dddw.displaycolumn=color_display dddw.datacolumn=color dddw.percentwidth=100 dddw.lines=6 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="255" x="2217" y="24" height="56" width="1385" format="[general]"  name=bujin_chk edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=11 alignment="0" tabsequence=70 border="0" color="0" x="2587" y="120" height="56" width="306" format="[general]"  name=color_yn checkbox.text="칼라무시" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

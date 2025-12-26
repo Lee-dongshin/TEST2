@@ -1,0 +1,15 @@
+﻿$PBExportHeader$d_56073_d02.srd
+$PBExportComments$코스메틱세트상품 등록
+release 7;
+datawindow(units=0 timer_interval=0 color=82899184 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=76 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(20) updatewhereclause=yes name=set_style dbname="set_style" )
+ procedure="1 execute dbo.SP_56073_L01;1 @brand = :brand, @set_style = :set_style, @set_type = :set_type" arguments=(("brand", string),("set_style", string),("set_type", string)) )
+text(band=header alignment="2" text="Set Style" border="6" color="0" x="9" y="8" height="64" width="425"  name=set_style_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="0" height="76" width="425" format="[general]"  name=set_style edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+compute(band=footer alignment="2" expression="count(  set_style  for all ) + ' 건'"border="0" color="0" x="9" y="0" height="72" width="425" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15780518" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

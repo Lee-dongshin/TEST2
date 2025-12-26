@@ -1,0 +1,30 @@
+﻿$PBExportHeader$d_91001_d02.srd
+$PBExportComments$내부코드 관리
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=180 color="536870912" )
+table(column=(type=char(3) update=yes updatewhereclause=yes key=yes name=inter_grp dbname="TB_91010_M.INTER_GRP" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=inter_kdesc dbname="TB_91010_M.INTER_KDESC" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=inter_edesc dbname="TB_91010_M.INTER_EDESC" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="TB_91010_M.REG_ID" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="TB_91010_M.MOD_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="TB_91010_M.MOD_DT" )
+ retrieve="  SELECT INTER_GRP,   
+         INTER_KDESC,   
+         INTER_EDESC,   
+         REG_ID,   
+         MOD_ID,   
+         MOD_DT    
+    FROM TB_91010_M   
+	WHERE INTER_GRP = :as_inter_grp
+" update="TB_91010_M" updatewhere=0 updatekeyinplace=yes arguments=(("as_inter_grp", string)) )
+text(band=detail alignment="2" text="내부코드그룹" border="6" color="0" x="46" y="36" height="60" width="352"  name=inter_grp_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="416" y="36" height="60" width="105" format="[general]"  name=inter_grp  tag="OE" edit.limit=3 edit.case=upper edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="그룹명(한글)" border="6" color="0" x="590" y="32" height="60" width="329"  name=inter_desc_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="그룹명(영문)" border="6" color="0" x="1536" y="32" height="60" width="329"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="937" y="32" height="60" width="539" format="[general]"  name=inter_kdesc  tag="DK" edit.limit=20 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="5" color="0" x="1883" y="32" height="60" width="539" format="[general]"  name=inter_edesc  tag="OE" edit.limit=20 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

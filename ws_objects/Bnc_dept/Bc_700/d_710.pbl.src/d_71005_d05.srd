@@ -1,0 +1,50 @@
+﻿$PBExportHeader$d_71005_d05.srd
+$PBExportComments$보너스쿠폰발행
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=80 color="536870912" )
+summary(height=4 color="536870912" )
+footer(height=240 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(13) update=yes updatewhereclause=yes key=yes name=jumin dbname="TB_71011_H.jumin" )
+ column=(type=char(8) update=yes updatewhereclause=yes key=yes name=give_date dbname="TB_71011_H.give_date" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=point_flag dbname="TB_71011_H.point_flag" values="발행	1/회수	2/" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=point_seq dbname="TB_71011_H.point_seq" )
+ column=(type=char(16) update=yes updatewhereclause=yes name=card_no dbname="TB_71011_H.card_no" )
+ column=(type=long update=yes updatewhereclause=yes name=give_point dbname="TB_71011_H.give_point" )
+ column=(type=long update=yes updatewhereclause=yes name=accept_point dbname="TB_71011_H.accept_point" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=post_flag dbname="TB_71011_H.post_flag" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=accept_flag dbname="TB_71011_H.accept_flag" values="회수	Y/소멸	C/미회수	N/" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=accept_ymd dbname="TB_71011_H.accept_ymd" )
+ retrieve="  SELECT TB_71011_H.jumin,   
+         TB_71011_H.give_date,   
+         TB_71011_H.point_flag,   
+         TB_71011_H.point_seq,   
+         TB_71011_H.card_no,   
+         TB_71011_H.give_point,   
+         TB_71011_H.accept_point,   
+         TB_71011_H.post_flag,   
+         TB_71011_H.accept_flag,   
+         TB_71011_H.accept_ymd  
+    FROM TB_71011_H   with (nolock)
+   WHERE TB_71011_H.jumin = :as_jumin   
+ORDER BY TB_71011_H.give_date DESC   
+" update="TB_71011_H" updatewhere=1 updatekeyinplace=no arguments=(("as_jumin", string)) )
+text(band=header alignment="2" text="날짜" border="6" color="0" x="14" y="12" height="56" width="288"  name=give_date_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269528" )
+text(band=header alignment="2" text="구분" border="6" color="0" x="325" y="12" height="56" width="206"  name=point_flag_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269528" )
+text(band=header alignment="2" text="카드번호" border="6" color="0" x="553" y="12" height="56" width="581"  name=card_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269528" )
+text(band=header alignment="2" text="발행포인트" border="6" color="0" x="1157" y="12" height="56" width="329"  name=give_point_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269528" )
+text(band=header alignment="2" text="회수포인트" border="6" color="0" x="1509" y="12" height="56" width="384"  name=accept_point_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269528" )
+text(band=header alignment="2" text="회수구분" border="6" color="0" x="1915" y="12" height="56" width="352"  name=accept_flag_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269528" )
+text(band=header alignment="2" text="회수일자" border="6" color="0" x="2290" y="12" height="56" width="329"  name=accept_ymd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269528" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="320" y="8" height="64" width="215" format="[general]"  name=point_flag ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33535487" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="9" y="8" height="64" width="297" format="[general]"  name=give_date editmask.mask="####-##-##" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0" x="549" y="8" height="64" width="590" format="[general]"  name=card_no editmask.mask="####-####-####-####" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="1504" y="8" height="64" width="393" format="#,##0"  name=accept_point edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=10 alignment="2" tabsequence=32766 border="0" color="0" x="2286" y="8" height="64" width="338" format="[general]"  name=accept_ymd editmask.mask="####-##-##" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="1152" y="8" height="64" width="338" format="#,##0"  name=give_point edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15780518" )
+column(band=detail id=9 alignment="2" tabsequence=32766 border="0" color="0" x="1911" y="8" height="64" width="361" format="[general]"  name=accept_flag ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15780518" )
+rectangle(band=footer x="9" y="0" height="244" width="2629"  name=r_1 brush.hatch="6" brush.color="30988504" pen.style="0" pen.width="5" pen.color="16777215"  background.mode="2" background.color="80269528" )
+button(band=footer text="닫기"filename=""action="0" border="0" color="0" x="1152" y="56" height="120" width="320" vtextalign="0" htextalign="0"  name=cb_close  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33535487" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

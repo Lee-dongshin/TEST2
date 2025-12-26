@@ -1,0 +1,26 @@
+﻿$PBExportHeader$d_42055_d10.srd
+$PBExportComments$PDA일일반품현황
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(6) updatewhereclause=yes name=empno dbname="VI_93000_1.empno" )
+ column=(type=char(20) updatewhereclause=yes name=kname dbname="VI_93000_1.kname" )
+ retrieve="select empno, kname
+from vi_93000_1
+where (goout_gubn = '1'
+and  dept_code in ('8000','8001','8002','8003','K600','T700','S310','F310','QB80')
+and brand like case when :as_brand = 'O' or :as_brand = 'D' then '[OD]' else '[^OD]' end + '%')
+or 
+empno like 'G4%'
+union all
+select '%' as empno, '전체' as kname
+" arguments=(("as_brand", string))  sort="empno A " )
+text(band=header alignment="2" text="사번" border="6" color="0" x="5" y="8" height="60" width="192"  name=empno_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="이름" border="6" color="0" x="210" y="8" height="60" width="320"  name=kname_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="5" y="4" height="60" width="192" format="[general]"  name=empno edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="210" y="4" height="60" width="320" format="[general]"  name=kname edit.limit=14 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

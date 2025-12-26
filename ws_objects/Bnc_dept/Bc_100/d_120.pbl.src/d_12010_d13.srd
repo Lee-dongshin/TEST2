@@ -1,0 +1,58 @@
+﻿$PBExportHeader$d_12010_d13.srd
+$PBExportComments$작업지시서[완성제품치수]
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes key=yes name=style dbname="tb_12023_d.style" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=chno dbname="tb_12023_d.chno" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=spec_fg dbname="tb_12023_d.spec_fg" )
+ column=(type=char(2) update=yes updatewhereclause=yes key=yes name=spec_cd dbname="tb_12023_d.spec_cd" )
+ column=(type=char(2) update=yes updatewhereclause=yes key=yes name=size dbname="tb_12023_d.size" )
+ column=(type=decimal(3) update=yes updatewhereclause=yes name=size_spec dbname="tb_12023_d.size_spec" )
+ column=(type=decimal(3) update=yes updatewhereclause=yes name=spec_term dbname="tb_12023_d.spec_term" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="tb_12023_d.reg_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="tb_12023_d.reg_dt" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="tb_12023_d.mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="tb_12023_d.mod_dt" )
+ retrieve="  SELECT style,   
+         chno, 
+         spec_fg,   
+         spec_cd,   
+         size,   
+         size_spec,   
+         spec_term,   
+         reg_id,   
+         reg_dt,   
+         mod_id,   
+         mod_dt  
+    FROM tb_12023_d   
+   WHERE style = :as_style 
+     and chno  = :as_chno 
+" update="tb_12023_d" updatewhere=0 updatekeyinplace=yes arguments=(("as_style", string),("as_chno", string)) )
+text(band=header alignment="2" text="Style" border="6" color="0" x="9" y="8" height="56" width="247"  name=style_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Spec Fg" border="6" color="0" x="443" y="8" height="56" width="224"  name=spec_fg_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Spec Cd" border="6" color="0" x="677" y="8" height="56" width="229"  name=spec_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Size" border="6" color="0" x="914" y="8" height="56" width="119"  name=size_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Size Spec" border="6" color="0" x="1042" y="8" height="56" width="329"  name=size_spec_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Spec Term" border="6" color="0" x="1381" y="8" height="56" width="329"  name=spec_term_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Reg Id" border="6" color="0" x="1719" y="8" height="56" width="192"  name=reg_id_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Reg Dt" border="6" color="0" x="1920" y="8" height="56" width="603"  name=reg_dt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Mod Id" border="6" color="0" x="2533" y="8" height="56" width="192"  name=mod_id_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Mod Dt" border="6" color="0" x="2734" y="8" height="56" width="603"  name=mod_dt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Chno" border="6" color="0" x="265" y="8" height="56" width="169"  name=obj_77879265  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="0" x="9" y="8" height="76" width="247" format="[general]"  name=style edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="0" color="0" x="443" y="8" height="76" width="224" format="[general]"  name=spec_fg edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=30 border="0" color="0" x="677" y="8" height="76" width="229" format="[general]"  name=spec_cd edit.limit=2 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=40 border="0" color="0" x="914" y="8" height="76" width="119" format="[general]"  name=size edit.limit=2 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=50 border="0" color="0" x="1042" y="8" height="76" width="329" format="[general]"  name=size_spec edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=60 border="0" color="0" x="1381" y="8" height="76" width="329" format="[general]"  name=spec_term edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=70 border="0" color="0" x="1719" y="8" height="76" width="192" format="[general]"  name=reg_id edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=80 border="0" color="0" x="1920" y="8" height="76" width="603" format="[shortdate] [time]"  name=reg_dt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=90 border="0" color="0" x="2533" y="8" height="76" width="192" format="[general]"  name=mod_id edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=100 border="0" color="0" x="2734" y="8" height="76" width="603" format="[shortdate] [time]"  name=mod_dt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="265" y="8" height="76" width="169" format="[general]"  name=chno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

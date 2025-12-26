@@ -1,0 +1,19 @@
+﻿$PBExportHeader$d_com942.srd
+$PBExportComments$PDA용 박스크기
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(4) updatewhereclause=yes name=size dbname="size" )
+ column=(type=char(30) updatewhereclause=yes name=size_nm dbname="size_nm" )
+ retrieve="select a.size, a.size_nm
+from 
+(select 	코드 	as size,
+	코드명	as size_nm
+from view_pda_박스크기 ) a" )
+text(band=header alignment="2" text="박스크기" border="6" color="0" x="18" y="4" height="60" width="283"  name=size_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="18" y="4" height="60" width="283" format="[general]"  name=size_nm edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33092811" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

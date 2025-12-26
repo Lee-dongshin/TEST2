@@ -1,0 +1,20 @@
+﻿$PBExportHeader$d_com941.srd
+$PBExportComments$색상[dddw]
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(2) update=yes updatewhereclause=yes key=yes name=color dbname="tb_91040_c.color" )
+ column=(type=char(40) updatewhereclause=yes name=color_knm dbname="tb_91040_c.color_knm" )
+ column=(type=char(45) updatewhereclause=yes name=color_display dbname="color_display" )
+ retrieve="  SELECT color,   
+         color_knm,   
+         color+~" - ~"+color_knm as color_display
+    FROM tb_91040_c   with (nolock)    
+" update="tb_91040_c" updatewhere=1 updatekeyinplace=no )
+column(band=detail id=1 alignment="2" tabsequence=10 border="0" color="0" x="5" y="12" height="60" width="82" format="[general]"  name=color edit.limit=2 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="101" y="12" height="60" width="539" format="[general]"  name=color_knm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="658" y="12" height="60" width="677" format="[general]"  name=color_display edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

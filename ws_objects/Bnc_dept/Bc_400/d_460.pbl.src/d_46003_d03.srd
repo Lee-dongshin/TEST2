@@ -1,0 +1,23 @@
+﻿$PBExportHeader$d_46003_d03.srd
+$PBExportComments$부자재별
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=152 color="536870912" )
+summary(height=76 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(30) updatewhereclause=yes name=cust_nm dbname="mat_nm" )
+ column=(type=decimal(0) updatewhereclause=yes name=qty dbname="qty" )
+ procedure="1 execute dbo.sp_46003_d03;1 @brand = :brand, @fr_ymd = :fr_ymd, @to_ymd = :to_ymd, @mat_cd = :mat_cd, @style = :style, @year = :year, @season = :season, @item = :item, @make_type = :make_type" arguments=(("brand", string),("fr_ymd", string),("to_ymd", string),("mat_cd", string),("style", string),("year", string),("season", string),("item", string),("make_type", string)) )
+text(band=header alignment="0" text="3. 업체별" border="0" color="16711680" x="9" y="12" height="56" width="425"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="구분" border="6" color="0" x="5" y="84" height="60" width="448"  name=mat_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="sum( qty  for all)"border="0" color="0" x="224" y="8" height="60" width="219" format="[GENERAL]"  name=c_t_qty visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="60" width="443" format="[general]"  name=cust_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="12639424" )
+text(band=summary alignment="2" text="[ 총계 ]" border="6" color="16711680" x="5" y="8" height="56" width="443"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="수량" border="6" color="0" x="466" y="84" height="60" width="160"  name=qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="구성비" border="6" color="0" x="640" y="84" height="60" width="187"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="466" y="4" height="60" width="160" format="[general]"  name=qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30800893" )
+compute(band=detail alignment="1" expression=" qty / c_t_qty "border="0" color="8388736" x="640" y="4" height="60" width="192" format="0%"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30800893" )
+compute(band=summary alignment="1" expression="sum(qty for all)"border="0" color="0" x="466" y="8" height="60" width="160" format="[general]"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30800893" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

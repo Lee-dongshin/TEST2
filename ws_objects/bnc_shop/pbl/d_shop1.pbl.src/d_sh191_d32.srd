@@ -1,0 +1,45 @@
+﻿$PBExportHeader$d_sh191_d32.srd
+$PBExportComments$구매할인권내역
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=76 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=give_date dbname="give_date" )
+ column=(type=char(6) updatewhereclause=yes name=coupon_no dbname="coupon_no" )
+ column=(type=long updatewhereclause=yes name=give_amt dbname="give_amt" )
+ column=(type=decimal(0) updatewhereclause=yes name=give_rate dbname="give_rate" )
+ column=(type=char(8) updatewhereclause=yes name=use_ymd dbname="use_ymd" )
+ column=(type=char(15) updatewhereclause=yes name=verify_no dbname="verify_no" )
+ column=(type=char(15) updatewhereclause=yes name=chk_verify dbname="chk_verify" )
+ column=(type=char(6) updatewhereclause=yes name=use_shop dbname="use_shop" )
+ retrieve="select give_date, coupon_no, give_point * 10	as give_amt, give_rate, use_ymd, verify_no, '               ' as chk_verify , use_shop
+from	 tb_71011_h (nolock)
+where jumin       = :as_jumin
+and	point_flag  = '1'
+and   accept_flag = 'N'
+and  (coupon_no in ('first1','second')
+or    coupon_no like :as_brand+'%'
+or    coupon_no like 'T%') 
+and   isnull(use_shop,'%') = case when use_shop is null then '%' else :as_shop_cd end
+and   isnull(use_ymd,'9') >= convert(char(8),getdate(),112) 
+and   give_date <= convert(char(8),getdate(),112)  
+order by give_date desc" arguments=(("as_jumin", string),("as_brand", string),("as_shop_cd", string)) )
+text(band=header alignment="2" text="지급액" border="6" color="0" x="699" y="4" height="56" width="329"  name=give_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="구폰번호" border="6" color="0" x="375" y="4" height="56" width="311"  name=coupon_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="지급일" border="6" color="0" x="5" y="4" height="56" width="357"  name=give_date_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="할인율(%)" border="6" color="0" x="1042" y="4" height="56" width="274"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="79741120" )
+text(band=header alignment="2" text="사용유효기간" border="6" color="0" x="1335" y="4" height="56" width="389"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="79741120" )
+text(band=header alignment="2" text="쿠폰인증번호" border="6" color="65535" x="1737" y="4" height="56" width="411"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421376" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="375" y="4" height="60" width="311" format="[general]"  name=coupon_no edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="5" y="4" height="60" width="357" format="[general]"  name=give_date edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="699" y="4" height="60" width="329" format="#,###"  name=give_amt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="1042" y="4" height="60" width="283" format="#,##0"  name=give_rate edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0" x="1335" y="4" height="60" width="389" format="@@@@/@@/@@"  name=use_ymd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1303" y="4" height="60" width="407" format="[general]"  name=verify_no visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=7 alignment="0" tabsequence=10 border="5" color="0" x="1737" y="4" height="60" width="411" format="[general]"  name=chk_verify visible="1~tif( isnull( verify_no ) or len( verify_no ) < 2, 0,1)" edit.limit=15 edit.case=upper edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33413626" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="2149" y="0" height="56" width="165" format="[general]"  name=use_shop visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+button(band=summary text="닫기"filename=""action="0" border="0" color="65535" x="1125" y="0" height="72" width="197" vtextalign="0" htextalign="0"  name=cb_close  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421376" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

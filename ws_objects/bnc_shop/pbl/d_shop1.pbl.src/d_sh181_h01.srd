@@ -1,0 +1,14 @@
+﻿$PBExportHeader$d_sh181_h01.srd
+$PBExportComments$EDI/닷컴 마감입력
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(8) updatewhereclause=no name=yymm dbname="yymm" )
+ )
+text(band=detail alignment="1" text="기준월" border="0" color="0" x="46" y="24" height="56" width="370"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="0" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="5" color="0" x="448" y="20" height="56" width="434" format="[general]"  name=yymm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="0" text="* 판매수량, 금액은 각 일자별 예약판매등록 내역이 포함됩니다." border="0" color="255" x="1015" y="24" height="56" width="2034"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82899184" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

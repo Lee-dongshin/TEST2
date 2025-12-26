@@ -1,0 +1,30 @@
+﻿$PBExportHeader$gf_add_month.srf
+$PBExportComments$월 연산
+global type gf_add_month from function_object
+end type
+
+forward prototypes
+global function boolean gf_add_month (string as_yymm, long al_mon, ref string as_addmon)
+end prototypes
+
+global function boolean gf_add_month (string as_yymm, long al_mon, ref string as_addmon);/*------------------------------------------------------------*/
+/* 작 성 자  : 지우정보                                       */
+/* 내    용  : 월 연산 함수                                   */
+/*------------------------------------------------------------*/
+
+SELECT CASE LEN(:as_yymm)
+         WHEN 6 THEN CONVERT(VARCHAR(6), DATEADD(Month, 2,  CONVERT(DATETIME, :as_yymm + '01')), 112)
+         WHEN 8 THEN CONVERT(VARCHAR(8), DATEADD(Month, 1,  CONVERT(DATETIME, :as_yymm)), 112)
+       END 
+  INTO :as_addmon
+  FROM DUAL ;
+
+IF sqlca.sqlcode <> 0  THEN
+	MessageBox("월 연산 오류", SQLCA.SQLErrText)
+	RETURN FALSE
+END IF
+
+RETURN TRUE
+
+end function
+

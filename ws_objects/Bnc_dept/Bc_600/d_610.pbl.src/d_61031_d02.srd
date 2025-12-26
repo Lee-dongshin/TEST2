@@ -1,0 +1,19 @@
+﻿$PBExportHeader$d_61031_d02.srd
+$PBExportComments$월별 마일리지 사용금액
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=80 color="536870912" )
+summary(height=88 color="536870912" )
+footer(height=4 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(8) updatewhereclause=no name=yymm dbname="YYMM" )
+ column=(type=decimal(0) updatewhereclause=no name=goods_amt dbname="GOODS_AMT" )
+ procedure="1 execute dbo.SP_61031_D02;1 @BRAND = :BRAND, @fr_yymm=:fr_yymm, @to_yymm = :to_yymm" arguments=(("BRAND", string),("fr_yymm", string),("to_yymm", string)) )
+text(band=header alignment="2" text="년월" border="6" color="0" x="9" y="8" height="64" width="247"  name=yymm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="9" y="0" height="76" width="247" format="@@@@/@@"  name=yymm edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="마일리지금액" border="6" color="0" x="265" y="8" height="64" width="453"  name=goods_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="265" y="0" height="76" width="453" format="#,##0"  name=goods_amt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=summary alignment="2" text="합계" border="0" color="0" x="5" y="4" height="72" width="251"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15780518" )
+compute(band=summary alignment="1" expression="sum(goods_amt for all)"border="0" color="0" x="265" y="4" height="72" width="453" format="#,##0"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15780518" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

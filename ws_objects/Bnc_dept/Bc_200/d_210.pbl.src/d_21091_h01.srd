@@ -1,0 +1,18 @@
+﻿$PBExportHeader$d_21091_h01.srd
+$PBExportComments$제품코드생성처리(TAG)
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=120 color="536870912" )
+table(column=(type=char(1) updatewhereclause=no name=brand dbname="brand" initial="N" values="보끄레, J기획	N/올리브, Y기획	O/W.	W/TasseTasse	T/N et C	C/Micby	M/임시택 발행	X/" )
+ column=(type=char(4) updatewhereclause=no name=year dbname="year" )
+ column=(type=char(1) updatewhereclause=no name=opt dbname="opt" values="본사용	Y/본사용	N" )
+ )
+text(band=detail alignment="1" text="브랜드:" border="0" color="0" x="18" y="32" height="60" width="215"  name=brand_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="247" y="32" height="60" width="599" format="[general]"  name=brand ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="2" tabsequence=20 border="5" color="0" x="1175" y="36" height="56" width="238" format="@@@@"  name=year edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="년도:" border="0" color="0" x="937" y="32" height="56" width="219"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="5" color="0" x="1650" y="36" height="56" width="306" format="[general]"  name=opt checkbox.text="본사용" checkbox.on="Y" checkbox.off="N" checkbox.scale=yes checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

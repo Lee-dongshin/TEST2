@@ -1,0 +1,30 @@
+﻿$PBExportHeader$d_com001.srd
+$PBExportComments$내부코드[dddw]
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 grid.columnmove=no selected.mouse=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=64 color="536870912" )
+table(column=(type=char(3) updatewhereclause=yes name=inter_cd dbname="TB_91011_C.INTER_CD" )
+ column=(type=char(20) updatewhereclause=yes name=inter_nm dbname="TB_91011_C.INTER_NM" )
+ column=(type=char(10) updatewhereclause=yes name=inter_cd1 dbname="TB_91011_C.INTER_CD1" )
+ column=(type=char(10) updatewhereclause=yes name=inter_cd2 dbname="TB_91011_C.INTER_CD2" )
+ column=(type=char(10) updatewhereclause=yes name=inter_data1 dbname="TB_91011_C.INTER_DATA1" )
+ column=(type=char(10) updatewhereclause=yes name=inter_data2 dbname="TB_91011_C.INTER_DATA2" )
+ retrieve="  SELECT INTER_CD,    
+         INTER_NM, 
+         INTER_CD1, 
+         INTER_CD2, 
+         INTER_DATA1, 
+         INTER_DATA2
+    FROM TB_91011_C (nolock)
+   WHERE INTER_GRP = :as_inter_grp
+	ORDER BY isnull(convert(int, sort_seq),99)
+" arguments=(("as_inter_grp", string)) )
+text(band=header alignment="0" text="Inter Cd" border="0" color="0" x="9" y="4" height="56" width="101"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Inter Nm" border="0" color="0" x="119" y="4" height="56" width="494"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="9" y="4" height="56" width="101" format="[general]"  name=inter_cd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="119" y="4" height="56" width="494" format="[general]"  name=inter_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="0" expression=" inter_cd + ' ' + inter_nm "border="0" color="0" x="622" y="4" height="56" width="91" format="[GENERAL]"  name=inter_display visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

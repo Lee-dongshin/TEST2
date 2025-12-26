@@ -1,0 +1,51 @@
+﻿$PBExportHeader$d_56021_r01.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=4 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no  crosstab.dynamic = yes grid.lines=0 grid.columnmove=no selected.mouse=no )
+header[1](height=0 color="536870912" )
+header[2](height=72 color="536870912" )
+header[3](height=72 color="536870912" )
+header[4](height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(20) updatewhereclause=yes name=style dbname="style" )
+ column=(type=number updatewhereclause=yes name=tag_price dbname="tag_price" )
+ column=(type=number updatewhereclause=yes name=sale_price dbname="sale_price" )
+ column=(type=number updatewhereclause=yes name=dc_rate dbname="dc_rate" )
+ retrieve="select distinct style, 
+					dbo.sf_first_price(style)	as tag_price,
+				   start_ymd, 
+					sale_type + ' ' + dbo.sf_inter_nm('011',sale_type) AS SALE_TYPE, 
+					sale_price, dc_rate
+	
+from tb_56012_d (nolock)
+where year = :As_year
+and season = :as_season
+and brand = :As_brand
+and substring(sale_type,1,1) in (:as_sale_type1, :as_sale_type2, :As_sale_type3)
+and sale_type < '43'" arguments=(("as_year", string),("as_season", string),("as_brand", string),("as_sale_type1", string),("as_sale_type2", string),("as_sale_type3", string))  sort="style A tag_price A " )
+group(level=1 header.height=0 trailer.height=0 by=("style" ) header.color="536870912" trailer.color="536870912" )
+text(band=header[1] alignment="0" text="Sale Type" border="0" color="33554432" x="471" y="4" height="64" width="242"  name=t_1  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header[1] alignment="0" text="Start Ymd" border="0" color="33554432" x="722" y="4" height="64" width="256"  name=t_2  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header[2] alignment="2" text="@sale_type" border="0" color="33554432" x="722" y="12" height="60" width="393"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header[3] alignment="2" text="@start_ymd" border="0" color="33554432" x="722" y="12" height="60" width="393"  name=t_8  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header[4] alignment="2" text="품번" border="0" color="33554432" x="155" y="12" height="60" width="306"  name=style_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header[4] alignment="2" text="소비자가" border="0" color="33554432" x="471" y="12" height="60" width="242"  name=tag_price_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header[4] alignment="2" text="인하" border="0" color="33554432" x="722" y="12" height="60" width="256"  name=sale_price_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header[4] alignment="2" text="할인" border="0" color="33554432" x="987" y="12" height="60" width="123"  name=dc_rate_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header[4] alignment="2" text="순번" border="0" color="33554432" x="9" y="12" height="60" width="137"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="2" expression="getrow()"border="6" color="0" x="9" y="4" height="56" width="137" format="[GENERAL]"  name=compute_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="33554432" x="471" y="4" height="60" width="242" format="#,###"  name=tag_price edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="155" y="4" height="60" width="306" format="[general]"  name=style edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="16711680" x="722" y="4" height="60" width="256" format="#,###"  name=sale_price edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes crosstab.repeat=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="8388736" x="987" y="4" height="60" width="123" format="###"  name=dc_rate edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes crosstab.repeat=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+compute(band=trailer.1 alignment="1" expression="style + ~" Total~""border="0" color="33554432" x="155" y="4" height="76" width="306" format="[general]"  name=compute_1  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(sale_price for group 1)"border="0" color="33554432" x="722" y="4" height="76" width="256" format="[general]"  name=compute_2  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=trailer.1 alignment="1" expression="sum(dc_rate for group 1)"border="0" color="33554432" x="987" y="4" height="76" width="123" format="[general]"  name=compute_3  font.face="Arial" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="~"Grand Total~""border="0" color="33554432" x="155" y="4" height="60" width="306" format="[general]"  name=compute_8  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(sale_price for all )"border="0" color="16711680" x="722" y="4" height="60" width="256" format="#,###"  name=compute_9  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+compute(band=summary alignment="1" expression="sum(dc_rate for all )"border="0" color="8388736" x="987" y="4" height="60" width="123" format="###"  name=compute_10  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+ crosstab(band = foreground  crosstabonly = yes 
+ columns = "sale_type, start_ymd" rows = "style, tag_price" values = "sum(sale_price for crosstab), sum(dc_rate for crosstab)" sourcenames = "style, tag_price, start_ymd, sale_type, sale_price, dc_rate")
+sparse(names="style")htmltable(border="0" cellpadding="1" cellspacing="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

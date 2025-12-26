@@ -1,0 +1,42 @@
+﻿$PBExportHeader$d_93002_d01.srd
+$PBExportComments$사용자 프로그램 관리
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=152 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(9) updatewhereclause=yes name=pgm_id dbname="TB_93020_M.PGM_ID" )
+ column=(type=char(6) updatewhereclause=yes name=person_id dbname="PERSON_ID" )
+ column=(type=char(6) updatewhereclause=yes name=reg_id dbname="TB_93020_M.REG_ID" )
+ column=(type=char(30) updatewhereclause=yes name=pgm_nm dbname="TB_93020_M.PGM_NM" )
+ column=(type=long updatewhereclause=yes name=pgm_level dbname="TB_93020_M.PGM_LEVEL" )
+ column=(type=char(1) updatewhereclause=yes name=flag dbname="FLAG" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=iud_gbn dbname="iud_gbn" values="조회만	0/조회만	1" )
+ retrieve="  SELECT PGM_ID, 
+			CONVERT(CHAR(6), :as_person_id) AS PERSON_ID,
+			REG_ID, 
+			PGM_NM, 
+			PGM_LEVEL,
+			'' AS FLAG,
+			'' as iud_gbn
+	 FROM TB_93020_M(nolock)
+	WHERE dbo.sf_run_stat(:as_person_id, PGM_ID) <> 0
+	  AND PGM_FG = 'W' 
+	  AND PGM_STAT = 'B'
+	  AND PGM_ID NOT IN ( SELECT PGM_ID
+									FROM TB_93040_H
+								  WHERE PERSON_ID = :as_person_id)
+" arguments=(("as_person_id", string))  sort="pgm_id A " )
+text(band=header alignment="2" text="사용 불가 Program List" border="6" color="0" x="9" y="8" height="60" width="1573"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="12639424" )
+button(band=header text="선택"filename=""action="0" border="0" color="16777215" x="1458" y="76" height="76" width="133" vtextalign="0" htextalign="0"  name=cb_choice1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421376" )
+text(band=header alignment="2" text="등급" border="6" color="0" x="1294" y="84" height="60" width="155"  name=pgm_level_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="프로그램ID" border="6" color="0" x="9" y="84" height="60" width="288"  name=pgm_id_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="프  로  그  램  명" border="6" color="0" x="315" y="84" height="60" width="960"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=6 alignment="2" tabsequence=10 border="5" color="0" x="1467" y="4" height="60" width="114" format="[general]"  name=flag checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="5" color="0" x="1294" y="4" height="60" width="155" format="[general]"  name=pgm_level edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="5" color="0" x="9" y="4" height="60" width="288" format="[general]"  name=pgm_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="5" color="0" x="315" y="4" height="60" width="960" format="[general]"  name=pgm_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=7 alignment="0" tabsequence=0 border="5" color="0" x="1614" y="4" height="56" width="242"  name=iud_gbn visible="1~t0" checkbox.text="조회만" checkbox.on="0" checkbox.off="1" checkbox.lefttext=yes checkbox.scale=yes checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

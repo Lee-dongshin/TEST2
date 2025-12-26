@@ -1,0 +1,26 @@
+﻿$PBExportHeader$gf_color_nm.srf
+$PBExportComments$거래처명을 읽어온다.
+global type gf_color_nm from function_object
+end type
+
+forward prototypes
+global function integer gf_color_nm (string as_color_cd, string as_flag, ref string as_color_nm)
+end prototypes
+
+global function integer gf_color_nm (string as_color_cd, string as_flag, ref string as_color_nm);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 작 성 일  : 2001/09/14                                     */
+/* 수 정 일  : 2001/09/14                                     */
+/* 내    용  : 거래처명을 읽어온다.('L':거래처명, 'S':약칭명) */
+/*============================================================*/
+
+SELECT dbo.SF_color_NM(:as_color_cd, :as_flag)
+  INTO :as_color_nm 
+  FROM DUAL ;
+
+IF ISNULL(as_color_cd) THEN RETURN 100
+
+RETURN sqlca.sqlcode 
+
+end function
+

@@ -1,0 +1,36 @@
+﻿$PBExportHeader$d_79019_d01.srd
+$PBExportComments$전화상담내역관리
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=4 color="536870912" )
+footer(height=88 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes key=yes name=yymmdd dbname="TB_79013_D.YYMMDD" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=seq_no dbname="TB_79013_D.SEQ_NO" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=person_nm dbname="TB_79013_D.PERSON_NM" )
+ retrieve="SELECT YYMMDD,
+		 SEQ_NO,
+		 PERSON_NM
+FROM TB_79013_D (NOLOCK)
+WHERE YYMMDD BETWEEN :AS_FR_YMD AND :AS_TO_YMD
+AND   BRAND  = :AS_BRAND
+AND   COUNSEL_GUBN LIKE :AS_COUNSEL_GUBN + '%'
+AND   PERSON_NM    LIKE :AS_PERSON_NM + '%'
+AND   isnull(TEL_NO2,'%')      LIKE :AS_MOBILE   + '%'
+AND   isnull(TEL_NO1,'%')      LIKE :AS_TEL + '%'  
+AND   isnull(JUMIN_NO,'%')     LIKE :AS_JUMIN_NO + '%'
+AND   isnull(CARD_NO,'%')      LIKE :AS_CARD_NO + '%'" update="TB_79013_D" updatewhere=1 updatekeyinplace=no arguments=(("AS_FR_YMD", string),("AS_TO_YMD", string),("AS_BRAND", string),("AS_COUNSEL_GUBN", string),("AS_PERSON_NM", string),("AS_MOBILE", string),("AS_TEL", string),("AS_CARD_NO", string),("AS_JUMIN_NO", string)) )
+text(band=header alignment="2" text="상담일자" border="6" color="0" x="9" y="4" height="60" width="329"  name=yymmdd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="순번" border="6" color="0" x="352" y="4" height="60" width="183"  name=seq_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="고객명" border="6" color="0" x="549" y="4" height="60" width="389"  name=person_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="60" width="329" format="@@@@/@@/@@"  name=yymmdd edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="352" y="4" height="60" width="183" format="[general]"  name=seq_no edit.limit=4 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="549" y="4" height="60" width="393" format="[general]"  name=person_nm edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+line(band=footer x1="9" y1="4" x2="928" y2="4"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=footer x1="9" y1="0" x2="928" y2="0"  name=l_2 pen.style="0" pen.width="5" pen.color="16777215"  background.mode="2" background.color="16777215" )
+compute(band=footer alignment="0" expression="count(  person_nm  for all )"border="0" color="128" x="581" y="20" height="56" width="215" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=footer alignment="2" text="총" border="6" color="0" x="448" y="20" height="56" width="110"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=footer alignment="2" text="명" border="6" color="0" x="814" y="24" height="56" width="110"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,64 @@
+﻿$PBExportHeader$d_21031_d06.srd
+$PBExportComments$ftp전송
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=1020 color="536870912" )
+table(column=(type=char(1) update=yes updatewhereclause=yes key=yes name=brand dbname="brand" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=year dbname="year" )
+ column=(type=char(8) update=yes updatewhereclause=yes key=yes name=style dbname="style" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=chno dbname="chno" )
+ column=(type=char(2) update=yes updatewhereclause=yes key=yes name=color dbname="color" )
+ column=(type=char(50) update=yes updatewhereclause=yes key=yes name=img_nm dbname="img_nm" )
+ column=(type=char(20) update=yes updatewhereclause=yes key=yes name=ft_order dbname="ft_order" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=size dbname="size" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="reg_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="reg_dt" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="mod_dt" )
+ retrieve="  SELECT brand,   
+         year,   
+         style,   
+         chno,   
+         color,  
+         img_nm,   
+         ft_order,    
+         size,   
+         reg_id,   
+         reg_dt,   
+         mod_id,   
+         mod_dt  
+    FROM tb_21031_m   
+   WHERE brand = :as_brand
+			and year = :as_year
+			and style = :as_style
+			and chno = :as_chno
+			and color = :as_color
+			and ft_order = :as_ft_order" update="tb_21031_m" updatewhere=1 updatekeyinplace=no arguments=(("as_brand", string),("as_year", string),("as_style", string),("as_chno", string),("as_color", string),("as_ft_order", string)) )
+text(band=detail alignment="1" text="Brand:" border="0" color="0" x="37" y="4" height="64" width="238"  name=brand_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="293" y="4" height="76" width="55" format="[general]"  name=brand edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Year:" border="0" color="0" x="37" y="100" height="56" width="238"  name=year_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="293" y="100" height="68" width="137" format="[general]"  name=year edit.limit=4 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Style:" border="0" color="0" x="37" y="184" height="56" width="238"  name=style_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="293" y="184" height="68" width="247" format="[general]"  name=style edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Chno:" border="0" color="0" x="37" y="264" height="56" width="238"  name=chno_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="293" y="264" height="68" width="55" format="[general]"  name=chno edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Img Nm:" border="0" color="0" x="37" y="348" height="56" width="238"  name=img_nm_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="293" y="348" height="68" width="1399" format="[general]"  name=img_nm edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Ft Order:" border="0" color="0" x="37" y="432" height="56" width="238"  name=ft_order_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="293" y="432" height="68" width="576" format="[general]"  name=ft_order edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Color:" border="0" color="0" x="37" y="520" height="56" width="238"  name=color_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="293" y="520" height="68" width="576" format="[general]"  name=color edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Size:" border="0" color="0" x="37" y="604" height="56" width="238"  name=size_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="293" y="604" height="68" width="576" format="[general]"  name=size edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Reg Id:" border="0" color="0" x="37" y="688" height="56" width="238"  name=reg_id_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="293" y="688" height="68" width="192" format="[general]"  name=reg_id edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Reg Dt:" border="0" color="0" x="37" y="772" height="56" width="238"  name=reg_dt_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="293" y="772" height="68" width="603" format="[shortdate] [time]"  name=reg_dt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Mod Id:" border="0" color="0" x="37" y="856" height="56" width="238"  name=mod_id_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="293" y="856" height="68" width="192" format="[general]"  name=mod_id edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Mod Dt:" border="0" color="0" x="37" y="940" height="56" width="238"  name=mod_dt_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="293" y="940" height="68" width="603" format="[shortdate] [time]"  name=mod_dt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

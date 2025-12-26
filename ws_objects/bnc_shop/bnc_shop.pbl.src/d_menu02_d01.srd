@@ -1,0 +1,52 @@
+﻿$PBExportHeader$d_menu02_d01.srd
+$PBExportComments$Menu 관리 Entry(tb_93020_m)
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=372 color="536870912" )
+table(column=(type=char(9) update=yes updatewhereclause=yes key=yes name=pgm_id dbname="TB_93020_M.PGM_ID" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=pgm_nm dbname="TB_93020_M.PGM_NM" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=pgm_fg dbname="TB_93020_M.PGM_FG" initial="W" values="MENU	M/WINDOW	W/" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=pgm_div dbname="TB_93020_M.PGM_DIV" values="관리	E/조회	D/BATCH	B/" )
+ column=(type=long update=yes updatewhereclause=yes name=pgm_level dbname="TB_93020_M.PGM_LEVEL" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=pass_wd dbname="TB_93020_M.PASS_WD" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=pgm_stat dbname="TB_93020_M.PGM_STAT" values="정상	B/수정	M/통제	N/" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="TB_93020_M.REG_ID" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="TB_93020_M.MOD_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="TB_93020_M.MOD_DT" )
+ column=(type=char(2) updatewhereclause=yes name=display_seq dbname="TB_93030_H.DISPLAY_SEQ" )
+ retrieve="  SELECT A.PGM_ID       PGM_ID,   
+         A.PGM_NM       PGM_NM,   
+         A.PGM_FG       PGM_FG,   
+         A.PGM_DIV      PGM_DIV,   
+         A.PGM_LEVEL    PGM_LEVEL,   
+         A.PASS_WD      PASS_WD,   
+         A.PGM_STAT     PGM_STAT,   
+         A.REG_ID       REG_ID,   
+         A.MOD_ID       MOD_ID,   
+         A.MOD_DT       MOD_DT, 
+         B.DISPLAY_SEQ  DISPLAY_SEQ  
+    FROM TB_93020_M A,  
+         TB_93030_H B   
+   WHERE A.PGM_ID   = B.PGM_ID 
+     AND (B.MENU_ID = :as_menu_id
+      AND B.PGM_ID  = :as_pgm_id) 
+" update="TB_93020_M" updatewhere=0 updatekeyinplace=yes arguments=(("as_menu_id", string),("as_pgm_id", string)) )
+text(band=detail alignment="2" text="프로그램" border="6" color="0" x="41" y="4" height="60" width="274"  name=pg_id_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="626" y="4" height="60" width="1097" format="[general]"  name=pgm_nm  tag="DK" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="비밀번호" border="6" color="0" x="1143" y="192" height="60" width="274"  name=pg_passwd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="상    태" border="6" color="0" x="41" y="192" height="60" width="274"  name=pg_status_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=40 border="5" color="0" x="338" y="192" height="56" width="722" format="[general]"  name=pgm_stat radiobuttons.columns=3 radiobuttons.scale=no radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="338" y="4" height="60" width="270" format="[general]"  name=pgm_id  tag="OE" edit.limit=0 edit.case=upper edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="구    분" border="6" color="0" x="41" y="100" height="60" width="274"  name=pg_flag_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="5" color="0" x="338" y="100" height="60" width="722" format="[general]"  name=pgm_fg radiobuttons.columns=2 radiobuttons.scale=no radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="유    형" border="6" color="0" x="1143" y="100" height="60" width="274"  name=pg_div_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=30 border="5" color="0" x="1440" y="100" height="60" width="283" format="[general]"  name=pgm_div ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.nilisnull=yes ddlb.useasborder=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=50 border="5" color="0" x="1440" y="192" height="60" width="283" format="[general]"  name=pass_wd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=60 border="5" color="0" x="1440" y="276" height="60" width="283" format="[general]"  name=pgm_level edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="등    급" border="6" color="0" x="1143" y="280" height="60" width="274"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=70 border="5" color="0" x="338" y="280" height="60" width="283" format="[general]"  name=display_seq edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="순    번" border="6" color="0" x="41" y="280" height="60" width="274"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,26 @@
+﻿$PBExportHeader$gf_first_price.srf
+$PBExportComments$최초가를 읽어온다
+global type gf_first_price from function_object
+end type
+
+forward prototypes
+global function long gf_first_price (string as_style, ref decimal as_tag_price)
+end prototypes
+
+global function long gf_first_price (string as_style, ref decimal as_tag_price);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 작 성 일  : 2002/01/21                                     */
+/* 수 정 일  : 2002/01/21                                     */
+/* 내    용  : 최초가를 읽어온다.                             */
+/*============================================================*/
+
+SELECT dbo.sf_first_price(:as_style)
+  INTO :as_tag_price
+  FROM DUAL ;
+
+IF ISNULL(as_tag_price) THEN RETURN 100
+
+RETURN sqlca.sqlcode 
+
+end function
+

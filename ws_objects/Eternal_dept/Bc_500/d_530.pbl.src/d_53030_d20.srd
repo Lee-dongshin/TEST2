@@ -1,0 +1,42 @@
+﻿$PBExportHeader$d_53030_d20.srd
+$PBExportComments$판매일보등록[고객등록]
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=212 color="536870912" )
+table(column=(type=char(13) update=yes updatewhereclause=yes key=yes name=jumin dbname="TB_72010_M.jumin" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=user_name dbname="TB_72010_M.user_name" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=card_day dbname="TB_72010_M.card_day" )
+ column=(type=char(16) update=yes updatewhereclause=yes name=card_no dbname="TB_72010_M.card_no" )
+ column=(type=char(16) updatewhereclause=yes name=card_no2 dbname="card_no2" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=shop_cd dbname="TB_72010_M.shop_cd" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=area dbname="TB_72010_M.area" )
+ column=(type=number update=yes updatewhereclause=yes name=sex dbname="TB_72010_M.sex" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="TB_72010_M.Reg_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="TB_72010_M.Reg_Dt" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="TB_72010_M.Mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="TB_72010_M.Mod_Dt" )
+ retrieve="  SELECT jumin,   
+         user_name,   
+         card_day, 
+         card_no,   
+         right(card_no, 9)  as card_no2, 
+         shop_cd,   
+         area,   
+         sex, 
+         Reg_id,   
+         Reg_Dt,   
+         Mod_id,   
+         Mod_Dt   
+    FROM TB_72010_M   
+   WHERE jumin = :as_jumin 
+
+" update="TB_72010_M" updatewhere=0 updatekeyinplace=yes arguments=(("as_jumin", string)) )
+text(band=detail alignment="0" text="1128-003" border="5" color="0" x="421" y="132" height="56" width="530"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="0" background.color="16777215~tif(isRowModified(), rgb(255, 255, 255), if(isNull( card_no ) or trim( card_no ) = '', rgb(255, 255, 255), rgb(192, 192, 192)))" )
+text(band=detail alignment="2" text="회원명" border="6" color="0" x="18" y="20" height="60" width="384"  name=user_name_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=20 border="5" color="0" x="640" y="132" height="56" width="306" format="[general]" protect="0~tif(isRowModified(), 0, if(isNull( card_no ) or trim( card_no ) = '', 0, 1))"  name=card_no2  tag="OE" editmask.mask="#-####-####" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="16777215~tif(isRowModified(), rgb(255, 255, 255), if(isNull( card_no ) or trim( card_no ) = '', rgb(255, 255, 255), rgb(192, 192, 192)))" )
+text(band=detail alignment="2" text="카드번호" border="6" color="0" x="18" y="132" height="56" width="384"  name=card_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="5" color="0" x="425" y="28" height="56" width="270" format="[general]"  name=user_name edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

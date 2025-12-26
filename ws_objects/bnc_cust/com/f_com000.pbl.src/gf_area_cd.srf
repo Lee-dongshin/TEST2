@@ -1,0 +1,30 @@
+﻿$PBExportHeader$gf_area_cd.srf
+$PBExportComments$지역코드를 읽어온다.
+global type gf_area_cd from function_object
+end type
+
+forward prototypes
+global function boolean gf_area_cd (string as_shop_cd, ref string as_area_cd)
+end prototypes
+
+global function boolean gf_area_cd (string as_shop_cd, ref string as_area_cd);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 작 성 일  : 2001/09/14                                     */
+/* 수 정 일  : 2001/09/14                                     */
+/* 내    용  : 지역코드를 읽어온다.								     */
+/*============================================================*/
+
+SELECT max(area_cd) INTO :as_area_cd 
+FROM TB_91100_M 
+WHERE shop_cd = :as_shop_cd;
+
+IF ISNULL(as_area_cd) THEN
+	RETURN False
+ELSE
+	RETURN True
+END IF
+
+
+
+end function
+

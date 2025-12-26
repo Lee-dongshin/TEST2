@@ -1,0 +1,36 @@
+﻿$PBExportHeader$d_54009_d13.srd
+$PBExportComments$RT작업 리스트(매장별)
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=252 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=yymmdd dbname="yymmdd" )
+ column=(type=char(4) updatewhereclause=yes name=recall_no dbname="recall_no" )
+ column=(type=char(6) updatewhereclause=yes name=shop_cd dbname="shop_cd" )
+ column=(type=char(18) updatewhereclause=yes name=shop_nm dbname="shop_nm" )
+ column=(type=char(1) updatewhereclause=yes name=rpt_output dbname="rpt_output" initial="S" values="스타일별조회	S/복종별  조회	I/" )
+ column=(type=char(1) updatewhereclause=yes name=print_opt dbname="print_opt" initial="B" values="매장RT지시공문	A/RT진행현황출력(계)	B/" )
+ retrieve="select 
+'20020327'		yymmdd,
+'0001'			recall_no,
+'ng0006'			shop_cd,
+'천안갤러리아올리브'   shop_nm,
+'S'						  rpt_output,
+'A'						  print_opt		
+from dual" )
+groupbox(band=detail text="조회"border="5" color="0" x="1285" y="4" height="220" width="544"  name=gb_1  resizeable=1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="0" tabsequence=40 border="0" color="0" x="1294" y="48" height="172" width="517" format="[general]"  name=rpt_output  resizeable=1 radiobuttons.columns=1 radiobuttons.scale=no radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=6 alignment="0" tabsequence=50 border="0" color="0" x="2738" y="32" height="180" width="640" format="[general]"  name=print_opt radiobuttons.columns=1 radiobuttons.scale=no radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+groupbox(band=detail text="출력"border="5" color="0" x="2725" y="0" height="220" width="672"  name=gb_2  resizeable=1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="매장:" border="0" color="0" x="78" y="144" height="56" width="274"  name=shop_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+button(band=detail text=""filename=""action="0" border="0" color="0" x="603" y="140" height="68" width="87" vtextalign="0" htextalign="0"  name=cb_shop_cd  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="67108864" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="5" color="0" x="699" y="144" height="60" width="521" format="[general]"  name=shop_nm edit.limit=18 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="5" color="0" x="375" y="144" height="60" width="219" format="[general]"  name=shop_cd edit.limit=6 edit.case=upper edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="일자:" border="0" color="0" x="0" y="44" height="56" width="357"  name=yymmdd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="379" y="44" height="60" width="283" format="[general]"  name=yymmdd editmask.mask="XXXX/XX/XX" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="690" y="44" height="60" width="137" format="[general]"  name=recall_no edit.limit=4 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="0" text="<-- 자료 조회를 위해 조회 
+       옵션을 다시 선택하세요" border="0" color="255" x="1847" y="64" height="120" width="832"  name=t_1  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="82899184" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

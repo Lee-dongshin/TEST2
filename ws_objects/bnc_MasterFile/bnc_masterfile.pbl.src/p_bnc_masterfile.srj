@@ -1,0 +1,38 @@
+﻿$PBExportHeader$p_bnc_masterfile.srj
+EXE:bnc_masterfile.exe,,0,1,1,0,.\Runtime 25
+CMP:0,0,0,2,0,0,1
+COM:Appeon
+DES:Appeon Product File
+CPY:
+PRD:PowerBuilder Enterprise Series
+PVS:1.0.0.1
+PVN:1,0,0,1
+FVS:1.0.0.1
+FVN:1,0,0,1
+MAN:0,asInvoker,0
+PBD:bnc_masterfile.pbl,,1
+OBJ:C:\Eternal\bnc_MasterFile\bnc_masterfile.pbl,w_logon,w
+OBJ:C:\Eternal\bnc_MasterFile\bnc_masterfile.pbl,d_masterfile_d03,d
+OBJ:C:\Eternal\bnc_MasterFile\bnc_masterfile.pbl,d_masterfile_d02,d
+OBJ:C:\Eternal\bnc_MasterFile\bnc_masterfile.pbl,d_masterfile_d34,d
+OBJ:C:\Eternal\bnc_MasterFile\bnc_masterfile.pbl,d_masterfile_r01,d
+OBJ:C:\Eternal\bnc_MasterFile\bnc_masterfile.pbl,d_masterfile_d33,d
+OBJ:C:\Eternal\bnc_MasterFile\bnc_masterfile.pbl,gf_connect_dbms_china,f
+OBJ:C:\Eternal\bnc_MasterFile\bnc_masterfile.pbl,d_masterfile_d04,d
+OBJ:C:\Eternal\bnc_MasterFile\bnc_masterfile.pbl,d_masterfile_d32,d
+OBJ:C:\Eternal\bnc_MasterFile\bnc_masterfile.pbl,d_masterfile_r03,d
+OBJ:C:\Eternal\bnc_MasterFile\bnc_masterfile.pbl,bnc_masterfile,a
+OBJ:C:\Eternal\bnc_MasterFile\bnc_masterfile.pbl,d_masterfile_d31,d
+OBJ:C:\Eternal\bnc_MasterFile\bnc_masterfile.pbl,d_masterfile_r02,d
+OBJ:C:\Eternal\bnc_MasterFile\bnc_masterfile.pbl,d_masterfile_r04,d
+OBJ:C:\Eternal\bnc_MasterFile\bnc_masterfile.pbl,gf_connect_dbms_beaucre,f
+OBJ:C:\Eternal\bnc_MasterFile\bnc_masterfile.pbl,w_masterfile_001,w
+OBJ:C:\Eternal\bnc_MasterFile\bnc_masterfile.pbl,w_masterfile_003,w
+OBJ:C:\Eternal\bnc_MasterFile\bnc_masterfile.pbl,d_care_d01_new,d
+OBJ:C:\Eternal\bnc_MasterFile\bnc_masterfile.pbl,w_masterfile_002,w
+OBJ:C:\Eternal\bnc_MasterFile\bnc_masterfile.pbl,d_care_d01,d
+OBJ:C:\Eternal\bnc_MasterFile\bnc_masterfile.pbl,gf_connect_dbms_reolive,f
+OBJ:C:\Eternal\bnc_MasterFile\bnc_masterfile.pbl,gf_sysdate,f
+OBJ:C:\Eternal\bnc_MasterFile\bnc_masterfile.pbl,d_masterfile_h01,d
+OBJ:C:\Eternal\bnc_MasterFile\bnc_masterfile.pbl,d_tag_d01,d
+OBJ:C:\Eternal\bnc_MasterFile\bnc_masterfile.pbl,d_masterfile_d01,d

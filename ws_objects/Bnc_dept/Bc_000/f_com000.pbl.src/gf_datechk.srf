@@ -1,0 +1,37 @@
+﻿$PBExportHeader$gf_datechk.srf
+$PBExportComments$String일자를 check
+global type gf_datechk from function_object
+end type
+
+forward prototypes
+global function boolean gf_datechk (string as_date)
+end prototypes
+
+global function boolean gf_datechk (string as_date);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 내    용  : String일자를 check함.                          */
+/*============================================================*/
+int li_ret
+
+IF ISNULL(as_date) OR TRIM(as_date) = "" THEN
+	RETURN TRUE
+ELSEIF LenA(as_date) <> 8 THEN
+	RETURN FALSE
+END IF
+
+
+
+SELECT case when :As_date = '99999999' then 1 else ISDATE(:as_date) end
+  INTO :li_ret
+  FROM DUAL	;
+
+IF sqlca.sqlcode <> 0  THEN
+	MessageBox("입력일자오류", SQLCA.SQLErrText)
+	RETURN FALSE
+ELSEIF li_ret = 0  THEN
+	RETURN FALSE
+END IF
+
+RETURN TRUE
+end function
+

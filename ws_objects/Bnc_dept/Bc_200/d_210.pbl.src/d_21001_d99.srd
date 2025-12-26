@@ -1,0 +1,111 @@
+﻿$PBExportHeader$d_21001_d99.srd
+$PBExportComments$자재코드등록
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes key=yes name=ord_ymd dbname="TB_21021_D.ord_ymd" )
+ column=(type=char(4) updatewhereclause=yes key=yes name=ord_no dbname="TB_21021_D.ord_no" )
+ column=(type=char(4) updatewhereclause=yes key=yes name=no dbname="TB_21021_D.no" )
+ column=(type=char(10) updatewhereclause=yes name=ord_origin dbname="TB_21021_D.ord_origin" )
+ column=(type=char(6) updatewhereclause=yes name=cust_cd dbname="TB_21021_D.cust_cd" )
+ column=(type=char(30) updatewhereclause=yes name=cust_nm dbname="cust_nm" )
+ column=(type=char(10) updatewhereclause=yes name=mat_cd dbname="TB_21021_D.mat_cd" )
+ column=(type=char(1) updatewhereclause=yes name=mat_chno dbname="TB_21021_D.mat_chno" )
+ column=(type=char(10) updatewhereclause=yes name=color dbname="TB_21021_D.color" )
+ column=(type=char(15) updatewhereclause=yes name=spec dbname="TB_21021_D.spec" )
+ column=(type=char(2) updatewhereclause=yes name=unit dbname="TB_21021_D.unit" )
+ column=(type=decimal(0) updatewhereclause=yes name=qty dbname="TB_21021_D.qty" )
+ column=(type=decimal(0) updatewhereclause=yes name=nego_price dbname="TB_21021_D.nego_price" )
+ column=(type=char(8) updatewhereclause=yes name=dlvy_ymd dbname="TB_21021_D.dlvy_ymd" )
+ column=(type=char(1) updatewhereclause=yes name=fin_yn dbname="TB_21021_D.fin_yn" )
+ column=(type=char(1) updatewhereclause=yes name=brand dbname="TB_21021_D.brand" )
+ column=(type=char(1) updatewhereclause=yes name=mat_sojae dbname="TB_21021_D.mat_sojae" )
+ column=(type=char(4) updatewhereclause=yes name=mat_year dbname="TB_21021_D.mat_Year" )
+ column=(type=char(1) updatewhereclause=yes name=mat_season dbname="TB_21021_D.mat_Season" )
+ column=(type=char(3) updatewhereclause=yes name=out_seq dbname="TB_21021_D.Out_Seq" )
+ column=(type=char(6) updatewhereclause=yes name=reg_id dbname="TB_21021_D.Reg_id" )
+ column=(type=datetime updatewhereclause=yes name=reg_dt dbname="TB_21021_D.Reg_Dt" )
+ column=(type=char(6) updatewhereclause=yes name=mod_id dbname="TB_21021_D.Mod_id" )
+ column=(type=datetime updatewhereclause=yes name=mod_dt dbname="TB_21021_D.Mod_Dt" )
+ retrieve="
+		  SELECT ord_ymd,   
+		         ord_no,   
+		         no, 
+			ord_origin,  
+			cust_cd,
+			dbo.sf_cust_nm(cust_cd,'s') cust_nm,
+		         mat_cd,   
+		         mat_chno,   
+		         color,   
+		         spec,   
+		         unit,   
+		         qty,   
+		         nego_price,   
+		         dlvy_ymd,   
+		         fin_yn,   
+		         brand,   
+		         mat_sojae,   
+		         mat_Year,   
+		         mat_Season,   
+		         Out_Seq,   
+		         Reg_id,   
+		         Reg_Dt,   
+		         Mod_id,   
+		         Mod_Dt  
+		    FROM TB_21021_D   
+			where ord_ymd = :ord_ymd
+" update="TB_21021_D" updatewhere=0 updatekeyinplace=no arguments=(("gubn", string),("ord_ymd", string),("ord_no", string),("ord_origin", string)) )
+text(band=header alignment="2" text="Ord Origin" border="0" color="0" x="9" y="8" height="64" width="302"  name=ord_origin_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Cust Nm" border="0" color="0" x="1047" y="8" height="64" width="850"  name=cust_nm_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Mat Chno" border="0" color="0" x="1911" y="8" height="64" width="256"  name=mat_chno_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Nego Price" border="0" color="0" x="2181" y="8" height="64" width="329"  name=nego_price_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Fin Yn" border="0" color="0" x="2523" y="8" height="64" width="174"  name=fin_yn_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Brand" border="0" color="0" x="2706" y="8" height="64" width="155"  name=brand_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Mat Sojae" border="0" color="0" x="2871" y="8" height="64" width="270"  name=mat_sojae_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Mat Year" border="0" color="0" x="3150" y="8" height="64" width="242"  name=mat_year_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Mat Season" border="0" color="0" x="3401" y="8" height="64" width="320"  name=mat_season_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Out Seq" border="0" color="0" x="3730" y="8" height="64" width="219"  name=out_seq_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Reg Dt" border="0" color="0" x="3963" y="8" height="64" width="603"  name=reg_dt_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="76" width="302" format="[general]"  name=ord_origin edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1047" y="8" height="76" width="850" format="[general]"  name=cust_nm edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="1911" y="8" height="76" width="256" format="[general]"  name=mat_chno edit.limit=2 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="1" tabsequence=32766 border="0" color="0" x="2181" y="8" height="76" width="329" format="[general]"  name=nego_price edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="2523" y="8" height="76" width="174" format="[general]"  name=fin_yn edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="0" x="2706" y="8" height="76" width="155" format="[general]"  name=brand edit.limit=2 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="0" color="0" x="2871" y="8" height="76" width="270" format="[general]"  name=mat_sojae edit.limit=2 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="0" color="0" x="3150" y="8" height="76" width="242" format="[general]"  name=mat_year edit.limit=4 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=19 alignment="0" tabsequence=32766 border="0" color="0" x="3401" y="8" height="76" width="320" format="[general]"  name=mat_season edit.limit=2 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=20 alignment="0" tabsequence=32766 border="0" color="0" x="3730" y="8" height="76" width="219" format="[general]"  name=out_seq edit.limit=3 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=22 alignment="0" tabsequence=32766 border="0" color="0" x="3963" y="8" height="76" width="603" format="[shortdate] [time]"  name=reg_dt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="if( isRowNew(), 'new', 'old' )"border="0" color="0" x="325" y="16" height="76" width="713" format="[GENERAL]"  name=compute_1  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=0 border="0" color="0" x="4581" y="0" height="64" width="206"  name=ord_ymd  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Ord Ymd" border="0" color="0" x="4576" y="4" height="76" width="210"  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=0 border="0" color="0" x="4800" y="0" height="64" width="101"  name=ord_no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Ord No" border="0" color="0" x="4795" y="4" height="76" width="105"  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=0 border="0" color="0" x="4914" y="0" height="64" width="101"  name=no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="No" border="0" color="0" x="4910" y="4" height="76" width="105"  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=0 border="0" color="0" x="5029" y="0" height="64" width="151"  name=cust_cd  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Cust Cd" border="0" color="0" x="5024" y="4" height="76" width="155"  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="0" tabsequence=0 border="0" color="0" x="5193" y="0" height="64" width="261"  name=mat_cd  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Mat Cd" border="0" color="0" x="5189" y="4" height="76" width="265"  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="0" tabsequence=0 border="0" color="0" x="5467" y="0" height="64" width="261"  name=color  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Color" border="0" color="0" x="5463" y="4" height="76" width="265"  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=0 border="0" color="0" x="5742" y="0" height="64" width="398"  name=spec  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Spec" border="0" color="0" x="5737" y="4" height="76" width="402"  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="0" tabsequence=0 border="0" color="0" x="6153" y="0" height="64" width="46"  name=unit  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Unit" border="0" color="0" x="6149" y="4" height="76" width="50"  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=12 alignment="0" tabsequence=0 border="0" color="0" x="6213" y="0" height="64" width="2341"  name=qty  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Qty" border="0" color="0" x="6208" y="4" height="76" width="2345"  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=14 alignment="0" tabsequence=0 border="0" color="0" x="8567" y="0" height="64" width="206"  name=dlvy_ymd  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Dlvy Ymd" border="0" color="0" x="8562" y="4" height="76" width="210"  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=21 alignment="0" tabsequence=0 border="0" color="0" x="8786" y="0" height="64" width="151"  name=reg_id  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Reg Id" border="0" color="0" x="8782" y="4" height="76" width="155"  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=23 alignment="0" tabsequence=0 border="0" color="0" x="8951" y="0" height="64" width="151"  name=mod_id  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Mod Id" border="0" color="0" x="8946" y="4" height="76" width="155"  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=24 alignment="0" tabsequence=0 border="0" color="0" x="9115" y="0" height="64" width="503"  name=mod_dt  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Mod Dt" border="0" color="0" x="9111" y="4" height="76" width="507"  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

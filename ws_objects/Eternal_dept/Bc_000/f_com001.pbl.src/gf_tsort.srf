@@ -1,0 +1,26 @@
+﻿$PBExportHeader$gf_tsort.srf
+$PBExportComments$Title Sort
+global type gf_tsort from function_object
+end type
+
+forward prototypes
+global subroutine gf_tsort (datawindow wf_dw)
+end prototypes
+
+global subroutine gf_tsort (datawindow wf_dw);Integer li_Po
+string ls_Obj
+
+If wf_dw.RowCount() < 1 Then Return
+
+ls_Obj = wf_dw.GetObjectAtPointer()
+li_Po = PosA(ls_Obj,'_t')
+
+ls_Obj = MidA(ls_Obj,1,li_po - 1)
+
+wf_dw.SetSort(ls_Obj)
+wf_dw.Sort()
+
+
+
+end subroutine
+

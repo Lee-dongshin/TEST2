@@ -1,0 +1,61 @@
+﻿$PBExportHeader$d_52006_d01.srd
+$PBExportComments$완불통제등록(스타일)
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes key=yes name=style dbname="tb_52040_m.style" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=chno dbname="tb_52040_m.chno" )
+ column=(type=char(2) update=yes updatewhereclause=yes key=yes name=color dbname="tb_52040_m.color" )
+ column=(type=char(2) update=yes updatewhereclause=yes key=yes name=size dbname="tb_52040_m.size" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=brand dbname="tb_52040_m.brand" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=year dbname="tb_52040_m.year" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=season dbname="tb_52040_m.season" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=fr_stop_date dbname="tb_52040_m.fr_stop_date" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=to_stop_date dbname="tb_52040_m.to_stop_date" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="tb_52040_m.Reg_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="tb_52040_m.Reg_Dt" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="tb_52040_m.Mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="tb_52040_m.Mod_Dt" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=shop_brand dbname="tb_52040_m.shop_brand" )
+ column=(type=char(200) update=yes updatewhereclause=yes name=note dbname="tb_52040_m.note" )
+ retrieve="select 
+	style,
+	chno,
+	color,
+	size,
+	brand,
+	year,
+	season,
+	fr_stop_date,
+	to_stop_date,
+	Reg_id,
+	Reg_Dt,
+	Mod_id,
+	Mod_Dt,
+	shop_brand,
+	note
+from tb_52040_m
+where brand = :as_brand
+and   year  like :as_year + '%'
+and   season like :as_season + '%'
+" update="tb_52040_m" updatewhere=1 updatekeyinplace=no arguments=(("as_brand", string),("as_year", string),("as_season", string)) )
+text(band=header alignment="2" text="스타일" border="6" color="0" x="0" y="4" height="60" width="416"  name=style_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="사이즈" border="6" color="0" x="905" y="4" height="60" width="192"  name=size_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="통제시작일" border="6" color="0" x="1111" y="4" height="60" width="357"  name=fr_stop_date_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="통제종료일" border="6" color="0" x="1481" y="4" height="60" width="357"  name=to_stop_date_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="칼라" border="6" color="0" x="430" y="4" height="60" width="462"  name=color_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="통제매장" border="6" color="0" x="1851" y="8" height="56" width="617"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="2" tabsequence=10 border="0" color="0" x="5" y="4" height="60" width="343" format="[general]"  name=style edit.limit=8 edit.case=upper edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="0" x="357" y="4" height="60" width="55" format="[general]"  name=chno edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="0" color="0" x="905" y="4" height="60" width="192" format="[general]"  name=size edit.limit=2 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="0" color="0" x="430" y="4" height="60" width="462" format="[general]"  name=color edit.name="색상" dddw.name=d_com901 dddw.displaycolumn=color_display dddw.datacolumn=color dddw.percentwidth=100 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=8 alignment="0" tabsequence=50 border="0" color="0" x="1111" y="4" height="60" width="357" format="@@@@/@@/@@"  name=fr_stop_date editmask.mask="XXXX.XX.XX" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="31652348" )
+column(band=detail id=9 alignment="0" tabsequence=60 border="0" color="0" x="1481" y="4" height="60" width="357" format="@@@@/@@/@@"  name=to_stop_date editmask.mask="XXXX.XX.XX" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="31652348" )
+column(band=detail id=14 alignment="0" tabsequence=70 border="5" color="255" x="1856" y="8" height="56" width="617" format="[general]"  name=shop_brand edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=200 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=15 alignment="0" tabsequence=80 border="5" color="0" x="2487" y="4" height="56" width="1792"  name=note  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="통제사유" border="6" color="0" x="2482" y="8" height="56" width="1792"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

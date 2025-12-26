@@ -1,0 +1,396 @@
+﻿$PBExportHeader$m_2_0000.srm
+$PBExportComments$메뉴탐색기 마우스 버튼메뉴
+forward
+global type m_2_0000 from m_view
+end type
+type m_ from menu within m_viewitem
+end type
+type m_personitem from menu within m_viewitem
+end type
+type m_person_del from menu within m_viewitem
+end type
+type m_11 from menu within m_viewitem
+end type
+type m_menu from menu within m_viewitem
+end type
+type m_update from menu within m_viewitem
+end type
+type m_delete from menu within m_viewitem
+end type
+type m_viewitem from m_view`m_viewitem within m_2_0000
+m_ m_
+m_personitem m_personitem
+m_person_del m_person_del
+m_11 m_11
+m_menu m_menu
+m_update m_update
+m_delete m_delete
+end type
+end forward
+
+global type m_2_0000 from m_view
+end type
+global m_2_0000 m_2_0000
+
+on m_2_0000.create
+m_2_0000=this
+call super::create
+end on
+
+on m_2_0000.destroy
+call super::destroy
+end on
+
+type m_viewitem from m_view`m_viewitem within m_2_0000
+m_ m_
+m_personitem m_personitem
+m_person_del m_person_del
+m_11 m_11
+m_menu m_menu
+m_update m_update
+m_delete m_delete
+end type
+
+on m_viewitem.create
+call super::create
+this.m_=create m_
+this.m_personitem=create m_personitem
+this.m_person_del=create m_person_del
+this.m_11=create m_11
+this.m_menu=create m_menu
+this.m_update=create m_update
+this.m_delete=create m_delete
+this.Item[UpperBound(this.Item)+1]=this.m_
+this.Item[UpperBound(this.Item)+1]=this.m_personitem
+this.Item[UpperBound(this.Item)+1]=this.m_person_del
+this.Item[UpperBound(this.Item)+1]=this.m_11
+this.Item[UpperBound(this.Item)+1]=this.m_menu
+this.Item[UpperBound(this.Item)+1]=this.m_update
+this.Item[UpperBound(this.Item)+1]=this.m_delete
+end on
+
+on m_viewitem.destroy
+call super::destroy
+destroy(this.m_)
+destroy(this.m_personitem)
+destroy(this.m_person_del)
+destroy(this.m_11)
+destroy(this.m_menu)
+destroy(this.m_update)
+destroy(this.m_delete)
+end on
+
+type m_viewdisplay from m_view`m_viewdisplay within m_viewitem
+end type
+
+on m_viewdisplay.create
+call super::create
+this.text = "보기"
+end on
+
+on m_viewdisplay.destroy
+call super::destroy
+end on
+
+type m_largeicon from m_view`m_largeicon within m_viewdisplay
+end type
+
+on m_largeicon.create
+call super::create
+this.text = "큰 아이콘"
+end on
+
+on m_largeicon.destroy
+call super::destroy
+end on
+
+type m_smallicon from m_view`m_smallicon within m_viewdisplay
+end type
+
+on m_smallicon.create
+call super::create
+this.text = "작은 아이콘"
+end on
+
+on m_smallicon.destroy
+call super::destroy
+end on
+
+type m_list from m_view`m_list within m_viewdisplay
+end type
+
+on m_list.create
+call super::create
+this.text = "간단히"
+end on
+
+on m_list.destroy
+call super::destroy
+end on
+
+type m_details from m_view`m_details within m_viewdisplay
+end type
+
+on m_details.create
+call super::create
+this.text = "자세히"
+end on
+
+on m_details.destroy
+call super::destroy
+end on
+
+type m_dash11 from m_view`m_dash11 within m_viewitem
+end type
+
+on m_dash11.create
+call super::create
+end on
+
+on m_dash11.destroy
+call super::destroy
+end on
+
+type m_arrangeicons from m_view`m_arrangeicons within m_viewitem
+end type
+
+on m_arrangeicons.create
+call super::create
+this.text = "아이콘 정렬"
+end on
+
+on m_arrangeicons.destroy
+call super::destroy
+end on
+
+type m_1 from m_view`m_1 within m_arrangeicons
+end type
+
+on m_1.create
+call super::create
+end on
+
+on m_1.destroy
+call super::destroy
+end on
+
+type m_2 from m_view`m_2 within m_arrangeicons
+end type
+
+on m_2.create
+call super::create
+end on
+
+on m_2.destroy
+call super::destroy
+end on
+
+type m_3 from m_view`m_3 within m_arrangeicons
+end type
+
+on m_3.create
+call super::create
+end on
+
+on m_3.destroy
+call super::destroy
+end on
+
+type m_4 from m_view`m_4 within m_arrangeicons
+end type
+
+on m_4.create
+call super::create
+end on
+
+on m_4.destroy
+call super::destroy
+end on
+
+type m_5 from m_view`m_5 within m_arrangeicons
+end type
+
+on m_5.create
+call super::create
+end on
+
+on m_5.destroy
+call super::destroy
+end on
+
+type m_6 from m_view`m_6 within m_arrangeicons
+end type
+
+on m_6.create
+call super::create
+end on
+
+on m_6.destroy
+call super::destroy
+end on
+
+type m_7 from m_view`m_7 within m_arrangeicons
+end type
+
+on m_7.create
+call super::create
+end on
+
+on m_7.destroy
+call super::destroy
+end on
+
+type m_8 from m_view`m_8 within m_arrangeicons
+end type
+
+on m_8.create
+call super::create
+end on
+
+on m_8.destroy
+call super::destroy
+end on
+
+type m_9 from m_view`m_9 within m_arrangeicons
+end type
+
+on m_9.create
+call super::create
+end on
+
+on m_9.destroy
+call super::destroy
+end on
+
+type m_10 from m_view`m_10 within m_arrangeicons
+end type
+
+on m_10.create
+call super::create
+end on
+
+on m_10.destroy
+call super::destroy
+end on
+
+type m_dash12 from m_view`m_dash12 within m_arrangeicons
+end type
+
+on m_dash12.create
+call super::create
+end on
+
+on m_dash12.destroy
+call super::destroy
+end on
+
+type m_autoarrange from m_view`m_autoarrange within m_arrangeicons
+end type
+
+on m_autoarrange.create
+call super::create
+end on
+
+on m_autoarrange.destroy
+call super::destroy
+end on
+
+type m_ from menu within m_viewitem
+end type
+
+on m_.create
+call super::create
+this.text = "-"
+end on
+
+on m_.destroy
+call super::destroy
+end on
+
+type m_personitem from menu within m_viewitem
+end type
+
+on m_personitem.create
+call super::create
+this.text = "개인MENU 등록"
+end on
+
+on m_personitem.destroy
+call super::destroy
+end on
+
+event clicked;ParentWindow.Post Dynamic Event ue_user_in()
+end event
+
+type m_person_del from menu within m_viewitem
+end type
+
+on m_person_del.create
+call super::create
+this.text = "개인MENU 삭제"
+end on
+
+on m_person_del.destroy
+call super::destroy
+end on
+
+event clicked;ParentWindow.Post Dynamic Event ue_user_del()
+end event
+
+type m_11 from menu within m_viewitem
+end type
+
+on m_11.create
+call super::create
+this.text = "-"
+end on
+
+on m_11.destroy
+call super::destroy
+end on
+
+type m_menu from menu within m_viewitem
+end type
+
+on m_menu.create
+call super::create
+this.text = "MENU 추가"
+end on
+
+event clicked;ParentWindow.Post Dynamic Event ue_insert()
+end event
+
+on m_menu.destroy
+call super::destroy
+end on
+
+type m_update from menu within m_viewitem
+end type
+
+on m_update.create
+call super::create
+this.text = "MENU 수정"
+end on
+
+event clicked;ParentWindow.Post Dynamic Event ue_update()
+end event
+
+on m_update.destroy
+call super::destroy
+end on
+
+type m_delete from menu within m_viewitem
+end type
+
+on m_delete.create
+call super::create
+this.text = "MENU 삭제"
+end on
+
+event clicked;ParentWindow.Post Dynamic Event ue_delete()
+end event
+
+on m_delete.destroy
+call super::destroy
+end on
+

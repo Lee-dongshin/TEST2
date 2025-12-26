@@ -1,0 +1,221 @@
+﻿$PBExportHeader$d_31003_rt01.srd
+$PBExportComments$생산 공정 진행 관리
+release 7;
+datawindow(units=0 timer_interval=0 color=1090519039 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=472 color="536870912" )
+summary(height=64 color="536870912" )
+footer(height=64 color="536870912" )
+detail(height=220 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes name=work_dt dbname="WORK_DT" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=cust_cd dbname="CUST_CD" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=style dbname="STYLE" )
+ column=(type=char(1) updatewhereclause=yes name=chno dbname="CHNO" )
+ column=(type=char(9) updatewhereclause=yes name=style_no dbname="STYLE_NO" )
+ column=(type=char(8) updatewhereclause=yes name=order_ymd dbname="ORDER_YMD" )
+ column=(type=char(8) updatewhereclause=yes name=delivery_ymd dbname="DELIVERY_YMD" )
+ column=(type=decimal(0) updatewhereclause=yes name=order_qty dbname="ORDER_QTY" )
+ column=(type=decimal(0) updatewhereclause=yes name=in_qty dbname="IN_QTY" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=qc_dt dbname="QC_DT" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=cut_qty dbname="CUT_QTY" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=sew_qty dbname="SEW_QTY" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=fin_qty dbname="FIN_QTY" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=test_qty dbname="TEST_QTY" )
+ column=(type=decimal(0) updatewhereclause=yes name=cut_sum dbname="CUT_SUM" )
+ column=(type=decimal(0) updatewhereclause=yes name=sew_sum dbname="SEW_SUM" )
+ column=(type=decimal(0) updatewhereclause=yes name=fin_sum dbname="FIN_SUM" )
+ column=(type=decimal(0) updatewhereclause=yes name=test_sum dbname="TEST_SUM" )
+ column=(type=decimal(0) updatewhereclause=yes name=cut_last dbname="CUT_LAST" )
+ column=(type=decimal(0) updatewhereclause=yes name=sew_last dbname="SEW_LAST" )
+ column=(type=decimal(0) updatewhereclause=yes name=fin_last dbname="FIN_LAST" )
+ column=(type=decimal(0) updatewhereclause=yes name=test_last dbname="TEST_LAST" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="REG_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="REG_DT" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="MOD_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="MOD_DT" )
+ column=(type=char(8) updatewhereclause=yes name=new_chk dbname="NEW_CHK" )
+ retrieve="  SELECT CAST(:as_work_dt AS VARCHAR(8)) AS WORK_DT, A.CUST_CD AS CUST_CD, 
+			A.STYLE AS STYLE, A.CHNO AS CHNO,
+			A.STYLE + A.CHNO AS STYLE_NO,
+			A.ORDER_YMD AS ORDER_YMD, A.DELIVERY_YMD AS DELIVERY_YMD, 
+			ISNULL(SUM(A.ORDER_QTY), 0) AS ORDER_QTY, 
+			ISNULL(SUM(A.IN_QTY), 0) AS IN_QTY,
+			MAX(A.QC_DT) AS QC_DT,
+			ISNULL(SUM(A.CUT_QTY), 0)  AS CUT_QTY, 
+			ISNULL(SUM(A.SEW_QTY), 0)  AS SEW_QTY,
+			ISNULL(SUM(A.FIN_QTY), 0)  AS FIN_QTY, 
+			ISNULL(SUM(A.TEST_QTY), 0) AS TEST_QTY,
+			ISNULL(SUM(A.CUT_SUM), 0)  AS CUT_SUM, 
+			ISNULL(SUM(A.SEW_SUM), 0)  AS SEW_SUM,
+			ISNULL(SUM(A.FIN_SUM), 0)  AS FIN_SUM,
+			ISNULL(SUM(A.TEST_SUM), 0) AS TEST_SUM,
+			ISNULL(SUM(A.CUT_SUM), 0)  - ISNULL(SUM(A.CUT_QTY), 0)  AS CUT_LAST, 
+			ISNULL(SUM(A.SEW_SUM), 0)  - ISNULL(SUM(A.SEW_QTY), 0)  AS SEW_LAST, 
+			ISNULL(SUM(A.FIN_SUM), 0)  - ISNULL(SUM(A.FIN_QTY), 0)  AS FIN_LAST, 
+			ISNULL(SUM(A.TEST_SUM), 0) - ISNULL(SUM(A.TEST_QTY), 0) AS TEST_LAST, 
+			MAX(A.REG_ID) AS REG_ID, MAX(A.REG_DT) AS REG_DT,
+			MAX(A.MOD_ID) AS MOD_ID, MAX(A.MOD_DT) AS MOD_DT,
+			MAX(A.NEW_CHK) AS NEW_CHK
+	 FROM ( SELECT A.CUST_CD AS CUST_CD, A.STYLE AS STYLE, A.CHNO AS CHNO,
+						A.ORDER_YMD AS ORDER_YMD, A.DELIVERY_YMD AS DELIVERY_YMD, 
+						A.ORDER_QTY AS ORDER_QTY, A.IN_QTY AS IN_QTY,
+						ISNULL(B.QC_DT, A.QC_YMD) AS QC_DT,
+						B.CUT_QTY AS CUT_QTY, B.SEW_QTY AS SEW_QTY,
+						B.FIN_QTY AS FIN_QTY, B.TEST_QTY AS TEST_QTY,
+						0 AS CUT_SUM, 0 AS SEW_SUM, 0 AS FIN_SUM, 0 AS TEST_SUM,
+						B.REG_ID AS REG_ID, B.REG_DT AS REG_DT,
+						B.MOD_ID AS MOD_ID, B.MOD_DT AS MOD_DT,
+						ISNULL(B.STYLE, 'N') AS NEW_CHK
+				 FROM	( SELECT A.CUST_CD AS CUST_CD, A.STYLE AS STYLE, A.CHNO AS CHNO,
+									A.ORDER_YMD AS ORDER_YMD, A.DELIVERY_YMD AS DELIVERY_YMD, A.QC_YMD AS QC_YMD,
+									SUM(A.ORDER_QTY) AS ORDER_QTY, SUM(A.IN_QTY) AS IN_QTY
+							 FROM ( SELECT A.CUST_CD AS CUST_CD, A.STYLE AS STYLE, A.CHNO AS CHNO,
+												A.ORD_YMD AS ORDER_YMD, A.DLVY_YMD AS DELIVERY_YMD, A.QC_YMD AS QC_YMD,
+												SUM(B.ORD_QTY) AS ORDER_QTY, 0 AS IN_QTY
+										 FROM TB_12021_D A,
+												TB_12030_S B
+										WHERE A.STYLE = B.STYLE
+										  AND A.CHNO  = B.CHNO
+										  AND A.CUST_CD = :as_cust_cd
+										  AND B.YEAR BETWEEN :as_st_yy AND :as_ed_yy
+										  AND ISNULL(A.LAST_YMD, '99999999') > :as_work_dt
+										GROUP BY A.CUST_CD, A.STYLE, A.CHNO, A.ORD_YMD, A.DLVY_YMD, A.QC_YMD
+										UNION ALL
+									  SELECT A.CUST_CD AS CUST_CD, A.STYLE AS STYLE, A.CHNO AS CHNO,
+												A.ORD_YMD AS ORDER_YMD, A.DLVY_YMD AS DELIVERY_YMD, A.QC_YMD AS QC_YMD,
+												0 AS ORDER_QTY, SUM(B.IN_QTY) AS IN_QTY
+										 FROM TB_12021_D A,
+												TB_12031_S B
+										WHERE A.STYLE = B.STYLE
+										  AND A.CHNO  = B.CHNO
+										  AND A.CUST_CD = :as_cust_cd
+										  AND B.YEAR BETWEEN :as_st_yy AND :as_ed_yy
+										  AND B.YYMM <= CONVERT(VARCHAR(6), DATEADD(MM, -1, CAST(:as_work_dt AS DATETIME)), 112)
+										  AND ISNULL(A.LAST_YMD, '99999999') > :as_work_dt
+										GROUP BY A.CUST_CD, A.STYLE, A.CHNO, A.ORD_YMD, A.DLVY_YMD, A.QC_YMD
+										UNION ALL
+									  SELECT A.CUST_CD AS CUST_CD, A.STYLE AS STYLE, A.CHNO AS CHNO,
+												A.ORD_YMD AS ORDER_YMD, A.DLVY_YMD AS DELIVERY_YMD, A.QC_YMD AS QC_YMD,
+												0 AS ORDER_QTY, SUM(B.IN_QTY) AS IN_QTY
+										 FROM TB_12021_D A,
+												TB_12032_S B
+										WHERE A.STYLE = B.STYLE
+										  AND A.CHNO  = B.CHNO
+										  AND A.CUST_CD = :as_cust_cd
+										  AND B.YEAR BETWEEN :as_st_yy AND :as_ed_yy
+										  AND B.YYMMDD BETWEEN LEFT(:as_work_dt, 6) + '01' AND :as_work_dt
+										  AND ISNULL(A.LAST_YMD, '99999999') > :as_work_dt
+										GROUP BY A.CUST_CD, A.STYLE, A.CHNO, A.ORD_YMD, A.DLVY_YMD, A.QC_YMD ) A
+							GROUP BY A.CUST_CD, A.STYLE, A.CHNO, A.ORDER_YMD, A.DELIVERY_YMD, A.QC_YMD ) A,
+						TB_31011_H B
+				WHERE A.CUST_CD *= B.CUST_CD 
+				  AND A.STYLE   *= B.STYLE 
+				  AND A.CHNO    *= B.CHNO
+				  AND B.WORK_DT = :as_work_dt
+				UNION ALL
+			  SELECT A.CUST_CD AS CUST_CD, A.STYLE AS STYLE, A.CHNO AS CHNO,
+						A.ORD_YMD AS ORDER_YMD, A.DLVY_YMD AS DELIVERY_YMD, 
+						0 AS ORDER_QTY, 0 AS IN_QTY,
+						NULL AS QC_DT,
+						0 AS CUT_QTY, 0 AS SEW_QTY, 0 AS FIN_QTY, 0 AS TEST_QTY,
+						SUM(B.CUT_QTY) AS CUT_SUM, SUM(B.SEW_QTY)  AS SEW_SUM,
+						SUM(B.FIN_QTY) AS FIN_SUM, SUM(B.TEST_QTY) AS TEST_SUM,
+						NULL AS REG_ID, NULL AS REG_DT,
+						NULL AS MOD_ID, NULL AS MOD_DT,
+						NULL AS NEW_CHK
+				 FROM VI_12020_1 A, 
+						TB_31011_H B
+				WHERE A.STYLE   = B.STYLE 
+				  AND A.CHNO    = B.CHNO
+				  AND A.CUST_CD = B.CUST_CD 
+				  AND A.CUST_CD = :as_cust_cd
+				  AND A.YEAR BETWEEN :as_st_yy AND :as_ed_yy
+				  AND ISNULL(A.LAST_YMD, '99999999') > :as_work_dt
+				  AND B.WORK_DT <= :as_work_dt
+				GROUP BY A.CUST_CD, A.STYLE, A.CHNO, A.ORD_YMD, A.DLVY_YMD ) A
+	GROUP BY A.CUST_CD, A.STYLE, A.CHNO, A.ORDER_YMD, A.DELIVERY_YMD
+" arguments=(("as_work_dt", string),("as_cust_cd", string),("as_st_yy", string),("as_ed_yy", string)) )
+line(band=header x1="1335" y1="100" x2="2080" y2="100"  name=l_2 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="1335" y1="92" x2="2080" y2="92"  name=l_3 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="생산 공정 진행 현황" border="0" color="33554432" x="23" y="16" height="68" width="3360"  name=t_9  font.face="굴림체" font.height="-11" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header x1="782" y1="224" x2="2181" y2="224"  name=l_12 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="782" y1="380" x2="2181" y2="380"  name=l_13 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="782" y1="228" x2="782" y2="384"  name=l_14 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="" border="0" color="0" x="795" y="236" height="60" width="165"  name=t_18  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="인  원" border="0" color="0" x="795" y="316" height="56" width="165"  name=t_23  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="재  단" border="0" color="0" x="983" y="236" height="60" width="279"  name=jae_man_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="/" border="0" color="0" x="1111" y="324" height="44" width="23"  name=t_25  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="/" border="0" color="0" x="1413" y="324" height="44" width="23"  name=t_22  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="봉  제" border="0" color="0" x="1285" y="236" height="60" width="279"  name=bong_man_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="완  성" border="0" color="0" x="1586" y="236" height="60" width="279"  name=ma_man_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="/" border="0" color="0" x="1714" y="324" height="44" width="23"  name=t_26  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="검  사" border="0" color="0" x="1888" y="236" height="60" width="279"  name=test_man_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="/" border="0" color="0" x="2016" y="324" height="44" width="23"  name=t_27  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header x1="782" y1="304" x2="2181" y2="304"  name=l_7 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="공정일:" border="0" color="0" x="146" y="132" height="60" width="192"  name=t_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="0000/00/00" border="0" color="0" x="352" y="132" height="60" width="279"  name=t_work_dt  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+line(band=header x1="0" y1="388" x2="3387" y2="388"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="0" y1="468" x2="3387" y2="468"  name=l_4 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="Style No" border="0" color="0" x="0" y="400" height="60" width="293"  name=style_no_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="발주일" border="0" color="0" x="302" y="400" height="60" width="274"  name=order_ymd_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="납기예정일" border="0" color="0" x="549" y="400" height="60" width="366"  name=delivery_ymd_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="QC일" border="0" color="0" x="1582" y="400" height="60" width="274"  name=qc_dt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="구분" border="0" color="0" x="1856" y="400" height="60" width="146"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="출근시간:" border="0" color="0" x="46" y="228" height="56" width="293"  name=st_tm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="1" text="퇴근시간:" border="0" color="0" x="46" y="316" height="56" width="293"  name=ed_tm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="1" text="생산처:" border="0" color="0" x="777" y="132" height="56" width="192"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="AAAAAA" border="0" color="0" x="983" y="132" height="60" width="169"  name=t_cust_cd  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="text" border="0" color="0" x="1166" y="132" height="60" width="795"  name=t_cust_nm  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="00:00" border="0" color="0" x="352" y="228" height="56" width="142"  name=t_st_tm  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="text" border="0" color="0" x="352" y="316" height="56" width="142"  name=t_ed_tm  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+line(band=header x1="2176" y1="228" x2="2176" y2="384"  name=l_15 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="969" y1="228" x2="969" y2="380"  name=l_8 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="1271" y1="228" x2="1271" y2="380"  name=l_9 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="1573" y1="228" x2="1573" y2="380"  name=l_10 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="1874" y1="228" x2="1874" y2="380"  name=l_11 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="발주량" border="0" color="0" x="887" y="400" height="60" width="329"  name=order_qty_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="입고량" border="0" color="0" x="1234" y="400" height="60" width="329"  name=in_qty_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="재단량" border="0" color="0" x="2002" y="400" height="60" width="329"  name=cut_qty_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="봉제량" border="0" color="0" x="2350" y="400" height="60" width="329"  name=sew_qty_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="완성량" border="0" color="0" x="2697" y="400" height="60" width="329"  name=fin_qty_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="검사량" border="0" color="0" x="3045" y="400" height="60" width="329"  name=test_qty_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="W_99999_E" border="0" color="0" x="2619" y="264" height="52" width="256"  name=t_pg_id  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="-" border="0" color="0" x="2889" y="264" height="52" width="27"  name=t_8  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=header alignment="1" expression="~"Page: ~" + Fill(~"*~", 4 - Len(String(page()))) + page() + ~"/~" + Fill(~"*~", 4 - Len(String(pageCount()))) + pageCount()"border="0" color="0" x="2930" y="264" height="52" width="443" format="[GENERAL]"  name=compute_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="1" text="1999/99/99-99:99:99" border="0" color="0" x="2853" y="328" height="52" width="521"  name=t_datetime  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="M99999" border="0" color="0" x="2606" y="328" height="52" width="192"  name=t_user_id  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="-" border="0" color="0" x="2811" y="328" height="52" width="27"  name=t_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="" border="0" color="0" x="983" y="316" height="56" width="114"  name=t_cut_man  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="1" text="" border="0" color="0" x="1147" y="316" height="56" width="114"  name=t_cut_bojo  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="1" text="" border="0" color="0" x="1285" y="316" height="56" width="114"  name=t_sew_man  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="1" text="" border="0" color="0" x="1449" y="316" height="56" width="114"  name=t_sew_bojo  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="1" text="" border="0" color="0" x="1586" y="316" height="56" width="114"  name=t_fin_man  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="1" text="" border="0" color="0" x="1751" y="316" height="56" width="114"  name=t_fin_bojo  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="1" text="" border="0" color="0" x="1888" y="316" height="56" width="114"  name=t_test_man  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="1" text="" border="0" color="0" x="2053" y="316" height="56" width="114"  name=t_test_bojo  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="전일" border="0" color="0" x="1874" y="4" height="60" width="110"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="누계" border="0" color="0" x="1874" y="156" height="60" width="110"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="금일" border="0" color="0" x="1874" y="80" height="60" width="110"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="212" width="274" format="@@@@@@@@-@"  name=style_no edit.limit=9 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="0" color="0" x="302" y="4" height="212" width="274" format="@@@@/@@/@@"  name=order_ymd edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="2" tabsequence=32766 border="0" color="0" x="594" y="4" height="212" width="274" format="@@@@/@@/@@"  name=delivery_ymd edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="2" tabsequence=32766 border="0" color="0" x="1582" y="4" height="212" width="274" format="@@@@/@@/@@"  name=qc_dt edit.limit=8 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=11 alignment="1" tabsequence=32766 border="0" color="0" x="2002" y="80" height="60" width="329" format="#,##0"  name=cut_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=15 alignment="1" tabsequence=32766 border="0" color="0" x="2002" y="156" height="60" width="329" format="#,##0"  name=cut_sum edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=12 alignment="1" tabsequence=32766 border="0" color="0" x="2350" y="80" height="60" width="329" format="#,##0"  name=sew_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=13 alignment="1" tabsequence=32766 border="0" color="0" x="2697" y="80" height="60" width="329" format="#,##0"  name=fin_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=14 alignment="1" tabsequence=32766 border="0" color="0" x="3045" y="80" height="60" width="329" format="#,##0"  name=test_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=16 alignment="1" tabsequence=32766 border="0" color="0" x="2350" y="156" height="60" width="329" format="#,##0"  name=sew_sum edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=17 alignment="1" tabsequence=32766 border="0" color="0" x="2697" y="156" height="60" width="329" format="#,##0"  name=fin_sum edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=18 alignment="1" tabsequence=32766 border="0" color="0" x="3045" y="156" height="60" width="329" format="#,##0"  name=test_sum edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=19 alignment="1" tabsequence=32766 border="0" color="0" x="2002" y="4" height="60" width="329" format="#,##0"  name=cut_last edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=20 alignment="1" tabsequence=32766 border="0" color="0" x="2350" y="4" height="60" width="329" format="#,##0"  name=sew_last edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=21 alignment="1" tabsequence=32766 border="0" color="0" x="2697" y="4" height="60" width="329" format="#,##0"  name=fin_last edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=22 alignment="1" tabsequence=32766 border="0" color="0" x="3045" y="4" height="60" width="329" format="#,##0"  name=test_last edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="1234" y="4" height="212" width="329" format="#,##0"  name=in_qty edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="887" y="4" height="212" width="329" format="#,##0"  name=order_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=summary x1="0" y1="24" x2="3392" y2="24"  name=l_5 visible="1~tif(page()=pageCount(),1,0)" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=summary alignment="2" text="<< 마지막 쪽 >>" border="0" color="0" x="1477" y="4" height="56" width="549"  name=t_10 visible="1~tif(page()=pageCount(),1,0)"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=footer x1="0" y1="24" x2="3392" y2="24"  name=l_6 visible="1~tif(page()=pageCount(),0,1)" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=footer alignment="2" text="<< 다음 쪽 >>" border="0" color="0" x="1504" y="4" height="56" width="475"  name=t_11 visible="1~tif(page()=pageCount(),0,1)"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

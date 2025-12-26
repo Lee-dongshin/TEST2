@@ -1,0 +1,62 @@
+﻿$PBExportHeader$d_23093_d01.srd
+$PBExportComments$원/부자재 지불 마감 현황
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(6) updatewhereclause=yes name=cust_cd dbname="CUST_CD" )
+ column=(type=char(30) updatewhereclause=yes name=cust_nm dbname="CUST_NM" )
+ column=(type=char(8) updatewhereclause=yes name=in_dt dbname="IN_DT" )
+ column=(type=char(10) updatewhereclause=yes name=resource_cd dbname="RESOURCE_CD" )
+ column=(type=char(30) updatewhereclause=yes name=resource_nm dbname="RESOURCE_NM" )
+ column=(type=char(2) updatewhereclause=yes name=color_cd dbname="COLOR_CD" )
+ column=(type=decimal(2) updatewhereclause=yes name=good_qty dbname="DUAL.GOOD_QTY" )
+ column=(type=decimal(2) updatewhereclause=yes name=bad_qty dbname="DUAL.BAD_QTY" )
+ column=(type=decimal(2) updatewhereclause=yes name=return_qty dbname="DUAL.RETURN_QTY" )
+ column=(type=decimal(2) updatewhereclause=yes name=claim_qty dbname="DUAL.CLAIM_QTY" )
+ column=(type=long updatewhereclause=yes name=price dbname="DUAL.PRICE" )
+ column=(type=long updatewhereclause=yes name=end_amt dbname="DUAL.END_AMT" )
+ retrieve="  SELECT '      ' AS CUST_CD,
+			'                              ' AS CUST_NM,
+			'        ' AS IN_DT,
+			'          ' AS RESOURCE_CD,
+			'                              ' AS RESOURCE_NM,
+			'  ' AS COLOR_CD,
+			0.00 AS GOOD_QTY,
+			0.00 AS BAD_QTY,
+			0.00 AS RETURN_QTY,
+			0.00 AS CLAIM_QTY,
+			0 AS PRICE,
+			0 AS END_AMT
+	 FROM DUAL
+" )
+data(null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null ) 
+text(band=header alignment="2" text="입고일" border="6" color="0" x="709" y="8" height="60" width="311"  name=in_dt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="발   주   처" border="6" color="0" x="9" y="8" height="60" width="681"  name=cust_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="자재코드" border="6" color="0" x="1038" y="8" height="60" width="343"  name=resource_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="자   재   명" border="6" color="0" x="1399" y="8" height="60" width="535"  name=resource_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="색  상" border="6" color="0" x="1952" y="8" height="60" width="256"  name=color_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="불량금액" border="6" color="0" x="2574" y="8" height="60" width="329"  name=bad_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="정상금액" border="6" color="0" x="2226" y="8" height="60" width="329"  name=good_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Claim금액" border="6" color="0" x="3616" y="8" height="60" width="329"  name=claim_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="단  가" border="6" color="0" x="3963" y="8" height="60" width="329"  name=price_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="마감금액" border="6" color="0" x="4311" y="8" height="60" width="329"  name=end_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="반품금액" border="6" color="0" x="2921" y="8" height="60" width="329"  name=return_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="합  계" border="6" color="0" x="3269" y="8" height="60" width="329"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="5" color="0" x="242" y="4" height="60" width="448" format="[general]"  name=cust_nm edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="5" color="0" x="709" y="4" height="60" width="311" format="[general]"  name=in_dt edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="5" color="0" x="9" y="4" height="60" width="215" format="[general]"  name=cust_cd edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="5" color="0" x="1038" y="4" height="60" width="343" format="[general]"  name=resource_cd edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="5" color="0" x="1399" y="4" height="60" width="535" format="[general]"  name=resource_nm edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="5" color="0" x="1952" y="4" height="60" width="256" format="[general]"  name=color_cd edit.limit=2 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="5" color="0" x="2226" y="4" height="60" width="329" format="[general]"  name=good_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="5" color="0" x="2574" y="4" height="60" width="329" format="[general]"  name=bad_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="5" color="0" x="2921" y="4" height="60" width="329" format="[general]"  name=return_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="5" color="0" x="3616" y="4" height="60" width="329" format="[general]"  name=claim_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="1" tabsequence=32766 border="5" color="0" x="3963" y="4" height="60" width="329" format="[general]"  name=price edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="1" tabsequence=32766 border="5" color="0" x="4311" y="4" height="60" width="329" format="[general]"  name=end_amt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression=" good_qty  +  bad_qty  -  return_qty "border="5" color="0" x="3269" y="4" height="60" width="329" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

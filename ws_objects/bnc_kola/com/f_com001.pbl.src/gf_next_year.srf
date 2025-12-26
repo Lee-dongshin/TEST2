@@ -1,0 +1,31 @@
+﻿$PBExportHeader$gf_next_year.srf
+$PBExportComments$기준일에 따른 해당 시즌년도
+global type gf_next_year from function_object
+end type
+
+forward prototypes
+global function boolean gf_next_year (datetime adt_date, ref string as_year)
+end prototypes
+
+global function boolean gf_next_year (datetime adt_date, ref string as_year);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 작 성 일  : 2001/12/28                                     */
+/* 수 정 일  : 2001/12/28                                     */
+/* 내    용  : 기준일자에 해당하는 시즌년도 산출              */
+/*============================================================*/
+
+select dbo.sf_next_year(:adt_date)
+  into :as_year
+  from DUAL;
+
+IF SQLCA.SQLCODE <> 0 THEN
+	MessageBox("System 오류", SQLCA.SqlErrText) 
+	Return False
+END IF
+
+IF ISNULL(as_year) THEN RETURN FALSE
+
+RETURN TRUE  
+
+end function
+

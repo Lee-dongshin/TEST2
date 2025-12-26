@@ -1,0 +1,14 @@
+﻿$PBExportHeader$d_42049_d04.srd
+$PBExportComments$DPS File 생성
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=144 color="536870912" )
+table(column=(type=char(1) updatewhereclause=yes name=compute_0001 dbname="compute_0001" )
+ retrieve="select 'a'" )
+button(band=detail text="DAS데이터생성"filename=""action="0" border="0" color="65535" x="27" y="8" height="100" width="471" vtextalign="0" htextalign="0"  name=cb_das  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421376" )
+button(band=detail text="총수량"filename=""action="0" border="0" color="0" x="1129" y="4" height="100" width="361" vtextalign="0" htextalign="0"  name=cb_tot visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="67108864" )
+button(band=detail text="DPS화일생성"filename=""action="0" border="0" color="0" x="759" y="8" height="100" width="361" vtextalign="0" htextalign="0"  name=cb_proc visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="67108864" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

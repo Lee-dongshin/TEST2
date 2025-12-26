@@ -1,0 +1,13 @@
+﻿$PBExportHeader$d_61037_h01.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=140 color="536870912" )
+table(column=(type=char(6) updatewhereclause=no name=yymm dbname="yymm" )
+ column=(type=char(1) updatewhereclause=no name=gubun dbname="gubun" initial="%" values="전체	%/쇼핑몰	S/백화점닷컴	H/" )
+ )
+text(band=detail alignment="1" text="년월" border="0" color="0" x="78" y="44" height="60" width="201"  name=yymm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="2" tabsequence=10 border="5" color="0" x="302" y="40" height="60" width="242" format="@@@@/@@"  name=yymm edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

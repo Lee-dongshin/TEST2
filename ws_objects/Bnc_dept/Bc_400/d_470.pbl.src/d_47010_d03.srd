@@ -1,0 +1,36 @@
+﻿$PBExportHeader$d_47010_d03.srd
+$PBExportComments$클릭조회
+release 7;
+datawindow(units=0 timer_interval=0 color=82899184 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=156 color="536870912" )
+summary(height=80 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(6) updatewhereclause=yes name=shop_cd dbname="tb_44012_s.SHOP_CD" )
+ column=(type=char(30) updatewhereclause=yes name=shop_nm dbname="shop_nm" )
+ column=(type=decimal(0) updatewhereclause=yes name=stock dbname="stock" )
+ column=(type=char(30) updatewhereclause=yes name=tel_no dbname="tel_no" )
+ retrieve="
+
+SELECT  SHOP_CD, dbo.sf_shop_nm(shop_cd, 's') as shop_nm ,
+		SUM(C.OUT_QTY) - SUM(C.RTRN_QTY) -SUM(C.SALE_QTY) as stock,
+		dbo.sf_shop_tel(shop_cd, 's') as tel_no
+ FROM TB_44012_S C (NOLOCK)
+	WHERE C.STYLE 	= :ls_style
+	AND 	C.CHNO	= :ls_chno
+	AND 	C.COLOR 	= :ls_color
+	AND 	C.SIZE	= :ls_size
+	AND   C.SHOP_DIV IN ('G','O', 'B') 
+GROUP BY SHOP_CD" arguments=(("ls_style", string),("ls_chno", string),("ls_color", string),("ls_size", string)) )
+text(band=header alignment="2" text="재고수량" border="6" color="0" x="814" y="76" height="60" width="247"  name=stock_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="현재고보유매장" border="6" color="0" x="23" y="76" height="60" width="768"  name=shop_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=header alignment="2" expression=" ls_style +  ls_chno  + '-' +  ls_color + '-' +  ls_size  + '  매장재고'"border="6" color="16711680" x="23" y="4" height="60" width="1499" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82899184" )
+text(band=header alignment="2" text="전화번호" border="6" color="0" x="1079" y="76" height="60" width="443"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="18" y="4" height="60" width="192" format="[general]"  name=shop_cd edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30539508" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="224" y="4" height="60" width="571" format="[general]"  name=shop_nm edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30539508" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="16711935" x="814" y="4" height="60" width="247" format="#,###"  name=stock edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30539508" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="1074" y="4" height="56" width="453" format="[general]"  name=tel_no edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30539508" )
+compute(band=summary alignment="1" expression="sum(stock for all)"border="0" color="16711935" x="814" y="4" height="60" width="247" format="#,###"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30539508" )
+text(band=summary alignment="1" text="[ 합  계 ]" border="0" color="16711680" x="0" y="4" height="56" width="347"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82899184" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

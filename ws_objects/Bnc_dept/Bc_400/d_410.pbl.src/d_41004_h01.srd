@@ -1,0 +1,30 @@
+﻿$PBExportHeader$d_41004_h01.srd
+$PBExportComments$생산입고명세서
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=200 color="536870912" )
+table(column=(type=char(1) updatewhereclause=yes name=brand dbname="brand" )
+ column=(type=char(8) updatewhereclause=yes name=yymmdd dbname="yymmdd" )
+ column=(type=char(2) updatewhereclause=yes name=prod_gubn dbname="prod_gubn" )
+ column=(type=char(6) updatewhereclause=yes name=cust_cd dbname="cust_cd" )
+ column=(type=char(27) updatewhereclause=yes name=cust_nm dbname="cust_nm" )
+ retrieve="select 
+'n'				brand,
+'20011018'	   yymmdd,
+'01'				prod_gubn,
+'n05110'			cust_cd,
+'                           ' cust_nm
+
+from dual" )
+text(band=detail alignment="1" text="브랜드" border="0" color="0" x="96" y="32" height="56" width="302"  name=brand_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="421" y="32" height="60" width="485" format="[general]"  name=brand edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="입고일" border="0" color="0" x="87" y="120" height="56" width="302"  name=in_date_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="생산처" border="0" color="0" x="1097" y="124" height="56" width="320"  name=cust_code_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+button(band=detail text=""filename="D:\백업\BC_IMSI\bmp\find.bmp"action="0" border="0" color="0" x="1687" y="116" height="76" width="96" vtextalign="0" htextalign="0"  name=cb_cust_cd  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="67108864" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="421" y="120" height="60" width="471" format="@@@@/@@/@@"  name=yymmdd editmask.mask="XXXX/XX/XX" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=30 border="5" color="0" x="1445" y="120" height="56" width="224" format="[general]"  name=cust_cd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="5" color="0" x="1792" y="124" height="56" width="731" format="[general]"  name=cust_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="80269524" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

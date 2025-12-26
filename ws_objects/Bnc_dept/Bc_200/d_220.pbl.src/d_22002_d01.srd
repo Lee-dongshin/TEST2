@@ -1,0 +1,122 @@
+﻿$PBExportHeader$d_22002_d01.srd
+$PBExportComments$원자재 검단 등록
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=80 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(1) update=yes updatewhereclause=yes key=yes name=brand dbname="TB_22011_D.BRAND" )
+ column=(type=char(8) update=yes updatewhereclause=yes key=yes name=in_ymd dbname="TB_22011_D.IN_YMD" )
+ column=(type=char(2) update=yes updatewhereclause=yes key=yes name=in_gubn dbname="TB_22011_D.IN_GUBN" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=in_no dbname="TB_22011_D.IN_NO" )
+ column=(type=char(2) updatewhereclause=yes name=color dbname="TB_22011_D.COLOR" )
+ column=(type=char(20) updatewhereclause=yes name=color_nm dbname="COLOR_NM" )
+ column=(type=decimal(2) updatewhereclause=yes name=tmp_qty dbname="TMP_QTY" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=qc_qty dbname="QC_QTY" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=dft_1 dbname="DFT_1" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=dft_2 dbname="DFT_2" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=dft_3 dbname="DFT_3" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=dft_4 dbname="DFT_4" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=dft_5 dbname="DFT_5" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=dft_6 dbname="DFT_6" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=dft_7 dbname="DFT_7" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=dft_8 dbname="DFT_8" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=dft_9 dbname="DFT_9" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=dft_qty dbname="DFT_QTY" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="TB_22011_D.MOD_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="TB_22011_D.MOD_DT" )
+ column=(type=char(15) updatewhereclause=yes name=spec dbname="TB_22010_H.SPEC" )
+ column=(type=char(1) updatewhereclause=yes name=sil_chk dbname="SIL_CHK" )
+ column=(type=decimal(2) updatewhereclause=yes name=data1 dbname="TB_22011_D.DATA1" )
+ column=(type=decimal(2) updatewhereclause=yes name=data2 dbname="TB_22011_D.DATA2" )
+ column=(type=decimal(2) updatewhereclause=yes name=data3 dbname="TB_22011_D.DATA3" )
+ column=(type=decimal(2) updatewhereclause=yes name=data4 dbname="TB_22011_D.DATA4" )
+ column=(type=decimal(2) updatewhereclause=yes name=data5 dbname="TB_22011_D.DATA5" )
+ column=(type=decimal(2) updatewhereclause=yes name=data6 dbname="TB_22011_D.DATA6" )
+ column=(type=decimal(2) updatewhereclause=yes name=data7 dbname="TB_22011_D.DATA7" )
+ column=(type=decimal(2) updatewhereclause=yes name=data8 dbname="TB_22011_D.DATA8" )
+ retrieve="  SELECT A.BRAND, A.IN_YMD, A.IN_GUBN, A.IN_NO,
+         A.COLOR, dbo.sf_color_nm(A.COLOR, 'E') AS COLOR_NM,
+         ISNULL(A.TMP_QTY, 0) AS TMP_QTY, 
+         ISNULL(A.QC_QTY, ISNULL(A.TMP_QTY, 0)) AS QC_QTY,
+         ISNULL(A.DFT_1, 0) AS DFT_1, 
+         ISNULL(A.DFT_2, 0) AS DFT_2, 
+         ISNULL(A.DFT_3, 0) AS DFT_3, 
+         ISNULL(A.DFT_4, 0) AS DFT_4,
+         ISNULL(A.DFT_5, 0) AS DFT_5, 
+         ISNULL(A.DFT_6, 0) AS DFT_6, 
+         ISNULL(A.DFT_7, 0) AS DFT_7, 
+         ISNULL(A.DFT_8, 0) AS DFT_8, 
+         ISNULL(A.DFT_9, 0) AS DFT_9, 
+         ISNULL(A.DFT_QTY, 0) AS DFT_QTY,
+         A.MOD_ID, A.MOD_DT, B.SPEC,
+         (CASE ISNULL(B.SIL_QTY, 0) WHEN 0 THEN 'N' ELSE 'Y' END) AS SIL_CHK,
+         C.DATA1, C.DATA2, C.DATA3, C.DATA4, C.DATA5, C.DATA6, C.DATA7, C.DATA8
+    FROM TB_22011_D A,
+         TB_22010_H B,
+         ( SELECT CAST(MAX(CASE INTER_CD WHEN '1' THEN INTER_DATA1 END) AS DECIMAL(8, 2)) AS DATA1,
+                  CAST(MAX(CASE INTER_CD WHEN '2' THEN INTER_DATA1 END) AS DECIMAL(8, 2)) AS DATA2,
+                  CAST(MAX(CASE INTER_CD WHEN '3' THEN INTER_DATA1 END) AS DECIMAL(8, 2)) AS DATA3,
+                  CAST(MAX(CASE INTER_CD WHEN '4' THEN INTER_DATA1 END) AS DECIMAL(8, 2)) AS DATA4,
+                  CAST(MAX(CASE INTER_CD WHEN '5' THEN INTER_DATA1 END) AS DECIMAL(8, 2)) AS DATA5,
+                  CAST(MAX(CASE INTER_CD WHEN '6' THEN INTER_DATA1 END) AS DECIMAL(8, 2)) AS DATA6,
+                  CAST(MAX(CASE INTER_CD WHEN '7' THEN INTER_DATA1 END) AS DECIMAL(8, 2)) AS DATA7,
+                  CAST(MAX(CASE INTER_CD WHEN '8' THEN INTER_DATA1 END) AS DECIMAL(8, 2)) AS DATA8
+             FROM TB_91011_C
+            WHERE INTER_GRP = '210'
+         ) C
+   WHERE A.BRAND   = B.BRAND
+     AND A.IN_YMD  = B.IN_YMD
+     AND A.IN_GUBN = B.IN_GUBN
+     AND A.IN_NO   = B.IN_NO
+     AND A.BRAND  = :as_brand
+     AND A.IN_GUBN = '01'
+     AND A.MAT_CD = :as_mmat_cd
+" update="TB_22011_D" updatewhere=0 updatekeyinplace=yes arguments=(("as_brand", string),("as_mmat_cd", string))  sort="in_ymd A in_no A " )
+text(band=header alignment="2" text="자재색상" border="6" color="0" x="343" y="8" height="60" width="457"  name=color_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="입고량" border="6" color="0" x="818" y="8" height="60" width="288"  name=tmp_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="검단량" border="6" color="0" x="1125" y="8" height="60" width="288"  name=qc_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="흠" border="6" color="0" x="1431" y="8" height="60" width="174"  name=dft_1_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="오염" border="6" color="0" x="1623" y="8" height="60" width="174"  name=dft_2_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="직단" border="6" color="0" x="1815" y="8" height="60" width="174"  name=dft_3_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="이색" border="6" color="0" x="2007" y="8" height="60" width="174"  name=dft_4_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="잡사" border="6" color="0" x="2391" y="8" height="60" width="174"  name=dft_5_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="절단" border="6" color="0" x="2583" y="8" height="60" width="174"  name=dft_6_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="나염" border="6" color="0" x="2775" y="8" height="60" width="174"  name=dft_7_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="기타" border="6" color="0" x="2967" y="8" height="60" width="201"  name=dft_8_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Defect" border="6" color="0" x="3186" y="8" height="60" width="201"  name=dft_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="폭" border="6" color="0" x="3406" y="8" height="60" width="361"  name=spec_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="구멍" border="6" color="0" x="2199" y="8" height="60" width="174"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="입고일자" border="6" color="0" x="9" y="8" height="60" width="315"  name=in_ymd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="5" color="0" x="9" y="4" height="60" width="315" format="@@@@/@@/@@"  name=in_ymd edit.limit=8 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="5" color="0" x="443" y="4" height="60" width="357" format="[general]"  name=color_nm edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="5" color="0" x="343" y="4" height="60" width="82" format="[general]"  name=color edit.limit=2 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=21 alignment="0" tabsequence=110 border="5" color="0" x="3406" y="4" height="60" width="361" format="[general]" protect="0~tIf( sil_chk = 'Y', 1, 0 )"  name=spec  tag="DE" edit.limit=15 edit.case=upper edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="1090519039~tIf( sil_chk = 'Y', RGB(192, 192, 192), RGB(255, 255, 255) )" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="5" color="0" x="818" y="4" height="60" width="288" format="#,##0.00"  name=tmp_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=10 border="5" color="0" x="1125" y="4" height="60" width="288" format="#,##0.00" protect="0~tIf( sil_chk = 'Y', 1, 0 )"  name=qc_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="1090519039~tIf( sil_chk = 'Y', RGB(192, 192, 192), RGB(255, 255, 255) )" )
+column(band=detail id=9 alignment="1" tabsequence=20 border="5" color="0" x="1431" y="4" height="60" width="174" format="#,##0" protect="0~tIf( sil_chk = 'Y', 1, 0 )"  name=dft_1 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="1090519039~tIf( sil_chk = 'Y', RGB(192, 192, 192), RGB(255, 255, 255) )" )
+column(band=detail id=10 alignment="1" tabsequence=30 border="5" color="0" x="1623" y="4" height="60" width="174" format="#,##0" protect="0~tIf( sil_chk = 'Y', 1, 0 )"  name=dft_2 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="1090519039~tIf( sil_chk = 'Y', RGB(192, 192, 192), RGB(255, 255, 255) )" )
+column(band=detail id=11 alignment="1" tabsequence=40 border="5" color="0" x="1815" y="4" height="60" width="174" format="#,##0" protect="0~tIf( sil_chk = 'Y', 1, 0 )"  name=dft_3 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="1090519039~tIf( sil_chk = 'Y', RGB(192, 192, 192), RGB(255, 255, 255) )" )
+column(band=detail id=12 alignment="1" tabsequence=50 border="5" color="0" x="2007" y="4" height="60" width="174" format="#,##0" protect="0~tIf( sil_chk = 'Y', 1, 0 )"  name=dft_4 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="1090519039~tIf( sil_chk = 'Y', RGB(192, 192, 192), RGB(255, 255, 255) )" )
+column(band=detail id=14 alignment="1" tabsequence=70 border="5" color="0" x="2391" y="4" height="60" width="174" format="#,##0" protect="0~tIf( sil_chk = 'Y', 1, 0 )"  name=dft_6 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="1090519039~tIf( sil_chk = 'Y', RGB(192, 192, 192), RGB(255, 255, 255) )" )
+column(band=detail id=15 alignment="1" tabsequence=80 border="5" color="0" x="2583" y="4" height="60" width="174" format="#,##0" protect="0~tIf( sil_chk = 'Y', 1, 0 )"  name=dft_7 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="1090519039~tIf( sil_chk = 'Y', RGB(192, 192, 192), RGB(255, 255, 255) )" )
+column(band=detail id=16 alignment="1" tabsequence=90 border="5" color="0" x="2775" y="4" height="60" width="174" format="#,##0" protect="0~tIf( sil_chk = 'Y', 1, 0 )"  name=dft_8 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="1090519039~tIf( sil_chk = 'Y', RGB(192, 192, 192), RGB(255, 255, 255) )" )
+column(band=detail id=17 alignment="1" tabsequence=100 border="5" color="0" x="2967" y="4" height="60" width="201" format="#,##0.00" protect="0~tIf( sil_chk = 'Y', 1, 0 )"  name=dft_9 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="1090519039~tIf( sil_chk = 'Y', RGB(192, 192, 192), RGB(255, 255, 255) )" )
+compute(band=detail alignment="1" expression="( dft_1  *  data1 ) + ( dft_2  *  data2 ) + ( dft_3  *  data3 ) + ( dft_4  *  data4 ) + ( dft_5  *  data5 ) + ( dft_6  *  data6 ) + ( dft_7  *  data7 ) + ( dft_8  *  data8  )  +  dft_9 "border="5" color="0" x="3186" y="4" height="60" width="201" format="#,##0.00"  name=dft_qty1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="1" tabsequence=60 border="5" color="0" x="2199" y="4" height="60" width="174" format="#,##0" protect="0~tIf( sil_chk = 'Y', 1, 0 )"  name=dft_5 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="1090519039~tIf( sil_chk = 'Y', RGB(192, 192, 192), RGB(255, 255, 255) )" )
+compute(band=footer alignment="1" expression="sum(tmp_qty for all)"border="5" color="0" x="818" y="8" height="60" width="288" format="#,##0.00"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="1" expression="sum(qc_qty for all)"border="5" color="0" x="1125" y="8" height="60" width="288" format="#,##0.00"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="1" expression="sum(dft_1 for all)"border="5" color="0" x="1431" y="8" height="60" width="174" format="#,##0"  name=compute_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="1" expression="sum(dft_2 for all)"border="5" color="0" x="1623" y="8" height="60" width="174" format="#,##0"  name=compute_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="1" expression="sum(dft_3 for all)"border="5" color="0" x="1815" y="8" height="60" width="174" format="#,##0"  name=compute_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="1" expression="sum(dft_4 for all)"border="5" color="0" x="2007" y="8" height="60" width="174" format="#,##0"  name=compute_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="1" expression="sum(dft_6 for all)"border="5" color="0" x="2391" y="8" height="60" width="174" format="#,##0"  name=compute_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="1" expression="sum(dft_7 for all)"border="5" color="0" x="2583" y="8" height="60" width="174" format="#,##0"  name=compute_8  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="1" expression="sum(dft_8 for all)"border="5" color="0" x="2775" y="8" height="60" width="174" format="#,##0"  name=compute_9  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="1" expression="sum(dft_9 for all)"border="5" color="0" x="2967" y="8" height="60" width="201" format="#,##0.00"  name=compute_10  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="1" expression="sum(( dft_1  *  data1 ) + ( dft_2  *  data2 ) + ( dft_3  *  data3 ) + ( dft_4  *  data4 ) + ( dft_5  *  data5 ) + ( dft_6  *  data6 ) + ( dft_7  *  data7 ) + ( dft_8  *  data8  )  +  dft_9  for all)"border="5" color="0" x="3186" y="8" height="60" width="201" format="#,##0.00"  name=compute_11  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="1" expression="sum(dft_5 for all)"border="5" color="0" x="2199" y="8" height="60" width="174" format="#,##0"  name=compute_12  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=footer alignment="2" text="합      계" border="6" color="0" x="9" y="8" height="60" width="791"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

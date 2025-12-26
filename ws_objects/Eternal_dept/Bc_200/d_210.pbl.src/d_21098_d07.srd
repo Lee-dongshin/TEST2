@@ -1,0 +1,58 @@
+﻿$PBExportHeader$d_21098_d07.srd
+$PBExportComments$케어라벨 발행여부
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(142) updatewhereclause=yes name=sam10 dbname="sam10" )
+ retrieve="	select distinct 
+	substring(a.style,1,4) + '-' + substring(a.style, 5,4)+ '-' + upper(a.chno) +'|'+
+	a.size + '|'+
+	left(a.color + '/' +isnull(dbo.sf_color_nm(a.color,'e'),'') + space(20),20-dbo.SF_HANGL_NUMCHK(dbo.sf_color_nm(a.color,'e'))) + '|'+
+	isnull(c.breast,'  ')+'|' + isnull(c.waist,'  ')+'|'+
+	isnull(c.hip,'  ')+'|'+ isnull(c.height,'   ')  + '|' +     
+	
+
+ 	right(('00000'   + convert(varchar(04), 
+			isnull((select isnull(sum(ord_qty),0) + isnull(sum(ord_qty_exp),0) from tb_12030_s(nolock) 
+				where style = a.style 
+				and   chno  = a.chno
+				and   color = a.color
+				and   size  = a.size),0)
+			)), 4) + '|' +
+
+
+	isnull((select left(isnull(dbo.sf_cust_nm(cust_cd,'s'),''),20-dbo.SF_HANGL_NUMCHK(dbo.sf_cust_nm(cust_cd,'s')) ) from tb_12021_d (nolock) where style = a.style and chno = a.chno),space(20))  + '|' +
+	ISNULL(m.sect_nm,space(10))	 + '|' +
+	isnull((select isnull(dbo.sf_inter_cd1('000',case when country_cd = '25' and cust_cd like '%6800' then '00' else country_cd end),'') from tb_12021_d (nolock) where style = a.style and chno = a.chno),space(10))	as sam10
+     from  tb_12024_d a  with  (nolock),  tb_12027_d c   with  (nolock),tb_12021_d d  with  (nolock),
+	tb_12029_d m  with (nolock), tb_washing_type k(nolock)
+     where  a.style    = d.style  
+	  and a.style = :style
+     and a.chno  = :chno
+     and    a.chno     = d.chno
+     and    a.style     =  m.style
+     and    a.chno    =  m.chno
+     and    a.color    =   m.color
+     and    m.washing_type = k.washing_type
+     and    isnull(d.zsojae,d.sojae)  *= c.sojae
+     and    coalesce(d.zitem,d.item)    *=   c.item
+     and    a.size    *=   c.size
+     and    m.conform_yn = 'Y'	
+     and   (d.make_type >= '30' or d.brand in ('J','Y','V','E') or
+	    exists (select top 1 * from tb_21015_d x(nolock)
+			where (a.style in ('ww8mb675','ww8mb671')
+			or    x.mat_cd = isnull(d.mat_cd,
+						(select top 1 mat_cd from tb_12025_d (nolock)
+							where style = a.style
+							and   chno  = a.chno
+							and   mat_fg = 'A')) 
+				)
+			and   x.conform_yn = 'Y'))
+
+" arguments=(("style", string),("chno", string)) )
+text(band=header alignment="2" text="Sam10" border="0" color="0" x="5" y="4" height="56" width="3922"  name=sam10_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="0" y="0" height="64" width="3922" format="[general]"  name=sam10 edit.limit=142 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,86 @@
+﻿$PBExportHeader$d_54009_d12.srd
+$PBExportComments$RT작업 리스트(매장별)
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=92 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(6) updatewhereclause=yes name=shop_cd dbname="tb_54009_h.shop_cd" )
+ column=(type=char(30) updatewhereclause=yes name=shop_nm dbname="shop_nm" )
+ column=(type=char(8) updatewhereclause=yes name=style dbname="tb_54009_h.style" )
+ column=(type=char(1) updatewhereclause=yes name=chno dbname="tb_54009_h.chno" )
+ column=(type=char(2) updatewhereclause=yes name=color dbname="tb_54009_h.color" )
+ column=(type=char(2) updatewhereclause=yes name=size dbname="tb_54009_h.size" )
+ column=(type=decimal(6) updatewhereclause=yes name=rot_rate dbname="rot_rate" )
+ column=(type=decimal(6) updatewhereclause=yes name=panme_rate dbname="panme_rate" )
+ column=(type=decimal(0) updatewhereclause=yes name=recall_qty dbname="recall_qty" )
+ column=(type=char(1) updatewhereclause=yes name=item dbname="tb_54009_h.item" )
+ column=(type=decimal(0) updatewhereclause=yes name=re_qty dbname="re_qty" )
+ column=(type=char(1) updatewhereclause=yes name=rcv_check dbname="tb_54009_h.rcv_check" values="확인	Y/확인	N" )
+ retrieve="select a.shop_cd,
+       dbo.sf_shop_nm(a.shop_cd,'a') shop_nm,
+       a.style, a.chno, a.color, a.size,
+        case when sum(isnull(a.sale_qty,0)) <> 0 and sum(isnull(a.out_qty,0) - isnull(a.sale_qty,0)) <> 0
+             then (sum(isnull(a.sale_qty,0)) / sum(isnull(a.out_qty,0) - isnull(a.sale_qty,0)))
+        else 0 end rot_rate,
+        case when sum(isnull(a.sale_qty,0)) <> 0 and sum(isnull(a.out_qty,0)) <> 0
+             then (sum(isnull(a.sale_qty,0)) / sum(isnull(a.out_qty,0)))
+        else 0 end panme_rate,
+        sum(isnull(a.recall_qty,0))   recall_qty,
+        a.item ,
+        isnull((select sum(rtrn_qty - move_outqty) from tb_44010_s
+					 where brand = :as_brand
+  			       and   yymmdd between a.yymmdd and (select convert(char(08),getdate(),112))
+         		 and   shop_cd = a.shop_cd
+		          and   style   = a.style
+      		    and   color   = a.color
+		          and   year    = a.year
+			 		 and   season  = a.season
+					 and   size    = a.size),0) as re_qty,
+        a.rcv_check
+	from tb_54009_h a
+	where a.brand        = :as_brand
+   and   a.shop_cd   like :as_shop_cd
+  	and   a.yymmdd       = :as_yymmdd
+	and   a.recall_no like :as_recall_no
+   and   a.accept_yn    = 'y'
+	and   substring(a.shop_cd,2,1) like :as_shop_div                                         
+	group by a.shop_cd, a.style, a.chno,  a.color, a.size, a.item, a.rcv_check ,a.year,a.season,a.yymmdd
+	
+" arguments=(("as_brand", string),("as_shop_cd", string),("as_yymmdd", string),("as_recall_no", string),("as_shop_div", string)) )
+group(level=1 header.height=0 trailer.height=12 by=("shop_cd" ) header.color="536870912" trailer.color="536870912" )
+group(level=2 header.height=0 trailer.height=0 by=("style" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="매장" border="6" color="0" x="9" y="8" height="60" width="727"  name=shop_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="품번" border="6" color="0" x="750" y="8" height="60" width="283"  name=style_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="차수" border="6" color="0" x="1047" y="8" height="60" width="110"  name=chno_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="색상" border="6" color="0" x="1170" y="8" height="60" width="270"  name=color_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="크기" border="6" color="0" x="1454" y="8" height="60" width="137"  name=size_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="보유가치" border="6" color="0" x="1605" y="8" height="60" width="215"  name=rot_rate_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="판매율" border="6" color="0" x="1833" y="8" height="60" width="215"  name=panme_rate_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="요청수량" border="6" color="0" x="2066" y="8" height="60" width="247"  name=recall_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="실반품량" border="6" color="0" x="2327" y="8" height="60" width="247"  name=re_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="매장확인" border="6" color="0" x="2587" y="8" height="60" width="247"  name=rcv_check_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="2587" y="4" height="60" width="247" format="[general]"  name=rcv_check checkbox.text="확인" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="5" y="4" height="60" width="206" format="[general]"  name=shop_cd edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33421539" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="224" y="4" height="60" width="512" format="[general]"  name=shop_nm edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33421539" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="750" y="4" height="60" width="283" format="[general]"  name=style edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33554431" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="1047" y="4" height="60" width="110" format="[general]"  name=chno edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33554431" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1170" y="4" height="60" width="270" format="[general]"  name=color edit.name="색상" dddw.name=d_com901 dddw.displaycolumn=color_display dddw.datacolumn=color dddw.percentwidth=100 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33554431" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="0" color="0" x="1454" y="4" height="60" width="137" format="[general]"  name=size edit.limit=2 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33554431" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="1605" y="4" height="60" width="215" format="0%"  name=rot_rate edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="1833" y="4" height="60" width="215" format="0%"  name=panme_rate edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=11 alignment="1" tabsequence=32766 border="0" color="0" x="2327" y="4" height="60" width="247" format="#,##0"  name=re_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="31323131" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="2066" y="4" height="60" width="247" format="[general]"  name=recall_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="31323131" )
+line(band=trailer.2 x1="750" y1="0" x2="2830" y2="0"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=trailer.2 x1="750" y1="4" x2="2830" y2="4"  name=l_2 pen.style="0" pen.width="5" pen.color="16777215"  background.mode="2" background.color="16777215" )
+line(band=trailer.1 x1="5" y1="8" x2="2825" y2="8"  name=l_3 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=trailer.1 x1="5" y1="0" x2="2825" y2="0"  name=l_4 pen.style="0" pen.width="5" pen.color="16777215"  background.mode="2" background.color="16777215" )
+line(band=footer x1="5" y1="12" x2="2821" y2="12"  name=l_5 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=footer x1="5" y1="4" x2="2821" y2="4"  name=l_6 pen.style="0" pen.width="5" pen.color="16777215"  background.mode="2" background.color="16777215" )
+compute(band=footer alignment="1" expression="sum(re_qty for all)"border="0" color="0" x="2322" y="24" height="60" width="247" format="#,##0"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31323131" )
+compute(band=footer alignment="1" expression="sum(recall_qty for all)"border="0" color="0" x="2062" y="24" height="60" width="247" format="[general]"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31323131" )
+text(band=footer alignment="1" text="[ 총        계 ]" border="0" color="16711680" x="110" y="28" height="56" width="539"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+
+sparse(names="shop_cd	shop_nm	style	chno	color")htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

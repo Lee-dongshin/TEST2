@@ -1,0 +1,39 @@
+﻿$PBExportHeader$d_12020_d09.srd
+$PBExportComments$주의사항
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=1800 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes key=yes name=style dbname="style" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=chno dbname="chno" )
+ column=(type=char(4099) update=yes updatewhereclause=yes name=rmk_design dbname="TB_12022_D.rmk_design" )
+ column=(type=char(4099) update=yes updatewhereclause=yes name=rmk_sewing dbname="TB_12022_D.rmk_sewing" )
+ column=(type=char(4099) update=yes updatewhereclause=yes name=rmk_making dbname="TB_12022_D.rmk_making" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="TB_12022_D.Reg_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="TB_12022_D.Reg_Dt" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="TB_12022_D.Mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="TB_12022_D.Mod_Dt" )
+ retrieve="
+		select 
+		upper(:style)	as style  ,
+		upper(:chno)	as chno ,
+		rmk_design,
+		rmk_sewing ,
+		rmk_making  ,
+		Reg_id ,
+		Reg_Dt  ,
+		Mod_id ,
+		Mod_Dt   
+		from tb_12022_d	(nolock)
+		where style = :style
+		and   chno  = :chno
+" update="tb_12022_d" updatewhere=0 updatekeyinplace=yes arguments=(("style", string),("chno", string)) )
+text(band=detail alignment="0" text="완봉 주의사항 - 생산" border="4" color="0" x="9" y="1208" height="56" width="992"  name=rmk_making_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15780518" )
+text(band=detail alignment="0" text="봉제시 주의사항 - 패턴실/샘플실" border="4" color="0" x="9" y="604" height="56" width="992"  name=rmk_sewing_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27780307" )
+text(band=detail alignment="0" text="디자인 수정 사항 - 디자인실" border="4" color="0" x="9" y="4" height="56" width="992"  name=rmk_design_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="26981627" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="5" color="0" x="9" y="60" height="500" width="2999" format="[general]"  name=rmk_design edit.limit=4099 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="5" color="0" x="9" y="664" height="500" width="2999" format="[general]"  name=rmk_sewing edit.limit=4099 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="5" color="0" x="9" y="1268" height="500" width="2999" format="[general]"  name=rmk_making edit.limit=4099 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

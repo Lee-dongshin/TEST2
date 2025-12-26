@@ -1,0 +1,50 @@
+﻿$PBExportHeader$gf_jumin_chk.srf
+$PBExportComments$주민번호 체크
+global type gf_jumin_chk from function_object
+end type
+
+forward prototypes
+global function boolean gf_jumin_chk (string as_jumin)
+end prototypes
+
+global function boolean gf_jumin_chk (string as_jumin);/*============================================================*/
+/* 작 성 자  : 지우정보(김영일)                               */
+/* 작 성 일  : 2002/02/18                                     */
+/* 수 정 일  : 2002/02/18                                     */
+/* 내    용  : 주민등록번호를 체크한다.                       */
+/*============================================================*/
+Integer i,IDtot = 0
+String  ls_jumin, IDAdd = "234567892345", ls_sale_emp_chk
+
+ls_jumin = Trim(as_jumin)
+
+IF LenA(ls_jumin) <> 13 THEN RETURN FALSE 
+IF Match(MidA(ls_jumin,7,1), "^[126]") = FALSE THEN RETURN FALSE 
+
+FOR i=1 TO 12
+	  IDtot = IDtot + integer(MidA(ls_jumin, i, 1)) * integer(MidA(IDAdd, i, 1))
+NEXT
+
+IDtot = 11 - Mod(IDtot,11)
+
+SELECT dbo.sf_sale_emp_chk(:ls_jumin)
+  INTO :ls_sale_emp_chk 
+  FROM DUAL ;
+
+IF SQLCA.SQLCODE <> 0 THEN 
+	MessageBox("SQL 오류", SQLCA.SQLERRTEXT)
+	RETURN FALSE 
+ELSEIF ISNULL(ls_sale_emp_chk)  or ls_sale_emp_chk  = 'Y' THEN 
+	MessageBox("경고!", "현 근무중인 판매사원은 등록하실수 없습니다! 고객관리팀에 문의 하세요!")
+	RETURN FALSE
+END IF 
+
+
+if RightA(ls_jumin, 1) <> RightA(string(IDtot), 1) and MidA(ls_jumin, 7, 1) <> '6' then  // '6':외국인
+	RETURN False	
+ELSE
+	RETURN True
+END IF
+
+end function
+

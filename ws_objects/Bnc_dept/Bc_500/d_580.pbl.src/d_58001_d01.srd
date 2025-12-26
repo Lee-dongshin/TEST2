@@ -1,0 +1,55 @@
+﻿$PBExportHeader$d_58001_d01.srd
+$PBExportComments$환율등록
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=32 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes key=yes name=yymmdd dbname="tb_91080_c.yymmdd" )
+ column=(type=char(3) updatewhereclause=yes name=b_week_kor dbname="tb_91080_c.week_kor" )
+ column=(type=char(30) updatewhereclause=yes name=b_remark dbname="tb_91080_c.remark" )
+ column=(type=char(1) updatewhereclause=yes name=b_holiday_yn dbname="tb_91080_c.holiday_yn" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=usd dbname="tb_91080_c.usd" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=a_usd_c dbname="tb_91080_c.usd_c" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=a_euro dbname="tb_91080_c.euro" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=cny dbname="tb_91080_c.cny" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=jpy dbname="tb_91080_c.jpy" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="tb_91080_c.reg_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="tb_91080_c.reg_dt" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="tb_91080_c.mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="tb_91080_c.mod_dt" )
+ retrieve="  SELECT a.yymmdd, 
+			b.week_kor,
+			b.remark,  
+			b.holiday_yn,
+         a.usd,
+			a.usd_c,  
+			a.euro,
+         a.cny,   
+         a.jpy,   
+         a.reg_id,   
+         a.reg_dt,   
+         a.mod_id,   
+         a.mod_dt  
+   FROM  tb_91080_c  a with (nolock), tb_date b with (nolock)
+   WHERE a.yymmdd between :as_fr_yymmdd and :as_to_yymmdd
+   AND   a.yymmdd = b.t_date ;
+
+" update="tb_91080_c" updatewhere=0 updatekeyinplace=no arguments=(("as_fr_yymmdd", string),("as_to_yymmdd", string)) )
+text(band=header alignment="2" text="일자" border="6" color="0" x="5" y="4" height="68" width="773"  name=yymmdd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="USD(기준환율)" border="6" color="0" x="795" y="8" height="64" width="448"  name=usd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="USD(입금기준)" border="6" color="0" x="1262" y="8" height="64" width="448"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="2" tabsequence=10 border="5" color="0~t case(  b_holiday_yn  when  ~"Y~"  then  RGB(255,0,0)  else RGB(0,0,0))" x="5" y="4" height="72" width="343" format="@@@@/@@/@@"  name=yymmdd edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="5" color="0~t case(  b_holiday_yn  when  ~"Y~"  then  RGB(255,0,0)  else RGB(0,0,0))" x="361" y="4" height="72" width="105" format="[general]"  name=b_week_kor edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="5" color="0~t case(  b_holiday_yn  when  ~"Y~"  then  RGB(255,0,0)  else RGB(0,0,0))" x="480" y="4" height="72" width="293" format="[general]"  name=b_remark edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="1" tabsequence=20 border="5" color="0~t case(  b_holiday_yn  when  ~"Y~"  then  RGB(255,0,0)  else RGB(0,0,0))" x="795" y="4" height="72" width="448" format="[general]"  name=usd edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="1" tabsequence=30 border="5" color="0~t case(  b_holiday_yn  when  ~"Y~"  then  RGB(255,0,0)  else RGB(0,0,0))" x="1262" y="4" height="72" width="448" format="#,##0.00"  name=a_usd_c edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="1" tabsequence=40 border="5" color="0" x="1723" y="4" height="72" width="448" format="#,##0.00"  name=a_euro  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="JPY(100엔)" border="6" color="0" x="2661" y="4" height="68" width="439"  name=jpy_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="CNY" border="6" color="0" x="2199" y="4" height="68" width="448"  name=cny_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="1" tabsequence=60 border="5" color="0~t case(  b_holiday_yn  when  ~"Y~"  then  RGB(255,0,0)  else RGB(0,0,0))" x="2651" y="4" height="72" width="448" format="[general]"  name=jpy edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="1" tabsequence=50 border="5" color="0~t case(  b_holiday_yn  when  ~"Y~"  then  RGB(255,0,0)  else RGB(0,0,0))" x="2190" y="4" height="72" width="448" format="[general]"  name=cny edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="EURO(입금기준)" border="6" color="0" x="1723" y="8" height="64" width="457"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,31 @@
+﻿$PBExportHeader$d_com017.srd
+$PBExportComments$원자재별 색상[dddw]
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(2) updatewhereclause=yes name=color dbname="TB_21011_D.color" )
+ column=(type=char(20) updatewhereclause=yes name=color_enm dbname="tb_91040_c.color_enm" )
+ column=(type=char(20) updatewhereclause=yes name=color_knm dbname="tb_91040_c.color_knm" )
+ column=(type=char(5) updatewhereclause=yes name=color_snm dbname="tb_91040_c.color_snm" )
+ retrieve="  SELECT AA.color        as color,   
+         BB.color_enm    as color_enm, 
+         BB.color_knm    as color_knm, 
+         BB.color_snm    as color_snm 
+    FROM TB_21011_D  AA,   
+         tb_91040_c  BB 
+   WHERE BB.color  = AA.color 
+     AND AA.MAT_CD = :as_mat_cd  
+	  and exists (select top 1 * from tb_29012_s (nolock) 
+						where mat_cd = aa.mat_cd
+						and   color  = aa.color
+						and   (isnull(INIT_QTY,0) + isnull(NMAL_IN_QTY,0) + isnull(TRAN_IN_QTY,0) + isnull(GGONG_IN_QTY,0) ) 
+							- (isnull(NMAL_OUT_QTY,0) + isnull(TRAN_OUT_QTY,0) + isnull(GGONG_OUT_QTY,0) + isnull(SALE_QTY,0) + isnull(SMPLE_QTY,0) + isnull(ETC_QTY,0) ) 
+							- isnull(RESV_QTY,0) > 0 )
+" arguments=(("as_mat_cd", string)) )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="60" width="96" format="[general]"  name=color edit.limit=3 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="114" y="8" height="60" width="480" format="[general]"  name=color_enm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression=" color  + ~" ~" +  color_enm "border="0" color="0" x="603" y="8" height="60" width="210" format="[GENERAL]"  name=color_display visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

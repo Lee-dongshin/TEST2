@@ -1,0 +1,34 @@
+﻿$PBExportHeader$d_21002_p02.srd
+$PBExportComments$테스트 일자 팝업
+release 7;
+datawindow(units=0 timer_interval=0 color=82899184 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=532 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=style dbname="test_0226_temp.style" )
+ column=(type=char(8) updatewhereclause=yes name=test_date dbname="test_0226_temp.test_date" )
+ column=(type=char(200) updatewhereclause=yes name=test_detail dbname="test_0226_temp.test_detail" )
+ column=(type=char(6) updatewhereclause=yes name=reg_id dbname="test_0226_temp.reg_id" )
+ column=(type=datetime updatewhereclause=yes name=reg_dt dbname="test_0226_temp.reg_dt" )
+ column=(type=char(6) updatewhereclause=yes name=mod_id dbname="test_0226_temp.mod_id" )
+ column=(type=datetime updatewhereclause=yes name=mod_dt dbname="test_0226_temp.mod_dt" )
+ column=(type=char(30) updatewhereclause=yes name=mod_dt1 dbname="mod_dt1" )
+ retrieve="  SELECT style,   
+         test_date,   
+         test_detail,   
+         reg_id,   
+         reg_dt,   
+         mod_id,   
+         mod_dt,
+			convert(varchar,mod_dt,111) as mod_dt1
+    FROM dbo.test_0226_temp
+	WHERE STYLE LIKE :p_style
+	  AND TEMP_COUNT = :p_count" arguments=(("p_style", string),("p_count", number)) )
+text(band=detail alignment="1" text="테스트 내용" border="0" color="0" x="27" y="140" height="68" width="361"  name=test_detail_t  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="스타일번호" border="0" color="0" x="27" y="44" height="68" width="361"  name=style_t  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="수정 일자" border="0" color="0" x="850" y="44" height="68" width="361"  name=test_date_t  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="2" tabsequence=32766 border="2" color="0" x="1266" y="44" height="68" width="361" format="[general]"  name=mod_dt1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="82899184" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="2" color="0" x="411" y="44" height="68" width="352" format="[general]"  name=style edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="82899184" )
+column(band=detail id=3 alignment="0" tabsequence=10 border="5" color="0" x="411" y="140" height="372" width="1216" format="[general]"  name=test_detail edit.limit=200 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autovscroll=yes edit.displayonly=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="82899184" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

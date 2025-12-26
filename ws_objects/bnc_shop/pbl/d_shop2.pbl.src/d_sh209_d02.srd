@@ -1,0 +1,77 @@
+﻿$PBExportHeader$d_sh209_d02.srd
+$PBExportComments$A/S 등록
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=300 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes key=yes name=yymmdd dbname="TB_79010_M.yymmdd" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=seq_no dbname="TB_79010_M.seq_no" )
+ column=(type=char(13) update=yes updatewhereclause=yes name=jumin dbname="TB_79010_M.jumin" )
+ column=(type=char(16) update=yes updatewhereclause=yes name=card_no dbname="TB_79010_M.card_no" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=custom_nm dbname="TB_79010_M.custom_nm" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=sex dbname="TB_79010_M.sex" initial="1" values="남	0/여	1/" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=tel_no1 dbname="TB_79010_M.tel_no1" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=tel_no2 dbname="TB_79010_M.tel_no2" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=tel_no3 dbname="TB_79010_M.tel_no3" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=shop_cd dbname="TB_79010_M.shop_cd" )
+ column=(type=char(30) updatewhereclause=yes name=shop_nm dbname="SHOP_NM" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=rcv_how dbname="TB_79010_M.rcv_how" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=want_ymd dbname="TB_79010_M.want_ymd" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=brand dbname="TB_79010_M.brand" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="TB_79010_M.reg_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="TB_79010_M.reg_dt" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="TB_79010_M.mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="TB_79010_M.mod_dt" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=appoint_ymd dbname="TB_79010_M.appoint_ymd" )
+ column=(type=char(15) updatewhereclause=yes name=tel_no dbname="tel_no" )
+ column=(type=char(8) updatewhereclause=yes name=receipt_ymd dbname="TB_79010_M.receipt_ymd" )
+ column=(type=char(20) updatewhereclause=yes name=receipt_empno dbname="receipt_empno" )
+ retrieve="  SELECT b.YYMMDD	as yymmdd, 
+	 b.SEQ_NO	as seq_no, 
+         b.JUMIN	as jumin, 
+	 b.CARD_NO	as card_no, 
+	 b.CUSTOM_NM	as custom_nm,
+         b.SEX		as sex, 
+	 b.TEL_NO1	as tel_no1, 
+	 b.TEL_NO2	as tel_no2, 
+	 b.TEL_NO3	as tel_no3, 
+         b.SHOP_CD	as shop_cd, 
+	 dbo.sf_shop_nm(b.SHOP_CD, 'S') AS SHOP_NM, 
+	 b.RCV_HOW	as rcv_how, 
+         b.WANT_YMD	as want_ymd, 
+	 b.BRAND	as brand, 
+	 b.REG_ID	as reg_id, 
+	 b.REG_DT	as reg_dt, 
+	 b.MOD_ID	as mod_id, 
+	 b.MOD_DT	as mod_dt, 
+	 b.appoint_ymd,
+	(select a.tel_no
+         from tb_91100_m a with (nolock)
+         where a.shop_cd = b.shop_cd) as tel_no,
+	receipt_ymd,
+	case when receipt_empno is not null then dbo.sf_emp_nm(receipt_empno)  else '' end as receipt_empno
+    FROM TB_79010_M b with (nolock)
+   WHERE b.YYMMDD = :as_yymmdd
+     AND b.SEQ_NO = :as_seq_no
+ " update="TB_79010_M" updatewhere=0 updatekeyinplace=yes arguments=(("as_yymmdd", string),("as_seq_no", string)) )
+text(band=detail alignment="2" text="의뢰일자" border="6" color="0" x="14" y="28" height="60" width="256"  name=yymmdd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="의뢰번호" border="6" color="0" x="869" y="28" height="60" width="288"  name=seq_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="5" color="33554432" x="293" y="28" height="60" width="283" format="@@@@/@@/@@"  name=yymmdd  tag="OE" edit.limit=8 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="5" color="0" x="1179" y="28" height="60" width="114" format="[general]"  name=seq_no edit.limit=4 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="휴대전화" border="6" color="0" x="14" y="124" height="60" width="256"  name=tel_no3_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=10 border="5" color="0" x="293" y="124" height="60" width="402" format="[general]"  name=tel_no3 edit.limit=20 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="2" text="카드번호" border="6" color="0" x="14" y="220" height="60" width="256"  name=card_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="고객약속일" border="6" color="0" x="869" y="220" height="56" width="288"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="5" color="0" x="293" y="220" height="60" width="526" format="@@@@-@@@@-@@@@-@@@@"  name=card_no  tag="OE" edit.limit=16 edit.case=upper edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=13 alignment="0" tabsequence=50 border="5" color="33554432" x="1179" y="220" height="60" width="311" format="@@@@/@@/@@"  name=want_ymd  tag="OE" edit.limit=8 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=5 alignment="0" tabsequence=30 border="5" color="0" x="1179" y="124" height="60" width="311" format="[general]"  name=custom_nm  tag="DK" edit.limit=20 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="2" text="고객명" border="6" color="0" x="882" y="124" height="60" width="274"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="본사접수일자" border="6" color="0" x="1591" y="32" height="60" width="370"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="본사접수담당" border="6" color="0" x="1591" y="116" height="56" width="370"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=21 alignment="0" tabsequence=32766 border="5" color="33554432" x="1984" y="36" height="60" width="311" format="[general]"  name=receipt_ymd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=22 alignment="0" tabsequence=32766 border="5" color="33554432" x="1979" y="116" height="60" width="434" format="[general]"  name=receipt_empno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="5" color="0" x="1984" y="220" height="60" width="402" format="@@@@@@-@@@@@@@"  name=jumin  tag="OE" visible="1~t0" edit.limit=13 edit.case=upper edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="2" text="주민번호" border="6" color="0" x="1673" y="220" height="60" width="288"  name=t_1 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

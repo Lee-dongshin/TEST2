@@ -1,0 +1,23 @@
+﻿$PBExportHeader$d_12008_d01.srd
+$PBExportComments$컨벤션 관리
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(1) updatewhereclause=yes name=brand dbname="brand" )
+ column=(type=char(4) updatewhereclause=yes name=year dbname="year" )
+ column=(type=char(1) updatewhereclause=yes name=season dbname="season" )
+ column=(type=char(1) updatewhereclause=yes name=sojae dbname="sojae" )
+ column=(type=char(20) updatewhereclause=yes name=sojae_nm dbname="sojae_nm" )
+ column=(type=char(1) updatewhereclause=yes name=item dbname="item" )
+ column=(type=char(20) updatewhereclause=yes name=item_nm dbname="item_nm" )
+ procedure="1 execute dbo.sp_12008_d01;1 @brand = :brand, @year = :year, @season = :season" arguments=(("brand", string),("year", string),("season", string)) )
+text(band=header alignment="2" text="소재" border="6" color="0" x="27" y="4" height="60" width="274"  name=sojae_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="품종" border="6" color="0" x="315" y="4" height="60" width="338"  name=item_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="27" y="4" height="60" width="274" format="[general]"  name=sojae_nm edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33550815" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="315" y="4" height="60" width="338" format="[general]"  name=item_nm edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33550815" )
+
+sparse(names="sojae_nm")htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

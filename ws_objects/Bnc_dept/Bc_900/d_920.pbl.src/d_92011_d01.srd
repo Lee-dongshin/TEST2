@@ -1,0 +1,122 @@
+﻿$PBExportHeader$d_92011_d01.srd
+$PBExportComments$부서별 계획진행내역 조회
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=140 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=100 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=yyyy dbname="tb_closing_account.yyyy" )
+ column=(type=char(2) updatewhereclause=yes name=brand dbname="tb_closing_account.brand" )
+ column=(type=decimal(0) updatewhereclause=yes name=brand_no dbname="brand_no" )
+ column=(type=char(30) updatewhereclause=yes name=brand_nm dbname="brand_nm" )
+ column=(type=char(8) updatewhereclause=yes name=year dbname="tb_closing_account.year" )
+ column=(type=char(2) updatewhereclause=yes name=season dbname="tb_closing_account.season" )
+ column=(type=char(30) updatewhereclause=yes name=season_nm dbname="season_nm" )
+ column=(type=decimal(0) updatewhereclause=yes name=season_no dbname="season_no" )
+ column=(type=number updatewhereclause=yes name=house_stock_qty dbname="tb_closing_account.house_stock_qty" )
+ column=(type=number updatewhereclause=yes name=house_stock_wonga dbname="tb_closing_account.house_stock_wonga" )
+ column=(type=number updatewhereclause=yes name=house_stock_tag dbname="tb_closing_account.house_stock_tag" )
+ column=(type=number updatewhereclause=yes name=shop_stock_qty dbname="tb_closing_account.shop_stock_qty" )
+ column=(type=number updatewhereclause=yes name=shop_stock_wonga dbname="tb_closing_account.shop_stock_wonga" )
+ column=(type=number updatewhereclause=yes name=shop_stock_tag dbname="tb_closing_account.shop_stock_tag" )
+ column=(type=number updatewhereclause=yes name=tot_stock_qty dbname="tb_closing_account.tot_stock_qty" )
+ column=(type=number updatewhereclause=yes name=tot_stock_wonga dbname="tb_closing_account.tot_stock_wonga" )
+ column=(type=number updatewhereclause=yes name=tot_stock_tag dbname="tb_closing_account.tot_stock_tag" )
+ retrieve="
+select yyyy,
+brand,
+dbo.sf_inter_sort_seq('001',brand) as brand_no ,
+dbo.sf_inter_nm('001',brand) as brand_nm,
+year,
+season,
+dbo.sf_inter_nm('003',season) as season_nm,
+dbo.sf_inter_sort_seq('003',season) as season_no,
+house_stock_qty,
+house_stock_wonga,
+house_stock_tag,
+shop_stock_qty,
+shop_stock_wonga,
+shop_stock_tag,
+tot_stock_qty,
+tot_stock_wonga,
+tot_stock_tag
+
+from tb_closing_account
+where yyyy = :as_yymm
+and   brand  like  case when :as_brand = '%' then '[^ODH]%'  else :as_brand + '%' end
+and  year   like  :as_year  + '%'
+and  season like  :as_season  + '%'
+order by 1,2,3,5" arguments=(("as_yymm", string),("as_brand", string),("as_year", string),("as_season", string))  sort="yyyy A brand_no A year A season_no A " )
+group(level=1 header.height=0 trailer.height=108 by=("brand" ) header.color="536870912" trailer.color="536870912" )
+group(level=2 header.height=0 trailer.height=88 by=("year" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="물류재고" border="6" color="0" x="1134" y="4" height="56" width="1431"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82899184" )
+text(band=header alignment="2" text="매장재고" border="6" color="0" x="2615" y="4" height="56" width="1435"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82899184" )
+text(band=header alignment="2" text="총재고" border="6" color="0" x="4082" y="4" height="56" width="1435"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82899184" )
+text(band=header alignment="2" text="수량" border="6" color="0" x="1129" y="72" height="56" width="375"  name=house_stock_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82899184" )
+text(band=header alignment="2" text="원가금액" border="6" color="0" x="1518" y="72" height="56" width="517"  name=house_stock_wonga_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82899184" )
+text(band=header alignment="2" text="택가금액" border="6" color="0" x="2048" y="72" height="56" width="517"  name=house_stock_tag_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82899184" )
+text(band=header alignment="2" text="수량" border="6" color="0" x="2615" y="72" height="56" width="375"  name=shop_stock_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82899184" )
+text(band=header alignment="2" text="원가금액" border="6" color="0" x="3003" y="72" height="56" width="517"  name=shop_stock_wonga_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82899184" )
+text(band=header alignment="2" text="택금액" border="6" color="0" x="3534" y="72" height="56" width="517"  name=shop_stock_tag_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82899184" )
+text(band=header alignment="2" text="수량" border="6" color="0" x="4082" y="72" height="56" width="375"  name=tot_stock_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82899184" )
+text(band=header alignment="2" text="원가금액" border="6" color="0" x="4471" y="72" height="56" width="517"  name=tot_stock_wonga_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82899184" )
+text(band=header alignment="2" text="택금액" border="6" color="0" x="5001" y="72" height="56" width="517"  name=tot_stock_tag_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82899184" )
+text(band=header alignment="2" text="
+시즌" border="6" color="0" x="608" y="4" height="124" width="503"  name=season_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82899184" )
+text(band=header alignment="2" text="
+기획년도" border="6" color="0" x="347" y="4" height="124" width="242"  name=year_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82899184" )
+text(band=header alignment="2" text="
+결산년도" border="6" color="0" x="0" y="4" height="124" width="320"  name=yyyy_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82899184" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="704" y="4" height="60" width="411" format="[general]"  name=season_nm edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15780518" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="608" y="4" height="60" width="82" format="[general]"  name=season edit.limit=2 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15780518" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="347" y="4" height="60" width="247" format="[general]"  name=year edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15780518" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="0" y="4" height="60" width="320" format="[general]"  name=yyyy edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15780518" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="16711680" x="5531" y="8" height="56" width="137" format="[general]"  name=brand_no visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="1129" y="4" height="60" width="375" format="#,###"  name=house_stock_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30539508" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="0" color="0" x="1518" y="4" height="60" width="517" format="#,###"  name=house_stock_wonga edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30539508" )
+column(band=detail id=13 alignment="1" tabsequence=32766 border="0" color="0" x="3003" y="4" height="60" width="517" format="#,###"  name=shop_stock_wonga edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=16 alignment="1" tabsequence=32766 border="0" color="0" x="4471" y="4" height="60" width="517" format="#,###"  name=tot_stock_wonga edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33417214" )
+column(band=detail id=17 alignment="1" tabsequence=32766 border="0" color="0" x="5001" y="4" height="60" width="517" format="#,###"  name=tot_stock_tag edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33417214" )
+column(band=detail id=14 alignment="1" tabsequence=32766 border="0" color="0" x="3534" y="4" height="60" width="517" format="#,###"  name=shop_stock_tag edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=11 alignment="1" tabsequence=32766 border="0" color="0" x="2048" y="4" height="60" width="517" format="#,###"  name=house_stock_tag edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30539508" )
+column(band=detail id=12 alignment="1" tabsequence=32766 border="0" color="0" x="2615" y="4" height="60" width="375" format="#,###"  name=shop_stock_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=15 alignment="1" tabsequence=32766 border="0" color="0" x="4082" y="4" height="60" width="375" format="#,###"  name=tot_stock_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33417214" )
+line(band=trailer.2 x1="325" y1="80" x2="5513" y2="80"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+compute(band=trailer.2 alignment="1" expression="sum(house_stock_qty for group 2)"border="0" color="128" x="1129" y="4" height="60" width="375" format="#,###"  name=compute_19  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30539508" )
+compute(band=trailer.2 alignment="1" expression="sum(house_stock_wonga for group 2)"border="0" color="128" x="1518" y="4" height="60" width="517" format="#,###"  name=compute_20  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30539508" )
+compute(band=trailer.2 alignment="1" expression="sum(house_stock_tag for group 2)"border="0" color="128" x="2048" y="4" height="60" width="517" format="#,###"  name=compute_27  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30539508" )
+column(band=trailer.2 id=5 alignment="1" tabsequence=32766 border="0" color="16711680" x="338" y="8" height="56" width="439" format="[general]"  name=year_1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82899184" )
+text(band=trailer.2 alignment="0" text="년 계" border="0" color="0" x="786" y="8" height="56" width="325"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82899184" )
+compute(band=trailer.2 alignment="1" expression="sum(shop_stock_qty for group 2)"border="0" color="128" x="2615" y="4" height="60" width="375" format="#,###"  name=compute_21  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="12639424" )
+compute(band=trailer.2 alignment="1" expression="sum(shop_stock_wonga for group 2)"border="0" color="128" x="3003" y="4" height="60" width="517" format="#,###"  name=compute_22  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="12639424" )
+compute(band=trailer.2 alignment="1" expression="sum(shop_stock_tag for group 2)"border="0" color="128" x="3534" y="4" height="60" width="517" format="#,###"  name=compute_26  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="12639424" )
+compute(band=trailer.2 alignment="1" expression="sum(tot_stock_qty for group 2)"border="0" color="128" x="4082" y="4" height="60" width="375" format="#,###"  name=compute_23  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33417214" )
+compute(band=trailer.2 alignment="1" expression="sum(tot_stock_wonga for group 2)"border="0" color="128" x="4471" y="4" height="60" width="517" format="#,###"  name=compute_24  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33417214" )
+compute(band=trailer.2 alignment="1" expression="sum(tot_stock_tag for group 2)"border="0" color="128" x="5001" y="4" height="60" width="517" format="#,###"  name=compute_25  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33417214" )
+compute(band=trailer.1 alignment="1" expression="sum(tot_stock_qty for group 1)"border="0" color="128" x="4078" y="16" height="60" width="375" format="#,###"  name=compute_14  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33417214" )
+compute(band=trailer.1 alignment="1" expression="sum(tot_stock_wonga for group 1)"border="0" color="128" x="4466" y="16" height="60" width="517" format="#,###"  name=compute_15  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33417214" )
+compute(band=trailer.1 alignment="1" expression="sum(tot_stock_tag for group 1)"border="0" color="128" x="5001" y="16" height="60" width="517" format="#,###"  name=compute_16  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33417214" )
+compute(band=trailer.1 alignment="1" expression="sum(shop_stock_tag for group 1)"border="0" color="128" x="3529" y="16" height="60" width="517" format="#,###"  name=compute_17  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="12639424" )
+compute(band=trailer.1 alignment="1" expression="sum(shop_stock_wonga for group 1)"border="0" color="128" x="2999" y="16" height="60" width="517" format="#,###"  name=compute_13  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="12639424" )
+compute(band=trailer.1 alignment="1" expression="sum(shop_stock_qty for group 1)"border="0" color="128" x="2610" y="16" height="60" width="375" format="#,###"  name=compute_12  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="12639424" )
+compute(band=trailer.1 alignment="1" expression="sum(house_stock_tag for group 1)"border="0" color="128" x="2043" y="16" height="60" width="517" format="#,###"  name=compute_18  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30539508" )
+compute(band=trailer.1 alignment="1" expression="sum(house_stock_wonga for group 1)"border="0" color="128" x="1513" y="16" height="60" width="517" format="#,###"  name=compute_11  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30539508" )
+compute(band=trailer.1 alignment="1" expression="sum(house_stock_qty for group 1)"border="0" color="128" x="1125" y="16" height="60" width="375" format="#,###"  name=compute_10  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30539508" )
+column(band=trailer.1 id=4 alignment="2" tabsequence=32766 border="6" color="16711680" x="9" y="8" height="60" width="773" format="[general]"  name=brand_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+text(band=trailer.1 alignment="0" text=" 합 계" border="6" color="0" x="782" y="12" height="56" width="325"  name=t_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="12639424" )
+line(band=trailer.1 x1="14" y1="92" x2="5513" y2="92"  name=l_3 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+compute(band=footer alignment="1" expression="sum(house_stock_qty for all)"border="0" color="255" x="1125" y="28" height="60" width="375" format="#,###"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30539508" )
+compute(band=footer alignment="1" expression="sum(house_stock_wonga for all)"border="0" color="255" x="1513" y="28" height="60" width="517" format="#,###"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30539508" )
+compute(band=footer alignment="1" expression="sum(house_stock_tag for all)"border="0" color="255" x="2043" y="28" height="60" width="517" format="#,###"  name=compute_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30539508" )
+compute(band=footer alignment="1" expression="sum(shop_stock_qty for all)"border="0" color="255" x="2610" y="28" height="60" width="375" format="#,###"  name=compute_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="12639424" )
+compute(band=footer alignment="1" expression="sum(shop_stock_wonga for all)"border="0" color="255" x="2999" y="28" height="60" width="517" format="#,###"  name=compute_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="12639424" )
+compute(band=footer alignment="1" expression="sum(shop_stock_tag for all)"border="0" color="255" x="3529" y="28" height="60" width="517" format="#,###"  name=compute_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="12639424" )
+compute(band=footer alignment="1" expression="sum(tot_stock_qty for all)"border="0" color="255" x="4078" y="28" height="60" width="375" format="#,###"  name=compute_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33417214" )
+compute(band=footer alignment="1" expression="sum(tot_stock_wonga for all)"border="0" color="255" x="4466" y="28" height="60" width="517" format="#,###"  name=compute_8  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33417214" )
+compute(band=footer alignment="1" expression="sum(tot_stock_tag for all)"border="0" color="255" x="4997" y="28" height="60" width="517" format="#,###"  name=compute_9  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33417214" )
+text(band=footer alignment="2" text="총    계" border="6" color="0" x="343" y="32" height="56" width="763"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82899184" )
+line(band=footer x1="18" y1="8" x2="5518" y2="8"  name=l_2 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+
+sparse(names="yyyy	year")htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

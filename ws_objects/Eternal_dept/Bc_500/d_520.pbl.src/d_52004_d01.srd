@@ -1,0 +1,61 @@
+﻿$PBExportHeader$d_52004_d01.srd
+$PBExportComments$매장배분통제관리
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(6) update=yes updatewhereclause=yes key=yes name=shop_cd dbname="TB_91100_M.shop_cd" )
+ column=(type=char(20) updatewhereclause=yes name=shop_nm dbname="TB_91100_M.shop_nm" )
+ column=(type=char(6) updatewhereclause=yes name=empno dbname="TB_91100_M.empno" )
+ column=(type=char(20) updatewhereclause=yes name=emp_nm dbname="emp_nm" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=deal_yn dbname="TB_91100_M.deal_yn" values="Yes	Y/No	N/" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=refill_yn dbname="TB_91100_M.refill_yn" values="Yes	Y/No	N/" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=plan_deal_yn dbname="TB_91100_M.plan_deal_yn" values="Yes	Y/No	N/" )
+ column=(type=char(2) updatewhereclause=yes name=area_cd dbname="TB_91100_M.area_cd" )
+ column=(type=char(1) updatewhereclause=yes name=shop_div dbname="TB_91100_M.shop_div" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=refill_benifit dbname="TB_91100_M.refill_benifit" values="Yes	Y/No	N/" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=wan_yn dbname="TB_91100_M.wan_yn" values="Yes	Y/No	N/" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=smart_rtrn dbname="TB_91100_M.smart_rtrn" values="Yes	Y/No	N/" )
+ retrieve="  select shop_cd, 
+         shop_snm as shop_nm, 
+         empno, 
+         dbo.sf_emp_nm(empno)  as emp_nm, 
+         deal_yn, 
+         refill_yn,
+			plan_deal_yn,
+			area_cd, shop_div,
+			refill_benifit,
+			wan_yn,
+			smart_rtrn
+    from tb_91100_m 
+   where brand     =    :as_brand 
+     and shop_div  LIKE :as_shop_div 
+     and shop_stat = '00' 
+     and shop_div  in  ('G', 'K', 'D','Z','E','B','X','T','M','S','I')
+     and (shop_seq  < '5000' or shop_seq  = '5990')
+   order by shop_div, area_cd, shop_cd 
+" update="tb_91100_m" updatewhere=0 updatekeyinplace=yes arguments=(("as_brand", string),("as_shop_div", string)) )
+text(band=header alignment="2" text="매장코드" border="6" color="0" x="9" y="8" height="60" width="229"  name=shop_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="매장명" border="6" color="0" x="247" y="8" height="60" width="850"  name=shop_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="사번" border="6" color="0" x="1106" y="8" height="60" width="219"  name=empno_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="담당자 명" border="6" color="0" x="1335" y="8" height="60" width="370"  name=emp_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="배분여부" border="6" color="0" x="1714" y="8" height="60" width="338"  name=deal_yn_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="판매반응여부" border="6" color="0" x="2062" y="8" height="60" width="379"  name=refill_yn_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="기획배분여부" border="6" color="0" x="2450" y="8" height="60" width="343"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="판매반응 2X" border="6" color="0" x="2802" y="8" height="60" width="352"  name=t_2  tag="t_2"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+text(band=header alignment="2" text="행사완불요청여부" border="6" color="0" x="3163" y="8" height="60" width="448"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82899184" )
+text(band=header alignment="2" text="Smart반품여부" border="6" color="0" x="3621" y="8" height="60" width="421"  name=t_4  font.face="Arial" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="82899184" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="9" y="4" height="64" width="229" format="[general]"  name=shop_cd edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="247" y="4" height="64" width="850" format="[general]"  name=shop_nm edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="1106" y="4" height="64" width="219" format="[general]"  name=empno edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="1335" y="4" height="64" width="370" format="[general]"  name=emp_nm edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=10 border="0" color="0" x="1714" y="4" height="64" width="338" format="[general]"  name=deal_yn radiobuttons.columns=2 radiobuttons.scale=no radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="553648127~tif( deal_yn = 'Y', rgb(192,192,192),rgb(255,0,0))" )
+column(band=detail id=6 alignment="0" tabsequence=20 border="0" color="0" x="2062" y="4" height="64" width="379" format="[general]"  name=refill_yn radiobuttons.columns=2 radiobuttons.scale=no radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="536870912~tif( refill_yn = 'Y', rgb(192,192,192),rgb(255,0,0))" )
+column(band=detail id=7 alignment="0" tabsequence=30 border="0" color="0" x="2450" y="4" height="64" width="343" format="[general]"  name=plan_deal_yn radiobuttons.columns=2 radiobuttons.scale=no radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="536870912~tif(  plan_deal_yn = 'Y', rgb(192,192,192),rgb(255,0,0))" )
+column(band=detail id=10 alignment="0" tabsequence=40 border="0" color="0" x="2802" y="4" height="64" width="352" format="[general]"  name=refill_benifit radiobuttons.columns=2 radiobuttons.scale=no radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="536870912~tif(  refill_benifit = 'Y', rgb(192,192,192),rgb(255,0,0))" )
+column(band=detail id=11 alignment="0" tabsequence=50 border="0" color="0" x="3163" y="4" height="64" width="448" format="[general]"  name=wan_yn radiobuttons.columns=2 radiobuttons.scale=no radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="536870912~tif(  wan_yn = 'Y', rgb(192,192,192),rgb(255,0,0))" )
+column(band=detail id=12 alignment="0" tabsequence=60 border="0" color="0" x="3621" y="4" height="64" width="421" format="[general]"  name=smart_rtrn radiobuttons.columns=2 radiobuttons.scale=no radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="536870912~tif( smart_rtrn = 'Y', rgb(192,192,192),rgb(255,0,0))" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,26 @@
+﻿$PBExportHeader$gf_shop_stock.srf
+global type gf_shop_stock from function_object
+end type
+
+forward prototypes
+global function integer gf_shop_stock (string as_shop_cd, string as_shop_type, string as_style, string as_chno, string as_color, string as_size, ref long al_stock_qty)
+end prototypes
+
+global function integer gf_shop_stock (string as_shop_cd, string as_shop_type, string as_style, string as_chno, string as_color, string as_size, ref long al_stock_qty);/*============================================================*/
+/* 작 성 자  :                                                */
+/* 작 성 일  : 2002/07/12                                     */
+/* 수 정 일  :                                                */
+/* 내    용  : 창고재고수량.                            */
+/*============================================================*/
+
+SELECT dbo.sf_shop_stock(:as_shop_cd, :as_shop_type, :as_style, :as_chno, :as_color, :as_size) 
+  INTO :al_stock_qty
+  FROM DUAL ;
+
+
+IF ISNULL(al_stock_qty) THEN RETURN 100
+
+RETURN sqlca.sqlcode 
+
+end function
+

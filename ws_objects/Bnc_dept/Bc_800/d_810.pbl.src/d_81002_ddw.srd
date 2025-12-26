@@ -1,0 +1,41 @@
+﻿$PBExportHeader$d_81002_ddw.srd
+$PBExportComments$사업본부
+release 7;
+datawindow(units=0 timer_interval=0 color=82042848 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(6) updatewhereclause=yes name=empno dbname="empno" )
+ column=(type=char(47) updatewhereclause=yes name=kname dbname="kname" )
+ column=(type=char(1) updatewhereclause=yes name=brand dbname="Brand" )
+ retrieve="    SELECT empno, kname+'('+
+	    (select top 1 inter_data1 from tb_91011_c (nolock)
+			where inter_grp = '900' and inter_cd = a.jikchk) +') '+ dbo.sf_dept_nm(dept_code) as kname,
+           Case Saup_Gubn 
+                When '01' Then 'N' 
+                When '02' Then 'O' 
+					 When '11' Then 'W' 
+                When '21' Then 'T' 
+                ELSE '%' 
+           End                              AS Brand 
+
+      FROM MIS.DBO.THB01 a(nolock) --where empno = '970104'
+      where goout_gubn = '1'
+		and   dept_code not like '_A%'
+	and (jikguk <> '00'
+
+	or		exists (select * from mis.dbo.thb02 m(nolock)
+			where m.dept_code = a.dept_code
+			and   m.grp_cd1 = (select y.grp_cd1 from mis.dbo.thb01 x(nolock), mis.dbo.thb02 y(nolock)
+						where x.dept_code = y.dept_code
+						and   x.empno = :empno))				
+		)
+order by jikchk
+" arguments=(("empno", string)) )
+text(band=header alignment="2" text="사번" border="6" color="0" x="5" y="4" height="56" width="197"  name=empno_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="이름" border="6" color="0" x="229" y="4" height="56" width="791"  name=kname_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="5" color="0" x="5" y="4" height="56" width="197" format="[general]"  name=empno edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="5" color="0" x="229" y="4" height="56" width="791" format="[general]"  name=kname edit.limit=47 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,81 @@
+﻿$PBExportHeader$d_73006_d01.srd
+$PBExportComments$매장별회원모집보상
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=236 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=96 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(1) updatewhereclause=no name=class_a dbname="class_a" )
+ column=(type=char(6) updatewhereclause=no name=shop_cd_a dbname="shop_cd_a" )
+ column=(type=char(30) updatewhereclause=no name=shop_nm dbname="shop_nm" )
+ column=(type=decimal(0) updatewhereclause=no name=goal_member_a dbname="goal_member_a" )
+ column=(type=decimal(0) updatewhereclause=no name=new_cnt_a dbname="new_cnt_a" )
+ column=(type=char(6) updatewhereclause=no name=attain dbname="attain" )
+ column=(type=decimal(2) updatewhereclause=no name=ticket dbname="ticket" )
+ column=(type=decimal(6) updatewhereclause=no name=avg_new_cnt dbname="AVG_NEW_cnt" )
+ column=(type=long updatewhereclause=no name=dur_3 dbname="dur_3" )
+ column=(type=long updatewhereclause=no name=dur_6 dbname="dur_6" )
+ column=(type=char(6) update=yes updatewhereclause=no key=yes name=yymm dbname="yymm" )
+ column=(type=char(6) update=yes updatewhereclause=no key=yes name=shop_cd dbname="shop_cd" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=goal_member dbname="goal_member" )
+ column=(type=char(1) update=yes updatewhereclause=no name=class dbname="class" values="A	A/B	B/C	C/D	D/E	E/" )
+ column=(type=char(1) update=yes updatewhereclause=no name=brand dbname="brand" )
+ column=(type=char(6) update=yes updatewhereclause=no name=reg_id dbname="reg_id" )
+ column=(type=datetime update=yes updatewhereclause=no name=reg_dt dbname="reg_dt" )
+ column=(type=char(6) update=yes updatewhereclause=no name=mod_id dbname="mod_id" )
+ column=(type=datetime update=yes updatewhereclause=no name=mod_dt dbname="mod_dt" )
+ column=(type=char(200) updatewhereclause=no name=event_note_a dbname="event_note_a" )
+ column=(type=char(200) update=yes updatewhereclause=no name=event_note dbname="event_note" )
+ procedure="1 execute dbo.sp_73006_d01;1 @YYMM = :YYMM, @brand = :brand" update="TB_73006_H" updatewhere=0 updatekeyinplace=no arguments=(("YYMM", string),("brand", string)) )
+text(band=header alignment="2" text="기준월" border="6" color="0" x="553" y="8" height="92" width="2574"  name=t_base_yymm  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+목표" border="6" color="0" x="731" y="112" height="116" width="242"  name=goal_member_a_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+등급" border="6" color="0" x="553" y="112" height="116" width="165"  name=class_a_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="연속개월수
+(3개월기준)" border="6" color="0" x="1664" y="112" height="116" width="311"  name=dur_3_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+신규고객" border="6" color="0" x="987" y="112" height="116" width="242"  name=new_cnt_a_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+달성" border="6" color="0" x="1243" y="112" height="116" width="192"  name=attain_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+티켓수" border="6" color="0" x="1449" y="112" height="116" width="201"  name=ticket_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+
+매장명" border="6" color="0" x="41" y="8" height="220" width="498"  name=shop_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="연속개월수
+(6개월기준)" border="6" color="0" x="1989" y="112" height="116" width="311"  name=dur_6_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+금월이벤트" border="6" color="128" x="2313" y="112" height="116" width="814"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="차기월" border="6" color="8388608" x="3141" y="8" height="92" width="2089"  name=t_next_yymm  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+등급" border="6" color="8388608" x="3141" y="112" height="116" width="219"  name=class_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+목표" border="6" color="8388608" x="3374" y="112" height="116" width="206"  name=goal_member_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+이벤트" border="6" color="8388608" x="3593" y="112" height="116" width="1330"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="41" y="4" height="68" width="498" format="[general]"  name=shop_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33351891" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="1664" y="4" height="68" width="311" format="[general]"  name=dur_3 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="0" color="0" x="1989" y="4" height="68" width="311" format="[general]"  name=dur_6 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="16711680" x="553" y="4" height="68" width="165" format="[general]"  name=class_a edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="8388736" x="1449" y="4" height="68" width="201" format="#,###"  name=ticket edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="0" color="8388736" x="1243" y="4" height="68" width="192" format="[general]"  name=attain edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="8388736" x="987" y="4" height="68" width="242" format="#,###"  name=new_cnt_a edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="16711680" x="731" y="4" height="68" width="242" format="#,###"  name=goal_member_a edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=14 alignment="2" tabsequence=10 border="5" color="0" x="3141" y="4" height="64" width="219" format="[general]"  name=class ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="16777215~tif( isnull(brand), rgb(255,255,255), rgb(249,240,223))" )
+column(band=detail id=20 alignment="0" tabsequence=32766 border="0" color="8388736" x="2313" y="4" height="68" width="814" format="[general]"  name=event_note_a edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=21 alignment="0" tabsequence=30 border="5" color="8388736" x="3598" y="4" height="64" width="1637" format="[general]"  name=event_note edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=13 alignment="1" tabsequence=20 border="5" color="0" x="3374" y="4" height="64" width="206" format="#,###"  name=goal_member edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="16777215~tif( isnull(brand), rgb(255,255,255), rgb(249,240,223))" )
+text(band=footer alignment="2" text="[ 매장 합계 ]" border="6" color="8388608" x="41" y="28" height="56" width="498"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=footer alignment="1" expression="sum(ticket for all)"border="0" color="128" x="1440" y="20" height="68" width="201" format="#,###"  name=compute_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+compute(band=footer alignment="1" expression="sum(  if (attain = '달성', 1,0)  for all )"border="0" color="128" x="1243" y="20" height="68" width="192" format="#,###"  name=compute_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+compute(band=footer alignment="1" expression="sum(new_cnt_a for all)"border="0" color="128" x="987" y="20" height="68" width="242" format="#,###"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+compute(band=footer alignment="1" expression="sum(goal_member_a for all)"border="0" color="128" x="731" y="20" height="68" width="242" format="#,###"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+compute(band=footer alignment="1" expression="sum(goal_member for all)"border="0" color="128" x="3374" y="20" height="68" width="206" format="#,###"  name=compute_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30670581" )
+line(band=footer x1="37" y1="8" x2="3593" y2="8"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="15793151" )
+line(band=footer x1="37" y1="4" x2="3593" y2="4"  name=l_2 pen.style="0" pen.width="5" pen.color="16777215"  background.mode="2" background.color="15793151" )
+button(band=header text="복사"filename=""action="0" border="0" color="65535" x="4933" y="104" height="132" width="155" vtextalign="0" htextalign="0"  name=cb_copy  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421376" )
+button(band=header text="지움"filename=""action="0" border="1" color="65535" x="5088" y="104" height="132" width="151" vtextalign="0" htextalign="0"  name=cb_reset  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421376" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

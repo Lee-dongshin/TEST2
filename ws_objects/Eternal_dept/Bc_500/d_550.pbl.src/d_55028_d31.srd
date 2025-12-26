@@ -1,0 +1,52 @@
+﻿$PBExportHeader$d_55028_d31.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=148 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=140 color="536870912"  height.autosize=yes)
+table(column=(type=char(8) updatewhereclause=yes name=style dbname="style" )
+ column=(type=char(1) updatewhereclause=yes name=chno dbname="chno" )
+ column=(type=char(1) updatewhereclause=yes name=chn_gubn dbname="chn_gubn" )
+ column=(type=char(1) updatewhereclause=yes name=sale_gubn dbname="sale_gubn" )
+ column=(type=decimal(1) updatewhereclause=yes name=cost_price dbname="COST_PRICE" )
+ column=(type=decimal(0) updatewhereclause=yes name=tag_price dbname="TAG_PRICE" )
+ retrieve="select distinct 	a.style, 
+	case when :As_chno_gubn = 'C' then a.chno
+		  else '%' end as chno,
+	:As_chn_gubn	as chn_gubn	,
+	:as_sale_gubn	As sale_gubn,
+	case when :As_chno_gubn = 'C' then DBO.SF_GET_WONGA(a.style, A.CHNO) * 1.1
+		  else  DBO.SF_GET_WONGA_AVG(a.style) * 1.1 end as COST_PRICE,
+	DBO.SF_FIRST_PRICE(A.STYLE) AS TAG_PRICE
+from tb_12030_s  a (nolock) left outer join VI_12020_1 b on a.style = b.style and a.chno = b.chno
+where a.BRAND  =    :As_brand
+AND  a.YEAR  like   :as_year
+AND a.SEASON like   :as_season
+and a.style  like   :As_style + '%'
+AND a.SOJAE  LIKE   :as_sojae + '%'
+AND a.ITEM   LIKE   :as_item + '%'
+AND b.dep_fg not in (:as_dep_fg)
+and a.item   <> case when :as_plan_gubn = 'Y' then '0' else 'Z' end " arguments=(("as_brand", string),("as_year", string),("as_season", string),("as_sojae", string),("as_item", string),("as_chno_gubn", string),("as_plan_gubn", string),("as_chn_gubn", string),("as_sale_gubn", string),("as_style", string),("as_dep_fg", string)) )
+group(level=1 header.height=0 trailer.height=4 by=("style" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="
+품번" border="0" color="0" x="5" y="4" height="136" width="352"  name=style_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="원가" border="0" color="0" x="366" y="8" height="60" width="233"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="소비자가" border="0" color="0" x="366" y="80" height="60" width="233"  name=t_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="
+배수" border="0" color="0" x="613" y="8" height="132" width="174"  name=t_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="
+진행내역" border="0" color="0" x="1527" y="4" height="140" width="1125"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="
+Size Portion / Rate" border="0" color="0" x="800" y="4" height="140" width="713"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=detail alignment="2" text="" border="0" color="0" x="9" y="0" height="128" width="251"  name=t_8  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31914718" )
+compute(band=detail alignment="2" expression=" tag_price / cost_price "border="0" color="16711935" x="613" y="4" height="128" width="165" format="##.00"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31914718" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="366" y="72" height="60" width="233" format="#,###"  name=tag_price edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="31914718" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="366" y="4" height="60" width="233" format="#,###"  name=cost_price edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="31914718" )
+text(band=detail alignment="2" text="" border="0" color="0" x="242" y="0" height="128" width="110"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31914718" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="9" y="32" height="76" width="256" format="[general]"  name=style edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="31914718" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="270" y="32" height="76" width="78" format="[general]"  name=chno visible="1~tif( chno = '%' , 0,1)" edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="31914718" )
+report(band=detail dataobject="d_55028_d32" x="800" y="0" height="136" width="1851" border="0"  height.autosize=yes criteria="" nest_arguments=((" style "),(" chno "),(" chn_gubn "),(" sale_gubn "),(" as_dep_fg ")) trail_footer = yes  name=dw_1  slideup=directlyabove )
+line(band=trailer.1 x1="0" y1="0" x2="2661" y2="0"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="31914718" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,67 @@
+﻿$PBExportHeader$d_52001_d03.srd
+$PBExportComments$판매배분 일정관리
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes key=yes name=yymmdd dbname="YYmmdd" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=brand dbname="Brand" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=auto_yn dbname="Auto_Yn" )
+ column=(type=char(1) updatewhereclause=yes name=proc_yn dbname="TB_52010_H.Proc_Yn" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="TB_52010_H.Reg_id" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="TB_52010_H.Mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="TB_52010_H.Mod_Dt" )
+ column=(type=char(1) updatewhereclause=yes name=week_cd dbname="TB_DATE.Week_Cd" )
+ column=(type=char(1) updatewhereclause=yes name=holiday_yn dbname="TB_DATE.Holiday_Yn" )
+ column=(type=char(30) updatewhereclause=yes name=remark dbname="TB_DATE.Remark" )
+ column=(type=char(3) updatewhereclause=yes name=row_stat dbname="Row_Stat" )
+ retrieve="  Select isnull(B.YYMMDD, A.T_Date)  AS YYmmdd, 
+         isnull(B.Brand,  :as_brand) AS Brand,  
+         CASE A.Holiday_Yn 
+              WHEN 'Y' THEN isnull(B.Auto_Yn, 'N') 
+              ELSE isnull(B.Auto_Yn, 'Y') 
+         END                         AS Auto_Yn, 
+         B.Proc_Yn                   AS Proc_Yn, 
+         B.Reg_id                    AS Reg_id, 
+         B.Mod_id                    AS Mod_id, 
+         B.Mod_Dt                    AS Mod_Dt, 
+         A.Week_Cd                   AS Week_Cd, 
+         A.Holiday_Yn                AS Holiday_Yn, 
+         A.Remark                    AS Remark, 
+         CASE B.Brand 
+            WHEN NULL THEN 'NEW' 
+            ELSE 'MOD' 
+         END                         AS Row_Stat  
+    From TB_DATE    A, 
+         TB_52010_H B 
+   Where A.T_DATE *= B.YYmmdd 
+     And T_Date like :as_yymm + '%' 
+     And B.Brand   = :as_brand  
+
+" update="TB_52010_H" updatewhere=1 updatekeyinplace=no arguments=(("as_Brand", string),("as_yymm", string)) )
+text(band=header alignment="2" text="Week Cd" border="6" color="0" x="1874" y="8" height="56" width="247"  name=week_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Holiday Yn" border="6" color="0" x="2130" y="8" height="56" width="288"  name=holiday_yn_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Remark" border="6" color="0" x="2427" y="8" height="56" width="850"  name=remark_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Yymmdd" border="6" color="0" x="9" y="8" height="56" width="206"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Brand" border="6" color="0" x="224" y="8" height="56" width="229"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Auto Yn" border="6" color="0" x="462" y="8" height="56" width="347"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Proc Yn" border="6" color="0" x="818" y="8" height="56" width="215"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Reg Id" border="6" color="0" x="1042" y="8" height="56" width="151"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Mod Id" border="6" color="0" x="1202" y="8" height="56" width="151"  name=t_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Mod Dt" border="6" color="0" x="1362" y="8" height="56" width="503"  name=t_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Row Stat" border="6" color="0" x="3287" y="8" height="56" width="73"  name=t_8  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=10 border="0" color="0" x="1874" y="8" height="76" width="247" format="[general]"  name=week_cd edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=20 border="0" color="0" x="2130" y="8" height="76" width="288" format="[general]"  name=holiday_yn edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=30 border="0" color="0" x="2427" y="8" height="76" width="850" format="[general]"  name=remark edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="76" width="206" format="[general]"  name=yymmdd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="224" y="8" height="76" width="229" format="[general]"  name=brand edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="462" y="8" height="76" width="347" format="[general]"  name=auto_yn edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="818" y="8" height="76" width="215" format="[general]"  name=proc_yn edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1042" y="8" height="76" width="151" format="[general]"  name=reg_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1202" y="8" height="76" width="151" format="[general]"  name=mod_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="1362" y="8" height="76" width="503" format="[shortdate] [time]"  name=mod_dt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="3287" y="8" height="76" width="73" format="[general]"  name=row_stat edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

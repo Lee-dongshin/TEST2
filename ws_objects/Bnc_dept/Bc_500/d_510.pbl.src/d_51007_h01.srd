@@ -1,0 +1,23 @@
+﻿$PBExportHeader$d_51007_h01.srd
+$PBExportComments$일일업무 등록
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=116 color="536870912" )
+table(column=(type=char(1) updatewhereclause=no name=brand dbname="brand" )
+ column=(type=char(8) updatewhereclause=no name=yymmdd dbname="yymmdd" )
+ column=(type=char(6) updatewhereclause=no name=person_id dbname="person_id" )
+ column=(type=char(10) updatewhereclause=no name=person_nm dbname="person_nm" )
+ column=(type=char(1) updatewhereclause=no name=work_type dbname="work_type" values="재실중	0/외근중	1/출장중	2/휴무	4/" )
+ )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="238" y="40" height="60" width="361" format="[general]"  name=brand edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="1" text="브랜드:" border="0" color="0" x="14" y="40" height="56" width="206"  name=brand_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="946" y="40" height="60" width="343" format="@@@@.@@.@@"  name=yymmdd edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="1" text="기준일자:" border="0" color="0" x="667" y="40" height="56" width="261"  name=yymmdd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="5" color="0" x="1614" y="36" height="56" width="530" format="[general]"  name=person_id dddw.name=d_51007_ddw dddw.displaycolumn=person_nm dddw.datacolumn=person_id dddw.percentwidth=0 dddw.lines=10 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="1" text="담당자:" border="0" color="0" x="1362" y="36" height="56" width="233"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="※ 단위(천원)" border="0" color="255" x="3305" y="40" height="56" width="370"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=40 border="5" color="0" x="2190" y="36" height="56" width="1088" format="[general]"  name=work_type radiobuttons.columns=4 radiobuttons.scale=no radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="26007024" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

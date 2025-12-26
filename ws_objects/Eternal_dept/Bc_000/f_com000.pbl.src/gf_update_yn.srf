@@ -1,0 +1,19 @@
+﻿$PBExportHeader$gf_update_yn.srf
+$PBExportComments$수정자료 저장여부 Message Box
+global type gf_update_yn from function_object
+end type
+
+forward prototypes
+global function integer gf_update_yn (string as_title)
+end prototypes
+
+global function integer gf_update_yn (string as_title);/*=================================================================*/
+/* 작 성 자 : 지우정보                                             */	
+/* 내    용 : 수정 자료 저장여부 확인                              */
+/*=================================================================*/
+
+RETURN  MessageBox(as_title,'수정된 자료가 있습니다! 저장하시겠습니까?', &
+			          Question!, YesNoCancel!)
+
+end function
+

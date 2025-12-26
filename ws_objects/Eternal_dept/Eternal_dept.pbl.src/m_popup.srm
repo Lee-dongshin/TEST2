@@ -1,0 +1,60 @@
+﻿$PBExportHeader$m_popup.srm
+forward
+global type m_popup from menu
+end type
+type m_삭제 from menu within m_popup
+end type
+type m_추가 from menu within m_popup
+end type
+global type m_popup from menu
+m_삭제 m_삭제
+m_추가 m_추가
+end type
+end forward
+
+global type m_popup from menu
+m_삭제 m_삭제
+m_추가 m_추가
+end type
+global m_popup m_popup
+
+on m_popup.create
+m_popup=this
+call super::create
+this.text = "m_popup"
+this.m_삭제=create m_삭제
+this.m_추가=create m_추가
+this.Item[UpperBound(this.Item)+1]=this.m_삭제
+this.Item[UpperBound(this.Item)+1]=this.m_추가
+end on
+
+on m_popup.destroy
+call super::destroy
+destroy(this.m_삭제)
+destroy(this.m_추가)
+end on
+
+type m_삭제 from menu within m_popup
+end type
+
+on m_삭제.create
+call super::create
+this.text = "삭제"
+end on
+
+on m_삭제.destroy
+call super::destroy
+end on
+
+type m_추가 from menu within m_popup
+end type
+
+on m_추가.create
+call super::create
+this.text = "추가"
+end on
+
+on m_추가.destroy
+call super::destroy
+end on
+

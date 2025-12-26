@@ -1,0 +1,24 @@
+﻿$PBExportHeader$gf_get_session.srf
+$PBExportComments$DBMS의 Sessionid  조회
+global type gf_get_session from function_object
+end type
+
+forward prototypes
+global function boolean gf_get_session (ref string as_session_id)
+end prototypes
+
+global function boolean gf_get_session (ref string as_session_id);/*===========================================================================*/
+/* 작성자      : 지우정보                                                    */	
+/* 내  용      : DBMS의 sessionid, Date를 읽어온다.                          */
+/*===========================================================================*/
+
+SELECT @@SPID 
+  INTO :as_session_id 
+  FROM DUAL ;
+
+if sqlca.sqlcode <> 0 Then Return False
+
+Return True 
+
+end function
+

@@ -1,0 +1,25 @@
+﻿$PBExportHeader$d_com908.srd
+$PBExportComments$이관제외선정차수
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(2) updatewhereclause=yes name=dep_seq dbname="tb_54022_h.dep_seq" )
+ column=(type=char(8) updatewhereclause=yes name=dep_ymd dbname="tb_54022_h.dep_ymd" )
+ retrieve="select  distinct dep_seq,dep_ymd
+  from  tb_54022_h   with (nolock)
+ where  brand  like  :as_brand
+   and  year   like  :as_year
+   and  season like  :as_season
+   and  dep_fg = 'y'
+" arguments=(("as_brand", string),("as_year", string),("as_season", string)) )
+column(band=detail id=2 alignment="0" tabsequence=0 border="0" color="0" x="443" y="4" height="60" width="302"  name=dep_ymd  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=1 alignment="0" tabsequence=0 border="0" color="0" x="759" y="4" height="60" width="169"  name=dep_seq  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+text(band=header alignment="2" text="선정일자" border="6" color="0" x="439" y="12" height="60" width="306"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+text(band=header alignment="2" text="차수" border="6" color="0" x="754" y="12" height="60" width="174"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+compute(band=detail alignment="0" expression=" dep_seq + ' ' + dep_ymd "border="0" color="0" x="9" y="4" height="60" width="416" format="[GENERAL]"  name=dep_display  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+text(band=header alignment="2" text="차수" border="6" color="0" x="5" y="12" height="60" width="421"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

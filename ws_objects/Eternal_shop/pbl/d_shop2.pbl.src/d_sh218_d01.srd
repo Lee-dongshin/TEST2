@@ -1,0 +1,26 @@
+﻿$PBExportHeader$d_sh218_d01.srd
+$PBExportComments$A/S 등록
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(16) update=yes updatewhereclause=yes name=card_no dbname="TB_71010_M.card_no" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=card_day dbname="TB_71010_M.card_day" )
+ column=(type=char(13) update=yes updatewhereclause=yes key=yes name=jumin dbname="TB_71010_M.jumin" )
+ retrieve="select card_no,
+		 card_day,
+       jumin
+  from beaucre.dbo.tb_71010_m as tb_71010_m (nolock)
+ where card_no like ~"%~" + :as_card_no + ~"%~"
+   and user_name  = :as_user_name
+   and shop_cd  = :as_shop_cd" update="beaucre.dbo.tb_71010_m" updatewhere=1 updatekeyinplace=no arguments=(("as_card_no", string),("as_user_name", string),("as_shop_cd", string)) )
+text(band=header alignment="2" text="카드번호" border="6" color="0" x="9" y="8" height="60" width="535"  name=card_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="주민번호" border="6" color="0" x="809" y="8" height="60" width="384"  name=jumin_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="발급일" border="6" color="0" x="553" y="8" height="60" width="247"  name=card_day_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="60" width="535" format="@@@@-@@@@-@@@@-@@@@"  name=card_no edit.limit=16 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="12639424" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="553" y="8" height="60" width="247" format="[general]"  name=card_day edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="12639424" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="809" y="8" height="60" width="384" format="@@@@@@-@@@@@@@"  name=jumin edit.limit=13 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="2" background.color="12639424" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

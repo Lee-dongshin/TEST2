@@ -1,0 +1,87 @@
+﻿$PBExportHeader$d_54005_d07.srd
+$PBExportComments$품목할인모델분석(update용)
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes key=yes name=style dbname="tb_54022_h.style" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=brand dbname="tb_54022_h.brand" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=year dbname="tb_54022_h.year" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=season dbname="tb_54022_h.season" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=sojae dbname="tb_54022_h.sojae" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=item dbname="tb_54022_h.item" )
+ column=(type=char(3) update=yes updatewhereclause=yes name=out_seq dbname="tb_54022_h.out_seq" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=dep_seq dbname="tb_54022_h.dep_seq" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=dep_ymd dbname="tb_54022_h.dep_ymd" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=rtrn_ymd dbname="tb_54022_h.rtrn_ymd" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=dep_fg dbname="tb_54022_h.dep_fg" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=sel_yn dbname="tb_54022_h.sel_yn" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=rtrn_yn dbname="tb_54022_h.rtrn_yn" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="tb_54022_h.reg_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="tb_54022_h.reg_dt" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="tb_54022_h.mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="tb_54022_h.mod_dt" )
+ retrieve="  SELECT a.style,   
+         a.brand,   
+         a.year,   
+         a.season,   
+         a.sojae,   
+         a.item,   
+         a.out_seq,   
+         a.dep_seq,   
+         a.dep_ymd, 
+         a.rtrn_ymd,  
+         a.dep_fg,   
+         a.sel_yn,   
+         a.rtrn_yn,   
+         a.reg_id,   
+         a.reg_dt,   
+         a.mod_id,   
+         a.mod_dt  
+    FROM tb_54022_h a 
+   where a.brand = :as_brand
+     and a.year  = :as_year
+     and a.season = :as_season
+     and a.sojae like :as_sojae
+     and a.item  like :as_item
+     and a.out_seq like :as_out_seq 
+     and a.dep_fg = 'N'       
+" update="tb_54022_h" updatewhere=1 updatekeyinplace=no arguments=(("as_brand", string),("as_year", string),("as_season", string),("as_sojae", string),("as_item", string),("as_out_seq", string)) )
+column(band=detail id=1 alignment="0" tabsequence=0 border="0" color="0" x="9" y="0" height="76" width="247"  name=style  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Style" border="0" color="0" x="5" y="4" height="76" width="251"  name=t_1  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=0 border="0" color="0" x="270" y="0" height="76" width="23"  name=brand  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Brand" border="0" color="0" x="265" y="4" height="76" width="27"  name=t_2  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=0 border="0" color="0" x="306" y="0" height="76" width="119"  name=year  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Year" border="0" color="0" x="302" y="4" height="76" width="123"  name=t_3  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=0 border="0" color="0" x="439" y="0" height="76" width="23"  name=season  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Season" border="0" color="0" x="434" y="4" height="76" width="27"  name=t_4  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=0 border="0" color="0" x="475" y="0" height="76" width="23"  name=sojae  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Sojae" border="0" color="0" x="471" y="4" height="76" width="27"  name=t_5  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=0 border="0" color="0" x="512" y="0" height="76" width="23"  name=item  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Item" border="0" color="0" x="507" y="4" height="76" width="27"  name=t_6  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="0" tabsequence=0 border="0" color="0" x="549" y="0" height="76" width="87"  name=out_seq  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Out Seq" border="0" color="0" x="544" y="4" height="76" width="91"  name=t_7  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=0 border="0" color="0" x="649" y="0" height="76" width="55"  name=dep_seq  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Dep Seq" border="0" color="0" x="645" y="4" height="76" width="59"  name=t_8  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="0" tabsequence=0 border="0" color="0" x="718" y="0" height="76" width="247"  name=dep_ymd  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Dep Ymd" border="0" color="0" x="713" y="4" height="76" width="251"  name=t_9  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=0 border="0" color="0" x="978" y="0" height="76" width="247"  name=rtrn_ymd  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Rtrn Ymd" border="0" color="0" x="974" y="4" height="76" width="251"  name=t_10  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="0" tabsequence=0 border="0" color="0" x="1239" y="0" height="76" width="23"  name=dep_fg  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Dep Fg" border="0" color="0" x="1234" y="4" height="76" width="27"  name=t_11  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=12 alignment="0" tabsequence=0 border="0" color="0" x="1275" y="0" height="76" width="23"  name=sel_yn  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Sel Yn" border="0" color="0" x="1271" y="4" height="76" width="27"  name=t_12  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=13 alignment="0" tabsequence=0 border="0" color="0" x="1312" y="0" height="76" width="23"  name=rtrn_yn  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Rtrn Yn" border="0" color="0" x="1307" y="4" height="76" width="27"  name=t_13  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=14 alignment="0" tabsequence=0 border="0" color="0" x="1349" y="0" height="76" width="183"  name=reg_id  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Reg Id" border="0" color="0" x="1344" y="4" height="76" width="187"  name=t_14  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=15 alignment="0" tabsequence=0 border="0" color="0" x="1545" y="0" height="76" width="599"  name=reg_dt  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Reg Dt" border="0" color="0" x="1541" y="4" height="76" width="603"  name=t_15  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=16 alignment="0" tabsequence=0 border="0" color="0" x="2158" y="0" height="76" width="183"  name=mod_id  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Mod Id" border="0" color="0" x="2153" y="4" height="76" width="187"  name=t_16  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=17 alignment="0" tabsequence=0 border="0" color="0" x="2354" y="0" height="76" width="599"  name=mod_dt  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Mod Dt" border="0" color="0" x="2350" y="4" height="76" width="603"  name=t_17  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

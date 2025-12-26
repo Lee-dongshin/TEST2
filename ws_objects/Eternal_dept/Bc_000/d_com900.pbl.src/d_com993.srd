@@ -1,0 +1,42 @@
+﻿$PBExportHeader$d_com993.srd
+$PBExportComments$자산코드[검색창]
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(12) updatewhereclause=yes key=yes name=asset_no dbname="tb_99013_m.asset_no" )
+ column=(type=char(50) updatewhereclause=yes name=asset_nm dbname="tb_99013_m.asset_nm" )
+ column=(type=char(1) updatewhereclause=yes name=item dbname="tb_99013_m.item" )
+ column=(type=char(2) updatewhereclause=yes name=saupjang dbname="tb_99013_m.saupjang" )
+ column=(type=char(2) updatewhereclause=yes name=d_gubn dbname="tb_99013_m.d_gubn" )
+ column=(type=char(30) updatewhereclause=yes name=d_nm dbname="d_nm" )
+ column=(type=char(3) updatewhereclause=yes name=s_gubn dbname="tb_99013_m.s_gubn" )
+ column=(type=char(30) updatewhereclause=yes name=s_nm dbname="s_nm" )
+ retrieve="SELECT	asset_no,
+			asset_nm,
+			item,
+			saupjang,
+			d_gubn,
+			dbo.sf_inter_nm('961',d_gubn) d_nm,
+			s_gubn,
+			dbo.sf_inter_nm('962',s_gubn) s_nm
+FROM		tb_99013_m with (nolock)
+" update="tb_99013_m" updatewhere=0 updatekeyinplace=no )
+text(band=header alignment="2" text="사업장" border="6" color="0" x="9" y="8" height="60" width="178"  name=saupjang_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="자산코드" border="6" color="0" x="206" y="8" height="60" width="421"  name=asset_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="사용자명" border="6" color="0" x="645" y="8" height="60" width="741"  name=asset_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="품목" border="6" color="0" x="1403" y="8" height="60" width="229"  name=item_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="대분류" border="6" color="0" x="1650" y="8" height="60" width="594"  name=d_gubn_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="소분류" border="6" color="0" x="2263" y="8" height="60" width="594"  name=s_gubn_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="0" tabsequence=10 border="5" color="0" x="9" y="4" height="64" width="178" format="[general]"  name=saupjang edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=20 border="5" color="0" x="206" y="4" height="64" width="421" format="@-@@@@@@@@-@@@"  name=asset_no edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=30 border="5" color="0" x="645" y="4" height="64" width="741" format="[general]"  name=asset_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=60 border="5" color="0" x="1755" y="8" height="64" width="494" format="[general]"  name=d_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=80 border="5" color="0" x="2382" y="8" height="64" width="475" format="[general]"  name=s_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=40 border="5" color="0" x="1403" y="4" height="64" width="229" format="[general]"  name=item edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=50 border="5" color="0" x="1650" y="8" height="64" width="82" format="[general]"  name=d_gubn edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="0" tabsequence=70 border="5" color="0" x="2263" y="8" height="64" width="96" format="[general]"  name=s_gubn edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

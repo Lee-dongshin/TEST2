@@ -1,0 +1,24 @@
+﻿$PBExportHeader$gf_get_agegrp.srf
+$PBExportComments$주민번호로 연령층 산출
+global type gf_get_agegrp from function_object
+end type
+
+forward prototypes
+global function long gf_get_agegrp (string as_jumin, integer ai_yyyy, ref string as_age_grp)
+end prototypes
+
+global function long gf_get_agegrp (string as_jumin, integer ai_yyyy, ref string as_age_grp);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 작 성 일  : 2002/03/04                                     */
+/* 수 정 일  : 2002/03/04                                     */
+/* 내    용  : 주민번호로 연령층 산출                         */
+/*============================================================*/
+
+select dbo.sf_Get_AgeGrp(:as_jumin, :ai_yyyy)
+  into :as_age_grp
+  from DUAL;
+
+RETURN SQLCA.SQLCODE
+
+end function
+

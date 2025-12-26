@@ -1,0 +1,40 @@
+﻿$PBExportHeader$d_sh194_ddw.srd
+$PBExportComments$매장리스트
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(6) update=yes updatewhereclause=yes key=yes name=shop_cd dbname="TB_91100_M.shop_cd" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=shop_snm dbname="TB_91100_M.shop_snm" )
+ retrieve="
+select shop_cd, shop_snm 
+from tb_91100_m (nolock) 
+where shop_div  in ('g','k','B') 
+		and shop_stat = '00'
+		and right(shop_cd,4) not in ('4251','1187','1191')
+and brand = :brand
+and shop_cd = :gs_shop_cd
+
+union all
+
+select shop_cd, shop_snm 
+from tb_91100_m (nolock) 
+where shop_div  in ('H') 
+		and shop_stat = '00'
+		and brand = :brand
+		and right(shop_cd,4) = right(:gs_shop_cd,4)
+
+union all
+select shop_cd, shop_snm 
+from tb_91100_m (nolock) 
+where right(shop_cd,5)  in ('x2710')
+and brand = :brand
+and shop_cd = :gs_shop_cd
+" update="tb_91100_m" updatewhere=0 updatekeyinplace=no arguments=(("brand", string),("gs_shop_cd", string)) )
+text(band=header alignment="2" text="Shop Cd" border="0" color="0" x="9" y="8" height="56" width="229"  name=shop_cd_t  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Shop Snm" border="0" color="0" x="247" y="8" height="56" width="576"  name=shop_snm_t  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="0" x="9" y="8" height="56" width="229" format="[general]"  name=shop_cd edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="0" x="247" y="8" height="56" width="576" format="[general]"  name=shop_snm edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

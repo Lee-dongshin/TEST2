@@ -1,0 +1,39 @@
+﻿$PBExportHeader$d_51012_d01.srd
+$PBExportComments$판매사원 휴무계획현황
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(3) updatewhereclause=yes name=emp_class dbname="TB_51040_H.EMP_CLASS" )
+ column=(type=char(30) updatewhereclause=yes name=class_nm dbname="CLASS_NM" )
+ column=(type=decimal(0) updatewhereclause=yes name=sort_seq dbname="SORT_SEQ" )
+ column=(type=char(20) updatewhereclause=yes name=emp_nm dbname="TB_51040_H.EMP_NM" )
+ column=(type=char(6) updatewhereclause=yes name=shop_cd dbname="TB_51040_H.shop_cd" )
+ column=(type=char(30) updatewhereclause=yes name=shop_nm dbname="shop_nm" )
+ column=(type=long updatewhereclause=yes name=flag dbname="flag" )
+ retrieve="
+SELECT 
+	EMP_CLASS,
+	DBO.SF_INTER_NM('510',EMP_CLASS)			AS CLASS_NM,
+	DBO.SF_INTER_SORT_SEQ('510',EMP_CLASS) 	AS SORT_SEQ,
+	EMP_NM,
+	shop_cd, dbo.sf_shop_nm(shop_cd,'s')	as shop_nm,
+   case when isnull(apply_yn,'N') = 'Y' then 0 else 1 end as flag
+FROM TB_51040_H (NOLOCK)
+WHERE SHOP_CD like :AS_SHOP_CD + '%'
+AND   GOOUT_GUBN LIKE :AS_GOOUT_GUBN + '%'
+and   emp_nm  like :as_emp_nm + '%'
+ORDER BY isnull(mod_dt,reg_dt) desc
+" arguments=(("AS_SHOP_CD", string),("AS_GOOUT_GUBN", string),("as_emp_nm", string))  sort="flag D " )
+text(band=header alignment="2" text="구분" border="6" color="0" x="23" y="4" height="60" width="507"  name=emp_class_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="성명" border="6" color="0" x="544" y="4" height="60" width="242"  name=emp_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="매장" border="6" color="0" x="800" y="8" height="56" width="928"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0~tcase( flag when 1 then rgb(0,0,255))" x="23" y="4" height="60" width="128" format="[general]"  name=emp_class edit.limit=3 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33357804" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0~tcase( flag when 1 then rgb(0,0,255))" x="160" y="4" height="60" width="366" format="[general]"  name=class_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33357804" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0~tcase( flag when 1 then rgb(0,0,255))" x="544" y="4" height="60" width="242" format="[general]"  name=emp_nm edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33357804" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0~tcase( flag when 1 then rgb(0,0,255))" x="800" y="4" height="56" width="174" format="[general]"  name=shop_cd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33357804" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0~tcase( flag when 1 then rgb(0,0,255))" x="987" y="4" height="56" width="745" format="[general]"  name=shop_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33357804" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

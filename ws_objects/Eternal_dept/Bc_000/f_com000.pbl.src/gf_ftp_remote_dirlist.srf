@@ -1,0 +1,56 @@
+﻿$PBExportHeader$gf_ftp_remote_dirlist.srf
+global type gf_ftp_remote_dirlist from function_object
+end type
+
+forward prototypes
+global function string gf_ftp_remote_dirlist (string a_path)
+end prototypes
+
+global function string gf_ftp_remote_dirlist (string a_path);string ls_file
+FINDDATA pData
+filetime ptime
+ulong hFind, ul_rtn=1
+string ls_null
+ulong d_1, d_2
+
+SetNull(ls_null)
+
+if gf_ftp_setpath(a_path) < 0 then
+//	messagebox('set path error','ftp site error..')
+	return 'err'
+end if
+
+//hFind = u_ftp.FtpFindFirstFileA(ll_connect, ls_null, pData, u_ftp.INTERNET_FLAG_RAW_DATA, 0)
+hFind = u_ftp.FtpFindFirstFileA(ll_connect, '*.*', pData, 0, 0)
+//messagebox('hFind',hFind)
+IF hFind > 0 THEN
+	ls_file = ""
+	ptime = pData.ftlastwrite
+	IF pData.dwfileattrib = 16 THEN
+		ls_file += '1~t['+pData.cFilename + ']~t' +string(ptime.dwhighdatetime) +"~r~n"
+	ELSE
+		ls_file += '2~t'+pData.cFilename + '~t'+ string(ptime.dwhighdatetime) +"~t"+ string(pData.nfilesizelow) + "~r~n"
+	END IF
+	
+	DO WHILE ul_rtn > 0
+		ul_rtn = u_ftp.InternetFindNextFileA(hFind, pData)
+		IF ul_rtn > 0 THEN
+				ptime = pData.ftlastwrite
+			IF pData.dwfileattrib = 16 THEN
+				ls_file += '1~t['+pData.cFilename + ']~t'+ string(ptime.dwhighdatetime) +"~r~n"
+			ELSE
+				ls_file += '2~t'+pData.cFilename + '~t'+ string(ptime.dwhighdatetime) +'~t'+string(pData.nfilesizelow) + "~r~n"
+			END IF
+		END IF
+//	messagebox(pData.cFilename, string(ptime.dwhighdatetime)+' '+string(pData.nfilesizelow))
+	messagebox('ul_rtn',ul_rtn)
+	LOOP
+END IF
+ul_rtn = 0
+u_ftp.InternetGetConnectedState( ul_rtn, hfind )
+//messagebox('',ul_rtn)
+//ul_rtn = gf_ftp_connect(w_main.sle_1.text, w_main.sle_2.text, w_main.sle_3.text)
+return ls_file
+
+end function
+

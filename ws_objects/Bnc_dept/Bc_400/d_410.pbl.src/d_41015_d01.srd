@@ -1,0 +1,33 @@
+﻿$PBExportHeader$d_41015_d01.srd
+$PBExportComments$입고전환
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=yymmdd dbname="yymmdd" )
+ column=(type=char(6) updatewhereclause=yes name=shop_cd dbname="shop_cd" )
+ column=(type=char(1) updatewhereclause=yes name=shop_type dbname="shop_type" )
+ column=(type=char(4) updatewhereclause=yes name=out_no dbname="out_no" )
+ column=(type=decimal(0) updatewhereclause=yes name=out_qty dbname="out_qty" )
+ column=(type=char(1) updatewhereclause=yes name=chk_sel dbname="chk_sel" values="	Y/	N" )
+ retrieve="
+select  	yymmdd, shop_cd, shop_type, out_no, sum(qty) as out_qty,
+			'N'		chk_sel
+from tb_42020_h with (INDEX(IX_42020_1), nolock)
+where yymmdd between :as_fr_ymd and :as_to_ymd
+and shop_cd = :as_shop_cd
+and brand   = :as_brand
+group by  yymmdd, shop_cd, shop_type, out_no" arguments=(("as_fr_ymd", string),("as_to_ymd", string),("as_shop_cd", string),("as_brand", string)) )
+text(band=header alignment="2" text="출고전표" border="6" color="0" x="14" y="8" height="60" width="462"  name=yymmdd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="매장형태" border="6" color="0" x="489" y="8" height="60" width="311"  name=shop_type_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="수량" border="6" color="0" x="818" y="8" height="60" width="224"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+button(band=header text="선택"filename=""action="0" border="0" color="65535" x="1051" y="0" height="76" width="174" vtextalign="0" htextalign="0"  name=cb_sel  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421376" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="9" y="4" height="60" width="329" format="@@@@/@@/@@"  name=yymmdd edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="343" y="4" height="60" width="137" format="[general]"  name=out_no edit.limit=4 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="494" y="4" height="60" width="311" format="[general]"  name=shop_type edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="818" y="4" height="60" width="224" format="#,###"  name=out_qty edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="2" tabsequence=10 border="0" color="0" x="1056" y="4" height="60" width="165" format="[general]"  name=chk_sel checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

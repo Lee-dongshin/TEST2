@@ -1,0 +1,21 @@
+﻿$PBExportHeader$d_sh370_h01.srd
+$PBExportComments$연말정산신고서
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=112 color="536870912" )
+table(column=(type=char(4) updatewhereclause=no name=base_year dbname="year" )
+ column=(type=char(6) updatewhereclause=no name=empno dbname="empno" )
+ column=(type=char(30) updatewhereclause=no name=emp_nm dbname="emp_nm" )
+ column=(type=char(1) updatewhereclause=no name=opt dbname="opt" initial="Y" values="가족사항 전년과 동일시 체크해주세요.	Y/가족사항 전년과 동일시 체크해주세요.	N" )
+ )
+text(band=detail alignment="1" text="사번:" border="0" color="0" x="731" y="28" height="60" width="265"  name=empno_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="기준년도:" border="0" color="0" x="73" y="28" height="60" width="329"  name=year_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="5" color="0" x="1010" y="28" height="60" width="219" format="[general]"  name=empno  tag="OE" edit.limit=0 edit.case=upper edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="5" color="0" x="1330" y="28" height="60" width="667" format="[general]"  name=emp_nm edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+button(band=detail text=""filename="find.bmp"action="0" border="0" color="0" x="1243" y="20" height="72" width="82" vtextalign="0" htextalign="0"  name=cb_empno  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="67108864" )
+column(band=detail id=4 alignment="0" tabsequence=20 border="0" color="16711680" x="2139" y="28" height="76" width="1202" format="[general]"  name=opt checkbox.text="가족사항 전년과 동일시 체크해주세요." checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="5" color="0" x="416" y="28" height="60" width="265" format="[general]"  name=base_year edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

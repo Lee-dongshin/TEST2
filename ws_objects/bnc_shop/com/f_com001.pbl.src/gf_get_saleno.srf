@@ -1,0 +1,26 @@
+﻿$PBExportHeader$gf_get_saleno.srf
+$PBExportComments$판매번호 산출
+global type gf_get_saleno from function_object
+end type
+
+forward prototypes
+global function long gf_get_saleno (string as_yymmdd, string as_shop_cd, string as_shop_type, ref string as_sale_no)
+end prototypes
+
+global function long gf_get_saleno (string as_yymmdd, string as_shop_cd, string as_shop_type, ref string as_sale_no);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 작 성 일  : 2002/01/04                                     */
+/* 수 정 일  : 2002/01/04                                     */
+/* 내    용  : 판매번호 부여.                                 */
+/*============================================================*/
+
+SELECT dbo.sf_get_saleno(:as_yymmdd, :as_shop_cd, :as_shop_type)
+  INTO :as_sale_no 
+  FROM DUAL ;
+
+IF ISNULL(as_sale_no) THEN RETURN 100
+
+RETURN sqlca.sqlcode 
+
+end function
+

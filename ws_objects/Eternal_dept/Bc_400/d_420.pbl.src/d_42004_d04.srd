@@ -1,0 +1,53 @@
+﻿$PBExportHeader$d_42004_d04.srd
+$PBExportComments$출고요청출고
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=96 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=out_ymd dbname="tb_52031_h.out_ymd" )
+ column=(type=long updatewhereclause=yes name=deal_seq dbname="tb_52031_h.deal_seq" )
+ column=(type=char(8) updatewhereclause=yes name=style dbname="tb_52031_h.style" )
+ column=(type=char(1) updatewhereclause=yes name=chno dbname="tb_52031_h.chno" )
+ column=(type=char(43) updatewhereclause=yes name=color dbname="color" )
+ column=(type=char(2) updatewhereclause=yes name=size dbname="tb_52031_h.size" )
+ column=(type=decimal(0) updatewhereclause=yes name=deal_qty dbname="deal_qty" )
+ column=(type=char(1) updatewhereclause=yes name=deal_fg dbname="tb_52031_h.deal_fg" )
+ retrieve="select out_ymd, deal_seq, 
+       style, chno,
+       color + ' ' + dbo.sf_color_nm(color, 'k') as color, size,
+       sum(deal_qty) as deal_qty,
+		 deal_fg
+from tb_52031_h with (nolock)
+where style like :as_brand + '%'
+and   out_ymd = :as_out_ymd
+and   deal_fg = :as_deal_fg 
+and   proc_yn = :as_proc_yn
+and   isnull(work_no,deal_seq) = :ai_work_no 
+group by out_ymd, deal_seq, style, chno, color,size,deal_fg
+having sum(deal_qty) > 0
+order by 3,6" arguments=(("as_brand", string),("as_out_ymd", string),("as_deal_fg", string),("as_proc_yn", string),("ai_work_no", number)) )
+text(band=header alignment="2" text="순번" border="6" color="0" x="0" y="4" height="56" width="137"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="의뢰일자" border="6" color="0" x="151" y="4" height="56" width="274"  name=out_ymd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="번호" border="6" color="0" x="439" y="4" height="56" width="128"  name=deal_seq_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="품번/차수" border="6" color="0" x="581" y="4" height="56" width="320"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="사이즈" border="6" color="0" x="1275" y="4" height="56" width="151"  name=t_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="수량" border="6" color="0" x="1440" y="4" height="56" width="128"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="색상" border="6" color="0" x="914" y="4" height="56" width="347"  name=t_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="2" expression="getrow()"border="6" color="0" x="5" y="4" height="60" width="133" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="151" y="4" height="60" width="274" format="@@@@/@@/@@"  name=out_ymd editmask.mask="XXXX/XX/XX" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33554431" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="439" y="4" height="60" width="128" format="#,##0"  name=deal_seq edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33554431" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1275" y="4" height="60" width="146" format="[general]"  name=size edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33421539" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="1440" y="4" height="60" width="128" format="#,##0"  name=deal_qty edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="31323131" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="914" y="4" height="60" width="347" format="[general]"  name=color edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33421539" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="581" y="4" height="60" width="274" format="[general]"  name=style edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33421539" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="869" y="4" height="60" width="37" format="[general]"  name=chno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33421539" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="1582" y="4" height="56" width="27" format="[general]"  name=deal_fg visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33554431" )
+text(band=footer alignment="0" text="text" border="0" color="0" x="1513" y="208" height="56" width="110"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=footer x1="5" y1="12" x2="1573" y2="12"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=footer x1="5" y1="4" x2="1573" y2="4"  name=l_2 pen.style="0" pen.width="5" pen.color="16777215"  background.mode="2" background.color="16777215" )
+text(band=footer alignment="1" text="[  합  계  ]" border="0" color="16711680" x="23" y="24" height="56" width="411"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+compute(band=footer alignment="1" expression="sum(deal_qty for all)"border="0" color="0" x="1403" y="24" height="60" width="174" format="#,##0"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31323131" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

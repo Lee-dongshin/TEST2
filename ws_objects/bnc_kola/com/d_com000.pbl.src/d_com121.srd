@@ -1,0 +1,51 @@
+﻿$PBExportHeader$d_com121.srd
+$PBExportComments$샘플코드[검색창]
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes name=sample_cd dbname="sample_cd" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=brand dbname="brand" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=year dbname="year" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=season dbname="season" )
+ column=(type=char(20) updatewhereclause=yes name=season_nm dbname="season_nm" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=item dbname="item" )
+ column=(type=char(20) updatewhereclause=yes name=item_nm dbname="item_nm" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=dsgn_emp dbname="dsgn_emp" )
+ column=(type=char(20) updatewhereclause=yes name=dsgn_emp_nm dbname="dsgn_emp_nm" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=mat_cd dbname="mat_cd" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=mat_nm dbname="mat_nm" )
+ column=(type=char(3) update=yes updatewhereclause=yes name=out_seq dbname="out_seq" )
+ retrieve="  SELECT aa.sample_cd,  aa.brand,    aa.year,  
+         aa.season,     dbo.sf_inter_nm('003', aa.season) as season_nm, 
+         aa.item,       dbo.sf_item_nm(aa.item)           as item_nm, 
+         aa.dsgn_emp,   aa.dsgn_emp_nm, 
+         aa.mat_cd,     aa.mat_nm,   aa.out_seq  
+    FROM (SELECT sample_cd,   
+                 brand,    year,   season,   item,     
+                 dsgn_emp, dbo.sf_emp_nm(dsgn_emp)  as dsgn_emp_nm, 
+                 mat_cd,   mat_nm, out_seq  
+            FROM tb_12010_m with (nolock)) AA
+
+" )
+text(band=header alignment="2" text="샘플코드" border="6" color="0" x="9" y="12" height="60" width="247"  name=sample_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="시즌" border="6" color="0" x="274" y="12" height="60" width="329"  name=year_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="품종" border="6" color="0" x="622" y="12" height="60" width="320"  name=item_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="디자이너" border="6" color="0" x="960" y="12" height="60" width="434"  name=dsgn_emp_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="출고차순" border="6" color="0" x="2281" y="12" height="60" width="224"  name=out_seq_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="원자재" border="6" color="0" x="1413" y="12" height="60" width="850"  name=mat_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=80 border="5" color="0" x="1701" y="4" height="60" width="562" format="[general]" protect="0~tif( isrownew(), 0, 1 )"  name=mat_nm edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=60 border="5" color="0" x="1170" y="4" height="60" width="224" format="[general]" protect="0~tif( isrownew(), 0, 1 )"  name=dsgn_emp_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="5" color="0" x="686" y="4" height="60" width="256" format="[general]"  name=item_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="2" tabsequence=30 border="5" color="0" x="407" y="4" height="60" width="46" format="[general]" protect="0~tif( isrownew(), 0, 1 )"  name=season edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="536870912~tif( isrownew(), 16777215, 553648127 )" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="5" color="0" x="471" y="4" height="60" width="133" format="[general]"  name=season_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="9" y="4" height="60" width="247" format="[general]" protect="0~tif( isrownew(), 0, 1 )"  name=sample_cd edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="536870912~tif( isrownew(), 16777215, 553648127 )" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="5" color="0" x="274" y="4" height="60" width="114" format="[general]" protect="0~tif( isrownew(), 0, 1 )"  name=year edit.limit=4 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="536870912~tif( isrownew(), 16777215, 553648127 )" )
+column(band=detail id=6 alignment="2" tabsequence=40 border="5" color="0" x="622" y="4" height="60" width="46" format="[general]" protect="0~tif( isrownew(), 0, 1 )"  name=item edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="536870912~tif( isrownew(), 16777215, 553648127 )" )
+column(band=detail id=8 alignment="2" tabsequence=50 border="5" color="0" x="960" y="4" height="60" width="192" format="[general]" protect="0~tif( isrownew(), 0, 1 )"  name=dsgn_emp edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="536870912~tif( isrownew(), 16777215, 553648127 )" )
+column(band=detail id=12 alignment="2" tabsequence=90 border="5" color="0" x="2281" y="4" height="60" width="229" format="[general]" protect="0~tif( isrownew(), 0, 1 )"  name=out_seq edit.limit=3 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="536870912~tif( isrownew(), 16777215, 553648127 )" )
+column(band=detail id=10 alignment="0" tabsequence=70 border="5" color="0" x="1413" y="4" height="60" width="270" format="[general]" protect="0~tif( isrownew(), 0, 1 )"  name=mat_cd edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="536870912~tif( isrownew(), 16777215, 553648127 )" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

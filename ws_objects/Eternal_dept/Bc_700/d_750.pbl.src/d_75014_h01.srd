@@ -1,0 +1,22 @@
+﻿$PBExportHeader$d_75014_h01.srd
+$PBExportComments$회원 연령대 분석
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=136 color="536870912" )
+table(column=(type=char(1) updatewhereclause=no name=brand dbname="brand" )
+ column=(type=char(1) updatewhereclause=no name=homepage dbname="name_1" values="	1/	%" )
+ column=(type=char(1) updatewhereclause=no name=vip dbname="vip" values="	2/	%" )
+ column=(type=char(1) updatewhereclause=no name=rfm dbname="rfm" initial="%" values="전체 고객	%/최우수 고정고객	A/우수 고정고객	B/일반 고정고객	C/우수 유동고객	D/일반 유동고객	E/일반 휴면고객	F/" )
+ )
+text(band=detail alignment="1" text="브랜드:" border="0" color="0" x="41" y="40" height="56" width="302"  name=brand_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="357" y="40" height="56" width="503" format="[general]"  name=brand edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="1" text="Vip 구분:" border="0" color="0" x="1627" y="40" height="56" width="357"  name=vip_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="2" tabsequence=30 border="5" color="0" x="2002" y="40" height="56" width="78" format="[general]"  name=vip checkbox.text="" checkbox.on="2" checkbox.off="%" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=detail alignment="1" text="Rfm 구분:" border="0" color="0" x="2213" y="40" height="56" width="357"  name=rfm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="5" color="0" x="2583" y="40" height="56" width="530" format="[general]"  name=rfm ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="1" text="홈페이지 회원:" border="0" color="0" x="910" y="40" height="56" width="521"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=20 border="5" color="0" x="1449" y="40" height="56" width="78" format="[general]"  name=homepage checkbox.text="" checkbox.on="1" checkbox.off="%" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

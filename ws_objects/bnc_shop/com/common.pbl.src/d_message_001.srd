@@ -1,0 +1,50 @@
+﻿$PBExportHeader$d_message_001.srd
+$PBExportComments$사내판매출고내역
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=4 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(30) updatewhereclause=yes name=kname dbname="tb_53060_h.kname" )
+ column=(type=char(13) updatewhereclause=yes name=style_no dbname="style_no" )
+ column=(type=decimal(0) updatewhereclause=yes name=qty dbname="qty" )
+ column=(type=decimal(0) updatewhereclause=yes name=out_qty dbname="out_qty" )
+ column=(type=decimal(0) updatewhereclause=yes name=sale_amt dbname="sale_amt" )
+ column=(type=char(8) updatewhereclause=yes name=out_ymd dbname="tb_53060_h.out_ymd" )
+ retrieve="
+select 	kname, style + chno + color + size as style_no,
+	sum(qty) 	as qty, 
+	sum(out_qty)	as out_qty, 
+	sum(sale_amt) as sale_amt,
+	out_ymd			
+from tb_53060_h (nolock)
+where datepart(week, yymmdd) = datepart(week, getdate()) 
+and  out_ymd like convert(char(04), getdate(), 112) + '%'
+and empno in ( select empno from VI_93010_3
+					where dept_code = :As_empno
+					  and status_yn = 'y')
+group by kname, style, chno, color, size, out_ymd" arguments=(("as_empno", string)) )
+group(level=1 header.height=68 trailer.height=80 by=("kname" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="품번" border="6" color="0" x="5" y="4" height="60" width="626"  name=style_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="요청수" border="6" color="0" x="645" y="4" height="60" width="197"  name=qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="출고수" border="6" color="0" x="855" y="4" height="60" width="210"  name=out_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="판매금액" border="6" color="0" x="1079" y="4" height="60" width="315"  name=sale_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="출고일자" border="6" color="0" x="1408" y="8" height="56" width="302"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=header.1 id=1 alignment="2" tabsequence=32766 border="6" color="0" x="9" y="4" height="56" width="622" format="[general]"  name=kname edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15780518" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="5" y="4" height="60" width="626" format="@@@@@@@@-@-@@-@@"  name=style_no edit.limit=13 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="0" color="0" x="1408" y="4" height="60" width="302" format="@@@@/@@/@@"  name=out_ymd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33413626" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="645" y="4" height="60" width="197" format="#,###"  name=qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="855" y="4" height="60" width="210" format="#,###"  name=out_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33413626" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="1079" y="4" height="60" width="315" format="#,###"  name=sale_amt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33413626" )
+text(band=trailer.1 alignment="0" text="[  합   계  ]" border="0" color="0" x="9" y="12" height="56" width="384"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=trailer.1 x1="5" y1="0" x2="1385" y2="0"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=trailer.1 x1="9" y1="4" x2="1390" y2="4"  name=l_2 pen.style="0" pen.width="5" pen.color="16777215"  background.mode="2" background.color="16777215" )
+compute(band=trailer.1 alignment="1" expression="sum(qty for group 1)"border="0" color="0" x="645" y="12" height="60" width="197" format="#,###"  name=compute_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33413626" )
+compute(band=trailer.1 alignment="1" expression="sum(out_qty for group 1)"border="0" color="0" x="855" y="12" height="60" width="210" format="#,###"  name=compute_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33413626" )
+compute(band=trailer.1 alignment="1" expression="sum(sale_amt for group 1)"border="0" color="0" x="1079" y="12" height="60" width="315" format="#,###"  name=compute_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33413626" )
+compute(band=summary alignment="1" expression="sum(out_qty for all)"border="0" color="0" x="855" y="16" height="60" width="210" format="#,###"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33413626" )
+compute(band=summary alignment="1" expression="sum(sale_amt for all)"border="0" color="0" x="1079" y="16" height="60" width="315" format="#,###"  name=compute_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33413626" )
+compute(band=summary alignment="1" expression="sum(qty for all)"border="0" color="0" x="645" y="16" height="60" width="197" format="#,###"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="12639424" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

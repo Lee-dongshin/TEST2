@@ -1,0 +1,35 @@
+﻿$PBExportHeader$d_sh145_d06.srd
+$PBExportComments$쿠폰발행내역팝업
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(13) updatewhereclause=yes name=jumin dbname="TB_71011_H.jumin" )
+ column=(type=char(6) updatewhereclause=yes name=coupon_no dbname="TB_71011_H.coupon_no" )
+ column=(type=long updatewhereclause=yes name=c_money dbname="c_money" )
+ column=(type=char(8) updatewhereclause=yes name=give_date dbname="TB_71011_H.give_date" )
+ column=(type=char(8) updatewhereclause=yes name=use_ymd dbname="TB_71011_H.use_ymd" )
+ retrieve="  	SELECT jumin,
+			 coupon_no,   
+          give_point*10 as c_money,   
+          give_date,
+			 use_ymd  
+   FROM TB_71011_H   
+	WHERE jumin = :as_jumin
+	AND coupon_no = :as_coupon_no
+	AND point_flag = 1
+	AND accept_flag = 'N'" arguments=(("as_coupon_no", string),("as_jumin", string)) )
+text(band=header alignment="2" text="주민번호" border="6" color="0" x="0" y="4" height="64" width="425"  name=t_1  font.face="굴림" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="15780518" )
+text(band=header alignment="2" text="쿠폰금액" border="6" color="0" x="759" y="4" height="64" width="293"  name=give_point_t  font.face="굴림" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="15780518" )
+text(band=header alignment="2" text="쿠폰번호" border="6" color="0" x="443" y="4" height="64" width="297"  name=coupon_no_t  font.face="굴림" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="15780518" )
+text(band=header alignment="2" text="발행일" border="6" color="0" x="1070" y="4" height="64" width="315"  name=give_date_t  font.face="굴림" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="15780518" )
+text(band=header alignment="0" text="사용유효기간" border="6" color="0" x="1403" y="4" height="64" width="379"  name=t_2  font.face="굴림" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="15780518" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="2" color="0" x="5" y="4" height="72" width="425" format="[general]"  name=jumin edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="2" color="0" x="754" y="4" height="72" width="297" format="[general]"  name=c_money edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="2" color="0" x="443" y="4" height="72" width="297" format="[general]"  name=coupon_no  resizeable=1 edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="2" color="0" x="1065" y="4" height="72" width="320" format="[general]"  name=give_date  resizeable=1 editmask.mask="####-##-##" editmask.focusrectangle=no  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1403" y="4" height="72" width="366" format="[general]"  name=use_ymd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

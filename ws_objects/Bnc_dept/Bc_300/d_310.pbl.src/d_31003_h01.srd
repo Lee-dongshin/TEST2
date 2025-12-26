@@ -1,0 +1,23 @@
+﻿$PBExportHeader$d_31003_h01.srd
+$PBExportComments$생산 공정 진행 관리
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=152 color="536870912" )
+table(column=(type=char(6) updatewhereclause=no name=cust_cd dbname="cust_cd" )
+ column=(type=char(20) updatewhereclause=no name=cust_nm dbname="cust_nm" )
+ column=(type=char(8) updatewhereclause=no name=work_dt dbname="work_dt" )
+ column=(type=char(6) updatewhereclause=no name=date_nm dbname="date_nm" )
+ column=(type=char(2) updatewhereclause=no name=country_cd dbname="country_cd" initial="00" values="중국	06/중국	00" )
+ column=(type=decimal(0) updatewhereclause=no name=prot dbname="prot" )
+ )
+text(band=detail alignment="1" text="거 래 처:" border="0" color="0" x="0" y="0" height="68" width="274"  name=cust_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="5" color="0" x="507" y="0" height="60" width="466" format="[general]"  name=cust_nm edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="작업일자:" border="0" color="0" x="0" y="88" height="68" width="274"  name=work_dt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="293" y="0" height="64" width="192" format="[general]"  name=cust_cd edit.limit=6 edit.case=upper edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="1090519039~tif(prot = 1 ,rgb(230,230,210), rgb(255,255,255))" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="5" color="0" x="293" y="80" height="64" width="517" format="@@@@년 @@월  @@일"  name=work_dt edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="1090519039~tif(prot = 1 ,rgb(230,230,210), rgb(255,255,255))" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="5" color="0~tif(date_nm = '토요일',rgb(0,0,255),  if(date_nm = '일요일', rgb(255,0,0), rgb(0,0,0) ))" x="832" y="80" height="60" width="334" format="[general]"  name=date_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=30 border="5" color="255" x="997" y="8" height="52" width="169" format="[general]"  name=country_cd checkbox.text="중국" checkbox.on="06" checkbox.off="00" checkbox.lefttext=yes checkbox.scale=yes checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

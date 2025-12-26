@@ -1,0 +1,62 @@
+﻿$PBExportHeader$d_54006_d01.srd
+$PBExportComments$시즌Out부진등록
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=28 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes key=yes name=style dbname="tb_12020_m.style" )
+ column=(type=char(1) updatewhereclause=yes name=brand dbname="tb_12020_m.brand" )
+ column=(type=char(4) updatewhereclause=yes name=year dbname="tb_12020_m.year" )
+ column=(type=char(1) updatewhereclause=yes name=season dbname="tb_12020_m.season" )
+ column=(type=char(1) updatewhereclause=yes name=sojae dbname="tb_12020_m.sojae" )
+ column=(type=char(1) updatewhereclause=yes name=item dbname="tb_12020_m.item" )
+ column=(type=char(3) updatewhereclause=yes name=out_seq dbname="tb_12020_m.out_seq" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=dep_seq dbname="tb_12020_m.dep_seq" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=dep_ymd dbname="tb_12020_m.dep_ymd" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=dep_fg dbname="dep_fg" values="시즌Out	O/시즌Out	N" )
+ column=(type=char(30) updatewhereclause=yes name=style_info dbname="tb_12020_m.style_info" )
+ column=(type=char(6) updatewhereclause=yes name=reg_id dbname="tb_12020_m.reg_id" )
+ column=(type=datetime updatewhereclause=yes name=reg_dt dbname="tb_12020_m.reg_dt" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="tb_12020_m.mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="tb_12020_m.mod_dt" )
+ retrieve="  SELECT style,
+         brand,   
+         year,   
+         season,   
+         sojae,   
+         item,  
+         out_seq,   
+         dep_seq,   
+         dep_ymd,   
+         isnull(dep_fg,'N') as dep_fg,    
+         style_info,   
+         reg_id,   
+         reg_dt,
+         mod_id,   
+         mod_dt  
+    FROM tb_12020_m  
+   WHERE brand = :as_brand  
+	  AND year = :as_year  
+     AND season = :as_season  
+     AND sojae like :as_sojae  
+     AND item like :as_item  
+     AND out_seq like :as_out_seq    
+     AND dep_fg NOT IN  ('Y')     
+" update="tb_12020_m" updatewhere=1 updatekeyinplace=yes arguments=(("as_brand", string),("as_year", string),("as_season", string),("as_sojae", string),("as_item", string),("as_out_seq", string))  sort="out_seq A style A dep_fg A " )
+column(band=detail id=7 alignment="2" tabsequence=32766 border="5" color="0" x="5" y="4" height="60" width="229" format="[general]"  name=out_seq edit.limit=3 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="출고차수" border="6" color="0" x="5" y="8" height="60" width="229"  name=out_seq_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="품번" border="6" color="0" x="251" y="8" height="60" width="283"  name=style_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="5" color="0" x="251" y="4" height="60" width="283" format="[general]"  name=style edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="차수" border="6" color="0" x="553" y="8" height="60" width="114"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=8 alignment="2" tabsequence=0 border="5" color="0" x="553" y="4" height="60" width="114"  name=dep_seq  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+button(band=header text="전체선택"filename=""action="0" border="0" color="1090519039" x="1001" y="0" height="76" width="357" vtextalign="0" htextalign="0"  name=cb_allselect  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="32768" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="8800" y="4" height="60" width="809" format="[general]"  name=style_info edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="9609" y="4" height="60" width="165" format="[general]"  name=reg_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="9774" y="4" height="60" width="512" format="[shortdate] [time]"  name=reg_dt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=10 alignment="2" tabsequence=10 border="5" color="0" x="1006" y="4" height="60" width="338" format="[general]"  name=dep_fg checkbox.text="시즌Out" checkbox.on="O" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=9 alignment="2" tabsequence=0 border="5" color="0" x="686" y="4" height="60" width="311" format="@@@@/@@/@@"  name=dep_ymd  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="부진일자" border="6" color="0" x="686" y="8" height="60" width="311"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

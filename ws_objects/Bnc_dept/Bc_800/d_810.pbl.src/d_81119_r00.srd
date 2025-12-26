@@ -1,0 +1,21 @@
+﻿$PBExportHeader$d_81119_r00.srd
+$PBExportComments$역량평가출력
+release 7;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=5 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=708 color="536870912"  height.autosize=yes)
+table(column=(type=char(10) updatewhereclause=yes name=a dbname="a" )
+ unbound = "yes"arguments=(("yyyy", string),("empno", string),("jikgun_type", string),("first_staff", string),("second_staff", string),("flag", string)) )
+text(band=detail alignment="2" text="인사평가" border="4" color="0" x="1714" y="108" height="72" width="791"  name=t_title  font.face="굴림체" font.height="-12" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+report(band=detail dataobject="d_81119_r02" x="14" y="292" height="120" width="4315" border="0"  height.autosize=yes criteria="" nest_arguments=((" yyyy "),(" empno "),(" jikgun_type "),(" first_staff "),(" second_staff "),(" flag ")) trail_footer = yes  name=dw_2  slideup=directlyabove )
+report(band=detail dataobject="d_81119_r01" x="14" y="436" height="120" width="4315" border="0"  height.autosize=yes criteria="" nest_arguments=((" yyyy "),(" empno "),(" jikgun_type "),(" flag ")) trail_footer = yes  name=dw_1  slideup=directlyabove )
+report(band=detail dataobject="d_81119_r03" x="14" y="580" height="120" width="4315" border="0"  height.autosize=yes criteria="" nest_arguments=((" yyyy "),(" empno "),(" jikgun_type "),(" first_staff "),(" second_staff "),(" flag ")) trail_footer = yes  name=dw_3  slideup=directlyabove )
+text(band=detail alignment="2" text="-" border="0" color="0" x="3749" y="216" height="60" width="27"  name=t_16  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="-" border="0" color="0" x="3831" y="148" height="52" width="27"  name=t_17  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="~"Page: ~" + Fill(~"*~", 4 - Len(String(page()))) + page() + ~"/~" + Fill(~"*~", 4 - Len(String(pageCount()))) + pageCount()"border="0" color="0" x="3872" y="148" height="52" width="443" format="[GENERAL]"  name=compute_33  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="M99999" border="0" color="0" x="3543" y="216" height="60" width="192"  name=t_user_id  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="W_99999_E" border="0" color="0" x="3561" y="148" height="60" width="256"  name=t_pg_id  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="1999/99/99-99:99:99" border="0" color="0" x="3794" y="216" height="60" width="521"  name=t_datetime  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

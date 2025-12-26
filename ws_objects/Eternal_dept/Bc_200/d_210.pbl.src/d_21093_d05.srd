@@ -1,0 +1,41 @@
+﻿$PBExportHeader$d_21093_d05.srd
+$PBExportComments$케어라벨코드입력(POP - UP)
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=4 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(3) update=yes updatewhereclause=yes key=yes name=inter_grp dbname="TB_91011_C.INTER_GRP" )
+ column=(type=char(3) update=yes updatewhereclause=yes key=yes name=inter_cd dbname="TB_91011_C.INTER_CD" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=inter_nm dbname="TB_91011_C.INTER_NM" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=sort_seq dbname="TB_91011_C.SORT_SEQ" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=inter_cd1 dbname="TB_91011_C.INTER_CD1" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=inter_cd2 dbname="TB_91011_C.INTER_CD2" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=inter_data1 dbname="TB_91011_C.INTER_DATA1" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=inter_data2 dbname="TB_91011_C.INTER_DATA2" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="TB_91011_C.REG_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="TB_91011_C.REG_DT" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="TB_91011_C.MOD_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="TB_91011_C.MOD_DT" )
+ retrieve="  SELECT TB_91011_C.INTER_GRP,   
+         TB_91011_C.INTER_CD,   
+         TB_91011_C.INTER_NM,   
+         TB_91011_C.SORT_SEQ,   
+         TB_91011_C.INTER_CD1,   
+         TB_91011_C.INTER_CD2,   
+         TB_91011_C.INTER_DATA1,   
+         TB_91011_C.INTER_DATA2,   
+         TB_91011_C.REG_ID,   
+         TB_91011_C.REG_DT,   
+         TB_91011_C.MOD_ID,   
+         TB_91011_C.MOD_DT  
+    FROM TB_91011_C
+   WHERE TB_91011_C.INTER_GRP = :as_inter_grp;
+" update="TB_91011_C" updatewhere=1 updatekeyinplace=no arguments=(("as_inter_grp", string)) )
+text(band=header alignment="2" text="코드" border="6" color="0" x="9" y="8" height="64" width="206"  name=inter_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="코드명" border="6" color="0" x="224" y="8" height="64" width="864"  name=inter_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="5" color="0" x="9" y="4" height="64" width="206" format="[general]"  name=inter_cd edit.limit=3 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="5" color="0" x="224" y="4" height="64" width="864" format="[general]"  name=inter_nm edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

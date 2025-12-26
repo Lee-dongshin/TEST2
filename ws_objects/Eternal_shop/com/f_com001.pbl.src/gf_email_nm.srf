@@ -1,0 +1,24 @@
+﻿$PBExportHeader$gf_email_nm.srf
+global type gf_email_nm from function_object
+end type
+
+forward prototypes
+global function long gf_email_nm (string as_jumin, ref string as_email)
+end prototypes
+
+global function long gf_email_nm (string as_jumin, ref string as_email);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 작 성 일  : 2001/11/21                                     */
+/* 수 정 일  : 2001/11/21                                     */
+/* 내    용  : 프로그램명을 읽어온다.                         */
+/*============================================================*/
+
+SELECT dbo.sf_email_nm(:as_jumin)
+  INTO :as_email 
+  FROM DUAL ;
+
+IF ISNULL(as_email) THEN RETURN 100
+
+RETURN sqlca.sqlcode 
+end function
+

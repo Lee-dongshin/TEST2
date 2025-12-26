@@ -1,0 +1,18 @@
+﻿$PBExportHeader$d_33040_l01.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=64 color="536870912" )
+table(column=(type=char(12) updatewhereclause=yes name=cust_cd dbname="cust_cd" )
+ column=(type=char(30) updatewhereclause=yes name=cust_nm dbname="cust_nm" )
+ column=(type=char(1) updatewhereclause=yes name=stat dbname="stat" )
+ procedure="1 execute dbo.sp_33040_L01;1 @ps_brand = :ps_brand, @ps_year = :ps_year, @ps_season = :ps_season, @ps_value_cd = :ps_value_cd, @ps_cust_cd = :ps_cust_cd, @ps_sojae = :ps_sojae" arguments=(("ps_brand", string),("ps_year", string),("ps_season", string),("ps_value_cd", string),("ps_cust_cd", string),("ps_sojae", string)) )
+text(band=header alignment="2" text="번호" border="6" color="0" x="14" y="12" height="56" width="110"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="협력업체" border="6" color="0" x="137" y="12" height="56" width="663"  name=cust_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="137" y="4" height="56" width="201" format="[general]"  name=cust_cd edit.limit=12 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="29744337~tcase( stat when '1' then rgb(255,200,0) when '2' then rgb(0,200,255))" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="347" y="4" height="56" width="457" format="[general]"  name=cust_nm edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="29744337" )
+compute(band=detail alignment="0" expression="getrow()"border="6" color="0" x="9" y="4" height="56" width="110" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

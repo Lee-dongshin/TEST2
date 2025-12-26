@@ -1,0 +1,33 @@
+﻿$PBExportHeader$d_com470.srd
+$PBExportComments$품목할인차수
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=long updatewhereclause=yes name=input_time dbname="INPUT_TIME" )
+ column=(type=char(8) updatewhereclause=yes name=yymmdd dbname="tb_45052_h.YYMMDD" )
+ column=(type=char(14) updatewhereclause=yes name=display dbname="display" )
+ retrieve="SELECT DISTINCT datepart(hour, A.mod_dt) AS INPUT_TIME,
+		 YYMMDD,
+ 		 right(convert(char(04), 1000 + datepart(hour, A.mod_dt)),2) + '시(24시간)' as display
+	from  tb_45052_h a (NOLOCK)
+	where yymmdd = CONVERT(CHAR(08), GETDATE(), 112)
+union 
+SELECT DISTINCT datepart(hour, A.mod_dt) AS INPUT_TIME,
+		 YYMMDD,
+ 		 right(convert(char(04), 1000 + datepart(hour, A.mod_dt)),2) + '시(24시간)' as display
+	from  tb_45050_h a (NOLOCK)
+	where yymmdd = CONVERT(CHAR(08), GETDATE(), 112)
+UNION 
+SELECT  0, CONVERT(CHAR(08), GETDATE(), 112), '금일분전체' 
+ORDER BY 1" )
+text(band=header alignment="2" text="시간" border="6" color="0" x="9" y="4" height="56" width="128"  name=t_1  font.face="굴림" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="82899184" )
+text(band=header alignment="2" text="Display" border="6" color="0" x="146" y="4" height="56" width="416"  name=t_3  font.face="굴림" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="82899184" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="5" color="0" x="9" y="8" height="60" width="128" format="[general]"  name=input_time edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="82899184" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="5" color="0" x="146" y="8" height="60" width="416" format="[general]"  name=display edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="82899184" )
+column(band=detail id=2 alignment="0" tabsequence=0 border="0" color="0" x="576" y="0" height="56" width="206"  name=yymmdd  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="82899184" )
+text(band=header alignment="0" text="Yymmdd" border="0" color="0" x="571" y="4" height="76" width="210"  name=t_2  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

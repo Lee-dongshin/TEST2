@@ -1,0 +1,51 @@
+﻿$PBExportHeader$d_56401_d01.srd
+$PBExportComments$완불통제등록(스타일)
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes key=yes name=style dbname="tb_56040_m.style" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=brand dbname="tb_56040_m.brand" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=year dbname="tb_56040_m.year" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=season dbname="tb_56040_m.season" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=given_ymd dbname="tb_56040_m.given_ymd" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="tb_56040_m.Reg_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="tb_56040_m.Reg_Dt" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="tb_56040_m.Mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="tb_56040_m.Mod_Dt" )
+ column=(type=char(200) update=yes updatewhereclause=yes name=note dbname="tb_56040_m.note" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=work_gubn dbname="tb_56040_m.work_gubn" values="전체	A/판매	S/판매반품	T/출고	O/반품	R/해제	X/" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=gubn dbname="tb_56040_m.gubn" )
+ retrieve="select 
+	style,
+	brand,
+	year,
+	season,
+	given_ymd,
+	Reg_id,
+	Reg_Dt,
+	Mod_id,
+	Mod_Dt,
+	note,
+	work_gubn,
+	gubn
+from tb_56040_m (nolock)
+where brand = :as_brand
+and   year  like :as_year + '%'
+and   season like :as_season + '%'
+and   gubn	 =   :as_gubn
+" update="tb_56040_m" updatewhere=1 updatekeyinplace=no arguments=(("as_brand", string),("as_year", string),("as_season", string),("as_gubn", string)) )
+text(band=header alignment="2" text="스타일" border="6" color="0" x="165" y="4" height="60" width="416"  name=style_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="적용일" border="6" color="0" x="594" y="4" height="60" width="357"  name=given_ymd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="순번" border="6" color="0" x="5" y="4" height="60" width="146"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="제한작업" border="6" color="0" x="965" y="4" height="60" width="288"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+text(band=header alignment="2" text="비고" border="6" color="0" x="1266" y="4" height="60" width="1390"  name=to_stop_date_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="0" x="165" y="4" height="60" width="416" format="@@@@-@@@@" protect="0~tif(isRowNew(), 0, 1)"  name=style  tag="oe" edit.limit=8 edit.case=upper edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="2" tabsequence=20 border="0" color="0" x="594" y="4" height="60" width="357" format="[general]"  name=given_ymd editmask.mask="XXXX.XX.XX" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+compute(band=detail alignment="2" expression="getrow()"border="6" color="0" x="9" y="4" height="56" width="142" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=11 alignment="0" tabsequence=30 border="0" color="0" x="965" y="4" height="60" width="288" format="[general]"  name=work_gubn ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.showlist=yes ddlb.useasborder=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=40 border="0" color="0" x="1266" y="4" height="60" width="1390" format="[general]"  name=note edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

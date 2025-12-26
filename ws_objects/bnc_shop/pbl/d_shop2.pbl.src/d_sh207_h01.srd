@@ -1,0 +1,20 @@
+﻿$PBExportHeader$d_sh207_h01.srd
+$PBExportComments$고객현황
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=144 color="536870912" )
+table(column=(type=char(4) updatewhereclause=no name=event_id dbname="event_id" )
+ column=(type=char(6) updatewhereclause=no name=coupon_no dbname="coupon_no" )
+ column=(type=char(3) updatewhereclause=no name=jumin dbname="jumin" )
+ column=(type=char(6) updatewhereclause=no name=verify_no dbname="verify_no" )
+ )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="178" y="48" height="56" width="786" format="[general]"  name=event_id dddw.name=d_71037_ddw dddw.displaycolumn=compute_1 dddw.datacolumn=event_id dddw.percentwidth=0 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="행사" border="0" color="0" x="18" y="48" height="56" width="137"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="인증 번호" border="0" color="0" x="1038" y="48" height="56" width="311"  name=shop_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="2" tabsequence=20 border="5" color="0" x="1367" y="48" height="56" width="347" format="[general]"  name=verify_no edit.limit=0 edit.case=upper edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="5" color="0" x="2309" y="48" height="56" width="142" format="[general]"  name=jumin  tag="ON" edit.limit=3 edit.case=upper edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="고유번호뒤 3자리" border="0" color="0" x="1714" y="48" height="56" width="576"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

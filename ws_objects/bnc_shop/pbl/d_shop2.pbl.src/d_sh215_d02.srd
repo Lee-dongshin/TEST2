@@ -1,0 +1,54 @@
+﻿$PBExportHeader$d_sh215_d02.srd
+$PBExportComments$매장고객정보문자발송
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=148 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=224 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=yymmdd dbname="TB_71085_H.yymmdd" )
+ column=(type=char(4) updatewhereclause=yes name=rqst_no dbname="TB_71085_H.rqst_no" )
+ column=(type=long updatewhereclause=yes name=cnt dbname="cnt" )
+ column=(type=char(8) updatewhereclause=yes name=snd_ymd dbname="TB_71085_H.snd_ymd" )
+ column=(type=char(80) updatewhereclause=yes name=sms_contents dbname="TB_71085_H.sms_contents" )
+ column=(type=char(1) updatewhereclause=yes name=accept_send dbname="TB_71085_H.accept_send" values="발송예정	Y/미발송	N/매장취소	C/발송완료	Z/" )
+ column=(type=char(1) updatewhereclause=yes name=biz_chk dbname="TB_71085_H.biz_chk" values="영업승인	Y/영업승인	N" )
+ column=(type=char(1) updatewhereclause=yes name=crm_chk dbname="TB_71085_H.crm_chk" values="CRM승인	Y/CRM승인	N" )
+ column=(type=char(100) updatewhereclause=yes name=biz_reason dbname="TB_71085_H.biz_reason" )
+ column=(type=char(100) updatewhereclause=yes name=crm_reason dbname="TB_71085_H.crm_reason" )
+ column=(type=char(1) updatewhereclause=yes name=accept_send dbname="TB_71085_H.accept_send" )
+ retrieve="select yymmdd, rqst_no, count(jumin) as cnt, snd_ymd, sms_contents, accept_send,
+		biz_chk, crm_chk, biz_reason,crm_reason,accept_send
+
+from tb_71085_h (nolock)
+where yymmdd >= substring(:as_yymmdd,1,6) + '01'
+and   yymmdd <= substring(:as_yymmdd,1,6) + '31'
+and   shop_cd = :as_shop_cd
+group by yymmdd, rqst_no,  snd_ymd, sms_contents, accept_send,
+		biz_chk, crm_chk, biz_reason,crm_reason,accept_send" arguments=(("as_yymmdd", string),("as_shop_cd", string)) )
+text(band=header alignment="2" text="요청일자" border="6" color="0" x="9" y="8" height="132" width="302"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+text(band=header alignment="2" text="요청번호" border="6" color="0" x="325" y="8" height="132" width="256"  name=rqst_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="대상수" border="6" color="0" x="594" y="8" height="132" width="187"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="예정일" border="6" color="0" x="795" y="8" height="132" width="329"  name=snd_ymd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="승인부서" border="6" color="0" x="1138" y="80" height="60" width="352"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+text(band=header alignment="2" text="문자내용" border="6" color="0" x="1138" y="8" height="60" width="2222"  name=sms_contents_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="발송여부" border="6" color="0" x="3374" y="8" height="60" width="283"  name=accept_send_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="의견 또는 미발송 사유" border="6" color="0" x="1504" y="80" height="60" width="2153"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1138" y="4" height="60" width="2222" format="[general]"  name=sms_contents edit.limit=80 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33356516" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="0" color="0" x="3374" y="4" height="60" width="283" format="[general]"  name=accept_send ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33356516" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="795" y="4" height="60" width="329" format="[general]"  name=snd_ymd edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33356516" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="594" y="4" height="60" width="187" format="[general]"  name=cnt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33356516" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="325" y="4" height="60" width="256" format="[general]"  name=rqst_no edit.limit=4 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33356516" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="9" y="4" height="60" width="302" format="@@@@/@@/@@"  name=yymmdd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33356516" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="5970" y="72" height="56" width="27" format="[general]"  name=accept_send_1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33356516" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="16711680" x="1504" y="76" height="60" width="2153" format="[general]"  name=biz_reason edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33413626" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="16711680" x="1504" y="148" height="60" width="2153" format="[general]"  name=crm_reason edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33413626" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="16711680" x="1138" y="76" height="60" width="352" format="[general]"  name=biz_chk checkbox.text="영업승인" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33413626" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="16711680" x="1138" y="148" height="60" width="352" format="[general]"  name=crm_chk checkbox.text="CRM승인" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33413626" )
+button(band=detail text="요청취소"filename=""action="0" border="0" color="65535" x="5" y="72" height="76" width="320" vtextalign="0" htextalign="0"  name=cb_cancel visible="1~tif( accept_send = ~"N~", 1,0)"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421376" )
+text(band=detail alignment="0" text="<-- 취소후 재요청은" border="0" color="255" x="334" y="80" height="56" width="741"  name=t_5 visible="1~tif( accept_send = ~"N~", 1,0)"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+text(band=detail alignment="0" text="불가능합니다." border="0" color="255" x="462" y="148" height="56" width="581"  name=t_6 visible="1~tif( accept_send = ~"N~", 1,0)"  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+line(band=detail x1="23" y1="216" x2="3657" y2="216"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="23" y1="220" x2="3657" y2="220"  name=l_2 pen.style="0" pen.width="5" pen.color="16777215"  background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

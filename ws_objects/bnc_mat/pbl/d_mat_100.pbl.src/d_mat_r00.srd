@@ -1,0 +1,13 @@
+﻿$PBExportHeader$d_mat_r00.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=5 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=652 color="536870912"  height.autosize=yes)
+table(column=(type=char(10) updatewhereclause=yes name=a dbname="a" )
+ unbound = "yes"arguments=(("mat_cd", string),("seq", number)) )
+text(band=detail alignment="2" text="시험분석결과통보서" border="4" color="0" x="1326" y="160" height="72" width="727"  name=t_1  font.face="굴림체" font.height="-12" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+report(band=detail dataobject="d_mat_r01" x="23" y="356" height="120" width="4187" border="0"  height.autosize=yes criteria="" nest_arguments=((" mat_cd "),(" seq ")) trail_footer = yes  name=dw_01  slideup=directlyabove )
+report(band=detail dataobject="d_mat_r02" x="23" y="516" height="120" width="4187" border="0"  height.autosize=yes criteria="" nest_arguments=((" mat_cd "),(" seq ")) trail_footer = yes  name=dw_02  slideup=directlyabove )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

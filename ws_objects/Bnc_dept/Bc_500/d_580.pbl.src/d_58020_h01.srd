@@ -1,0 +1,19 @@
+﻿$PBExportHeader$d_58020_h01.srd
+$PBExportComments$중국미수금정리
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=128 color="536870912" )
+table(column=(type=char(1) updatewhereclause=no name=brand dbname="brand" )
+ column=(type=char(8) updatewhereclause=no name=fr_yymmdd dbname="fr_yymmdd" )
+ column=(type=char(8) updatewhereclause=no name=to_yymmdd dbname="to_yymmdd" )
+ column=(type=decimal(2) updatewhereclause=no name=usd_rate dbname="usd_rate" )
+ column=(type=char(1) updatewhereclause=no name=gubn dbname="gubn" initial="%" values="전체	%/제품	1/원자재	2/부자재	3/" )
+ )
+text(band=detail alignment="2" text="~~" border="0" color="0" x="731" y="36" height="56" width="32"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=20 border="5" color="0" x="398" y="36" height="60" width="315" format="@@@@/@@/@@"  name=fr_yymmdd edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="2" tabsequence=30 border="5" color="0" x="782" y="36" height="60" width="315" format="@@@@/@@/@@"  name=to_yymmdd edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="조회기간" border="0" color="0" x="128" y="36" height="56" width="251"  name=fr_yymmdd_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

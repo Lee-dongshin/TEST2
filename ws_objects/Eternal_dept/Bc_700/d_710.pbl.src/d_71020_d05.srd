@@ -1,0 +1,22 @@
+﻿$PBExportHeader$d_71020_d05.srd
+$PBExportComments$이벤트진행내역
+release 7;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=5 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=204 color="536870912" )
+summary(height=1696 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=288 color="536870912"  height.autosize=yes)
+table(column=(type=char(10) updatewhereclause=yes name=a dbname="a" )
+ unbound = "yes"arguments=(("fr_yymmdd", string),("to_yymmdd", string)) )
+text(band=header alignment="2" text="구매할인권 이벤트 진행내역" border="1" color="0" x="1367" y="52" height="104" width="1376"  name=t_3  font.face="Arial" font.height="-14" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+report(band=detail dataobject="d_71020_d04" x="41" y="148" height="120" width="4805" border="0"  height.autosize=yes criteria="" nest_arguments=((" fr_yymmdd "),(" to_yymmdd ")) trail_footer = yes  name=dw_1  slideleft=yes  slideup=directlyabove )
+text(band=detail alignment="2" text="[구매할인권 매출]" border="0" color="0" x="55" y="44" height="76" width="626"  name=t_2  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="text~t fr_yymmdd " border="0" color="0" x="699" y="44" height="76" width="343"  name=t_4  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="~~" border="0" color="0" x="1065" y="44" height="76" width="82"  name=t_6  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="0" text="text~t to_yymmdd " border="0" color="0" x="1184" y="44" height="76" width="343"  name=t_5  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="누계" border="0" color="0" x="1550" y="44" height="76" width="178"  name=t_7  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="[단위:천원]" border="0" color="0" x="3534" y="72" height="56" width="357"  name=t_8  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=summary alignment="2" text="[일자별 회수수량]" border="0" color="0" x="55" y="16" height="76" width="617"  name=t_1  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+report(band=summary dataobject="d_71020_d03" x="41" y="116" height="120" width="1198" border="0"  height.autosize=yes criteria="" nest_arguments=((" fr_yymmdd "),(" to_yymmdd ")) trail_footer = yes  name=dw_2  slideleft=yes  slideup=directlyabove )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

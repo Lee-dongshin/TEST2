@@ -1,0 +1,49 @@
+﻿$PBExportHeader$d_91026_d01.srd
+$PBExportComments$88바코드 관리
+release 7;
+datawindow(units=0 timer_interval=0 color=82899184 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=128 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(9) update=yes updatewhereclause=yes key=yes name=style_no dbname="tb_cosmetic_barcode.style_no" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=color dbname="tb_cosmetic_barcode.color" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=size dbname="tb_cosmetic_barcode.size" )
+ column=(type=char(13) update=yes updatewhereclause=yes name=barcode dbname="tb_cosmetic_barcode.barcode" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=brand dbname="tb_cosmetic_barcode.brand" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="tb_cosmetic_barcode.REG_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="tb_cosmetic_barcode.REG_DT" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="tb_cosmetic_barcode.MOD_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="tb_cosmetic_barcode.MOD_DT" )
+ retrieve="  SELECT dbo.tb_cosmetic_barcode.style_no,   
+			dbo.tb_cosmetic_barcode.color,
+			dbo.tb_cosmetic_barcode.size,
+         dbo.tb_cosmetic_barcode.barcode,
+			dbo.tb_cosmetic_barcode.brand,   
+         dbo.tb_cosmetic_barcode.REG_ID,   
+         dbo.tb_cosmetic_barcode.REG_DT,   
+         dbo.tb_cosmetic_barcode.MOD_ID,   
+         dbo.tb_cosmetic_barcode.MOD_DT  
+    FROM dbo.tb_cosmetic_barcode   
+where dbo.tb_cosmetic_barcode.brand like :as_brand + '%'" update="dbo.tb_cosmetic_barcode" updatewhere=1 updatekeyinplace=no arguments=(("as_brand", string)) )
+text(band=header alignment="2" text="Style+Chno
+(품번+차수)" border="6" color="0" x="50" y="8" height="112" width="434"  name=style_no_t  font.face="새굴림" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="color" border="6" color="0" x="498" y="8" height="112" width="174"  name=color_t  font.face="새굴림" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="size" border="6" color="0" x="690" y="8" height="112" width="288"  name=size_t  font.face="새굴림" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Barcode
+(88코드)" border="6" color="0" x="997" y="4" height="112" width="439"  name=barcode_t  font.face="새굴림" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="등록자" border="6" color="0" x="1454" y="8" height="112" width="247"  name=reg_id_t visible="1~t0"  font.face="새굴림" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="등록일자" border="6" color="0" x="1719" y="8" height="112" width="658"  name=reg_dt_t visible="1~t0"  font.face="새굴림" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="수정자" border="6" color="0" x="2395" y="8" height="112" width="247"  name=mod_id_t visible="1~t0"  font.face="새굴림" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="수정일자" border="6" color="0" x="2661" y="8" height="112" width="658"  name=mod_dt_t visible="1~t0"  font.face="새굴림" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="41" y="8" height="60" width="439" format="[general]"  name=style_no edit.limit=9 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="새굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="498" y="8" height="60" width="174" format="[general]"  name=color edit.limit=0 edit.case=any edit.autoselect=yes  font.face="새굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="5" color="0" x="690" y="8" height="60" width="288" format="[general]"  name=size edit.limit=0 edit.case=any edit.autoselect=yes  font.face="새굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="5" color="0" x="997" y="8" height="60" width="439" format="[general]"  name=barcode edit.limit=13 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="새굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="3342" y="8" height="60" width="101" format="[general]"  name=brand visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="새굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="5" color="0" x="1454" y="8" height="60" width="247" format="[general]"  name=reg_id visible="1~t0" edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="새굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="82899184" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="5" color="0" x="1719" y="8" height="60" width="658" format="[shortdate] [time]"  name=reg_dt visible="1~t0" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="새굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="82899184" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="5" color="0" x="2395" y="8" height="60" width="247" format="[general]"  name=mod_id visible="1~t0" edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="새굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="82899184" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="5" color="0" x="2661" y="8" height="60" width="658" format="[shortdate] [time]"  name=mod_dt visible="1~t0" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="새굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="82899184" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

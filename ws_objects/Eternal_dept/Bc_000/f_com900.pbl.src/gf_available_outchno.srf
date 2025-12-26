@@ -1,0 +1,26 @@
+﻿$PBExportHeader$gf_available_outchno.srf
+global type gf_available_outchno from function_object
+end type
+
+forward prototypes
+global function integer gf_available_outchno (string as_style, string as_chno, string as_color, string as_size, string as_house_cd, ref string as_out_chno)
+end prototypes
+
+global function integer gf_available_outchno (string as_style, string as_chno, string as_color, string as_size, string as_house_cd, ref string as_out_chno);/*============================================================*/
+/* 작 성 자  :                                                */
+/* 작 성 일  : 2002/06/27                                     */
+/* 수 정 일  :                                                */
+/* 내    용  : 출고가능 제품 차수.                            */
+/*============================================================*/
+
+SELECT dbo.sf_available_out_chno(:as_style, :as_chno, :as_color, :as_size, :as_house_cd)
+  INTO :as_out_chno 
+  FROM DUAL ;
+
+
+IF ISNULL(as_out_chno) THEN RETURN 100
+
+RETURN sqlca.sqlcode 
+
+end function
+

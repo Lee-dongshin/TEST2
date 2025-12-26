@@ -1,0 +1,54 @@
+﻿$PBExportHeader$d_11081_d02.srd
+$PBExportComments$판관비실적(data저장용)
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=char(6) update=yes updatewhereclause=yes key=yes name=yymm dbname="tb_11081_d.yymm" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=brand dbname="tb_11081_d.brand" )
+ column=(type=char(2) update=yes updatewhereclause=yes key=yes name=country dbname="tb_11081_d.country" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=sale_acc dbname="tb_11081_d.sale_acc" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=general_acc dbname="tb_11081_d.general_acc" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=stock_sale dbname="tb_11081_d.stock_sale" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="tb_11081_d.reg_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="tb_11081_d.reg_dt" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="tb_11081_d.mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="tb_11081_d.mod_dt" )
+ retrieve="select  yymm,
+		brand,
+		country,
+		sale_acc,
+		general_acc,
+	   stock_sale,
+		reg_id,
+		reg_dt,
+		mod_id,
+		mod_dt
+from    tb_11081_d with (nolock)
+where   brand = :ps_brand
+and	  yymm  like :ps_yyyy + '%'
+and     country = :ps_country;" update="tb_11081_d" updatewhere=1 updatekeyinplace=no arguments=(("ps_brand", string),("ps_yyyy", string),("ps_country", string)) )
+text(band=header alignment="0" text="Yymm" border="0" color="0" x="9" y="4" height="56" width="183"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Brand" border="0" color="0" x="201" y="4" height="56" width="23"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Country" border="0" color="0" x="233" y="4" height="56" width="55"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Sale Acc" border="0" color="0" x="297" y="4" height="56" width="411"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="General Acc" border="0" color="0" x="718" y="4" height="56" width="549"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Reg Id" border="0" color="0" x="1275" y="4" height="56" width="183"  name=t_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Reg Dt" border="0" color="0" x="1467" y="4" height="56" width="599"  name=t_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Mod Id" border="0" color="0" x="2075" y="4" height="56" width="183"  name=t_8  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Mod Dt" border="0" color="0" x="2267" y="4" height="56" width="599"  name=t_9  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Stock Sale" border="0" color="0" x="2875" y="4" height="76" width="617"  name=t_10  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="0" height="76" width="183" format="[general]"  name=yymm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="201" y="0" height="76" width="23" format="[general]"  name=brand edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="233" y="0" height="76" width="55" format="[general]"  name=country edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="297" y="0" height="76" width="411" format="[general]"  name=sale_acc edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="718" y="0" height="76" width="549" format="[general]"  name=general_acc edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="1275" y="0" height="76" width="183" format="[general]"  name=reg_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="1467" y="0" height="76" width="599" format="[shortdate] [time]"  name=reg_dt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="2075" y="0" height="76" width="183" format="[general]"  name=mod_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="2267" y="0" height="76" width="599" format="[shortdate] [time]"  name=mod_dt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="2875" y="0" height="56" width="617" format="[general]"  name=stock_sale edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

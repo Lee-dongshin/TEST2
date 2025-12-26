@@ -1,0 +1,129 @@
+﻿$PBExportHeader$d_12023_d02.srd
+$PBExportComments$디자인 단계별 진행일지
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=132 color="536870912" )
+summary(height=36 color="536870912" )
+footer(height=88 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(1) updatewhereclause=no name=brand dbname="brand" )
+ column=(type=char(4) updatewhereclause=no name=year dbname="year" )
+ column=(type=char(1) updatewhereclause=no name=season dbname="season" )
+ column=(type=char(1) updatewhereclause=no name=item dbname="item" )
+ column=(type=long updatewhereclause=no name=mod_cnt dbname="mod_cnt" )
+ column=(type=long updatewhereclause=no name=add_mod_cnt dbname="add_mod_cnt" )
+ column=(type=long updatewhereclause=no name=step_0 dbname="step_0" )
+ column=(type=long updatewhereclause=no name=step_1 dbname="step_1" )
+ column=(type=long updatewhereclause=no name=step_2 dbname="step_2" )
+ column=(type=long updatewhereclause=no name=step_3 dbname="step_3" )
+ column=(type=long updatewhereclause=no name=step_4 dbname="step_4" )
+ column=(type=long updatewhereclause=no name=step_5 dbname="step_5" )
+ column=(type=long updatewhereclause=no name=step_6 dbname="step_6" )
+ column=(type=long updatewhereclause=no name=step_7 dbname="step_7" )
+ column=(type=long updatewhereclause=no name=step_8 dbname="step_8" )
+ column=(type=long updatewhereclause=no name=ord_qc dbname="ord_qc" )
+ column=(type=long updatewhereclause=no name=re_qc dbname="re_qc" )
+ column=(type=long updatewhereclause=no name=in_qc dbname="in_qc" )
+ column=(type=long updatewhereclause=no name=qc_fix dbname="qc_fix" )
+ column=(type=long updatewhereclause=no name=cading dbname="cading" )
+ column=(type=long updatewhereclause=no name=cad dbname="cad" )
+ column=(type=long updatewhereclause=no name=style dbname="style" )
+ column=(type=long updatewhereclause=no name=out_style dbname="out_style" )
+ column=(type=long updatewhereclause=no name=in_style dbname="in_style" )
+ column=(type=char(30) updatewhereclause=no name=item_nm dbname="item_nm" )
+ procedure="1 execute dbo.sp_12023_d02;1 @brand = :brand, @year = :year, @season = :season" arguments=(("brand", string),("year", string),("season", string)) )
+text(band=header alignment="2" text="
+품종" border="6" color="0" x="0" y="8" height="112" width="503"  name=brand_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+진행율" border="6" color="0" x="1358" y="8" height="112" width="178"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="패턴제작
+(패턴)" border="6" color="0" x="1550" y="8" height="112" width="251"  name=step_1_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="샘플완성
+(샘플)" border="6" color="0" x="2610" y="8" height="112" width="251"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="품평회
+(M D)" border="6" color="0" x="2875" y="8" height="112" width="251"  name=step_5_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+진도률" border="6" color="0" x="3671" y="8" height="112" width="197"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="QC 투입
+(생산)" border="6" color="0" x="3881" y="8" height="112" width="251"  name=ord_qc_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="재 QC
+(생산)" border="6" color="0" x="4146" y="8" height="112" width="251"  name=re_qc_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="QC 입고
+(디자인)" border="6" color="0" x="4411" y="8" height="112" width="251"  name=in_qc_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="QC수정
+(패턴)" border="6" color="0" x="4677" y="8" height="112" width="251"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="CAD 접수
+(CAD)" border="6" color="0" x="4942" y="8" height="112" width="251"  name=cading_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="CAD 완료
+(CAD)" border="6" color="0" x="5207" y="8" height="112" width="251"  name=cad_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="작지등록
+(MD)" border="6" color="0" x="5472" y="8" height="112" width="251"  name=style_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="생산투입
+(생산)" border="6" color="0" x="5737" y="8" height="112" width="251"  name=out_style_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="생산입고
+(생산)" border="6" color="0" x="6002" y="8" height="112" width="251"  name=in_style_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+계획모델수" border="6" color="0" x="517" y="8" height="112" width="288"  name=mod_cnt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+진행모델수" border="6" color="0" x="818" y="8" height="112" width="261"  name=add_mod_cnt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="스케치
+(디자인)" border="6" color="0" x="1093" y="8" height="112" width="251"  name=step_0_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="완봉수정
+(디자인)" border="6" color="0" x="3141" y="8" height="112" width="251"  name=step_6_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="완봉수정
+(패턴)" border="6" color="0" x="3406" y="8" height="112" width="251"  name=t_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="step_0 / add_mod_cnt"border="0" color="255" x="1358" y="8" height="60" width="178" format="0.0%"  name=compute_12  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30924251" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="517" y="8" height="60" width="288" format="#,###"  name=mod_cnt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="818" y="8" height="60" width="261" format="#,###"  name=add_mod_cnt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+compute(band=detail alignment="1" expression="step_6 /mod_cnt"border="0" color="255" x="3671" y="8" height="60" width="197" format="0.0%"  name=compute_18  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30924251" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="1093" y="8" height="60" width="251" format="#,###"  name=step_0 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30992117" )
+column(band=detail id=11 alignment="1" tabsequence=32766 border="0" color="0" x="2345" y="8" height="60" width="251" format="#,###"  name=step_4 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="29814523" )
+column(band=detail id=14 alignment="1" tabsequence=32766 border="0" color="0" x="3141" y="8" height="60" width="251" format="#,###"  name=step_7 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="29814523" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="1550" y="8" height="60" width="251" format="#,###"  name=step_1 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="29814523" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="0" color="0" x="2080" y="8" height="60" width="251" format="#,###"  name=step_3 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="29814523" )
+column(band=detail id=15 alignment="1" tabsequence=32766 border="0" color="0" x="3406" y="8" height="60" width="251" format="#,###"  name=step_8 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="29814523" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="1815" y="8" height="60" width="251" format="#,###"  name=step_2 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="29814523" )
+column(band=detail id=12 alignment="1" tabsequence=32766 border="0" color="0" x="2610" y="8" height="60" width="251" format="#,###"  name=step_5 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="29814523" )
+column(band=detail id=13 alignment="1" tabsequence=32766 border="0" color="0" x="2875" y="8" height="60" width="251" format="#,###"  name=step_6 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="29814523" )
+column(band=detail id=20 alignment="1" tabsequence=32766 border="0" color="0" x="4942" y="8" height="60" width="251" format="#,###"  name=cading edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="31191779" )
+column(band=detail id=21 alignment="1" tabsequence=32766 border="0" color="0" x="5207" y="8" height="60" width="251" format="#,###"  name=cad edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="31191779" )
+column(band=detail id=18 alignment="1" tabsequence=32766 border="0" color="0" x="4411" y="8" height="60" width="251" format="#,###"  name=in_qc edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="31191779" )
+column(band=detail id=19 alignment="1" tabsequence=32766 border="0" color="0" x="4677" y="8" height="60" width="251" format="#,###"  name=qc_fix edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31191779" )
+column(band=detail id=16 alignment="1" tabsequence=32766 border="0" color="0" x="3881" y="8" height="60" width="251" format="#,###"  name=ord_qc edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="31191779" )
+column(band=detail id=17 alignment="1" tabsequence=32766 border="0" color="0" x="4146" y="8" height="60" width="251" format="#,###"  name=re_qc edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="31191779" )
+column(band=detail id=22 alignment="1" tabsequence=32766 border="0" color="0" x="5472" y="8" height="60" width="251" format="#,###"  name=style edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="31578876" )
+column(band=detail id=23 alignment="1" tabsequence=32766 border="0" color="0" x="5737" y="8" height="60" width="251" format="#,###"  name=out_style edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="31578876" )
+column(band=detail id=24 alignment="1" tabsequence=32766 border="0" color="0" x="6002" y="8" height="60" width="251" format="#,###"  name=in_style edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="31578876" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="60" width="37" format="[general]"  name=item edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=25 alignment="0" tabsequence=32766 border="0" color="0" x="55" y="8" height="60" width="448" format="[general]"  name=item_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+compute(band=footer alignment="1" expression="sum(add_mod_cnt for all)"border="0" color="0" x="818" y="16" height="60" width="261" format="#,###"  name=add_mod_cnt_all  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+compute(band=footer alignment="1" expression="sum(mod_cnt for all)"border="0" color="0" x="517" y="16" height="60" width="288" format="#,###"  name=mod_cnt_all  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=footer alignment="0" text="총계:" border="0" color="0" x="0" y="16" height="60" width="503"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+compute(band=footer alignment="1" expression="step_0_all / add_mod_cnt_all"border="0" color="255" x="1358" y="16" height="60" width="178" format="0.0%"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30924251" )
+compute(band=footer alignment="1" expression="step_6_all / mod_cnt_all"border="0" color="255" x="3671" y="16" height="60" width="197" format="0.0%"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30924251" )
+compute(band=footer alignment="1" expression="sum(step_0 for all)"border="0" color="0" x="1093" y="16" height="60" width="251" format="#,###"  name=step_0_all  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30992117" )
+compute(band=footer alignment="1" expression="sum(step_4 for all)"border="0" color="0" x="2345" y="16" height="60" width="251" format="#,###"  name=compute_10  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="29814523" )
+compute(band=footer alignment="1" expression="sum(step_7 for all)"border="0" color="0" x="3141" y="16" height="60" width="251" format="#,###"  name=compute_19  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="29814523" )
+compute(band=footer alignment="1" expression="sum(step_1 for all)"border="0" color="0" x="1550" y="16" height="60" width="251" format="#,###"  name=compute_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="29814523" )
+compute(band=footer alignment="1" expression="sum(step_3 for all)"border="0" color="0" x="2080" y="16" height="60" width="251" format="#,###"  name=compute_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="29814523" )
+compute(band=footer alignment="1" expression="sum(step_8 for all)"border="0" color="0" x="3406" y="16" height="60" width="251" format="#,###"  name=compute_20  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="29814523" )
+compute(band=footer alignment="1" expression="sum(step_2 for all)"border="0" color="0" x="1815" y="16" height="60" width="251" format="#,##0"  name=compute_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="29814523" )
+compute(band=footer alignment="1" expression="sum(step_5 for all)"border="0" color="0" x="2610" y="16" height="60" width="251" format="#,###"  name=compute_11  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="29814523" )
+compute(band=footer alignment="1" expression="sum(step_6 for all)"border="0" color="0" x="2875" y="16" height="60" width="251" format="#,###"  name=step_6_all  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="29814523" )
+compute(band=footer alignment="1" expression="sum(cading for all)"border="0" color="0" x="4942" y="16" height="60" width="251" format="#,###"  name=compute_16  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31191779" )
+compute(band=footer alignment="1" expression="sum(cad for all)"border="0" color="0" x="5207" y="16" height="60" width="251" format="#,###"  name=compute_17  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31191779" )
+compute(band=footer alignment="1" expression="sum(in_qc for all)"border="0" color="0" x="4411" y="16" height="60" width="251" format="#,###"  name=compute_15  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31191779" )
+compute(band=footer alignment="1" expression="sum(qc_fix for all)"border="0" color="0" x="4677" y="16" height="60" width="251" format="#,###"  name=compute_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31191779" )
+compute(band=footer alignment="1" expression="sum(ord_qc for all)"border="0" color="0" x="3881" y="16" height="60" width="251" format="#,###"  name=compute_13  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31191779" )
+compute(band=footer alignment="1" expression="sum(re_qc for all)"border="0" color="0" x="4146" y="16" height="60" width="251" format="#,###"  name=compute_14  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31191779" )
+compute(band=footer alignment="1" expression="sum(style for all)"border="0" color="0" x="5472" y="16" height="60" width="251" format="#,###"  name=compute_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31578876" )
+compute(band=footer alignment="1" expression="sum(out_style for all)"border="0" color="0" x="5737" y="16" height="60" width="251" format="#,###"  name=compute_8  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31578876" )
+compute(band=footer alignment="1" expression="sum(in_style for all)"border="0" color="0" x="6002" y="16" height="60" width="251" format="#,###"  name=compute_9  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31578876" )
+text(band=header alignment="2" text="가봉
+(샘플)" border="6" color="0" x="1815" y="8" height="112" width="251"  name=step_2_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="가봉수정
+(디자인)" border="6" color="0" x="2080" y="8" height="112" width="251"  name=step_3_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="가봉수정
+(패턴)" border="6" color="0" x="2345" y="8" height="112" width="251"  name=step_4_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,23 @@
+﻿$PBExportHeader$d_sh119_d01_old.srd
+$PBExportComments$출고상품 매장 인기도 분석
+release 7;
+datawindow(units=0 timer_interval=0 color=30334177 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=84 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes key=yes name=yymmdd dbname="yymmdd" )
+ column=(type=char(6) updatewhereclause=yes key=yes name=shop_cd dbname="shop_cd" )
+ column=(type=char(8) updatewhereclause=yes key=yes name=style dbname="style" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=feeling dbname="feeling" values="	10/	5/	0/	-5/	-10/" )
+ column=(type=char(60) updatewhereclause=yes name=pic dbname="pic" )
+ column=(type=datetime updatewhereclause=yes name=mod_dt dbname="mod_dt" )
+ procedure="1 execute dbo.sp_sh119_d01;1 @yymmdd = :yymmdd, @shop_cd = :shop_cd, @style = :style, @flag = :flag" update="tb_42080_h" updatewhere=0 updatekeyinplace=yes arguments=(("yymmdd", string),("shop_cd", string),("style", string),("flag", string)) )
+text(band=header alignment="2" text="인기<-----> 부진" border="6" color="0" x="407" y="12" height="60" width="741"  name=feeling_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+text(band=header alignment="2" text="스타일" border="6" color="0" x="9" y="12" height="60" width="379"  name=style_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=4 alignment="1" tabsequence=10 border="5" color="0" x="407" y="4" height="60" width="736" format="[general]"  name=feeling radiobuttons.columns=5 radiobuttons.scale=yes radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="6" color="16777215" x="9" y="0" height="64" width="379" format="[general]"  name=style edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="돋움체" font.height="-11" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="128" )
+button(band=footer text="사진보기"filename=""action="0" border="0" color="128" x="5" y="0" height="80" width="293" vtextalign="0" htextalign="0"  name=b_photo  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+button(band=footer text="투표"filename=""action="0" border="0" color="16777215" x="955" y="0" height="80" width="197" vtextalign="0" htextalign="0"  name=b_exit  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="32768" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

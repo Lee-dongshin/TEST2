@@ -1,0 +1,26 @@
+﻿$PBExportHeader$gf_item_nm2.srf
+$PBExportComments$품종명을 읽어온다.
+global type gf_item_nm2 from function_object
+end type
+
+forward prototypes
+global function long gf_item_nm2 (string as_item, string as_brand, ref string as_item_nm)
+end prototypes
+
+global function long gf_item_nm2 (string as_item, string as_brand, ref string as_item_nm);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 작 성 일  : 2001/11/21                                     */
+/* 수 정 일  : 2001/11/21                                     */
+/* 내    용  : 프로그램명을 읽어온다.                         */
+/*============================================================*/
+
+SELECT dbo.sf_item_nm2(:as_item, :as_brand)
+  INTO :as_item_nm 
+  FROM DUAL ;
+
+IF ISNULL(as_item_nm) THEN RETURN 100
+
+RETURN sqlca.sqlcode 
+
+end function
+

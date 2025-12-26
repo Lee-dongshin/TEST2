@@ -1,0 +1,23 @@
+﻿$PBExportHeader$d_61031_d01.srd
+$PBExportComments$매장별 마일리지 사용금액
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 grid.columnmove=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=84 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(6) updatewhereclause=yes name=shop_cd dbname="SHOP_CD" )
+ column=(type=char(30) updatewhereclause=yes name=shop_nm dbname="SHOP_NM" )
+ column=(type=decimal(0) updatewhereclause=yes name=goods_amt dbname="GOODS_AMT" )
+ procedure="1 execute dbo.SP_61031_D01;1 @BRAND = :BRAND, @YYMM = :YYMM" arguments=(("BRAND", string),("YYMM", string)) )
+text(band=header alignment="2" text="CODE" border="6" color="0" x="9" y="8" height="64" width="229"  name=shop_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="매장명" border="6" color="0" x="247" y="8" height="64" width="581"  name=shop_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="마일리지금액" border="6" color="0" x="837" y="8" height="64" width="485"  name=goods_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="76" width="229" format="[general]"  name=shop_cd edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="247" y="4" height="76" width="581" format="[general]"  name=shop_nm edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="837" y="4" height="76" width="485" format="#,##0"  name=goods_amt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=footer alignment="1" expression="sum(  goods_amt  for all )"border="0" color="0" x="837" y="4" height="72" width="485" format="#,##0"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15780518" )
+text(band=footer alignment="2" text="합계" border="0" color="0" x="247" y="4" height="72" width="581"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15780518" )
+text(band=footer alignment="1" text="" border="0" color="0" x="9" y="4" height="72" width="229"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15780518" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

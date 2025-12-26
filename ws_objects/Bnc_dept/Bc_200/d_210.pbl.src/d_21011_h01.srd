@@ -1,0 +1,14 @@
+﻿$PBExportHeader$d_21011_h01.srd
+$PBExportComments$스타일별 부자재 발주서현황
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=144 color="536870912" )
+table(column=(type=char(9) updatewhereclause=no name=ord_origin dbname="ord_origin" )
+ )
+text(band=detail alignment="1" text="스타일:" border="0" color="0" x="91" y="40" height="56" width="274"  name=style_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="379" y="40" height="60" width="325" format="[general]"  name=ord_origin edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+button(band=detail text=""filename=""action="0" border="0" color="0" x="713" y="32" height="76" width="78" vtextalign="0" htextalign="0"  name=cb_ord_origin  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="67108864" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,25 @@
+﻿$PBExportHeader$d_event_ddw.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=82042848 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=give_date dbname="give_date" )
+ column=(type=char(6) updatewhereclause=yes name=event_id dbname="event_id" )
+ column=(type=char(20) updatewhereclause=yes name=event_nm dbname="event_nm" )
+ column=(type=char(27) updatewhereclause=yes name=dist_event dbname="dist_event" )
+ column=(type=char(8) updatewhereclause=yes name=close_ymd dbname="close_ymd" )
+ retrieve="select give_date, event_id, event_nm , event_id + ' ' + isnull(event_nm,'') as dist_event, close_ymd
+from (select min(give_date) as give_date, event_id, event_nm,  
+	isnull(max(close_ymd),convert(char(8),getdate(),112)) as close_ymd
+	from tb_71019_m a(nolock)
+	where isnull(visible,'0') = '1'
+	group by event_id, event_nm)x
+"  sort="give_date D " )
+text(band=header alignment="2" text="행사코드" border="6" color="0" x="0" y="4" height="56" width="283"  name=event_id_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="행사명" border="6" color="0" x="297" y="4" height="56" width="649"  name=event_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="5" color="0" x="0" y="4" height="64" width="283" format="[general]"  name=event_id edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="5" color="0" x="297" y="4" height="64" width="649" format="[general]"  name=event_nm edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

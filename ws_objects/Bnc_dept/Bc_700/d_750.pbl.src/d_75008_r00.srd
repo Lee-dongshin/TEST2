@@ -1,0 +1,24 @@
+﻿$PBExportHeader$d_75008_r00.srd
+$PBExportComments$고객 RFM-분포
+release 7;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=5 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=1856 color="536870912"  height.autosize=yes)
+table(column=(type=char(10) updatewhereclause=yes name=a dbname="a" )
+ unbound = "yes"arguments=(("brand", string),("rf_gubn", string),("area_cd", string),("shop_cd", string),("shop_grp", string)) )
+report(band=detail dataobject="d_75008_r01" x="41" y="260" height="120" width="3753" border="0"  height.autosize=yes criteria="" nest_arguments=((" brand "),(" rf_gubn "),(" area_cd "),(" shop_cd "),(" shop_grp ")) trail_footer = yes  name=dw_1  slideup=directlyabove )
+text(band=detail alignment="2" text="고객 RFM 세그먼트 분포" border="2" color="0" x="1051" y="84" height="72" width="997"  name=t_1  font.face="굴림체" font.height="-12" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+report(band=detail dataobject="d_75008_r03" x="78" y="1708" height="120" width="3753" border="0"  height.autosize=yes criteria="" nest_arguments=((" brand "),(" area_cd "),(" shop_cd "),(" shop_grp ")) trail_footer = yes  name=dw_2  slideup=directlyabove )
+text(band=detail alignment="1" text="" border="2" color="0" x="1111" y="1612" height="60" width="681"  name=t_total  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="Total:" border="2" color="0" x="919" y="1612" height="60" width="183"  name=t_9  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="W. :" border="2" color="0" x="919" y="1540" height="56" width="183"  name=t_11  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="" border="2" color="0" x="1111" y="1540" height="56" width="681"  name=t_w  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="" border="2" color="0" x="1111" y="1468" height="60" width="681"  name=t_olive  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="Olive:" border="2" color="0" x="919" y="1468" height="60" width="183"  name=t_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="On&&On:" border="2" color="0" x="919" y="1396" height="60" width="183"  name=t_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="1" text="" border="2" color="0" x="1111" y="1396" height="60" width="681"  name=t_on  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="2002.03.13 이후 브랜드 매출액
+(기획, 행사 제외)" border="4" color="0" x="87" y="1396" height="112" width="818"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

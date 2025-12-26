@@ -1,0 +1,11 @@
+﻿$PBExportHeader$gs_cd_search.srs
+$PBExportComments$검색창 Popup  Arguments
+global type gs_cd_search from structure
+	string		window_title
+	string		datawindow_nm
+	string		default_where
+	string		item_where
+	string		data_value
+	integer		ai_div
+end type
+

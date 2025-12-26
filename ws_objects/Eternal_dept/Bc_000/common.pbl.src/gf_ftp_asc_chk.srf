@@ -1,0 +1,27 @@
+﻿$PBExportHeader$gf_ftp_asc_chk.srf
+$PBExportComments$Ascii, Binary file check
+global type gf_ftp_asc_chk from function_object
+end type
+
+forward prototypes
+global function integer gf_ftp_asc_chk (string fn)
+end prototypes
+
+global function integer gf_ftp_asc_chk (string fn);string s_chk, ff
+//s_chk = '.txt .htm .html .ini .log .bat .reg .asp .asa .smi .sql'
+s_chk = '.jpg'
+fn = lower(fn)
+ff = RightA(fn, 4)
+if PosA(s_chk, ff, 1) > 0 then
+	return 1
+else
+	ff = RightA(fn, 5)
+	if PosA(s_chk, ff, 1) > 0 then
+		return 1
+	end if
+end if
+return 0
+	
+
+end function
+

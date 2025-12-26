@@ -1,0 +1,142 @@
+﻿$PBExportHeader$d_53010_d08.srd
+$PBExportComments$판매일보등록(list)_라운지비
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=80 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(1) update=yes updatewhereclause=yes name=shop_type dbname="shop_type" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=sale_no dbname="sale_no" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=no dbname="no" )
+ column=(type=char(9) updatewhereclause=yes name=style_no dbname="style_no" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=style dbname="style" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=chno dbname="chno" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=color dbname="color" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=size dbname="size" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=sale_type dbname="sale_type" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=sale_qty dbname="sale_qty" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=tag_price dbname="tag_price" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=curr_price dbname="curr_price" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=dc_rate dbname="dc_rate" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=sale_price dbname="sale_price" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=tag_amt dbname="tag_amt" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=curr_amt dbname="curr_amt" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=sale_amt dbname="sale_amt" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=out_rate dbname="out_rate" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=out_amt dbname="out_amt" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=sale_rate dbname="sale_rate" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=sale_collect dbname="sale_collect" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=io_amt dbname="io_amt" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=io_vat dbname="io_vat" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=age_grp dbname="age_grp" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=sale_fg dbname="sale_fg" )
+ column=(type=char(13) update=yes updatewhereclause=yes name=jumin dbname="jumin" )
+ column=(type=char(10) updatewhereclause=yes name=member_nm dbname="member_nm" )
+ column=(type=char(16) update=yes updatewhereclause=yes name=card_no dbname="card_no" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=goods_amt dbname="goods_amt" )
+ column=(type=char(6) updatewhereclause=yes name=coupon_no dbname="coupon_no" )
+ column=(type=char(50) updatewhereclause=yes name=online_id dbname="online_id" )
+ column=(type=decimal(2) updatewhereclause=yes name=on_dc_rate dbname="on_dc_rate" )
+ column=(type=decimal(0) updatewhereclause=yes name=on_sale_price dbname="on_sale_price" )
+ column=(type=char(20) updatewhereclause=yes name=empty_2 dbname="empty_2" values="신규가입	1/기가입	2/" )
+ retrieve="  SELECT shop_type,   
+         sale_no,   
+         no,   
+         style + chno as style_no, 
+         style,   
+         chno,   
+         color,   
+         size,   
+         sale_type,   
+         sale_qty,   
+         tag_price,   
+         curr_price,   
+         dc_rate,   
+         sale_price,   
+         tag_amt,   
+         curr_amt,   
+         sale_amt,   
+         out_rate,   
+         out_amt,   
+         sale_rate,   
+         sale_collect,   
+         io_amt,   
+         io_vat,   
+         age_grp,   
+         sale_fg,   
+         jumin,   
+         dbo.sf_member_nm('1', jumin)   as member_nm, 
+         card_no, 
+         goods_amt,
+			coupon_no,
+			online_id,
+			on_dc_rate,
+			on_sale_price,
+			empty_2
+    FROM tb_53010_h   
+   WHERE yymmdd    =    :as_yymmdd 
+     and shop_cd   =    :as_shop_cd
+     and shop_type like :as_shop_type 
+     and brand     =    :as_brand 
+     and style     like :as_style + '%'
+	  and chno      like :as_chno + '%'
+   order by shop_type, sale_no, no 
+
+" arguments=(("as_brand", string),("as_yymmdd", string),("as_shop_cd", string),("as_shop_type", string),("as_style", string),("as_chno", string)) )
+text(band=header alignment="2" text="전표번호" border="6" color="0" x="5" y="8" height="56" width="247"  name=t_8  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="품번" border="6" color="0" x="411" y="8" height="60" width="274"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="색상" border="6" color="0" x="704" y="8" height="60" width="261"  name=colort  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Size" border="6" color="0" x="978" y="8" height="60" width="123"  name=sizet  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="현재가" border="6" color="0" x="1120" y="8" height="60" width="261"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="할인율" border="6" color="0" x="1705" y="8" height="60" width="155"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="판매가" border="6" color="0" x="1879" y="8" height="60" width="261"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="수량" border="6" color="0" x="2158" y="8" height="60" width="146"  name=sale_qtyt  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="판매금액" border="6" color="0" x="2322" y="8" height="60" width="293"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="마진율" border="6" color="0" x="3296" y="8" height="60" width="155"  name=t_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="입금가액" border="6" color="0" x="3470" y="8" height="60" width="293"  name=t_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="실판매액" border="6" color="0" x="2962" y="8" height="60" width="315"  name=t_12  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="판매형태" border="6" color="0" x="1399" y="4" height="64" width="288"  name=t_14  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="회원명" border="6" color="0" x="3781" y="8" height="60" width="256"  name=t_9  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="카드번호" border="6" color="0" x="4055" y="8" height="60" width="507"  name=t_10  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Point금액" border="6" color="0" x="2629" y="8" height="60" width="325"  name=t_11  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="쿠폰번호" border="6" color="0" x="4581" y="8" height="60" width="302"  name=t_13  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="순번" border="6" color="0" x="265" y="8" height="56" width="133"  name=t_15  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="0" expression=" sale_no  + '-'  +  no "border="0" color="0" x="5" y="0" height="64" width="247" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15780518" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="407" y="0" height="64" width="279" format="@@@@@@@@-@"  name=style_no  tag="OE" edit.limit=13 edit.case=upper edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="690" y="0" height="64" width="274" format="[general]"  name=color edit.name="색상" dddw.name=d_com901 dddw.displaycolumn=color_display dddw.datacolumn=color dddw.percentwidth=100 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=8 alignment="2" tabsequence=32766 border="0" color="0" x="969" y="0" height="64" width="137" format="[general]"  name=size edit.limit=2 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=12 alignment="1" tabsequence=32766 border="0" color="0" x="1111" y="0" height="64" width="274" format="#,###"  name=curr_price edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=13 alignment="1" tabsequence=32766 border="0" color="0" x="1696" y="0" height="64" width="169" format="[general]"  name=dc_rate edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=20 alignment="1" tabsequence=32766 border="0" color="0" x="3287" y="0" height="64" width="169" format="[general]"  name=sale_rate edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="1390" y="0" height="64" width="302" format="[general]"  name=sale_type edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=14 alignment="1" tabsequence=32766 border="0" color="0" x="1870" y="0" height="64" width="274" format="#,###"  name=sale_price edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=27 alignment="0" tabsequence=32766 border="0" color="0" x="3771" y="0" height="64" width="270" format="[general]"  name=member_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="0" color="0" x="2149" y="0" height="64" width="160" format="[general]"  name=sale_qty  tag="OE" edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=17 alignment="1" tabsequence=32766 border="0" color="0" x="2313" y="0" height="64" width="306" format="#,###"  name=sale_amt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+compute(band=detail alignment="1" expression="if( ( (sale_amt  - if(isNull( goods_amt ), 0,  goods_amt )) <= 0 and if(isNull( goods_amt ), 0,  goods_amt ) > 0 ) 
+	or (sale_amt < 0 and if(isNull( goods_amt ), 0,  goods_amt ) < 0 and (sale_amt  - if(isNull( goods_amt ), 0,  goods_amt )) > 0)  , 
+	0, 
+	(sale_amt  - if(isNull( goods_amt ), 0,  goods_amt )) )"border="0" color="0" x="2953" y="0" height="64" width="329" format="#,###"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=21 alignment="1" tabsequence=32766 border="0" color="0" x="3461" y="0" height="64" width="306" format="#,###"  name=sale_collect edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=28 alignment="0" tabsequence=32766 border="0" color="0" x="4046" y="0" height="64" width="521" format="@@@@-@@@@-@@@@-@@@@"  name=card_no edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=29 alignment="1" tabsequence=32766 border="0" color="0" x="2624" y="0" height="64" width="325" format="#,###"  name=goods_amt  tag="OE" edit.limit=6 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15780518" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="6" color="65535" x="265" y="4" height="56" width="128" format="[general]"  name=no edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421376" )
+compute(band=footer alignment="1" expression="sum(sale_amt for all)"border="0" color="128" x="2313" y="12" height="64" width="306" format="#,###"  name=compute_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="12639424" )
+compute(band=footer alignment="1" expression="sum(goods_amt for all)"border="0" color="128" x="2624" y="12" height="64" width="325" format="#,###"  name=compute_5  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15780518" )
+compute(band=footer alignment="1" expression="sum(sale_collect for all)"border="0" color="128" x="3461" y="12" height="64" width="306" format="#,###"  name=compute_7  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="12639424" )
+compute(band=footer alignment="1" expression="sum(sale_qty for all)"border="0" color="128" x="2149" y="12" height="64" width="160" format="[general]"  name=compute_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+compute(band=footer alignment="1" expression="sum(  if( (sale_amt  - if(isNull( goods_amt ), 0,  goods_amt )) <= 0  and if(isNull( goods_amt ), 0,  goods_amt )> 0  , 0, (sale_amt  - if(isNull( goods_amt ), 0,  goods_amt )) )for all)"border="0" color="128" x="2953" y="12" height="64" width="329" format="#,###"  name=compute_6  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=30 alignment="1" tabsequence=32766 border="0" color="0" x="4576" y="0" height="64" width="311" format="[general]"  name=coupon_no edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="온라인%" border="6" color="0" x="4901" y="8" height="60" width="215"  name=t_16  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=32 alignment="0" tabsequence=0 border="0" color="0" x="4896" y="0" height="64" width="219"  name=on_dc_rate  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="온라인할인금액" border="6" color="0" x="5134" y="8" height="60" width="375"  name=t_17  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=33 alignment="0" tabsequence=0 border="0" color="0" x="5125" y="0" height="64" width="389"  name=on_sale_price  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="온라인ID" border="6" color="0" x="5527" y="8" height="60" width="485"  name=t_18  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=31 alignment="0" tabsequence=0 border="0" color="0" x="5522" y="0" height="64" width="494"  name=online_id  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="가입구분" border="6" color="0" x="6030" y="8" height="60" width="329"  name=t_19  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=34 alignment="0" tabsequence=0 border="0" color="0" x="6025" y="0" height="64" width="338"  name=empty_2 ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+line(band=footer x1="9" y1="4" x2="6363" y2="4"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=footer x1="9" y1="0" x2="6363" y2="0"  name=l_2 pen.style="0" pen.width="5" pen.color="16777215"  background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

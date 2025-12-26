@@ -1,0 +1,20 @@
+﻿$PBExportHeader$d_61015_h01.srd
+$PBExportComments$주단위판매조회
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=296 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=frm_date dbname="frm_date" )
+ column=(type=char(8) updatewhereclause=yes name=to_date dbname="to_date" )
+ column=(type=char(1) updatewhereclause=yes name=sale_type dbname="sale_type" initial="1" values="정상	1/세일	2/기타	3/전체(기타제외)	4/전체(기타포함)	5/" )
+ column=(type=char(1) updatewhereclause=yes name=style_opt dbname="style_opt" initial="S" values="STYLE	S/STYLE//차수	C/STYLE//칼라	D/" )
+ )
+text(band=detail alignment="1" text="조회시작일:" border="0" color="0" x="23" y="40" height="56" width="361"  name=frm_date_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="402" y="40" height="60" width="498" format="[general]"  name=frm_date editmask.mask="XXXX/XX/XX" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="판매형태:" border="0" color="0" x="110" y="136" height="60" width="274"  name=sale_type_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="5" color="0" x="407" y="140" height="132" width="2130" format="[general]"  name=sale_type radiobuttons.columns=4 radiobuttons.scale=no radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="차수구분:" border="0" color="0" x="974" y="40" height="60" width="261"  name=style_opt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="5" color="0" x="1248" y="36" height="60" width="1294" format="[general]"  name=style_opt radiobuttons.columns=3 radiobuttons.scale=no radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

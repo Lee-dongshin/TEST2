@@ -1,0 +1,27 @@
+﻿$PBExportHeader$gf_lastday.srf
+$PBExportComments$월의 마지막 일자
+global type gf_lastday from function_object
+end type
+
+forward prototypes
+global function boolean gf_lastday (string as_yymm, ref string as_lastday)
+end prototypes
+
+global function boolean gf_lastday (string as_yymm, ref string as_lastday);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 내    용  : 월의 마지막 일자를 Select한다.                 */
+/*============================================================*/
+
+SELECT CONVERT(VARCHAR(8), DATEADD(Day, -1, DATEADD(Month, 1, CAST(LEFT(:as_yymm, 6) + '01' AS DATETIME))), 112)
+  INTO :as_lastday
+  FROM DUAL ;
+
+IF sqlca.sqlcode <> 0  THEN
+	MessageBox("마지막 일자 조회오류", SQLCA.SQLErrText)
+	RETURN FALSE
+END IF
+
+RETURN TRUE
+
+end function
+

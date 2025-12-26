@@ -1,0 +1,20 @@
+﻿$PBExportHeader$gf_out_price_vat.srf
+global type gf_out_price_vat from function_object
+end type
+
+forward prototypes
+global function integer gf_out_price_vat (string as_style, decimal as_curr_price, decimal as_margin_rate, ref decimal as_out_price_vat)
+end prototypes
+
+global function integer gf_out_price_vat (string as_style, decimal as_curr_price, decimal as_margin_rate, ref decimal as_out_price_vat);
+select dbo.SF_out_PRICE_vat(:as_style, :as_curr_price, :as_margin_rate)
+into :as_out_price_vat
+from dual;
+
+
+IF ISNULL(as_style) or ISNULL(as_curr_price) or ISNULL(as_curr_price) THEN RETURN 100
+
+RETURN sqlca.sqlcode 
+
+end function
+

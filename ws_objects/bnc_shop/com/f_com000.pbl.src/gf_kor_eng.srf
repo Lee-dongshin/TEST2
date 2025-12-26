@@ -1,0 +1,32 @@
+﻿$PBExportHeader$gf_kor_eng.srf
+$PBExportComments$한글,영문 자동 변환
+global type gf_kor_eng from function_object
+end type
+
+forward prototypes
+global subroutine gf_kor_eng (readonly unsignedinteger au_window, string as_tag, integer as_event)
+end prototypes
+
+global subroutine gf_kor_eng (readonly unsignedinteger au_window, string as_tag, integer as_event);/*------------------------------------------------------------*/
+/* 작 성 자      : 지우정보                                   */
+/* Retrun Value  : (none)                                     */
+/* 내        용  : 한영자동변환                               */
+/*------------------------------------------------------------*/
+
+if as_event = 1 then 								//ItemFocusChanged Event 
+	CHOOSE CASE as_tag
+		CASE "DE", "OE"								//Default English, Only English
+			gu_auto_koram.u_changekorea(au_window, False) 
+		CASE "DK", "OK"								//Default Korean, Only Korean
+			gu_auto_koram.u_changekorea(au_window, True) 
+	END CHOOSE
+elseif	as_event = 2 then 						//KeyDown Event
+	CHOOSE CASE as_tag
+		CASE "OE"										//Only English
+			gu_auto_koram.u_changekorea(au_window, False) 
+		CASE "OK"										//Only Korean
+			gu_auto_koram.u_changekorea(au_window, True) 
+	END CHOOSE
+end if	
+end subroutine
+

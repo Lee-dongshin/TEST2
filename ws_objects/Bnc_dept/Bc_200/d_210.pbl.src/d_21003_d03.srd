@@ -1,0 +1,32 @@
+﻿$PBExportHeader$d_21003_d03.srd
+$PBExportComments$원자재 발주의뢰(혼용율)
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=mat_cd dbname="TB_21012_D.Mat_Cd" )
+ column=(type=char(3) update=yes updatewhereclause=yes key=yes name=orgmat_cd dbname="TB_21012_D.OrgMat_Cd" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=orgmat_rate dbname="TB_21012_D.OrgMat_Rate" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="TB_21012_D.Reg_id" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="TB_21012_D.Mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="TB_21012_D.Mod_Dt" )
+ retrieve="  SELECT Mat_Cd,   
+         OrgMat_Cd,   
+         OrgMat_Rate,   
+         Reg_id,   
+         Mod_id,   
+         Mod_Dt  
+    FROM TB_21012_D   
+   WHERE Mat_cd = :as_mat_cd 
+
+" update="TB_21012_D" updatewhere=1 updatekeyinplace=no arguments=(("as_mat_cd", string)) )
+button(band=header text="추가"filename=""action="11" border="0" color="16777215" x="5" y="4" height="72" width="439" vtextalign="0" htextalign="0"  name=b_1 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="12632256" )
+button(band=header text="삭제"filename=""action="0" border="0" color="16777215" x="443" y="4" height="72" width="439" vtextalign="0" htextalign="0"  name=b_delete visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="12632256" )
+text(band=header alignment="2" text="원료" border="6" color="0" x="9" y="8" height="56" width="603"  name=orgmat_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="혼용율" border="6" color="0" x="631" y="8" height="56" width="242"  name=orgmat_rate_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="5" color="0" x="631" y="4" height="60" width="233" format="[currency]"  name=orgmat_rate  tag="OE" editmask.mask="###.0" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="5" color="0" x="14" y="4" height="60" width="594"  name=orgmat_cd edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

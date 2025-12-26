@@ -1,0 +1,40 @@
+﻿$PBExportHeader$d_41016_d01.srd
+$PBExportComments$입고등록 body
+release 7;
+datawindow(units=0 timer_interval=0 color=82042848 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=88 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=yymmdd dbname="TB_41010_H.yymmdd" )
+ column=(type=char(4) updatewhereclause=yes name=in_no dbname="TB_41010_H.in_no" )
+ column=(type=char(1) updatewhereclause=yes name=in_gubn dbname="TB_41010_H.in_gubn" )
+ column=(type=char(2) updatewhereclause=yes name=jup_gubn dbname="TB_41010_H.jup_gubn" )
+ column=(type=char(6) updatewhereclause=yes name=house_cd dbname="TB_41010_H.house_cd" )
+ column=(type=decimal(0) updatewhereclause=yes name=in_qty dbname="in_qty" )
+ retrieve="select yymmdd, in_no, in_gubn, jup_gubn, house_cd, 
+       isnull(sum(qty), 0) as in_qty
+from TB_41010_H with  (nolock)
+where brand = :as_brand
+and   style = :as_style
+and   chno  = :as_chno
+and   house_cd = :as_house_cd
+group by yymmdd, in_no, in_gubn, jup_gubn, house_cd
+order by yymmdd, in_no, in_gubn, jup_gubn, house_cd" arguments=(("as_brand", string),("as_style", string),("as_chno", string),("as_house_cd", string)) )
+text(band=header alignment="2" text="입고일자" border="6" color="0" x="0" y="4" height="60" width="302"  name=yymmdd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="입고번호" border="6" color="0" x="320" y="4" height="60" width="219"  name=in_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="입고수량" border="6" color="0" x="745" y="4" height="60" width="247"  name=in_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="구분" border="6" color="0" x="553" y="4" height="60" width="178"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="942" y="4" height="56" width="27" format="[general]"  name=in_gubn visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="0" y="4" height="60" width="302" format="[general]"  name=yymmdd editmask.mask="xxxx/xx/xx" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="745" y="4" height="60" width="247" format="#,##0"  name=in_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="320" y="4" height="60" width="219" format="[general]"  name=in_no edit.limit=4 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33554431" )
+compute(band=detail alignment="2" expression="if ( in_gubn = ~"+~"  ,~"입고~", ~"반품~")"border="0" color="0" x="553" y="4" height="60" width="178" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33554431" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1467" y="8" height="56" width="55" format="[general]"  name=jup_gubn visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1518" y="8" height="56" width="165" format="[general]"  name=house_cd visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=footer x1="9" y1="8" x2="983" y2="8"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=footer x1="9" y1="0" x2="983" y2="0"  name=l_2 pen.style="0" pen.width="5" pen.color="16777215"  background.mode="2" background.color="16777215" )
+compute(band=footer alignment="1" expression="sum(in_qty for all)"border="0" color="0" x="731" y="20" height="60" width="247" format="#,##0"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=footer alignment="1" text="[ 합   계 ]" border="0" color="16711680" x="14" y="20" height="56" width="379"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

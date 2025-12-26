@@ -1,0 +1,325 @@
+37  Matches Found On "scmt_price":
+
+Entry Name: L:\china\kor_dept\chi_100\d_120.pbl(d_12006_d01)
+  Text For: d_12006_d01
+     column=(type=decimal(2) updatewhereclause=no name=scmt_priice dbname="scmt_price" )
+ procedure="1 execute dbo.SP_12006_D01;1 @brand = :brand, @year = :year, @season = :season, @sojae = :sojae, @item = :item, @style = :style, @main_gbn = :main_gbn , @gs_lang = :gs_lang" arguments=(("brand", string),("year", string),("season", string),("sojae", string),("item", string),("style", string),("main_gbn", string),("gs_lang", string)) )
+text(band=header alignment="2" text="" border="6" color="0" x="9" y="8" height="56" width="119"  name=t_1  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Ç°¹ø" border="6" color="0" x="137" y="8" height="56" width="274"  name=style_no_t  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="»ý»êÇüÅÂ" b
+ 
+Entry Name: L:\china\kor_dept\chi_100\d_120.pbl(d_12006_r01)
+  Text For: d_12006_r01
+     column=(type=decimal(2) updatewhereclause=no name=scmt_price dbname="scmt_price" )
+ procedure="1 execute dbo.SP_12006_D01;1 @brand = :brand, @year = :year, @season = :season, @sojae = :sojae, @item = :item, @style = :style, @main_gbn = :main_gbn, @gs_lang = :gs_lang" arguments=(("brand", string),("year", string),("season", string),("sojae", string),("item", string),("style", string),("main_gbn", string),("gs_lang", string)) )
+line(band=header x1="1614" y1="116" x2="2322" y2="116"  name=l_3 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="1614" y1="108" x2="2322" y2="108"  name=l_4 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="1999/99/99-99:99:99" border="0" color="0" x="5961" y="156" height="52" width="521"  name=t_datetime  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" backgr
+    column(band=detail id=25 alignment="0" tabsequence=0 border="0" color="0" x="3287" y="4" height="60" width="315" format="#,##0.00"  name=scmt_price  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header x1="9" y1="224" x2="8544" y2="224"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="14" y1="300" x2="8549" y2="300"  name=l_2 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="ÇÑ±¹ºÎÀÚÀç" border="0" color="0" x="8210" y="240" height="52" width="334"  name=t_16  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+text(band=header alignment="2" text="No" border="0" color="0" x="9" y="240" height="52" width="119"  name=t_1  font.face="
+ 
+Entry Name: L:\china\kor_dept\chi_100\d_120.pbl(d_12041_d01)
+  Text For: d_12041_d01
+     column=(type=decimal(2) update=yes updatewhereclause=no name=scmt_price dbname="scmt_price" )
+ column=(type=decimal(0) updatewhereclause=no name=k_scmt_price dbname="k_scmt_price" )
+ column=(type=decimal(2) updatewhereclause=no name=smat_price2 dbname="smat_price2" )
+ column=(type=decimal(2) update=yes updatewhereclause=no name=develop_cost dbname="develop_cost" )
+ procedure="1 execute dbo.sp_12041_d01;1 @brand = :brand, @year = :year, @season = :season, @item = :item, @lang = :lang" update="TB_12021_D" updatewhere=0 updatekeyinplace=yes arguments=(("brand", string),("year", string),("season", string),("item", string),("lang", string)) )
+text(band=header alignment="2" text="
+º¹Á¾" border="6" color="0" x="9" y="20" height="116" width="242"  name=t_10  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+½ºÅ¸ÀÏ" border="6" color="0" x="265" y="16" height="120"
+     column=(type=decimal(0) updatewhereclause=no name=k_scmt_price dbname="k_scmt_price" )
+ column=(type=decimal(2) updatewhereclause=no name=smat_price2 dbname="smat_price2" )
+ column=(type=decimal(2) update=yes updatewhereclause=no name=develop_cost dbname="develop_cost" )
+ procedure="1 execute dbo.sp_12041_d01;1 @brand = :brand, @year = :year, @season = :season, @item = :item, @lang = :lang" update="TB_12021_D" updatewhere=0 updatekeyinplace=yes arguments=(("brand", string),("year", string),("season", string),("item", string),("lang", string)) )
+text(band=header alignment="2" text="
+º¹Á¾" border="6" color="0" x="9" y="20" height="116" width="242"  name=t_10  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+½ºÅ¸ÀÏ" border="6" color="0" x="265" y="16" height="120" width="302"  name=style_t  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="
+    column(band=detail id=29 alignment="1" tabsequence=50 border="0" color="0" x="2528" y="0" height="64" width="201" format="#,##0.00"  name=scmt_price edit.limit=0 edit.case=any edit.autoselect=yes  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="2949" y="148" height="64" width="247" format="#,##0.00"  name=wonga_price edit.limit=0 edit.case=any edit.autoselect=yes  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30601200" )
+column(band=detail id=28 alignment="1" tabsequence=32766 border="0" color="0" x="3707" y="0" height="64" width="224" format="#,###"  name=tag_price edit.limit=0 edit.case=any edit.autoselect=yes  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" backgrou
+    column(band=detail id=30 alignment="1" tabsequence=32766 border="0" color="16711680" x="4937" y="0" height="64" width="265" format="#,###"  name=k_scmt_price edit.limit=0 edit.case=any edit.autoselect=yes  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=27 alignment="1" tabsequence=32766 border="0" color="16711680" x="5769" y="0" height="64" width="288" format="#,###"  name=k_tag_price edit.limit=0 edit.case=any edit.autoselect=yes  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+compute(band=detail alignment="1" expression="k_tag_price / k_wonga_price"border="0" color="255" x="6062" y="0" height="64" width="169" format="#,##0.0"  name=compute_2  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" ba
+    compute(band=detail alignment="1" expression="k_smat_price  - k_scmt_price"border="0" color="16711680" x="4667" y="0" height="64" width="265" format="#,###"  name=compute_3  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+compute(band=detail alignment="1" expression=" make_price + mmat_price + smat_price2+ etc_price + scmt_price  + supertax + develop_cost "border="0" color="0" x="3456" y="0" height="64" width="247" format="#,##0.00"  name=compute_4  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30601200" )
+column(band=detail id=12 alignment="1" tabsequence=60 border="0" color="0" x="2962" y="0" height="64" width="233" format="#,##0.00"  name=supertax edit.limit=0 edit.case=any edit.autoselect=yes  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" ba
+    compute(band=detail alignment="1" expression=" make_price + mmat_price + smat_price2+ etc_price + scmt_price  + supertax + develop_cost "border="0" color="0" x="3456" y="0" height="64" width="247" format="#,##0.00"  name=compute_4  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30601200" )
+column(band=detail id=12 alignment="1" tabsequence=60 border="0" color="0" x="2962" y="0" height="64" width="233" format="#,##0.00"  name=supertax edit.limit=0 edit.case=any edit.autoselect=yes  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=32 alignment="1" tabsequence=70 border="0" color="0" x="3205" y="0" height="64" width="242" format="#,##0.00"  name=develop_cost edit.limit=0 edit.case=any edit.autoselect=yes  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitc
+ 
+Entry Name: L:\china\kor_dept\chi_100\w_120.pbl(w_12041_e)
+  Event Name: ue_update()
+    0007: decimal ll_smat_price2, ll_scmt_price, ll_smat_price
+    0020:  ll_scmt_price = dw_body.getitemdecimal(i,"scmt_price")
+    0021:  ll_smat_price = ll_smat_price2 + ll_scmt_price
+ 
+Entry Name: L:\china\kor_dept\chi_400\d_410.pbl(d_41005_d01)
+  Text For: d_41005_d01
+     column=(type=decimal(2) updatewhereclause=no name=scmt_price dbname="scmt_price" )
+ column=(type=decimal(2) updatewhereclause=no name=scmt_amt dbname="scmt_amt" )
+ procedure="1 execute dbo.sp_41005_d01;1 @PS_BRAND = :PS_BRAND, @PS_YEAR = :PS_YEAR, @PS_SEASON = :PS_SEASON, @PS_FR_DATE = :PS_FR_DATE, @PS_TO_DATE = :PS_TO_DATE, @PS_HOUSE_CD = :PS_HOUSE_CD, @PS_ITEM = :PS_ITEM, @PS_SOJAE = :PS_SOJAE, @LANG = :LANG, @ps_in_field = :ps_in_field" arguments=(("PS_BRAND", string),("PS_YEAR", string),("PS_SEASON", string),("PS_FR_DATE", string),("PS_TO_DATE", string),("PS_HOUSE_CD", string),("PS_ITEM", string),("PS_SOJAE", string),("LANG", string),("ps_in_field", string)) )
+group(level=1 header.height=0 trailer.height=100 by=("yymmdd" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="ÀÔ°í¹øÈ£" border="6" color="0" x="0" y="8" height="60" width="489"  name=yymmdd_t  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" ba
+    column(band=detail id=16 alignment="1" tabsequence=32766 border="0" color="0" x="4869" y="4" height="60" width="306" format="#,##0.00"  name=scmt_price edit.limit=0 edit.case=any edit.autoselect=yes  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=17 alignment="1" tabsequence=32766 border="0" color="0" x="5193" y="4" height="60" width="466" format="#,##0.00"  name=scmt_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+compute(band=trailer.1 alignment="1" expression="sum(  tag_amt  for group 1 )"border="0" color="0" x="3136" y="12" height="56" width="434" format="#,##0"  name=compute_5  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color
+ 
+Entry Name: L:\china\kor_dept\chi_400\d_410.pbl(d_41005_r01)
+  Text For: d_41005_r01
+     column=(type=decimal(2) updatewhereclause=no name=scmt_price dbname="scmt_price" )
+ column=(type=decimal(2) updatewhereclause=no name=scmt_amt dbname="scmt_amt" )
+ procedure="1 execute dbo.sp_41005_d01;1 @PS_BRAND = :PS_BRAND, @PS_YEAR = :PS_YEAR, @PS_SEASON = :PS_SEASON, @PS_FR_DATE = :PS_FR_DATE, @PS_TO_DATE = :PS_TO_DATE, @PS_HOUSE_CD = :PS_HOUSE_CD, @PS_ITEM = :PS_ITEM, @PS_SOJAE = :PS_SOJAE, @LANG = :LANG, @ps_in_field = ;ps_in_field" arguments=(("PS_BRAND", string),("PS_YEAR", string),("PS_SEASON", string),("PS_FR_DATE", string),("PS_TO_DATE", string),("PS_HOUSE_CD", string),("PS_ITEM", string),("PS_SOJAE", string),("LANG", string),("ps_in_field", string)) )
+group(level=1 header.height=0 trailer.height=112 by=("yymmdd" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="~~" border="0" color="0" x="809" y="288" height="56" width="69"  name=t_10  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" backgroun
+    column(band=detail id=16 alignment="1" tabsequence=32766 border="0" color="0" x="4942" y="4" height="60" width="306" format="#,##0.00"  name=scmt_price edit.limit=0 edit.case=any edit.autoselect=yes  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=17 alignment="1" tabsequence=32766 border="0" color="0" x="5266" y="4" height="60" width="416" format="#,##0.00"  name=scmt_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=trailer.1 alignment="1" expression="sum(in_qty for group 1)"border="0" color="0" x="2528" y="20" height="60" width="293" format="#,##0"  name=compute_4  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="167
+ 
+Entry Name: L:\china\kor_dept\chi_400\d_410.pbl(d_41006_d01)
+  Text For: d_41006_d01
+     column=(type=decimal(2) updatewhereclause=no name=scmt_price dbname="scmt_price" )
+ procedure="1 execute dbo.sp_41006_d01;1 @PS_FR_DATE = :PS_FR_DATE, @PS_TO_DATE = :PS_TO_DATE, @PS_HOUSE_CD = :PS_HOUSE_CD, @PS_BRAND = :PS_BRAND, @PS_YEAR = :PS_YEAR, @PS_SEASON = :PS_SEASON, @PS_SOJAE = :PS_SOJAE, @PS_ITEM = :PS_ITEM, @PS_STYLE = :PS_STYLE, @LANG = :LANG, @ps_in_field = :ps_in_field" arguments=(("PS_FR_DATE", string),("PS_TO_DATE", string),("PS_HOUSE_CD", string),("PS_BRAND", string),("PS_YEAR", string),("PS_SEASON", string),("PS_SOJAE", string),("PS_ITEM", string),("PS_STYLE", string),("LANG", string),("ps_in_field", string)) )
+group(level=1 header.height=0 trailer.height=144 by=("item" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="Ç°¹ø" border="6" color="0" x="5" y="8" height="64" width="366"  name=style_t  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="53687091
+    column(band=detail id=15 alignment="1" tabsequence=0 border="0" color="0" x="3909" y="4" height="56" width="297" format="#,##0.00"  name=scmt_price  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=header alignment="2" text="CMTºÎÀÚÀç" border="6" color="0" x="3904" y="12" height="60" width="293"  name=t_1  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )
+ 
+ 
+Entry Name: L:\china\kor_dept\chi_400\d_410.pbl(d_41006_r01)
+  Text For: d_41006_r01
+     column=(type=decimal(2) updatewhereclause=no name=scmt_price dbname="scmt_price" )
+ procedure="1 execute dbo.sp_41006_d01;1 @PS_FR_DATE = :PS_FR_DATE, @PS_TO_DATE = :PS_TO_DATE, @PS_HOUSE_CD = :PS_HOUSE_CD, @PS_BRAND = :PS_BRAND, @PS_YEAR = :PS_YEAR, @PS_SEASON = :PS_SEASON, @PS_SOJAE = :PS_SOJAE, @PS_ITEM = :PS_ITEM, @PS_STYLE = :PS_STYLE, @LANG = :LANG, @ps_in_field = :ps_in_field" arguments=(("PS_FR_DATE", string),("PS_TO_DATE", string),("PS_HOUSE_CD", string),("PS_BRAND", string),("PS_YEAR", string),("PS_SEASON", string),("PS_SOJAE", string),("PS_ITEM", string),("PS_STYLE", string),("LANG", string),("ps_in_field", string)) )
+group(level=1 header.height=0 trailer.height=140 by=("item" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="0" text="text" border="0" color="0" x="352" y="284" height="56" width="727"  name=txtbrand  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="553
+    column(band=detail id=15 alignment="1" tabsequence=0 border="0" color="0" x="4498" y="8" height="56" width="315" format="#,##0.00"  name=scmt_price  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="CMTºÎÀÚÀç" border="0" color="0" x="4494" y="464" height="60" width="320"  name=t_1  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=trailer.1 x1="773" y1="112" x2="4800" y2="112"  name=l_3 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=trailer.1 x1="763" y1="16" x2="4791" y2="16"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=summary x1="73" y1="88" x2="4786" y2="88"  name=l_4 pen.style="0" pen.width="5" pen.color="0"  background.m
+ 
+Entry Name: L:\china\kor_dept\chi_400\d_410.pbl(d_41007_d01)
+  Text For: d_41007_d01
+     column=(type=decimal(2) updatewhereclause=no name=scmt_price dbname="scmt_price" )
+ procedure="1 execute dbo.SP_41007_D01;1 @PS_YYMMDD = :PS_YYMMDD, @PS_OUT_NO = :PS_OUT_NO, @ps_brand = :ps_brand" arguments=(("PS_YYMMDD", string),("PS_OUT_NO", string),("ps_brand", string)) )
+text(band=header alignment="2" text="Ç°¹ø" border="6" color="0" x="421" y="8" height="68" width="334"  name=style_t  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="»ö»ó" border="6" color="0" x="763" y="8" height="68" width="169"  name=color_t  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="»ö»ó¸í" border="6" color="0" x="942" y="8" height="68" width="334"  name=t_3  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch=
+    column(band=detail id=39 alignment="1" tabsequence=32766 border="0" color="0" x="2071" y="4" height="72" width="306" format="#,##0.00"  name=scmt_price edit.limit=0 edit.case=any edit.autoselect=yes  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31250410" )
+compute(band=detail alignment="1" expression=" curr_price * qty "border="0" color="0" x="2981" y="4" height="72" width="393" format="#,##0"  name=c_curr_amt  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="28958457" )
+compute(band=detail alignment="1" expression="scmt_price * qty"border="0" color="0" x="3383" y="4" height="72" width="453" format="#,##0.00"  name=compute_6  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31250410" )
+compute(band=footer alignment="1" ex
+    compute(band=detail alignment="1" expression="scmt_price * qty"border="0" color="0" x="3383" y="4" height="72" width="453" format="#,##0.00"  name=compute_6  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31250410" )
+compute(band=footer alignment="1" expression="sum(  c_tag_amt  for all )"border="0" color="0" x="2619" y="4" height="76" width="352" format="#,##0"  name=compute_4  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33550815" )
+compute(band=footer alignment="1" expression="sum(  qty  for all )"border="0" color="0" x="2386" y="4" height="76" width="224" format="#,##0"  name=compute_5  font.face="±¼¸²Ã¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="12639424" )
+compute(band=footer alignment="1" expression="sum(  c_curr_amt  for al
+ 
+Entry Name: L:\china\kor_dept\chi_400\d_410.pbl(d_41009_d01)
+  Text For: d_41009_d01
+     column=(type=decimal(0) updatewhereclause=no name=scmt_price dbname="scmt_price" )
+ column=(type=decimal(0) updatewhereclause=no name=scmt_amt dbname="scmt_amt" )
+ procedure="1 execute dbo.sp_41009_d01;1 @PS_BRAND = :PS_BRAND, @PS_YEAR = :PS_YEAR, @PS_SEASON = :PS_SEASON, @PS_FR_DATE = :PS_FR_DATE, @PS_TO_DATE = :PS_TO_DATE, @PS_HOUSE_CD = :PS_HOUSE_CD, @PS_ITEM = :PS_ITEM, @PS_SOJAE = :PS_SOJAE, @LANG = :LANG, @cust_cd = :cust_cd" arguments=(("PS_BRAND", string),("PS_YEAR", string),("PS_SEASON", string),("PS_FR_DATE", string),("PS_TO_DATE", string),("PS_HOUSE_CD", string),("PS_ITEM", string),("PS_SOJAE", string),("LANG", string),("cust_cd", string)) )
+group(level=1 header.height=0 trailer.height=96 by=("cmt_cust" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="°Å·¡Ã³" border="6" color="0" x="9" y="8" height="56" width="224"  name=cmt_cust_t  font.face="µ¸¿òÃ¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.
+    text(band=header alignment="2" text="CMT´Ü°¡(¿øÈ­)" border="6" color="0" x="3589" y="8" height="56" width="430"  name=scmt_price_t  font.face="µ¸¿òÃ¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="CMT±Ý¾×(RMB)" border="6" color="0" x="4585" y="8" height="56" width="475"  name=t_3  font.face="µ¸¿òÃ¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="56" width="224" format="[general]"  name=cmt_cust edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="µ¸¿òÃ¼" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="29421054" )
+column(band=detail id=2 alignment="0" tabsequence=32766 b
+    column(band=detail id=13 alignment="1" tabsequence=32766 border="0" color="0" x="3589" y="8" height="56" width="430" format="#,##0"  name=scmt_price edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="µ¸¿òÃ¼" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30930918" )
+column(band=detail id=14 alignment="1" tabsequence=32766 border="0" color="0" x="4027" y="8" height="56" width="549" format="#,##0"  name=scmt_amt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="µ¸¿òÃ¼" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30930918" )
+compute(band=detail alignment="1" expression="scmt_amt/150"border="0" color="0" x="4585" y="8" height="56" width="475" format="#,##0.00"  name=scmt_amt_rmb  font.face="µ¸¿òÃ¼" font.height="-9" font.weight="400"  font.family="1" 
+ 
+Entry Name: L:\china\kor_dept\chi_400\d_410.pbl(d_41009_r01)
+  Text For: d_41009_r01
+     column=(type=decimal(0) updatewhereclause=no name=scmt_price dbname="scmt_price" )
+ column=(type=decimal(0) updatewhereclause=no name=scmt_amt dbname="scmt_amt" )
+ procedure="1 execute dbo.sp_41009_d01;1 @PS_BRAND = :PS_BRAND, @PS_YEAR = :PS_YEAR, @PS_SEASON = :PS_SEASON, @PS_FR_DATE = :PS_FR_DATE, @PS_TO_DATE = :PS_TO_DATE, @PS_HOUSE_CD = :PS_HOUSE_CD, @PS_ITEM = :PS_ITEM, @PS_SOJAE = :PS_SOJAE, @LANG = :LANG, @cust_cd = :cust_cd" arguments=(("PS_BRAND", string),("PS_YEAR", string),("PS_SEASON", string),("PS_FR_DATE", string),("PS_TO_DATE", string),("PS_HOUSE_CD", string),("PS_ITEM", string),("PS_SOJAE", string),("LANG", string),("cust_cd", string)) )
+group(level=1 header.height=0 trailer.height=72 by=("cmt_cust" ) header.color="536870912" trailer.color="536870912" )
+groupbox(band=header text="CMTºÎÀÚÀç Á¤»êÇöÈ²"border="0" color="0" x="1541" y="32" height="84" width="974"  name=gb_2  font.face="µ¸¿òÃ¼" font.height="-16" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.
+    text(band=header alignment="2" text="CMT´Ü°¡(¿øÈ­)" border="0" color="0" x="3621" y="176" height="56" width="416"  name=scmt_price_t  font.face="µ¸¿òÃ¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+text(band=header alignment="2" text="CMT±Ý¾×(RMB)" border="0" color="0" x="4517" y="176" height="56" width="416"  name=t_3  font.face="µ¸¿òÃ¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+groupbox(band=header.1 text="none"border="2" color="0" x="1554" y="260" height="400" width="686"  name=gb_1  font.face="µ¸¿òÃ¼" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="56" width="251" format="[general]"  name=cmt_cust edit.limit=6 edit.case=any edit.focusr
+    column(band=detail id=13 alignment="1" tabsequence=32766 border="0" color="0" x="3621" y="8" height="56" width="416" format="#,##0"  name=scmt_price edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="µ¸¿òÃ¼" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=14 alignment="1" tabsequence=32766 border="0" color="0" x="4046" y="8" height="56" width="462" format="#,##0"  name=scmt_amt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="µ¸¿òÃ¼" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="1" expression="scmt_amt/150"border="0" color="0" x="4517" y="8" height="56" width="416" format="#,##0.00"  name=scmt_amt_rmb  font.face="µ¸¿òÃ¼" font.height="-9" font.weight="400"  font.family="1
+ 
+Entry Name: L:\china\kor_dept\chi_400\d_410.pbl(d_41015_d01)
+  Text For: d_41015_d01
+     column=(type=decimal(2) updatewhereclause=yes name=scmt_price dbname="scmt_price" )
+ retrieve="
+select a.yymmdd , a.in_no,
+       a.house_cd, 
+       dbo.sf_shop_nm(a.house_cd, 'a') house_nm,       
+       a.cust_cd,
+       dbo.sf_cust_nm(a.cust_cd, 'a')  cust_nm,      
+       (select c.make_type + ' ' + d.inter_nm 
+        from tb_12020_m  c, tb_91011_c d
+        where  c.brand = :AS_BRAND
+      and    c.style = a.style
+        and    d.inter_grp = '030'
+        and    c.make_type = d.inter_cd) make_type, 
+       a.in_gubn, 
+       a.style + a.chno as style,  
+        (select color + ' ' + color_knm from tb_91040_c
+        where color = a.color) as color, a.size, a.class,
+
+ sum(isnull(qty,0)) as in_qty,
+
+       (select isnull(c.tag_price, 0) as tag_price
+        from tb_12020_m  c
+        where  c.brand = :AS_BRAND
+      and    c.style = a.style) tag_price,
+
+       (select isnull(e.make_price, 0) + isnull(e.mmat_price, 0)
+             + isnull(e.smat_price, 0) + isnull(e.etc_pr
+     (select sum(scmt_price) from tb_12021_d (nolock)  
+  where style = a.style
+  and   chno  = a.chno) as scmt_price
+
+from tb_41010_h a(nolock), tb_12030_s b(nolock)
+where a.yymmdd between :AS_FRM_DATE and :AS_TO_DATE
+and   a.house_cd like :AS_HOUSE_CD + '%'
+and   a.in_gubn  like :AS_IN_GUBN + '%'
+and   a.jup_gubn like :AS_JUP_GUBN + '%'
+and   a.cust_cd  like :as_cust_cd + '%'
+and   a.year     like :AS_YEAR + '%'
+and   a.season   like :AS_SEASON + '%'
+and   a.class    like :AS_CLASS + '%'
+and   a.style = b.style
+and   a.chno  = b.chno
+and   a.color = b.color
+and   a.size  = b.size
+group by a.yymmdd ,a.in_no,  a.house_cd, a.cust_cd,
+       a.in_gubn, a.style, a.chno, a.color, a.size, a.class, b.in_ymd, a.iche_style, b.in_qty,
+        b.plan_qty , a.item,convert(char(8), a.reg_dt,108)
+having 
+sum(isnull(qty,0)) <> 0
+or
+sum(isnull(b.in_qty,0)) <> 0
+or
+sum(isnull(b.plan_qty,0)) <> 0
+" arguments=(("as_brand", string),("as_frm_date", string),("as_to_date", string),("as_house_cd", string),
+      and   chno  = a.chno) as scmt_price
+
+from tb_41010_h a(nolock), tb_12030_s b(nolock)
+where a.yymmdd between :AS_FRM_DATE and :AS_TO_DATE
+and   a.house_cd like :AS_HOUSE_CD + '%'
+and   a.in_gubn  like :AS_IN_GUBN + '%'
+and   a.jup_gubn like :AS_JUP_GUBN + '%'
+and   a.cust_cd  like :as_cust_cd + '%'
+and   a.year     like :AS_YEAR + '%'
+and   a.season   like :AS_SEASON + '%'
+and   a.class    like :AS_CLASS + '%'
+and   a.style = b.style
+and   a.chno  = b.chno
+and   a.color = b.color
+and   a.size  = b.size
+group by a.yymmdd ,a.in_no,  a.house_cd, a.cust_cd,
+       a.in_gubn, a.style, a.chno, a.color, a.size, a.class, b.in_ymd, a.iche_style, b.in_qty,
+        b.plan_qty , a.item,convert(char(8), a.reg_dt,108)
+having 
+sum(isnull(qty,0)) <> 0
+or
+sum(isnull(b.in_qty,0)) <> 0
+or
+sum(isnull(b.plan_qty,0)) <> 0
+" arguments=(("as_brand", string),("as_frm_date", string),("as_to_date", string),("as_house_cd", string),("as_in_gubn", string),("as_jup_gubn", string),("as_cust_cd", string),("as_yea
+    column(band=detail id=22 alignment="1" tabsequence=32766 border="0" color="33554432" x="5385" y="8" height="52" width="283" format="#,##0.00"  name=scmt_price edit.limit=0 edit.case=any edit.autoselect=yes  font.face="±¼¸²Ã¼" font.height="-8" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="in_qty * scmt_price"border="0" color="33554432" x="5682" y="8" height="52" width="361" format="#,##0.00"  name=scmt_amt  font.face="±¼¸²Ã¼" font.height="-8" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="2" text="[ ¾÷  Ã¼  °è ]" border="0" color="33554432" x="9" y="8" height="52" width="599"  name=t_2  font.face="±¼¸²Ã¼" font.height="-8" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+rectangle(band=trailer.1 x="55" y="72" heigh
+    compute(band=detail alignment="1" expression="in_qty * scmt_price"border="0" color="33554432" x="5682" y="8" height="52" width="361" format="#,##0.00"  name=scmt_amt  font.face="±¼¸²Ã¼" font.height="-8" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=trailer.1 alignment="2" text="[ ¾÷  Ã¼  °è ]" border="0" color="33554432" x="9" y="8" height="52" width="599"  name=t_2  font.face="±¼¸²Ã¼" font.height="-8" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+rectangle(band=trailer.1 x="55" y="72" height="8" width="6016"  name=r_2 brush.hatch="6" brush.color="8421504" pen.style="5" pen.width="9" pen.color="553648127"  background.mode="1" background.color="553648127" )
+compute(band=trailer.1 alignment="1" expression="sum(in_qty for group 1)"border="0" color="33554432" x="3127" y="8" height="52" width="256" format="#,##0"  name=compute_2  font.face="±¼¸²Ã¼" fon
+ 
+Entry Name: L:\china\kor_dept\chi_400\d_410.pbl(d_41015_r01)
+  Text For: d_41015_r01
+     column=(type=decimal(2) updatewhereclause=yes name=scmt_price dbname="scmt_price" )
+ retrieve="
+select a.yymmdd , a.in_no,
+       a.house_cd, 
+       dbo.sf_shop_nm(a.house_cd, 'a') house_nm,       
+       a.cust_cd,
+       dbo.sf_cust_nm(a.cust_cd, 'a')  cust_nm,      
+       (select c.make_type + ' ' + d.inter_nm 
+        from tb_12020_m  c, tb_91011_c d
+        where  c.brand = :AS_BRAND
+      and    c.style = a.style
+        and    d.inter_grp = '030'
+        and    c.make_type = d.inter_cd) make_type, 
+       a.in_gubn, 
+       a.style + a.chno as style,  
+        (select color + ' ' + color_knm from tb_91040_c
+        where color = a.color) as color, a.size, a.class,
+
+ sum(isnull(qty,0)) as in_qty,
+
+       (select isnull(c.tag_price, 0) as tag_price
+        from tb_12020_m  c
+        where  c.brand = :AS_BRAND
+      and    c.style = a.style) tag_price,
+
+       (select isnull(e.make_price, 0) + isnull(e.mmat_price, 0)
+             + isnull(e.smat_price, 0) + isnull(e.etc_pr
+     (select sum(scmt_price) from tb_12021_d (nolock)  
+  where style = a.style
+  and   chno  = a.chno) as scmt_price    
+
+from tb_41010_h a, tb_12030_s b
+where a.yymmdd between :AS_FRM_DATE and :AS_TO_DATE
+and   a.house_cd = :AS_HOUSE_CD
+and   a.in_gubn = :AS_IN_GUBN
+and   a.jup_gubn = :AS_JUP_GUBN
+and   a.cust_cd   = :as_cust_cd
+and   a.year like :AS_YEAR + '%'
+and   a.season like :AS_SEASON + '%'
+and   a.class like :AS_CLASS + '%'
+and   a.style = b.style
+and   a.chno  = b.chno
+and   a.color = b.color
+and   a.size  = b.size
+group by a.yymmdd ,a.in_no,  a.house_cd, a.cust_cd,
+       a.in_gubn, a.style, a.chno, a.color, a.size, a.class, b.in_ymd, a.iche_style, b.in_qty,
+        b.plan_qty , a.item,convert(char(8), a.reg_dt,108)
+having 
+sum(isnull(qty,0)) <> 0
+or
+sum(isnull(b.in_qty,0)) <> 0
+or
+sum(isnull(b.plan_qty,0)) <> 0
+" arguments=(("as_brand", string),("as_frm_date", string),("as_to_date", string),("as_house_cd", string),("as_in_gubn", string),("as_jup_gubn", string),("as_cust_
+      and   chno  = a.chno) as scmt_price    
+
+from tb_41010_h a, tb_12030_s b
+where a.yymmdd between :AS_FRM_DATE and :AS_TO_DATE
+and   a.house_cd = :AS_HOUSE_CD
+and   a.in_gubn = :AS_IN_GUBN
+and   a.jup_gubn = :AS_JUP_GUBN
+and   a.cust_cd   = :as_cust_cd
+and   a.year like :AS_YEAR + '%'
+and   a.season like :AS_SEASON + '%'
+and   a.class like :AS_CLASS + '%'
+and   a.style = b.style
+and   a.chno  = b.chno
+and   a.color = b.color
+and   a.size  = b.size
+group by a.yymmdd ,a.in_no,  a.house_cd, a.cust_cd,
+       a.in_gubn, a.style, a.chno, a.color, a.size, a.class, b.in_ymd, a.iche_style, b.in_qty,
+        b.plan_qty , a.item,convert(char(8), a.reg_dt,108)
+having 
+sum(isnull(qty,0)) <> 0
+or
+sum(isnull(b.in_qty,0)) <> 0
+or
+sum(isnull(b.plan_qty,0)) <> 0
+" arguments=(("as_brand", string),("as_frm_date", string),("as_to_date", string),("as_house_cd", string),("as_in_gubn", string),("as_jup_gubn", string),("as_cust_cd", string),("as_year", string),("as_season", string),("as_class", string))  
+ 

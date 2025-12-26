@@ -1,0 +1,63 @@
+﻿$PBExportHeader$d_51034_d01.srd
+$PBExportComments$광고선전비 등록
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=84 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes key=yes name=yymmdd dbname="TB_51063_d.yymmdd" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=no dbname="TB_51063_d.no" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=inter_cd dbname="TB_51063_d.inter_cd" )
+ column=(type=char(30) updatewhereclause=yes name=inter_nm dbname="inter_nm" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=shop_cd dbname="TB_51063_d.shop_cd" )
+ column=(type=char(30) updatewhereclause=yes name=shop_nm dbname="shop_nm" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=amt dbname="TB_51063_d.amt" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=note dbname="TB_51063_d.note" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="TB_51063_d.reg_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="TB_51063_d.reg_dt" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="TB_51063_d.mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="TB_51063_d.mod_dt" )
+ retrieve="  SELECT TB_51063_d.yymmdd,   
+         TB_51063_d.no,   
+         TB_51063_d.inter_cd,  
+			dbo.sf_inter_nm('094', TB_51063_d.inter_cd) inter_nm,
+         TB_51063_d.shop_cd,   
+			dbo.sf_shop_nm(TB_51063_d.shop_cd, 'S') shop_nm,
+         TB_51063_d.amt,
+         TB_51063_d.note,   
+         TB_51063_d.reg_id,   
+         TB_51063_d.reg_dt,   
+         TB_51063_d.mod_id,   
+         TB_51063_d.mod_dt  
+    FROM TB_51063_d 	left outer join tb_91100_m b with (nolock) on TB_51063_d.shop_cd = b.shop_cd
+	where left(TB_51063_d.shop_cd,1) like '%' + :as_brand
+			and TB_51063_d.yymmdd like :as_yymmdd + '%'
+			and b.empno like '%' + :as_empno
+
+
+" update="TB_51063_d" updatewhere=1 updatekeyinplace=yes arguments=(("as_brand", string),("as_yymmdd", string),("as_empno", string)) )
+text(band=header alignment="2" text="Reg Id:" border="6" color="0" x="4297" y="16" height="68" width="256"  name=reg_id_t visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Reg Dt:" border="6" color="0" x="4590" y="16" height="68" width="256"  name=reg_dt_t visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Mod Id:" border="6" color="0" x="5166" y="16" height="68" width="256"  name=mod_id_t visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Mod Dt:" border="6" color="0" x="5481" y="16" height="68" width="256"  name=mod_dt_t visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="집행일자" border="6" color="0" x="9" y="8" height="68" width="306"  name=yymmdd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="집행순번" border="6" color="0" x="334" y="8" height="68" width="215"  name=no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="매장코드" border="6" color="0" x="567" y="8" height="68" width="823"  name=shop_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="집행금액" border="6" color="0" x="1920" y="8" height="68" width="434"  name=amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="비고" border="6" color="0" x="2373" y="8" height="68" width="1019"  name=note_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="집행코드" border="6" color="0" x="1408" y="8" height="68" width="494"  name=inter_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="5" color="0" x="4352" y="12" height="60" width="192" format="[general]"  name=reg_id visible="1~t0" edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="5" color="0" x="4576" y="12" height="60" width="603" format="[shortdate] [time]"  name=reg_dt visible="1~t0" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="5" color="0" x="5221" y="12" height="60" width="192" format="[general]"  name=mod_id visible="1~t0" edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="5" color="0" x="5481" y="12" height="60" width="603" format="[shortdate] [time]"  name=mod_dt visible="1~t0" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="5" color="0" x="9" y="8" height="60" width="306" format="@@@@-@@-@@"  name=yymmdd edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+button(band=detail text=""filename="find.bmp"action="0" border="0" color="0" x="846" y="4" height="72" width="87" vtextalign="0" htextalign="0"  name=cb_shop_cd  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="67108864" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="5" color="0" x="334" y="8" height="60" width="215" format="[general]"  name=no edit.limit=4 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="5" color="0" x="942" y="8" height="60" width="448" format="[general]"  name=shop_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=10 border="5" color="0" x="567" y="8" height="60" width="265" format="[general]"  name=shop_cd edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="1" tabsequence=30 border="5" color="0" x="1920" y="8" height="60" width="434" format="#,###,###"  name=amt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=40 border="5" color="0" x="2373" y="8" height="60" width="1019" format="[general]"  name=note edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="5" color="0" x="1408" y="8" height="60" width="494" format="[general]"  name=inter_cd dddw.name=d_com001 dddw.displaycolumn=inter_nm dddw.datacolumn=inter_cd dddw.percentwidth=150 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

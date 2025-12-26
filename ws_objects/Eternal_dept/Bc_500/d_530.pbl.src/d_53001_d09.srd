@@ -1,0 +1,25 @@
+﻿$PBExportHeader$d_53001_d09.srd
+$PBExportComments$마진율 list
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 grid.columnmove=no selected.mouse=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(2) updatewhereclause=yes name=sale_type dbname="SALE_TYPE" )
+ column=(type=decimal(0) updatewhereclause=yes name=dc_rate dbname="DC_RATE" )
+ column=(type=decimal(2) updatewhereclause=yes name=marjin_rate dbname="marjin_rate" )
+ retrieve="  SELECT SALE_TYPE, 
+         DC_RATE, 
+         marjin_rate 
+    FROM SF_MARJIN_LIST(:as_brand, :as_shop_cd, :as_shop_type, :as_yymmdd) 
+
+" arguments=(("as_brand", string),("as_shop_cd", string),("as_shop_type", string),("as_yymmdd", string)) )
+text(band=header alignment="2" text="판매형태" border="6" color="16777215" x="9" y="8" height="60" width="375"  name=sale_type_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="32896" )
+text(band=header alignment="2" text="할인율" border="6" color="16777215" x="393" y="8" height="60" width="215"  name=dc_rate_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="32896" )
+text(band=header alignment="2" text="마진율" border="6" color="16777215" x="617" y="8" height="60" width="274"  name=marjin_rate_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="32896" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="64" width="375" format="[general]"  name=sale_type edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="393" y="4" height="64" width="215" format="[general]"  name=dc_rate edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="617" y="4" height="64" width="274" format="[general]"  name=marjin_rate edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

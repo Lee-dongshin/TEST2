@@ -1,0 +1,22 @@
+﻿$PBExportHeader$d_12010_r02.srd
+$PBExportComments$작업 지시서[master]
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=2680 color="536870912" )
+table(column=(type=char(16) updatewhereclause=yes name=style dbname="style" )
+ column=(type=char(2) updatewhereclause=yes name=chno dbname="chno" )
+ column=(type=char(4099) updatewhereclause=no name=rmk_design dbname="rmk_design" )
+ column=(type=char(4099) updatewhereclause=no name=rmk_sewing dbname="rmk_sewing" )
+ column=(type=char(4099) updatewhereclause=no name=rmk_making dbname="rmk_making" )
+ procedure="1 execute dbo.sp_12010_r02;1 @style = :style, @chno = :chno" arguments=(("style", string),("chno", string)) )
+rectangle(band=detail x="18" y="4" height="2672" width="4841"  name=r_1 brush.hatch="7" brush.color="553648127" pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="디자인 수정 사항 - 디자인실" border="2" color="0" x="78" y="28" height="76" width="992"  name=rmk_design_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="0" text="완봉 주의사항 - 생산" border="2" color="0" x="73" y="1816" height="76" width="992"  name=rmk_making_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="0" text="봉제시 주의사항 - 패턴실/샘플실" border="2" color="0" x="78" y="924" height="76" width="992"  name=rmk_sewing_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=3 alignment="0" tabsequence=10 border="2" color="0" x="78" y="108" height="732" width="4718" format="[general]"  name=rmk_design edit.limit=4099 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=4 alignment="0" tabsequence=20 border="2" color="0" x="78" y="1004" height="732" width="4718" format="[general]"  name=rmk_sewing edit.limit=4099 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=5 alignment="0" tabsequence=30 border="2" color="0" x="73" y="1896" height="732" width="4718" format="[general]"  name=rmk_making edit.limit=4099 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,118 @@
+﻿$PBExportHeader$d_47013_d08.srd
+$PBExportComments$정산 데이터(메이크샵) 입력
+release 7;
+datawindow(units=0 timer_interval=0 color=82899184 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=128 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=88 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(50) update=yes updatewhereclause=no name=shop_nm dbname="shop_nm" )
+ column=(type=char(40) update=yes updatewhereclause=no key=yes name=order_id dbname="order_id" )
+ column=(type=char(40) update=yes updatewhereclause=no key=yes name=order_num dbname="order_num" )
+ column=(type=datetime update=yes updatewhereclause=no name=invoice dbname="invoice" )
+ column=(type=char(100) update=yes updatewhereclause=no name=style dbname="style" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=sale_qty dbname="sale_qty" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=tag_price dbname="tag_price" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=curr_price dbname="curr_price" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=sale_price dbname="sale_price" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=sale_amt dbname="sale_amt" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=goods_amt dbname="goods_amt" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=coupon_amt dbname="coupon_amt" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=use_amt dbname="use_amt" )
+ column=(type=decimal(0) update=yes updatewhereclause=no name=ship_charge dbname="ship_charge" )
+ column=(type=char(30) updatewhereclause=no name=order_cust dbname="order_cust" )
+ column=(type=char(30) update=yes updatewhereclause=no name=order_nm dbname="order_nm" )
+ column=(type=char(20) update=yes updatewhereclause=no name=payment_stat dbname="payment_stat" )
+ column=(type=char(20) update=yes updatewhereclause=no name=payment_method dbname="payment_method" )
+ column=(type=char(40) update=yes updatewhereclause=no name=order_stat dbname="order_stat" )
+ column=(type=char(30) update=yes updatewhereclause=no name=naver_ord_id dbname="naver_ord_id" )
+ column=(type=char(30) update=yes updatewhereclause=no name=naver_ord_num dbname="naver_ord_num" )
+ column=(type=char(6) update=yes updatewhereclause=no name=reg_id dbname="reg_id" )
+ column=(type=datetime update=yes updatewhereclause=no name=reg_dt dbname="reg_dt" )
+ column=(type=char(6) update=yes updatewhereclause=no name=mod_id dbname="mod_id" )
+ column=(type=datetime update=yes updatewhereclause=no name=mod_dt dbname="mod_dt" )
+ column=(type=char(6) update=yes updatewhereclause=no key=yes name=yymm dbname="yymm" )
+ procedure="1 execute dbo.sp_47013_d08;1 @yymm = :yymm" update="tb_45039_h" updatewhere=1 updatekeyinplace=yes arguments=(("yymm", string)) )
+text(band=header alignment="2" text="
+제조사" border="6" color="0" x="0" y="8" height="112" width="777"  name=shop_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+주문번호" border="6" color="0" x="795" y="8" height="112" width="731"  name=order_id_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+송장입력일" border="6" color="0" x="2418" y="8" height="112" width="535"  name=invoice_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+품목별 주문번호" border="6" color="0" x="1545" y="8" height="112" width="855"  name=order_num_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+모델명" border="6" color="0" x="2971" y="8" height="112" width="608"  name=style_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="결제금액
+(품목별)" border="6" color="0" x="4727" y="8" height="112" width="293"  name=sale_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="회원등급
+할인금액" border="6" color="0" x="5038" y="8" height="112" width="293"  name=goods_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="쿠     폰
+할인금액" border="6" color="0" x="5349" y="8" height="112" width="293"  name=coupon_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="사용한
+적립금" border="6" color="0" x="5659" y="8" height="112" width="293"  name=use_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="배송료
+(특수지역포함)" border="6" color="0" x="5970" y="8" height="112" width="389"  name=ship_charge_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+판매가격" border="6" color="0" x="4416" y="8" height="112" width="293"  name=sale_price_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="구입원가
+(주문시점)" border="6" color="0" x="4105" y="8" height="112" width="293"  name=curr_price_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+소비자가격" border="6" color="0" x="3794" y="8" height="112" width="293"  name=tag_price_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+수량" border="6" color="0" x="3598" y="8" height="112" width="178"  name=sale_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+결제방법" border="6" color="0" x="7333" y="8" height="112" width="498"  name=payment_method_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+결제상태" border="6" color="0" x="7058" y="8" height="112" width="256"  name=payment_stat_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+수령인명" border="6" color="0" x="6784" y="8" height="112" width="256"  name=order_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+주문자ID" border="6" color="0" x="6377" y="8" height="112" width="389"  name=order_cust_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Mod Dt:" border="6" color="0" x="12357" y="24" height="112" width="466"  name=mod_dt_t visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Reg Id:" border="6" color="0" x="10720" y="24" height="112" width="466"  name=reg_id_t visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Mod Id:" border="6" color="0" x="11858" y="24" height="112" width="466"  name=mod_id_t visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Reg Dt:" border="6" color="0" x="11246" y="24" height="112" width="466"  name=reg_dt_t visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+주문상태" border="6" color="0" x="7849" y="8" height="112" width="640"  name=order_stat_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+네이버 페이 주문번호" border="6" color="0" x="8507" y="8" height="112" width="818"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+네이버 페이 상품별 주문번호" border="6" color="0" x="9344" y="8" height="112" width="818"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="5" color="0" x="0" y="4" height="64" width="777" format="[general]"  name=shop_nm edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="5" color="0" x="795" y="4" height="64" width="731" format="[general]"  name=order_id edit.limit=40 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="0" tabsequence=10 border="5" color="0" x="2971" y="4" height="64" width="608" format="[general]"  name=style edit.limit=100 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="5" color="0" x="2418" y="4" height="64" width="535" format="[shortdate] [time]"  name=invoice edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="5" color="0" x="1545" y="4" height="64" width="855" format="[general]"  name=order_num edit.limit=40 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=10 alignment="1" tabsequence=60 border="5" color="0" x="4727" y="4" height="64" width="293" format="#,###,##0"  name=sale_amt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="1" tabsequence=70 border="5" color="0" x="5038" y="4" height="64" width="293" format="#,###,##0"  name=goods_amt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=12 alignment="1" tabsequence=80 border="5" color="0" x="5349" y="4" height="64" width="293" format="#,###,##0"  name=coupon_amt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=13 alignment="1" tabsequence=90 border="5" color="0" x="5659" y="4" height="64" width="293" format="#,###,##0"  name=use_amt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=14 alignment="1" tabsequence=100 border="5" color="0" x="5970" y="4" height="64" width="389" format="#,###,##0"  name=ship_charge edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="1" tabsequence=50 border="5" color="0" x="4416" y="4" height="64" width="293" format="#,###,##0"  name=sale_price edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="1" tabsequence=40 border="5" color="0" x="4105" y="4" height="64" width="293" format="#,###,##0"  name=curr_price edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="1" tabsequence=30 border="5" color="0" x="3794" y="4" height="64" width="293" format="#,###,##0"  name=tag_price edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="1" tabsequence=20 border="5" color="0" x="3598" y="4" height="64" width="178" format="[general]"  name=sale_qty edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=26 alignment="0" tabsequence=32766 border="5" color="0" x="10587" y="4" height="64" width="434" format="[general]"  name=yymm visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=15 alignment="0" tabsequence=110 border="5" color="0" x="6377" y="4" height="64" width="389" format="[general]"  name=order_cust edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=17 alignment="0" tabsequence=130 border="5" color="0" x="7058" y="4" height="64" width="256" format="[general]"  name=payment_stat edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=16 alignment="0" tabsequence=120 border="5" color="0" x="6784" y="4" height="64" width="256" format="[general]"  name=order_nm edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=18 alignment="0" tabsequence=140 border="5" color="0" x="7333" y="4" height="64" width="498" format="[general]"  name=payment_method edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=19 alignment="0" tabsequence=150 border="5" color="0" x="7849" y="4" height="64" width="640" format="[general]"  name=order_stat edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=22 alignment="0" tabsequence=32766 border="5" color="0" x="11040" y="0" height="64" width="192" format="[general]"  name=reg_id visible="1~t0" edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=24 alignment="0" tabsequence=32766 border="5" color="0" x="11904" y="4" height="64" width="192" format="[general]"  name=mod_id visible="1~t0" edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=25 alignment="0" tabsequence=32766 border="5" color="0" x="12357" y="4" height="64" width="603" format="[shortdate] [time]"  name=mod_dt visible="1~t0" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=23 alignment="0" tabsequence=32766 border="5" color="0" x="11273" y="4" height="64" width="603" format="[shortdate] [time]"  name=reg_dt visible="1~t0" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=21 alignment="0" tabsequence=170 border="5" color="0" x="9344" y="4" height="64" width="818" format="[general]"  name=naver_ord_num edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=20 alignment="0" tabsequence=160 border="5" color="0" x="8507" y="4" height="64" width="818" format="[general]"  name=naver_ord_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=footer alignment="1" expression="sum(sale_qty for all)"border="0" color="0" x="3598" y="12" height="64" width="178" format="[general]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=footer alignment="1" expression="sum(tag_price for all)"border="0" color="0" x="3794" y="12" height="64" width="293" format="#,###,##0"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=footer alignment="1" expression="sum(ship_charge for all)"border="0" color="0" x="5970" y="12" height="64" width="389" format="#,###,##0"  name=compute_9  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=footer alignment="1" expression="sum(curr_price for all)"border="0" color="0" x="4105" y="12" height="64" width="293" format="#,###,##0"  name=compute_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=footer alignment="1" expression="sum(sale_price for all)"border="0" color="0" x="4416" y="12" height="64" width="293" format="#,###,##0"  name=compute_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=footer alignment="1" expression="sum(sale_amt for all)"border="0" color="0" x="4727" y="12" height="64" width="293" format="#,###,##0"  name=compute_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=footer alignment="1" expression="sum(goods_amt for all)"border="0" color="0" x="5038" y="12" height="64" width="293" format="#,###,##0"  name=compute_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=footer alignment="1" expression="sum(coupon_amt for all)"border="0" color="0" x="5349" y="12" height="64" width="293" format="#,###,##0"  name=compute_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=footer alignment="1" expression="sum(use_amt for all)"border="0" color="0" x="5659" y="12" height="64" width="293" format="#,###,##0"  name=compute_8  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

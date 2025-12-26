@@ -1,0 +1,39 @@
+﻿$PBExportHeader$d_91008_d01.srd
+$PBExportComments$비축부자재등록
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(4) update=yes updatewhereclause=yes key=yes name=save_gubn dbname="TB_24010_M.save_gubn" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=brand dbname="TB_24010_M.brand" )
+ column=(type=char(6) update=yes updatewhereclause=yes key=yes name=mat_cd dbname="TB_24010_M.mat_cd" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="TB_24010_M.Reg_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="TB_24010_M.Reg_Dt" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="TB_24010_M.Mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="TB_24010_M.Mod_Dt" )
+ column=(type=char(30) updatewhereclause=yes name=mat_nm dbname="mat_nm" )
+ retrieve="  select 
+	save_gubn,
+	brand,
+	mat_cd,
+	Reg_id,
+	Reg_Dt,
+	Mod_id,
+	Mod_Dt,
+	dbo.sf_mat_nm2(mat_cd,brand)	as mat_nm 
+	from tb_24010_m a(nolock)
+	where brand like :brand + '%'
+	and   save_gubn like :save_gubn + '%'" update="tb_24010_m" updatewhere=0 updatekeyinplace=yes arguments=(("brand", string),("save_gubn", string))  sort="save_gubn A brand A " )
+text(band=header alignment="2" text="자재구분" border="6" color="0" x="23" y="16" height="56" width="937"  name=save_gubn_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="자재코드" border="6" color="0" x="1609" y="16" height="56" width="1417"  name=mat_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="브랜드" border="6" color="0" x="983" y="16" height="56" width="608"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="18" y="8" height="56" width="942" format="[general]"  name=save_gubn edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=10 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+button(band=detail text="▼"filename=""action="0" border="0" color="0" x="1998" y="4" height="68" width="82" vtextalign="0" htextalign="0"  name=cb_mat_cd  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="67108864" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="5" color="0" x="1609" y="8" height="56" width="370" format="[general]"  name=mat_cd edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="31978989" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="983" y="8" height="56" width="608" format="[general]"  name=brand edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="5" color="0" x="2107" y="8" height="56" width="919" format="[general]"  name=mat_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="31978989" )
+
+sparse(names="save_gubn	brand")htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

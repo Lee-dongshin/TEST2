@@ -1,0 +1,18 @@
+﻿$PBExportHeader$d_79023_ddw_2.srd
+$PBExportComments$온라인매장명[DDDW]
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(6) updatewhereclause=yes name=shop_cd dbname="SHOP_CD" )
+ column=(type=char(30) updatewhereclause=yes name=shop_nm dbname="SHOP_NM" )
+ column=(type=char(20) updatewhereclause=yes name=shop_snm dbname="SHOP_SNM" )
+ retrieve="SELECT SHOP_CD, SHOP_NM, SHOP_SNM 
+FROM vi_91105_1 with (nolock) where substring(shop_cd,2,1) in ('B','E') or shop_cd in ('BD1900')
+"  sort="shop_cd A " )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="14" y="8" height="60" width="187" format="[general]" protect="0~tif( isrownew(), 0, 1 )"  name=shop_cd  tag="OE" edit.limit=6 edit.case=upper edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="536870912~tif( isrownew(), 16777215, 553648127 )" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="5" color="0" x="229" y="4" height="60" width="576" format="[general]" protect="0~tif( isrownew(), 0, 1 )"  name=shop_snm  tag="DK" edit.limit=20 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="536870912~tif( isrownew(), 16777215, 553648127 )" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="910" y="4" height="60" width="850" format="[general]" protect="0~tif( isrownew(), 0, 1 )"  name=shop_nm  tag="DK" edit.limit=30 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="536870912~tif( isrownew(), 16777215, 553648127 )" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

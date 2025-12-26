@@ -1,0 +1,166 @@
+﻿$PBExportHeader$f_barcode_code128.srf
+global type f_barcode_code128 from function_object
+end type
+
+forward prototypes
+global function string f_barcode_code128 (string as_barcode)
+end prototypes
+
+global function string f_barcode_code128 (string as_barcode);String ls_code, ls_code128
+Long i, ll_err = 0, ll_mini, ll_dummy, ll_chk_sum
+Boolean lb_tableB
+
+ls_code = as_barcode
+
+//바코드 문자열 검사.. 
+//코드 128의 문자열은 아스키값 32 부터 126 , 203 범위내에 있어야 합니다.
+For i = 1 To LenA(ls_code)
+	Choose Case AscA(MidA(ls_code, i, 1))
+		Case 32 To 126, 203
+		Case Else
+			ll_err = -1
+			Exit
+	End Choose
+Next
+
+If ll_err = -1 Then
+	MessageBox('알림', '올바른 바코드 형식이 아닙니다.')
+	Return 'error'
+End If
+
+
+// CODE128 문자열 테이블 B, C 에서 해당되는 문자열 아스키 값 가져오기...
+lb_tableB = True
+
+If i > 0 Then
+	
+	/*
+	i = 1 //문자열 인덱스..설정..
+	     
+	Do While i <= Len(ls_code) 
+		
+		If lb_tableB Then
+         
+			If i = 1 Or (i + 3) = Len(ls_code) Then 
+				ll_mini = 4
+			Else
+				ll_mini = 6
+			End If
+			
+
+		  	ll_mini = ll_mini - 1
+  
+  			If i + ll_mini <= Len(ls_code) Then
+				Do While ll_mini >= 0
+				    If Asc(Mid(ls_code, i + ll_mini, 1)) < 48 Or Asc(Mid(ls_code, i + ll_mini, 1)) > 57 Then Exit 
+				    ll_mini = ll_mini - 1
+				Loop
+			  End If
+			
+			
+			If ll_mini < 0 Then // 테이블 C 
+				
+				If i = 1 Then //  테이블 C 부터 시작..
+					ls_code128 = Char(210)
+				Else 
+					ls_code128 = ls_code128 + Char(204)
+				End If
+
+				lb_tableB = False
+				
+			Else
+				If i = 1 Then ls_code128 = Char(209) // 테이블 B 부터 시작..
+			End If
+
+		End If 
+
+
+		If Not lb_tableB Then //두번쨰 자리부터.. 시작..
+
+			ll_mini = 2
+			
+		   ll_mini = ll_mini - 1
+  
+  			If i + ll_mini <= Len(ls_code) Then
+    			Do While ll_mini >= 0
+      			If Asc(Mid(ls_code, i + ll_mini, 1)) < 48 Or Asc(Mid(ls_code, i + ll_mini, 1)) > 57 Then Exit 
+      			ll_mini = ll_mini - 1
+    			Loop
+		  End If
+
+
+
+			If ll_mini < 0 Then 
+				
+				ll_dummy = Long(Mid(ls_code, i, 2))
+            
+				
+				If ll_dummy < 95 Then
+					ll_dummy = ll_dummy + 32
+				Else
+					ll_dummy = ll_dummy + 105
+				End If
+				
+				ls_code128 = ls_code128 + Char(ll_dummy)
+				
+				i = i + 2
+				
+			Else 
+				ls_code128 = ls_code128 + Char(205)
+				lb_tableB = True
+			End If
+		End If
+
+		If lb_tableB Then
+			ls_code128 = ls_code128 + Mid(ls_code, i, 1) 
+			i = i + 1
+		End If
+		
+	Loop //DO WHILE END
+      */
+      
+	// 체크디지트 계산.. 
+      ll_chk_sum = 104 ;
+	For i = 1 To LenA(ls_code)
+		ll_dummy = AscA(MidA(ls_code, i, 1))
+		
+		If ll_dummy < 127 Then
+			ll_dummy = ll_dummy - 32
+		Else
+			ll_dummy = ll_dummy - 105
+		End If
+		
+		ll_dummy = ll_dummy * i ;
+		//If i = 1 Then ll_chk_sum = ll_dummy
+		
+		//ll_chk_sum = Mod(ll_chk_sum + (i - 1) + ll_dummy , 103) 
+		
+		ll_chk_sum += ll_dummy ;
+	Next
+	
+	ll_chk_sum = ll_chk_sum - ( 103 * int(ll_chk_sum / 103)  )
+	
+	//계산된 체크디지트 아스키값으로 변환..
+	
+	If ll_chk_sum < 95 Then
+		
+		ll_chk_sum = ll_chk_sum + 32
+	Else
+		ll_chk_sum = ll_chk_sum + 105
+	End If
+       
+	 
+	 
+	   
+	// 체크디지트와 엔드바 생성..
+	
+	//ls_code128 = ls_code128 + Char(ll_chk_sum) + Char(211)
+	
+	ls_code128 = CharA(209)+ as_barcode + CharA(ll_chk_sum) + CharA(211)
+	
+		
+	Return ls_code128
+
+End If
+end function
+

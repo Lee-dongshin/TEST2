@@ -1,0 +1,30 @@
+﻿$PBExportHeader$d_41002_d02.srd
+$PBExportComments$입고조회 헤더부분
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=68 color="536870912" )
+summary(height=4 color="536870912" )
+footer(height=96 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=yymmdd dbname="TB_41010_H.yymmdd" )
+ column=(type=decimal(0) updatewhereclause=yes name=qty dbname="qty" )
+ retrieve="select yymmdd, isnull(sum(qty), 0) as qty
+from tb_41010_h
+where yymmdd between :as_frm_date and :as_to_date
+and   brand = :as_brand
+and   style = :as_style
+and   chno   like :as_chno
+and   year   like :as_year
+and   season like :as_season
+and   class  like :as_class
+group by yymmdd" arguments=(("as_frm_date", string),("as_to_date", string),("as_brand", string),("as_style", string),("as_chno", string),("as_year", string),("as_season", string),("as_class", string)) )
+text(band=header alignment="2" text="입고일자" border="6" color="0" x="5" y="4" height="56" width="347"  name=yymmdd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="입고수량" border="6" color="0" x="370" y="4" height="56" width="283"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="5" y="4" height="60" width="347" format="[general]"  name=yymmdd editmask.mask="xxxx/xx/xx" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="366" y="4" height="60" width="283" format="#,##0"  name=qty edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+line(band=footer x1="5" y1="8" x2="658" y2="8"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=footer x1="5" y1="0" x2="658" y2="0"  name=l_2 pen.style="0" pen.width="5" pen.color="16777215"  background.mode="2" background.color="16777215" )
+compute(band=footer alignment="1" expression="sum(qty for all)"border="0" color="0" x="361" y="24" height="60" width="283" format="#,##0"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=footer alignment="1" text="[ 합 계 ]" border="0" color="16711680" x="18" y="28" height="56" width="288"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

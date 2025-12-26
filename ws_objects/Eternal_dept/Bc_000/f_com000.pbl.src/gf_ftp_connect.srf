@@ -1,0 +1,30 @@
+﻿$PBExportHeader$gf_ftp_connect.srf
+global type gf_ftp_connect from function_object
+end type
+
+forward prototypes
+global function integer gf_ftp_connect (string ls_server, string ls_user, string ls_pass)
+end prototypes
+
+global function integer gf_ftp_connect (string ls_server, string ls_user, string ls_pass);string ls_useragent = "pb wininet"
+string ls_null
+
+SetNull(ls_null)
+
+ll_connect = 0
+ll_open = 0
+
+ll_open = u_ftp.InternetOpenA(ls_useragent, u_ftp.OPEN_TYPE_PRECONFIG, ls_null, ls_null, 0)
+
+if ll_open <> 0 then
+	ll_connect = u_ftp.InternetConnectA(ll_open, ls_server, u_ftp.DEFAULT_FTP_PORT, ls_user, ls_pass, u_ftp.FTP, 0, 0)
+	if ll_connect <> 0 then
+		return 1
+	else
+		return -1
+	end if
+else
+	return -1
+end if
+end function
+

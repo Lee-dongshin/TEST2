@@ -1,0 +1,117 @@
+﻿$PBExportHeader$d_sh209_d04.srd
+$PBExportComments$A/S 등록
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=232 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=yymmdd dbname="TB_79011_D.YYMMDD" )
+ column=(type=char(4) updatewhereclause=yes name=seq_no dbname="TB_79011_D.SEQ_NO" )
+ column=(type=char(4) updatewhereclause=yes name=no dbname="TB_79011_D.NO" )
+ column=(type=char(8) updatewhereclause=yes name=style dbname="TB_79011_D.STYLE" )
+ column=(type=char(1) updatewhereclause=yes name=chno dbname="TB_79011_D.CHNO" )
+ column=(type=char(2) updatewhereclause=yes name=color dbname="TB_79011_D.COLOR" )
+ column=(type=char(2) updatewhereclause=yes name=size dbname="TB_79011_D.SIZE" )
+ column=(type=char(8) updatewhereclause=yes name=sale_ymd dbname="TB_79011_D.SALE_YMD" )
+ column=(type=char(1) updatewhereclause=yes name=rcv_spot dbname="TB_79011_D.RCV_SPOT" )
+ column=(type=char(2) updatewhereclause=yes name=wash_fg dbname="TB_79011_D.WASH_FG" )
+ column=(type=decimal(0) updatewhereclause=yes name=wash_no dbname="TB_79011_D.WASH_NO" )
+ column=(type=char(30) updatewhereclause=yes name=han_mark dbname="TB_79011_D.HAN_MARK" )
+ column=(type=char(100) updatewhereclause=yes name=mix_mark dbname="TB_79011_D.MIX_MARK" )
+ column=(type=char(2) updatewhereclause=yes name=rcv_why dbname="TB_79011_D.RCV_WHY" )
+ column=(type=char(2) updatewhereclause=yes name=rcv_req dbname="TB_79011_D.RCV_REQ" )
+ column=(type=char(255) updatewhereclause=yes name=problem dbname="TB_79011_D.PROBLEM" )
+ column=(type=char(255) updatewhereclause=yes name=request dbname="TB_79011_D.REQUEST" )
+ column=(type=char(8) updatewhereclause=yes name=judg_ymd dbname="TB_79011_D.JUDG_YMD" )
+ column=(type=char(1) updatewhereclause=yes name=judg_fg dbname="JUDG_FG" initial="4" values="반송	0/수  선	1/CLAIM	2/심의중	3/미처리	4/" )
+ column=(type=char(30) updatewhereclause=yes name=judg_fg_nm dbname="JUDG_FG_NM" )
+ column=(type=char(2) updatewhereclause=yes name=judg_l dbname="TB_79011_D.JUDG_L" )
+ column=(type=char(3) updatewhereclause=yes name=judg_s_nm dbname="TB_79011_D.JUDG_S" )
+ column=(type=char(255) updatewhereclause=yes name=result dbname="TB_79011_D.RESULT" )
+ column=(type=char(4) updatewhereclause=yes name=dept_cd dbname="TB_79011_D.DEPT_CD" values="상담실	A000/기획실	B000/생산부	D100/수선실	H000/" )
+ column=(type=char(1) updatewhereclause=yes name=judg_cust_fg dbname="JUDG_CUST_FG" values="0 없음	0/1 생산	1/2 자재	2/" )
+ column=(type=char(6) updatewhereclause=yes name=cust_cd dbname="TB_79011_D.CUST_CD" )
+ column=(type=char(30) updatewhereclause=yes name=cust_nm dbname="CUST_NM" )
+ column=(type=char(20) updatewhereclause=yes name=cust_emp dbname="TB_79011_D.CUST_EMP" )
+ column=(type=char(6) updatewhereclause=yes name=st_cust_cd dbname="TB_79011_D.ST_CUST_CD" )
+ column=(type=char(30) updatewhereclause=yes name=st_cust_nm dbname="ST_CUST_NM" )
+ column=(type=char(6) updatewhereclause=yes name=mat_cust_cd dbname="TB_79011_D.MAT_CUST_CD" )
+ column=(type=char(30) updatewhereclause=yes name=mat_cust_nm dbname="MAT_CUST_NM" )
+ column=(type=char(10) updatewhereclause=yes name=mat_cd dbname="TB_79011_D.MAT_CD" )
+ column=(type=char(30) updatewhereclause=yes name=mat_nm dbname="MAT_NM" )
+ column=(type=char(1) updatewhereclause=yes name=pay_fg dbname="TB_79011_D.PAY_FG" )
+ column=(type=decimal(0) updatewhereclause=yes name=pay_amt dbname="TB_79011_D.PAY_AMT" )
+ column=(type=char(2) updatewhereclause=yes name=deal_fg dbname="TB_79011_D.DEAL_FG" )
+ column=(type=char(8) updatewhereclause=yes name=st_ymd dbname="TB_79011_D.ST_YMD" )
+ column=(type=char(8) updatewhereclause=yes name=pr_ymd dbname="TB_79011_D.PR_YMD" )
+ column=(type=char(8) updatewhereclause=yes name=ed_ymd dbname="TB_79011_D.ED_YMD" )
+ column=(type=char(8) updatewhereclause=yes name=go_ymd dbname="TB_79011_D.GO_YMD" )
+ column=(type=char(255) updatewhereclause=yes name=remark dbname="TB_79011_D.REMARK" )
+ column=(type=char(1) updatewhereclause=yes name=brand dbname="TB_79011_D.BRAND" )
+ column=(type=char(4) updatewhereclause=yes name=year dbname="TB_79011_D.YEAR" )
+ column=(type=char(1) updatewhereclause=yes name=season dbname="TB_79011_D.SEASON" )
+ column=(type=char(1) updatewhereclause=yes name=sojae dbname="TB_79011_D.SOJAE" )
+ column=(type=char(1) updatewhereclause=yes name=item dbname="TB_79011_D.ITEM" )
+ column=(type=char(6) updatewhereclause=yes name=reg_id dbname="TB_79011_D.REG_ID" )
+ column=(type=datetime updatewhereclause=yes name=reg_dt dbname="TB_79011_D.REG_DT" )
+ column=(type=char(6) updatewhereclause=yes name=mod_id dbname="TB_79011_D.MOD_ID" )
+ column=(type=datetime updatewhereclause=yes name=mod_dt dbname="TB_79011_D.MOD_DT" )
+ column=(type=char(9) updatewhereclause=yes name=style_no dbname="STYLE_NO" )
+ column=(type=decimal(0) updatewhereclause=yes name=tag_price dbname="TAG_PRICE" )
+ column=(type=char(1) updatewhereclause=yes name=print_yn dbname="PRINT_YN" values="인쇄	Y/인쇄	N" )
+ column=(type=char(2) updatewhereclause=yes name=claim_fg dbname="TB_79011_D.CLAIM_FG" )
+ column=(type=char(1) updatewhereclause=yes name=pay_yn dbname="TB_79011_D.PAY_YN" values="	Y/	N" )
+ column=(type=char(2) updatewhereclause=yes name=cust_fg_l dbname="TB_79011_D.CUST_FG_L" )
+ column=(type=char(3) updatewhereclause=yes name=cust_fg_s dbname="TB_79011_D.CUST_FG_S" )
+ column=(type=char(3) updatewhereclause=yes name=decision_a dbname="TB_79011_D.decision_a" )
+ column=(type=char(3) updatewhereclause=yes name=decision_b dbname="TB_79011_D.decision_b" )
+ column=(type=char(3) updatewhereclause=yes name=decision_c dbname="TB_79011_D.decision_c" )
+ column=(type=char(3) updatewhereclause=yes name=decision_d dbname="TB_79011_D.decision_d" )
+ column=(type=char(8) updatewhereclause=yes name=rtrn_ymd dbname="TB_79011_D.rtrn_ymd" )
+ column=(type=char(4) updatewhereclause=yes name=rtrn_no dbname="TB_79011_D.rtrn_no" )
+ retrieve="  SELECT YYMMDD, SEQ_NO, NO, 
+         STYLE, CHNO, COLOR, SIZE,
+         SALE_YMD, RCV_SPOT, 
+         WASH_FG, WASH_NO, HAN_MARK, MIX_MARK,
+         RCV_WHY, RCV_REQ, PROBLEM, REQUEST,
+         JUDG_YMD, 
+         ISNULL(JUDG_FG, '0') AS JUDG_FG, dbo.sf_inter_nm('799', ISNULL(JUDG_FG, '0')) AS JUDG_FG_NM,
+         JUDG_L, JUDG_S, RESULT,
+         DEPT_CD, 
+         ISNULL(JUDG_CUST_FG, '0') AS JUDG_CUST_FG,
+         CUST_CD,     dbo.sf_cust_nm(CUST_CD, 'S')     AS CUST_NM,
+         CUST_EMP,   
+         ST_CUST_CD,  dbo.sf_cust_nm(ST_CUST_CD, 'S')  AS ST_CUST_NM,
+         MAT_CUST_CD, dbo.sf_cust_nm(MAT_CUST_CD, 'S') AS MAT_CUST_NM,
+         MAT_CD,      dbo.sf_mat_nm (MAT_CD) AS MAT_NM,
+         PAY_FG, 
+			PAY_AMT,
+			DEAL_FG,
+         ST_YMD, PR_YMD, ED_YMD, GO_YMD,
+         REMARK, BRAND, YEAR, SEASON, SOJAE, ITEM,
+         REG_ID, REG_DT, MOD_ID, MOD_DT,
+         STYLE + CHNO AS STYLE_NO,
+         dbo.sf_first_price(STYLE) AS TAG_PRICE,
+         'N' AS PRINT_YN,
+			CLAIM_FG,	PAY_YN,
+			CUST_FG_L, CUST_FG_S,
+			decision_a, decision_b,
+			decision_c, decision_d,
+			rtrn_ymd,	rtrn_no
+    FROM TB_79011_D with (nolock)
+   WHERE YYMMDD = :as_yymmdd
+     AND SEQ_NO = :as_seq_no
+" arguments=(("as_yymmdd", string),("as_seq_no", string)) )
+text(band=detail alignment="2" text="반품전표" border="6" color="0" x="1403" y="144" height="60" width="283"  name=t_18  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=detail alignment="2" text="Claim구분" border="6" color="0" x="37" y="144" height="60" width="288"  name=t_8  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=55 alignment="0" tabsequence=32766 border="5" color="0" x="347" y="144" height="60" width="283" format="[general]" protect="0~tif( judg_fg = ~"2~" ,0, 1)"  name=claim_fg edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=150 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=detail alignment="2" text="고객발송일" border="6" color="0" x="677" y="144" height="60" width="283"  name=go_ymd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=41 alignment="0" tabsequence=32766 border="5" color="0" x="983" y="144" height="60" width="320" format="@@@@/@@/@@"  name=go_ymd  tag="OE" edit.limit=8 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=64 alignment="2" tabsequence=32766 border="5" color="0" x="2048" y="144" height="56" width="224" format="[general]"  name=rtrn_no edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=63 alignment="2" tabsequence=32766 border="5" color="0" x="1710" y="144" height="56" width="315" format="@@@@/@@/@@"  name=rtrn_ymd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=detail alignment="2" text="판정일자" border="6" color="0" x="37" y="24" height="60" width="288"  name=judg_ymd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="5" color="0" x="347" y="24" height="60" width="283" format="@@@@/@@/@@"  name=judg_ymd  tag="OE" edit.limit=8 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="32373758" )
+text(band=detail alignment="2" text="판정구분" border="6" color="0" x="677" y="24" height="60" width="283"  name=judg_fg_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=19 alignment="0" tabsequence=32766 border="5" color="0" x="978" y="24" height="56" width="1271" format="[general]"  name=judg_fg  tag="OE" radiobuttons.columns=5 radiobuttons.scale=no radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

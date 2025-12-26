@@ -1,0 +1,41 @@
+﻿$PBExportHeader$d_12010_d06.srd
+$PBExportComments$작업지시서[SUB공정]
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(2) updatewhereclause=yes name=sub_job dbname="tb_12026_d.sub_job" )
+ column=(type=char(6) updatewhereclause=yes name=cust_cd dbname="tb_12026_d.cust_cd" )
+ column=(type=char(30) updatewhereclause=yes name=cust_nm dbname="cust_nm" )
+ column=(type=char(8) updatewhereclause=yes name=ord_ymd dbname="tb_12026_d.ord_ymd" )
+ column=(type=char(8) updatewhereclause=yes name=dlvy_ymd dbname="tb_12026_d.dlvy_ymd" )
+ column=(type=decimal(0) updatewhereclause=yes name=price dbname="tb_12026_d.price" )
+ retrieve="  SELECT sub_job,
+         cust_cd, 
+         dbo.sf_cust_nm(cust_cd, 'S')  as cust_nm, 
+         ord_ymd, 
+         dlvy_ymd, 
+         price  
+    FROM TB_12026_D 
+   WHERE style = :as_style 
+     AND chno  = :as_chno  
+
+" arguments=(("as_style", string),("as_chno", string)) )
+text(band=header alignment="2" text="" border="6" color="0" x="9" y="8" height="60" width="73"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="공정" border="6" color="0" x="91" y="8" height="60" width="430"  name=job_div_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="거래처" border="6" color="0" x="530" y="8" height="60" width="224"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="거래처 명" border="6" color="0" x="763" y="8" height="60" width="443"  name=cust_cdt  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="투입일" border="6" color="0" x="1216" y="8" height="60" width="315"  name=order_ymd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="납기일" border="6" color="0" x="1541" y="8" height="60" width="315"  name=delivery_ymd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="단   가" border="6" color="0" x="1865" y="8" height="60" width="329"  name=sub_price_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="getrow()"border="6" color="0" x="9" y="4" height="60" width="73" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="91" y="0" height="64" width="430" format="[general]"  name=sub_job edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="763" y="0" height="64" width="443" format="[general]"  name=cust_nm edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="530" y="0" height="64" width="224" format="[general]"  name=cust_cd edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="1865" y="0" height="64" width="329" format="#,##"  name=price edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="1216" y="0" height="64" width="315" format="@@@@/@@/@@"  name=ord_ymd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0" x="1541" y="0" height="64" width="315" format="@@@@/@@/@@"  name=dlvy_ymd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

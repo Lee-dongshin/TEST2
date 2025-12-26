@@ -1,0 +1,16 @@
+﻿$PBExportHeader$d_12010_r05.srd
+$PBExportComments$작업지시서[Assort]
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=220 color="536870912" )
+table(column=(type=decimal(0) updatewhereclause=yes name=plan_qty_44 dbname="plan_qty_44" )
+ column=(type=decimal(0) updatewhereclause=yes name=plan_qty_55 dbname="plan_qty_55" )
+ column=(type=decimal(0) updatewhereclause=yes name=plan_qty_66 dbname="plan_qty_66" )
+ procedure="1 execute dbo.sp_12010_r05;1 @style = :style, @chno = :chno, @color = :color" arguments=(("style", string),("chno", string),("color", string)) )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="2" color="0" x="5" y="4" height="68" width="485" format="#,###"  name=plan_qty_44 edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="2" color="0" x="5" y="76" height="68" width="485" format="#,###"  name=plan_qty_55 edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="2" color="0" x="5" y="148" height="68" width="485" format="#,###"  name=plan_qty_66 edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

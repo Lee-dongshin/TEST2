@@ -1,0 +1,26 @@
+﻿$PBExportHeader$gf_shop_nm.srf
+$PBExportComments$매장명을 읽어온다.
+global type gf_shop_nm from function_object
+end type
+
+forward prototypes
+global function integer gf_shop_nm (string as_shop_cd, string as_flag, ref string as_shop_nm)
+end prototypes
+
+global function integer gf_shop_nm (string as_shop_cd, string as_flag, ref string as_shop_nm);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 작 성 일  : 2001/09/14                                     */
+/* 수 정 일  : 2001/09/14                                     */
+/* 내    용  : 매장명을 읽어온다.('L':매장명, 'S':약칭명)     */
+/*============================================================*/
+
+SELECT dbo.sf_shop_nm1(:as_shop_cd, :as_flag)
+  INTO :as_shop_nm 
+  FROM DUAL ;
+
+IF ISNULL(as_shop_nm) THEN RETURN 100
+
+RETURN sqlca.sqlcode 
+
+end function
+

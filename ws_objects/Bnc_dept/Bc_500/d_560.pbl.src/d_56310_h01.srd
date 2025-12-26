@@ -1,0 +1,35 @@
+﻿$PBExportHeader$d_56310_h01.srd
+$PBExportComments$중국매장출고집계
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=224 color="536870912" )
+table(column=(type=char(6) updatewhereclause=yes name=shop_cd dbname="shop_cd" values="NT3516   중국심천	NT3516/NT3533   중국대련	NT3533/" )
+ column=(type=char(18) updatewhereclause=yes name=shop_nm dbname="shop_nm" )
+ column=(type=char(8) updatewhereclause=yes name=frm_date dbname="frm_date" )
+ column=(type=char(8) updatewhereclause=yes name=to_date dbname="to_date" )
+ column=(type=char(8) updatewhereclause=yes name=input_date dbname="input_date" )
+ column=(type=decimal(2) updatewhereclause=yes name=exchange_rate dbname="exchange_rate" )
+ column=(type=char(52) updatewhereclause=yes name=text dbname="text" )
+ retrieve="select 'NT3516'						AS shop_cd,
+		 '중국심천매장온앤온'		AS shop_nm,
+		 '20021101'						AS frm_date,
+		 '20021131'						AS to_date,
+		 '20021131'						AS input_date,
+		 1235.29							AS exchange_rate,
+		 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' as text
+	" )
+text(band=detail alignment="1" text="거래처:" border="0" color="0" x="37" y="20" height="60" width="425"  name=shop_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="기준환율:" border="0" color="0" x="2135" y="20" height="60" width="283"  name=exchange_rate_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="475" y="20" height="60" width="709" format="[general]"  name=shop_cd ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.useasborder=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="1" tabsequence=30 border="5" color="0" x="2437" y="20" height="60" width="329" format="#,##0.00"  name=exchange_rate edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="입력일자:" border="0" color="0" x="1399" y="20" height="60" width="320"  name=input_date_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=20 border="5" color="0" x="1737" y="20" height="60" width="338" format="@@@@/@@/@@"  name=input_date editmask.mask="XXXX/XX/XX" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="출고기간:" border="0" color="0" x="41" y="128" height="60" width="425"  name=frm_date_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=40 border="5" color="0" x="485" y="128" height="60" width="293" format="@@@@/@@/@@"  name=frm_date editmask.mask="XXXX/XX/XX" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=50 border="5" color="0" x="891" y="128" height="60" width="293" format="@@@@/@@/@@"  name=to_date editmask.mask="XXXX/XX/XX" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="0" text="~~" border="0" color="0" x="809" y="124" height="68" width="55"  name=t_1  font.face="굴림체" font.height="-11" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=0 border="0" color="8388736" x="1403" y="128" height="56" width="1577"  name=text  font.face="굴림체" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="80269524" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

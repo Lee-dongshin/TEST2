@@ -1,0 +1,25 @@
+﻿$PBExportHeader$gf_getyear.srf
+global type gf_getyear from function_object
+end type
+
+forward prototypes
+global function boolean gf_getyear (string as_mat_style, ref string as_year)
+end prototypes
+
+global function boolean gf_getyear (string as_mat_style, ref string as_year);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 작 성 일  : 2002/01/04                                     */
+/* 수 정 일  : 2002/01/04                                     */
+/* 내    용  : 년도을 읽어온다.                             */
+/*============================================================*/
+
+SELECT dbo.sf_getyear(:as_mat_style)
+  INTO :as_year 
+  FROM DUAL ;
+
+IF ISNULL(as_year) THEN RETURN false
+
+RETURN true
+
+end function
+

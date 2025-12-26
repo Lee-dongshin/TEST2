@@ -1,0 +1,99 @@
+﻿$PBExportHeader$d_sh130_d20.srd
+$PBExportComments$판매일보등록[WDOT고객등록]
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=628 color="536870912" )
+table(column=(type=char(13) update=yes updatewhereclause=yes key=yes name=jumin dbname="TB_72010_M.jumin" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=user_name dbname="TB_72010_M.user_name" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=card_day dbname="TB_72010_M.card_day" )
+ column=(type=char(16) update=yes updatewhereclause=yes name=card_no dbname="TB_72010_M.card_no" )
+ column=(type=char(16) updatewhereclause=yes name=card_no2 dbname="card_no2" )
+ column=(type=char(8) updatewhereclause=yes name=birthday dbname="TB_72010_M.birthday" )
+ column=(type=number updatewhereclause=yes name=bday dbname="TB_72010_M.bday" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=shop_cd dbname="TB_72010_M.shop_cd" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=area dbname="TB_72010_M.area" )
+ column=(type=number update=yes updatewhereclause=yes name=sex dbname="TB_72010_M.sex" )
+ column=(type=char(7) update=yes updatewhereclause=yes name=zipcode dbname="TB_72010_M.zipcode" )
+ column=(type=char(200) update=yes updatewhereclause=yes name=addr dbname="TB_72010_M.addr" )
+ column=(type=char(200) update=yes updatewhereclause=yes name=addr_s dbname="TB_72010_M.addr_s" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=email dbname="TB_72010_M.email" )
+ column=(type=char(20) updatewhereclause=yes name=email1 dbname="email1" )
+ column=(type=char(20) updatewhereclause=yes name=email2 dbname="email2" values="hanmail.net	hanmail.net/hotmail.com	hotmail.com/lycos.co.kr	lycos.co.kr/yahoo.co.kr	yahoo.co.kr/daum.net	daum.net/netian.com	netian.com/dreamwiz.com	dreamwiz.com/hanmair.com	hanmair.com/korea.com	korea.com/intizen.com	intizen.com/empas.com	empas.com/freechal.com	freechal.com/msn.com	msn.com/sayclub.com	sayclub.com/naver.com	naver.com/" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=tel_no3 dbname="TB_72010_M.tel_no3" )
+ column=(type=char(4) updatewhereclause=yes name=tel_no3a dbname="tel_no3a" values="010	010/011	011/016	016/017	017/018	018/019	019/" )
+ column=(type=char(4) updatewhereclause=yes name=tel_no3b dbname="tel_no3b" )
+ column=(type=char(4) updatewhereclause=yes name=tel_no3c dbname="tel_no3c" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=tel_no1 dbname="TB_72010_M.tel_no1" )
+ column=(type=char(4) updatewhereclause=yes name=tel_no1a dbname="tel_no1a" values="02	02/031	031/032	032/033	033/041	041/042	042/043	043/051	051/052	052/053	053/054	054/055	055/061	061/062	062/063	063/064	064/" )
+ column=(type=char(4) updatewhereclause=yes name=tel_no1b dbname="tel_no1b" )
+ column=(type=char(4) updatewhereclause=yes name=tel_no1c dbname="tel_no1C" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="TB_72010_M.Reg_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="TB_72010_M.Reg_Dt" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="TB_72010_M.Mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="TB_72010_M.Mod_Dt" )
+ column=(type=long updatewhereclause=yes name=prot dbname="prot" )
+ retrieve="  SELECT jumin,   
+         user_name,   
+         card_day, 
+         card_no,   
+         right(card_no, 9)  as card_no2, 
+			birthday,
+			bday,
+         shop_cd,   
+         area,   
+         sex,
+			zipcode,
+			addr,
+			addr_s,
+			email,
+			'                    '     as email1,
+			'                    '     as email2,
+			tel_no3,
+			'    '     as tel_no3a,
+			'    '     as tel_no3b,
+			'    '     as tel_no3c,
+			tel_no1,
+			'    '     as tel_no1a,
+			'    '     as tel_no1b,
+			'    '     as tel_no1C,
+         Reg_id,   
+         Reg_Dt,   
+         Mod_id,   
+         Mod_Dt,
+			CASE when Exists (select top 1 jumin from tb_72010_m with (nolock)
+			where jumin = a.jumin
+			and isnull(card_no,'') <> '') then 1 else 0 end as prot
+   FROM TB_72010_M a
+   WHERE jumin = :as_jumin " update="TB_72010_M" updatewhere=0 updatekeyinplace=yes arguments=(("as_jumin", string)) )
+text(band=detail alignment="0" text="1128-003" border="5" color="0" x="421" y="92" height="56" width="562"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="0" background.color="82042848~tif(isNull( card_no ) or trim( card_no ) = '', rgb(255, 255, 255), rgb(192, 192, 192))" )
+text(band=detail alignment="2" text="카드번호" border="6" color="0" x="18" y="96" height="56" width="384"  name=card_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=20 border="0" color="0" x="640" y="92" height="56" width="329" format="[general]" protect="0~tprot"  name=card_no2  tag="OE" editmask.mask="#-####-####" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="82042848~tif(isNull( card_no ) or trim( card_no ) = '', rgb(255, 255, 255), rgb(192, 192, 192))" )
+text(band=detail alignment="2" text="회원명" border="6" color="0" x="18" y="12" height="60" width="384"  name=user_name_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=29 alignment="0" tabsequence=32766 border="0" color="0" x="5" y="840" height="56" width="82" format="[general]"  name=prot edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="5" color="0" x="430" y="12" height="56" width="270" format="[general]" protect="0~tif(isRowNew(), 0, 1)"  name=user_name edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="16777215~tif(isRowNew(), rgb(255,255,255), rgb(192,192,192))" )
+text(band=detail alignment="2" text="@" border="0" color="0" x="896" y="160" height="68" width="41"  name=at  font.face="굴림체" font.height="-11" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="-" border="0" color="0" x="718" y="240" height="56" width="32"  name=t_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=detail alignment="0" text="-" border="0" color="0" x="1074" y="240" height="56" width="32"  name=t_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=detail alignment="2" text="핸드폰" border="6" color="0" x="18" y="240" height="56" width="384"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="0" tabsequence=50 border="5" color="0" x="421" y="240" height="56" width="270" format="[general]"  name=tel_no3a ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.vscrollbar=yes ddlb.useasborder=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=19 alignment="0" tabsequence=60 border="5" color="0" x="777" y="240" height="56" width="270" format="[general]"  name=tel_no3b edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=20 alignment="0" tabsequence=70 border="5" color="0" x="1134" y="240" height="56" width="270" format="[general]"  name=tel_no3c edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="우편번호" border="6" color="0" x="18" y="392" height="56" width="384"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="5" color="0" x="421" y="392" height="56" width="311" format="[general]"  name=zipcode edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="27780307" )
+button(band=detail text="검색"filename=""action="0" border="0" color="33554432" x="745" y="384" height="72" width="201" vtextalign="0" htextalign="0"  name=cb_zipcode  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15780518" )
+text(band=detail alignment="2" text="자택주소" border="6" color="0" x="18" y="472" height="56" width="384"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="5" color="0" x="421" y="472" height="56" width="1271" format="[general]"  name=addr edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="27780307" )
+column(band=detail id=13 alignment="0" tabsequence=110 border="5" color="0" x="421" y="548" height="56" width="1271" format="[general]"  name=addr_s edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="자택" border="6" color="0" x="18" y="312" height="56" width="384"  name=t_9  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=22 alignment="0" tabsequence=80 border="5" color="0" x="421" y="312" height="56" width="270" format="[general]"  name=tel_no1a ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.nilisnull=yes ddlb.vscrollbar=yes ddlb.useasborder=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="0" text="-" border="0" color="0" x="718" y="312" height="56" width="32"  name=t_10  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=detail alignment="0" text="-" border="0" color="0" x="1074" y="316" height="56" width="32"  name=t_11  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=23 alignment="0" tabsequence=90 border="5" color="0" x="777" y="312" height="56" width="270" format="[general]"  name=tel_no1b edit.limit=4 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=24 alignment="0" tabsequence=100 border="5" color="0" x="1134" y="312" height="56" width="270" format="[general]"  name=tel_no1c edit.limit=4 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="이메일" border="6" color="16711680" x="18" y="168" height="56" width="384"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="0" tabsequence=30 border="5" color="16711680" x="421" y="164" height="60" width="453" format="[general]"  name=email1  tag="DE" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="15793151" )
+column(band=detail id=16 alignment="0" tabsequence=40 border="5" color="16711680" x="946" y="168" height="60" width="585" format="[general]"  name=email2  tag="DE" ddlb.limit=15 ddlb.allowedit=yes ddlb.case=any ddlb.nilisnull=yes ddlb.vscrollbar=yes ddlb.useasborder=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

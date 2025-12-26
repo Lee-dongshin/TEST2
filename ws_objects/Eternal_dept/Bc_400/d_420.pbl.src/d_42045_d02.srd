@@ -1,0 +1,34 @@
+﻿$PBExportHeader$d_42045_d02.srd
+$PBExportComments$중국출고선적일등록
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=char(1) update=yes updatewhereclause=yes key=yes name=brand dbname="TB_42022_H.Brand" )
+ column=(type=char(8) update=yes updatewhereclause=yes key=yes name=yymmdd dbname="TB_42022_H.yymmdd" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=out_no dbname="TB_42022_H.Out_NO" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=qty dbname="TB_42022_H.Qty" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=shipping_date dbname="TB_42022_H.Shipping_Date" )
+ retrieve="  SELECT TB_42022_H.Brand,   
+         TB_42022_H.yymmdd,   
+         TB_42022_H.Out_NO,   
+         TB_42022_H.Qty,   
+         TB_42022_H.Shipping_Date  
+    FROM TB_42022_H  
+  	WHERE TB_42022_H.Brand = :AS_BRAND
+     AND TB_42022_H.YYMMDD >= :AS_YYMMDD; 
+" update="TB_42022_H" updatewhere=0 updatekeyinplace=yes arguments=(("as_brand", string),("as_yymmdd", string)) )
+text(band=header alignment="2" text="Brand" border="0" color="0" x="9" y="8" height="64" width="155"  name=brand_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Yymmdd" border="0" color="0" x="174" y="8" height="64" width="247"  name=yymmdd_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Out No" border="0" color="0" x="430" y="8" height="64" width="187"  name=out_no_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Qty" border="0" color="0" x="626" y="8" height="64" width="329"  name=qty_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Shipping Date" border="0" color="0" x="965" y="8" height="64" width="370"  name=shipping_date_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="0" x="9" y="8" height="76" width="155" format="[general]"  name=brand edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="0" x="174" y="8" height="76" width="247" format="[general]"  name=yymmdd edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="0" color="0" x="430" y="8" height="76" width="187" format="[general]"  name=out_no edit.limit=4 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=40 border="0" color="0" x="626" y="8" height="76" width="329" format="[general]"  name=qty edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=50 border="0" color="0" x="965" y="8" height="76" width="370" format="[general]"  name=shipping_date edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

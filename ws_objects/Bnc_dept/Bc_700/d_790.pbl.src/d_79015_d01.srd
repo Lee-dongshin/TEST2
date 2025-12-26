@@ -1,0 +1,29 @@
+﻿$PBExportHeader$d_79015_d01.srd
+$PBExportComments$불량유형관리리스트
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes key=yes name=yymmdd dbname="TB_79012_h.YYMMDD" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=seq_no dbname="TB_79012_h.SEQ_NO" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=style dbname="TB_79012_h.STYLE" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=chno dbname="TB_79012_h.CHNO" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=brand dbname="TB_79012_h.BRAND" )
+ retrieve="select 	YYMMDD,
+			SEQ_NO,
+			STYLE,
+			CHNO,
+			BRAND
+from TB_79012_h (nolock)
+where yymmdd = :As_yymmdd
+  and brand  = :as_brand
+" update="TB_79012_h" updatewhere=1 updatekeyinplace=no arguments=(("as_yymmdd", string),("as_brand", string)) )
+text(band=header alignment="2" text="좌번" border="6" color="0" x="14" y="4" height="60" width="197"  name=seq_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="품번" border="6" color="0" x="224" y="4" height="60" width="402"  name=style_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="549" y="4" height="60" width="69" format="[general]"  name=chno edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="14" y="4" height="60" width="197" format="[general]"  name=seq_no edit.limit=4 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="224" y="4" height="60" width="311" format="[general]"  name=style edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

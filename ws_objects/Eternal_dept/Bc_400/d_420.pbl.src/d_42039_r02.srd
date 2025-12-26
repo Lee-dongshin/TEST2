@@ -1,0 +1,22 @@
+﻿$PBExportHeader$d_42039_r02.srd
+$PBExportComments$배분표작업용
+release 7;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=5 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=304 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=228 color="536870912"  height.autosize=yes)
+table(column=(type=char(10) updatewhereclause=yes name=a dbname="a" )
+ unbound = "yes"arguments=(("brand", string),("out_ymd", string),("deal_fg", string),("yymmdd", string),("deal_seq", number)) )
+report(band=detail dataobject="d_42039_r01" x="14" y="8" height="120" width="713" border="1"  height.autosize=yes criteria="" nest_arguments=((" brand "),(" out_ymd "),(" deal_fg "),(" yymmdd "),(" deal_seq ")) trail_footer = yes  name=dw_1  slideleft=yes  slideup=directlyabove )
+text(band=header alignment="2" text="배   분   표" border="0" color="0" x="1243" y="32" height="112" width="878"  name=t_1  font.face="굴림체" font.height="-18" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" font.underline="1" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="브랜드:" border="0" color="0" x="41" y="236" height="56" width="238"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="text" border="0" color="0" x="293" y="236" height="56" width="594"  name=t_brand  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="text" border="0" color="0" x="1262" y="236" height="56" width="480"  name=t_out_ymd  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="배분일자:" border="0" color="0" x="983" y="236" height="56" width="265"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="배분구분:" border="0" color="0" x="1806" y="236" height="56" width="256"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="text" border="0" color="0" x="2071" y="236" height="56" width="480"  name=t_deal_fg  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="배분번호:" border="0" color="0" x="2610" y="236" height="56" width="256"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="text" border="0" color="0" x="2880" y="236" height="56" width="773"  name=t_deal_seq  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

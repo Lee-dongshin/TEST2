@@ -1,0 +1,74 @@
+﻿$PBExportHeader$d_79001_d09.srd
+$PBExportComments$A/S 등록
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=84 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=448 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes key=yes name=yymmdd dbname="tb_79015_d.yymmdd" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=seq_no dbname="tb_79015_d.seq_no" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=no dbname="tb_79015_d.no" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=judg_gu dbname="tb_79015_d.judg_gu" values="미처리	1/수선	2/반송	3/수선불가	4/" )
+ column=(type=char(3) update=yes updatewhereclause=yes name=judg_a dbname="tb_79015_d.judg_a" )
+ column=(type=char(3) update=yes updatewhereclause=yes name=judg_b dbname="tb_79015_d.judg_b" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=go_gubn dbname="tb_79015_d.go_gubn" values="행랑	1/택배	2/퀵	3/기타	4/" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=go_ymd dbname="tb_79015_d.go_ymd" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=invoice_no dbname="tb_79015_d.invoice_no" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=note dbname="tb_79015_d.note" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="tb_79015_d.reg_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="tb_79015_d.reg_dt" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="tb_79015_d.mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="tb_79015_d.mod_dt" )
+ retrieve="SELECT yymmdd,   
+		seq_no,   
+		no,   
+		judg_gu,   
+		judg_a,   
+		judg_b,   
+		go_gubn,   
+		go_ymd,   
+		invoice_no,   
+		note,
+		reg_id,   
+		reg_dt,   
+		mod_id,   
+		mod_dt  
+FROM	tb_79015_d
+WHERE yymmdd = :as_yymmdd
+		and seq_no = :as_seq_no
+		and no = :as_no
+
+" update="tb_79015_d" updatewhere=1 updatekeyinplace=no arguments=(("as_yymmdd", string),("as_seq_no", string),("as_no", string)) )
+button(band=header text="닫기"filename=""action="0" border="0" color="1090519039" x="1600" y="0" height="84" width="261" vtextalign="0" htextalign="0"  name=cb_cancle  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421376" )
+button(band=header text="확인"filename=""action="0" border="0" color="1090519039" x="1344" y="0" height="84" width="261" vtextalign="0" htextalign="0"  name=cb_ok  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421376" )
+text(band=detail alignment="1" text="Yymmdd:" border="0" color="0" x="2743" y="76" height="64" width="288"  name=yymmdd_t visible="1~t0"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Seq No:" border="0" color="0" x="2743" y="212" height="64" width="288"  name=seq_no_t visible="1~t0"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="No:" border="0" color="0" x="2743" y="348" height="64" width="288"  name=no_t visible="1~t0"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="3049" y="76" height="76" width="247" format="[general]"  name=yymmdd visible="1~t0" edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="3049" y="212" height="76" width="137" format="[general]"  name=seq_no visible="1~t0" edit.limit=4 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="3049" y="348" height="76" width="137" format="[general]"  name=no visible="1~t0" edit.limit=4 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="Reg Id:" border="0" color="0" x="2743" y="452" height="64" width="288"  name=reg_id_t visible="1~t0"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Reg Dt:" border="0" color="0" x="2743" y="588" height="64" width="288"  name=reg_dt_t visible="1~t0"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Mod Id:" border="0" color="0" x="2743" y="724" height="64" width="288"  name=mod_id_t visible="1~t0"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Mod Dt:" border="0" color="0" x="2743" y="860" height="64" width="288"  name=mod_dt_t visible="1~t0"  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="3049" y="452" height="76" width="192" format="[general]"  name=reg_id visible="1~t0" edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="3049" y="588" height="76" width="603" format="[shortdate] [time]"  name=reg_dt visible="1~t0" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="3049" y="724" height="76" width="192" format="[general]"  name=mod_id visible="1~t0" edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="3049" y="860" height="76" width="603" format="[shortdate] [time]"  name=mod_dt visible="1~t0" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=10 border="5" color="0" x="338" y="12" height="64" width="1509" format="[general]"  name=judg_gu radiobuttons.columns=4 radiobuttons.scale=no radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="처리구분" border="6" color="0" x="27" y="12" height="64" width="288"  name=judg_gu_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="복    종" border="6" color="0" x="27" y="100" height="64" width="288"  name=judg_a_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=20 border="5" color="0" x="338" y="100" height="64" width="590" format="[general]"  name=judg_a edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="발송구분" border="6" color="0" x="27" y="184" height="60" width="288"  name=go_gubn_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="송장번호" border="6" color="0" x="27" y="268" height="64" width="288"  name=invoice_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="비    고" border="6" color="0" x="27" y="356" height="64" width="288"  name=note_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=40 border="5" color="0" x="338" y="184" height="64" width="590" format="[general]"  name=go_gubn ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.useasborder=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=30 border="5" color="0" x="1262" y="100" height="64" width="590" format="[general]"  name=judg_b edit.name="내부코드" dddw.name=d_com004 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="수선내용" border="6" color="0" x="955" y="100" height="64" width="288"  name=judg_b_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="2" tabsequence=50 border="5" color="0" x="1262" y="184" height="64" width="590" format="@@@@-@@-@@"  name=go_ymd edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="발송일자" border="6" color="0" x="955" y="184" height="64" width="288"  name=go_ymd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=60 border="5" color="0" x="338" y="268" height="64" width="1513" format="[general]"  name=invoice_no edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=70 border="5" color="0" x="338" y="356" height="64" width="1513" format="[general]"  name=note edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

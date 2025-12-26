@@ -1,0 +1,50 @@
+﻿$PBExportHeader$d_56019_d01.srd
+$PBExportComments$마진율일괄등록
+release 7;
+datawindow(units=0 timer_interval=0 color=82042848 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=28 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(6) update=yes updatewhereclause=yes key=yes name=shop_cd dbname="tb_56010_m.shop_cd" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=brand dbname="tb_56010_m.brand" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=shop_type dbname="tb_56010_m.shop_type" )
+ column=(type=char(2) update=yes updatewhereclause=yes key=yes name=sale_type dbname="tb_56010_m.sale_type" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes key=yes name=dc_rate dbname="tb_56010_m.dc_rate" )
+ column=(type=char(8) update=yes updatewhereclause=yes key=yes name=end_ymd dbname="tb_56010_m.end_ymd" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=start_ymd dbname="tb_56010_m.start_ymd" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=marjin_rate dbname="tb_56010_m.marjin_rate" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="tb_56010_m.reg_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="tb_56010_m.reg_dt" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="tb_56010_m.mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="tb_56010_m.mod_dt" )
+ retrieve="
+select 
+		shop_cd,
+		brand,
+		shop_type,
+		sale_type,
+		dc_rate,
+		end_ymd,
+		start_ymd,
+		marjin_rate,
+		reg_id,
+		reg_dt,
+		mod_id,
+		mod_dt
+from tb_56010_m (nolock)
+where shop_cd = :as_shop_cd
+and shop_type = :as_shop_type
+and sale_type = :as_sale_type
+and dc_rate   = :al_dc_rate
+" update="tb_56010_m" updatewhere=1 updatekeyinplace=no arguments=(("as_shop_cd", string),("as_shop_type", string),("as_sale_type", string),("al_dc_rate", number)) )
+text(band=header alignment="2" text="시작일" border="6" color="0" x="32" y="4" height="60" width="306"  name=start_ymd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="종료일" border="6" color="0" x="352" y="4" height="60" width="306"  name=end_ymd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="할인률" border="6" color="0" x="672" y="4" height="60" width="302"  name=dc_rate_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="마진율" border="6" color="0" x="987" y="4" height="60" width="302"  name=marjin_rate_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=30 border="0" color="0" x="672" y="4" height="60" width="302" format="[general]" protect="0~tif (isNull( shop_cd ) , 0,1)"  name=dc_rate edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=8 alignment="1" tabsequence=40 border="0" color="0" x="987" y="4" height="60" width="302" format="[general]" protect="0~tif (isNull( shop_cd ) , 0,1)"  name=marjin_rate edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33484273" )
+column(band=detail id=7 alignment="2" tabsequence=10 border="0" color="0" x="32" y="4" height="60" width="306" format="[general]"  name=start_ymd editmask.mask="XXXX/XX/XX" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33487085" )
+column(band=detail id=6 alignment="2" tabsequence=20 border="0" color="0" x="352" y="4" height="60" width="306" format="[general]"  name=end_ymd editmask.mask="XXXX/XX/XX" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33487085" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

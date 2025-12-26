@@ -1,0 +1,20 @@
+﻿$PBExportHeader$d_51040_d01.srd
+$PBExportComments$일용근로자 대상명
+release 7;
+datawindow(units=0 timer_interval=0 color=82899184 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(30) updatewhereclause=yes name=kname dbname="kname" )
+ column=(type=char(12) updatewhereclause=yes name=birth_day dbname="birth_day" )
+ column=(type=char(14) updatewhereclause=yes name=jumn_no dbname="JUMN_NO" )
+ procedure="1 execute dbo.SP_51040_D01;1 @kname = :kname, @birth_day = :birth_day" arguments=(("kname", string),("birth_day", string)) )
+text(band=header alignment="2" text="근로자명" border="6" color="0" x="5" y="4" height="60" width="462"  name=kname_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="5" y="4" height="60" width="462" format="[general]"  name=kname edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30539508" )
+text(band=header alignment="2" text="생년월일" border="6" color="0" x="480" y="4" height="60" width="357"  name=birth_day_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Jumn No" border="6" color="0" x="855" y="4" height="60" width="183"  name=jumn_no_t visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="480" y="4" height="60" width="357" format="[general]"  name=birth_day edit.limit=12 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30539508" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="855" y="4" height="60" width="183" format="[general]"  name=jumn_no visible="1~t0" edit.limit=14 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30539508" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

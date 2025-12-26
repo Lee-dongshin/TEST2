@@ -1,0 +1,31 @@
+﻿$PBExportHeader$d_91008_ddw.srd
+$PBExportComments$비축부자재등록
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=88 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=char(1) updatewhereclause=yes name=brand dbname="TB_21000_M.brand" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=mat_cd dbname="TB_21000_M.mat_cd" )
+ column=(type=char(40) update=yes updatewhereclause=yes name=mat_nm dbname="TB_21000_M.mat_nm" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=mat_item dbname="TB_21000_M.mat_item" )
+ column=(type=char(4) updatewhereclause=yes name=mat_year dbname="TB_21000_M.mat_year" )
+ column=(type=char(1) updatewhereclause=yes name=mat_season dbname="mat_season" )
+ retrieve="
+	select brand, mat_cd, mat_nm, mat_item, mat_year, 
+		case mat_season when 's' then '1' when 'm' then '2' when 'a' then '3' else '4' end mat_season
+	from tb_21000_m a(nolock)
+" update="tb_21000_m" updatewhere=1 updatekeyinplace=no  sort="brand A mat_year D mat_season D mat_item A " )
+text(band=header alignment="2" text="브랜드" border="6" color="0" x="18" y="20" height="56" width="183"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="구분" border="6" color="0" x="224" y="20" height="56" width="105"  name=mat_item_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="자재코드" border="6" color="0" x="352" y="20" height="56" width="302"  name=mat_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="자재명" border="6" color="0" x="667" y="20" height="56" width="663"  name=mat_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="18" y="8" height="76" width="183" format="[general]"  name=brand edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=4 alignment="0" tabsequence=20 border="5" color="0" x="224" y="8" height="76" width="105" format="[general]"  name=mat_item edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=2 alignment="0" tabsequence=30 border="5" color="0" x="352" y="8" height="76" width="302" format="[general]"  name=mat_cd edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=3 alignment="0" tabsequence=40 border="5" color="0" x="667" y="8" height="76" width="663" format="[general]"  name=mat_nm edit.limit=40 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=5 alignment="0" tabsequence=0 border="0" color="0" x="1330" y="0" height="56" width="110"  name=mat_year visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=6 alignment="0" tabsequence=0 border="0" color="0" x="1440" y="0" height="56" width="27"  name=mat_season visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

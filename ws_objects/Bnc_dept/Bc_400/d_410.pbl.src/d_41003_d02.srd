@@ -1,0 +1,89 @@
+﻿$PBExportHeader$d_41003_d02.srd
+$PBExportComments$생산입고명세서
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(4) updatewhereclause=yes name=in_no dbname="in_no" )
+ column=(type=char(23) updatewhereclause=yes name=jup_gubn dbname="jup_gubn" )
+ column=(type=char(8) updatewhereclause=yes name=style dbname="style" )
+ column=(type=char(1) updatewhereclause=yes name=chno dbname="chno" )
+ column=(type=char(23) updatewhereclause=yes name=color dbname="color" )
+ column=(type=decimal(0) updatewhereclause=yes name=day_in_qty dbname="day_in_qty" )
+ column=(type=decimal(0) updatewhereclause=yes name=a_in_qty dbname="a_in_qty" )
+ column=(type=decimal(0) updatewhereclause=yes name=b_in_qty dbname="b_in_qty" )
+ column=(type=decimal(0) updatewhereclause=yes name=ord_qty dbname="ord_qty" )
+ column=(type=decimal(0) updatewhereclause=yes name=tot_ain_qty dbname="tot_ain_qty" )
+ column=(type=decimal(0) updatewhereclause=yes name=tot_bin_qty dbname="tot_bin_qty" )
+ column=(type=decimal(0) updatewhereclause=yes name=tot_in_qty dbname="tot_in_qty" )
+ column=(type=decimal(0) updatewhereclause=yes name=add_qty dbname="add_qty" )
+ column=(type=decimal(0) updatewhereclause=yes name=make_amt dbname="make_amt" )
+ retrieve="select a.in_no, 
+       a.jup_gubn +' ' +(select inter_nm from tb_91011_c where inter_grp = '024'
+                         and inter_cd =  a.jup_gubn) jup_gubn, 
+       a.style,a.chno,
+       a.color + ' ' + dbo.sf_color_nm(a.color, 'k') color,
+       isnull(sum(a.day_in_qty), 0)  as day_in_qty,
+       isnull(sum(a.a_in_qty), 0)    as a_in_qty,
+       isnull(sum(a.b_in_qty), 0)    as b_in_qty,
+       isnull(sum(a.ord_qty), 0)     as ord_qty,
+       isnull(sum(a.tot_ain_qty), 0) as tot_ain_qty,
+       isnull(sum(a.tot_bin_qty), 0) as tot_bin_qty,
+       isnull(sum(a.tot_ain_qty), 0) + isnull(sum(a.tot_bin_qty), 0) as tot_in_qty,
+       isnull(sum(a.add_qty), 0)     as add_qty,                     
+       isnull(sum(a.make_amt), 0)    as make_amt
+from 	(select  a.in_no as in_no, a.jup_gubn,
+               a.style, a.chno, a.color,
+	       sum(a.qty) day_in_qty,  
+	       case when a.class = 'a' then sum(a.qty) end as a_in_qty,
+	       case when a.class <> 'a' then sum(a.qty) end as b_in_qty,
+	       b.ord_qty, 
+	       b.in_qty  as tot_ain_qty,
+	       b.bad_qty as tot_bin_qty,
+	       b.add_qty,
+	       b.make_amt
+	from tb_41010_h a, tb_12030_s b
+	where a.brand = :as_brand
+	and   a.yymmdd = :as_yymmdd
+   and   a.cust_cd  = :as_cust_cd
+	and   a.style  = b.style
+	and   a.chno   = b.chno
+	and   a.color  = b.color
+	and   a.size   = b.size
+	group by a.cust_cd, a.style, a.chno,a.class,a.color, a.yymmdd, a.in_no, a.jup_gubn,
+	       b.ord_qty, 
+	       b.in_qty,
+	       b.bad_qty,
+	       b.add_qty,
+	       b.make_amt) a
+group by a.style,a.chno, a.color,a.in_no,a.jup_gubn
+order by 1,3,4
+" arguments=(("as_brand", string),("as_yymmdd", string),("as_cust_cd", string)) )
+text(band=header alignment="2" text="색상" border="6" color="0" x="987" y="8" height="60" width="315"  name=color_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="당일총" border="6" color="0" x="1317" y="8" height="60" width="251"  name=day_in_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="당일정상" border="6" color="0" x="1582" y="8" height="60" width="251"  name=a_in_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="당일불량" border="6" color="0" x="1847" y="8" height="60" width="251"  name=b_in_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="발주량" border="6" color="0" x="2112" y="8" height="60" width="251"  name=ord_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="총정상" border="6" color="0" x="2377" y="8" height="60" width="251"  name=tot_ain_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="총불량" border="6" color="0" x="2642" y="8" height="60" width="251"  name=tot_bin_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="총입고" border="6" color="0" x="2907" y="8" height="60" width="251"  name=tot_in_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="차수" border="6" color="0" x="850" y="8" height="60" width="123"  name=chno_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="스타일" border="6" color="0" x="576" y="8" height="60" width="261"  name=style_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="번호" border="6" color="0" x="9" y="8" height="60" width="174"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="전표구분" border="6" color="0" x="197" y="8" height="60" width="366"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="5" color="0" x="1317" y="4" height="60" width="251" format="#,##0"  name=day_in_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="31323131" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="5" color="0" x="1582" y="4" height="60" width="251" format="#,##0"  name=a_in_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="31323131" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="5" color="0" x="1847" y="4" height="60" width="251" format="#,##0"  name=b_in_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="31323131" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="5" color="0" x="987" y="4" height="60" width="315" format="[general]"  name=color edit.limit=23 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="5" color="0" x="2112" y="4" height="60" width="251" format="#,##0"  name=ord_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="5" color="0" x="2377" y="4" height="60" width="251" format="#,##0"  name=tot_ain_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="1" tabsequence=32766 border="5" color="0" x="2642" y="4" height="60" width="251" format="#,##0"  name=tot_bin_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=12 alignment="1" tabsequence=32766 border="5" color="0" x="2907" y="4" height="60" width="251" format="#,##0"  name=tot_in_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="5" color="0" x="850" y="4" height="60" width="123" format="[general]"  name=chno edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="5" color="0" x="585" y="4" height="60" width="247" format="[general]"  name=style edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="5" color="0" x="9" y="4" height="60" width="174" format="[general]"  name=in_no edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="5" color="0" x="197" y="4" height="60" width="366" format="[general]"  name=jup_gubn edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="80269524" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

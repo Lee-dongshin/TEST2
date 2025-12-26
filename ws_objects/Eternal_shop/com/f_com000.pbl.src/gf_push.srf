@@ -1,0 +1,75 @@
+﻿$PBExportHeader$gf_push.srf
+global type gf_push from function_object
+end type
+
+forward prototypes
+global function integer gf_push (string as_title, string as_content, string as_url, string as_to_id)
+end prototypes
+
+global function integer gf_push (string as_title, string as_content, string as_url, string as_to_id);string ls_string, ls_public, ls_cd_code, ls_cd_authkey, ls_title, ls_content, ls_url, ls_to_id, ls_txt
+int li_rc, irtn
+
+ls_cd_code    = "2158136619"
+ls_cd_authkey = "00001IBN75QKDJPPS2XM8G68ZWZWC6"
+//ls_title      = "RT요청"
+//ls_content    = "RT요청 확인 후 해당 매장으로 발송 협조 부탁 드립니다!"
+ls_url = ""
+//messagebox('as_title', as_title)
+
+
+OLEObject wsh
+
+wsh = create OLEObject
+
+irtn = wsh.ConnectToNewObject("MSScriptControl.ScriptControl")
+
+wsh.language = "Javascript"
+
+
+
+String ls_Result, ls_temp, ls_result1, ls_temp1
+
+ls_title += wsh.Eval("encodeURIComponent('"+as_title+"')")
+
+ls_content += wsh.Eval("encodeURIComponent('"+as_content+"')")
+
+ls_url += wsh.Eval("encodeURIComponent('"+as_url+"')")
+
+ls_txt = ""
+ls_txt = ls_txt + "cd_code" + "=" + ls_cd_code + "&"
+ls_txt = ls_txt + "cd_authkey" + "=" + ls_cd_authkey + "&"
+ls_txt = ls_txt + "title" + "=" + ls_title + "&"
+ls_txt = ls_txt + "content" + "=" + ls_content + "&"
+ls_txt = ls_txt + "url" + "=" + ls_url + "&"
+ls_txt = ls_txt + "to_id" + "=" + as_to_id
+//ls_txt = ls_txt + "to_id" + "=" + "NG0008" 
+
+
+oleobject req
+	
+	req = CREATE oleobject
+	li_rc = req.ConnectToNewObject("Msxml2.XMLHTTP.3.0")
+	
+	ls_string = "http://api.sewonatos.co.kr/push/fcm_send.asp"
+
+
+	IF li_rc < 0 THEN
+	 ls_public = ''
+	ELSE
+	 req.open ("POST", ls_string , false)
+	 req.SetRequestHeader("Content-Type","application/x-www-form-urlencoded")
+	 req.send (ls_txt)
+	 ls_public = Trim(req.responsetext)
+	
+	END IF
+
+
+//	messagebox("ls_public",ls_public)
+	
+	req.DisconnectObject()
+	Destroy req
+	
+	return 1
+
+end function
+

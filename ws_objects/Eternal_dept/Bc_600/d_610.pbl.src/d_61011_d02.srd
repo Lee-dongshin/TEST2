@@ -1,0 +1,21 @@
+﻿$PBExportHeader$d_61011_d02.srd
+$PBExportComments$주간별 판매
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=4 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no  crosstab.dynamic = yes grid.lines=0 grid.columnmove=no selected.mouse=no )
+header[1](height=0 color="536870912" )
+header[2](height=88 color="536870912" )
+summary(height=84 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(20) updatewhereclause=yes name=gubn dbname="gubn" )
+ column=(type=number updatewhereclause=yes name=sale_amt dbname="sale_amt" )
+ procedure="1 execute dbo.sp_61011_d01;1 @brand = :brand, @yymmdd = :yymmdd, @shop_cd = :shop_cd" arguments=(("brand", string),("yymmdd", string),("shop_cd", string))  sort="gubn A " )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="9" y="16" height="56" width="215" format="[general]"  name=gubn edit.limit=4 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="33554432" x="233" y="16" height="56" width="361" format="#,###"  name=sale_amt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes crosstab.repeat=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="crosstabsum(1)"border="0" color="33554432" x="603" y="16" height="56" width="512" format="#,###"  name=grand_sum_sale_amt  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header[2] alignment="0" text="주일" border="0" color="16777215" x="9" y="20" height="56" width="215"  name=gubn_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="32768" )
+text(band=header[2] alignment="2" text="@yymmdd" border="0" color="16777215" x="233" y="20" height="56" width="361"  name=sale_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="32768" )
+text(band=header[2] alignment="1" text="총합계" border="0" color="16777215" x="603" y="20" height="56" width="512"  name=grand_sum_sale_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="32768" )
+ crosstab(band = foreground  crosstabonly = yes 
+ columns = "yymmdd" rows = "gubn" values = "sum(sale_amt for crosstab)" sourcenames = "gubn, yymmdd, sale_amt")htmltable(border="0" cellpadding="1" cellspacing="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

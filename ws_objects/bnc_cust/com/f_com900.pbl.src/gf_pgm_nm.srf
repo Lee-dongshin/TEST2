@@ -1,0 +1,26 @@
+﻿$PBExportHeader$gf_pgm_nm.srf
+$PBExportComments$프로그램명을 읽어온다.
+global type gf_pgm_nm from function_object
+end type
+
+forward prototypes
+global function integer gf_pgm_nm (string as_pgm_id, ref string as_pgm_nm)
+end prototypes
+
+global function integer gf_pgm_nm (string as_pgm_id, ref string as_pgm_nm);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 작 성 일  : 2001/11/21                                     */
+/* 수 정 일  : 2001/11/21                                     */
+/* 내    용  : 프로그램명을 읽어온다.                         */
+/*============================================================*/
+
+SELECT dbo.SF_PGM_NM(:as_pgm_id)
+  INTO :as_pgm_nm 
+  FROM DUAL ;
+
+IF ISNULL(as_pgm_nm) THEN RETURN 100
+
+RETURN sqlca.sqlcode 
+
+end function
+

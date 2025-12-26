@@ -1,0 +1,19 @@
+﻿$PBExportHeader$d_58031_h01.srd
+$PBExportComments$L/C 번호관리
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=112 color="536870912" )
+table(column=(type=char(20) updatewhereclause=no name=lc_no dbname="lc_no" )
+ column=(type=decimal(4) updatewhereclause=no name=eur_usd dbname="eur_usd" initial="1.5774" )
+ column=(type=char(1) updatewhereclause=no name=brand dbname="brand" initial="1" values="보끄레	1/올리브	2/" )
+ )
+text(band=detail alignment="1" text="Lc No:" border="0" color="0" x="123" y="24" height="56" width="192"  name=lc_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="334" y="24" height="56" width="549" format="[general]"  name=lc_no edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="1" text="Brand:" border="0" color="0" x="969" y="28" height="56" width="165"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="5" color="0" x="1152" y="28" height="56" width="603" format="[general]"  name=brand radiobuttons.columns=2 radiobuttons.scale=yes radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="1" tabsequence=30 border="5" color="0" x="2181" y="24" height="56" width="242" format="0.0000"  name=eur_usd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="1" text="1EUR=USD:" border="0" color="0" x="1888" y="24" height="56" width="274"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

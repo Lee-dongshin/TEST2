@@ -1,0 +1,19 @@
+﻿$PBExportHeader$d_61000_d01.srd
+$PBExportComments$전브랜드판매실적
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=4 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no  crosstab.dynamic = yes grid.lines=0 )
+header[1](height=0 color="536870912" )
+header[2](height=92 color="536870912" )
+summary(height=104 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(20) updatewhereclause=yes name=title dbname="title" )
+ column=(type=number updatewhereclause=yes name=amt dbname="amt" )
+ procedure="1 execute dbo.SP_61000_d01;1 @ps_yymm = :ps_yymm, @ps_sale_div = :ps_sale_div, @ps_shopping_yn = :ps_shopping_yn" arguments=(("ps_yymm", string),("ps_sale_div", string),("ps_shopping_yn", string))  sort="title A " )
+text(band=header[2] alignment="2" text="구분" border="6" color="0" x="9" y="16" height="68" width="462"  name=title_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="79741120" )
+text(band=header[2] alignment="2" text="@brand" border="6" color="0" x="480" y="16" height="68" width="366"  name=amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="79741120" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="9" y="4" height="68" width="462" format="[general]"  name=title edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="16777215~t case(  title when '03.달성률(%)' then rgb(191,255,191) when '06.누계진척률(%)' then rgb(191,255,191) when '10.누계증감률(%)'  then rgb(191,255,191) else rgb(255,255,255))" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="33554432" x="480" y="4" height="68" width="366" format="#,##0"  name=amt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes crosstab.repeat=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="15793151~t case(  title when '03.달성률(%)' then rgb(191,255,191) when '06.누계진척률(%)' then rgb(191,255,191) when '10.누계증감률(%)'  then rgb(191,255,191) else rgb(255,255,255))" )
+ crosstab(band = foreground  crosstabonly = yes 
+ columns = "brand" rows = "title" values = "sum(amt for crosstab)" sourcenames = "title, brand, amt")htmltable(border="0" cellpadding="1" cellspacing="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

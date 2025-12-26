@@ -1,0 +1,58 @@
+﻿$PBExportHeader$d_sh139_d02.srd
+$PBExportComments$판매일보등록[고객정보]
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=128 color="536870912" )
+table(column=(type=char(13) update=yes updatewhereclause=yes name=jumin dbname="jumin" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=user_name dbname="user_name" )
+ column=(type=char(9) update=yes updatewhereclause=yes name=card_no dbname="card_no" )
+ column=(type=char(2) updatewhereclause=yes name=age_grp dbname="age_grp" )
+ column=(type=long updatewhereclause=yes name=total_point dbname="DUAL.total_point" )
+ column=(type=long updatewhereclause=yes name=give_point dbname="DUAL.give_point" )
+ column=(type=long updatewhereclause=yes name=accept_point dbname="DUAL.accept_point" )
+ column=(type=long updatewhereclause=yes name=sale_qty dbname="DUAL.sale_qty" )
+ column=(type=long updatewhereclause=yes name=sale_amt dbname="DUAL.sale_amt" )
+ column=(type=long updatewhereclause=yes name=goods_amt dbname="DUAL.goods_amt" )
+ column=(type=char(6) updatewhereclause=yes name=coupon_no dbname="coupon_no" )
+ column=(type=char(13) updatewhereclause=yes name=tel_no3 dbname="tel_no3" )
+ column=(type=char(8) updatewhereclause=yes name=give_date dbname="give_date" )
+ column=(type=char(6) updatewhereclause=yes name=coupon_no dbname="coupon_no" )
+ column=(type=char(3) updatewhereclause=yes name=secure_no dbname="secure_no" )
+ column=(type=long updatewhereclause=yes name=give_rate dbname="DUAL.give_rate" )
+ column=(type=long updatewhereclause=yes name=real_amt dbname="DUAL.real_amt" )
+ column=(type=char(10) updatewhereclause=yes name=crm_grp dbname="crm_grp" )
+ retrieve="  SELECT '1234567890123'    as jumin,   
+         '1234567890'       as user_name,   
+         '123456789'        as card_no,   
+         '12'               as age_grp, 
+         0                  as total_point,   
+         0                  as give_point,   
+         0                  as accept_point,   
+         0                  as sale_qty, 
+         0                  as sale_amt, 
+         0                  as goods_amt, 
+			'000000'				 as coupon_no,
+			'016-9144-0085'    as tel_no3,
+			'20060501'			 as give_date,
+			'000000'				 as coupon_no,
+			'123'					 as secure_no,
+			0                  as give_rate,
+			0						 as real_amt,
+			'          '		 as crm_grp	
+    FROM DUAL 
+
+" )
+text(band=detail alignment="0" text="" border="2" color="0" x="361" y="36" height="64" width="549"  name=t_8  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="카드번호" border="6" color="0" x="23" y="36" height="60" width="320"  name=card_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="4870-090" border="0" color="0" x="361" y="36" height="56" width="219"  name=t_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=10 border="0" color="0" x="581" y="36" height="64" width="325" format="[general]"  name=card_no  tag="OE" editmask.mask="#-####-####" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="주민번호" border="6" color="0" x="933" y="40" height="60" width="320"  name=user_name_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=20 border="2" color="0" x="1271" y="40" height="64" width="375" format="*********"  name=jumin edit.limit=0 edit.case=any edit.autoselect=yes edit.password=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="0" color="255" x="1966" y="40" height="60" width="274" format="[general]"  name=crm_grp edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30538238" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="2" color="0" x="1659" y="40" height="64" width="293" format="[general]"  name=user_name  tag="DK" edit.limit=10 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=12 alignment="0" tabsequence=40 border="2" color="0" x="2395" y="40" height="64" width="393" format="[general]"  name=tel_no3 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="☎" border="6" color="0" x="2263" y="44" height="56" width="114"  name=t_9  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

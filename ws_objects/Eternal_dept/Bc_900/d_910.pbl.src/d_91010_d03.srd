@@ -1,0 +1,80 @@
+﻿$PBExportHeader$d_91010_d03.srd
+$PBExportComments$매장 등록
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=796 color="536870912" )
+table(column=(type=char(6) update=yes updatewhereclause=yes key=yes name=shop_cd dbname="TB_91101_H.SHOP_CD" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=fund_amt dbname="TB_91101_H.FUND_AMT" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=fund_amt_note dbname="TB_91101_H.FUND_AMT_NOTE" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=cash_mort dbname="TB_91101_H.CASH_MORT" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=cash_mort_note dbname="TB_91101_H.CASH_MORT_NOTE" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=immov_mort dbname="TB_91101_H.IMMOV_MORT" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=immov_mort_note dbname="TB_91101_H.IMMOV_MORT_NOTE" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=bill_mort dbname="TB_91101_H.BILL_MORT" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=bill_mort_note dbname="TB_91101_H.BILL_MORT_NOTE" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=grt_amt dbname="TB_91101_H.GRT_AMT" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=grt_amt_note dbname="TB_91101_H.GRT_AMT_NOTE" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=rent_grt dbname="TB_91101_H.RENT_GRT" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=rent_grt_note dbname="TB_91101_H.RENT_GRT_NOTE" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=rent_amt dbname="TB_91101_H.RENT_AMT" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=rent_amt_note dbname="TB_91101_H.RENT_AMT_NOTE" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=inte_amt dbname="TB_91101_H.INTE_AMT" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=inte_amt_note dbname="TB_91101_H.INTE_AMT_NOTE" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="TB_91101_H.REG_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="TB_91101_H.REG_DT" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="TB_91101_H.MOD_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="TB_91101_H.MOD_DT" )
+ retrieve="  SELECT SHOP_CD,		
+			FUND_AMT,	
+			FUND_AMT_NOTE,	
+			CASH_MORT,	
+			CASH_MORT_NOTE,	
+			IMMOV_MORT,	
+			IMMOV_MORT_NOTE,	
+			BILL_MORT,
+			BILL_MORT_NOTE,
+			GRT_AMT,	
+			GRT_AMT_NOTE,	
+			RENT_GRT,	
+			RENT_GRT_NOTE,	
+			RENT_AMT,	
+			RENT_AMT_NOTE,	
+			INTE_AMT,	
+			INTE_AMT_NOTE ,	
+			REG_ID,		
+			REG_DT,		
+			MOD_ID,		
+			MOD_DT     
+	 FROM TB_91101_H
+	WHERE SHOP_CD = :as_shop_cd
+" update="TB_91101_H" updatewhere=1 updatekeyinplace=yes arguments=(("as_shop_cd", string)) )
+text(band=detail alignment="2" text="자본금" border="6" color="0" x="50" y="96" height="60" width="343"  name=fund_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=10 border="5" color="0" x="411" y="96" height="60" width="329" format="#,##0"  name=fund_amt edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="2" text="현금담보" border="6" color="0" x="50" y="188" height="60" width="343"  name=cash_secu_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=30 border="5" color="0" x="411" y="188" height="60" width="329" format="#,##0"  name=cash_mort edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="2" text="부동산담보" border="6" color="0" x="50" y="280" height="60" width="343"  name=immov_secu_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=50 border="5" color="0" x="411" y="280" height="60" width="329" format="#,##0"  name=immov_mort edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="2" text="어음담보" border="6" color="0" x="50" y="372" height="60" width="343"  name=bill_secu_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=70 border="5" color="0" x="411" y="372" height="60" width="329" format="#,##0"  name=bill_mort edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="2" text="보증금액" border="6" color="0" x="50" y="460" height="60" width="343"  name=sure_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="1" tabsequence=90 border="5" color="0" x="411" y="460" height="60" width="329" format="#,##0"  name=grt_amt edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="2" text="임대보증금" border="6" color="0" x="50" y="548" height="60" width="343"  name=rent_sure_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="1" tabsequence=110 border="5" color="0" x="411" y="548" height="60" width="329" format="#,##0"  name=rent_grt edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="2" text="월임대금" border="6" color="0" x="50" y="636" height="60" width="343"  name=rent_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="1" tabsequence=130 border="5" color="0" x="411" y="636" height="60" width="329" format="#,##0"  name=rent_amt edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="2" text="인테리어비" border="6" color="0" x="50" y="724" height="60" width="343"  name=inte_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="1" tabsequence=150 border="5" color="0" x="411" y="724" height="60" width="329" format="#,##0"  name=inte_amt edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="2" text="< 금액 >" border="0" color="16711680" x="402" y="16" height="56" width="338"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="< 비    고 >" border="0" color="16711680" x="987" y="16" height="56" width="439"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="5" color="0" x="763" y="96" height="60" width="891" format="[general]"  name=fund_amt_note edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=5 alignment="0" tabsequence=40 border="5" color="0" x="763" y="188" height="60" width="891" format="[general]"  name=cash_mort_note edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=7 alignment="0" tabsequence=60 border="5" color="0" x="763" y="280" height="60" width="891" format="[general]"  name=immov_mort_note edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=9 alignment="0" tabsequence=80 border="5" color="0" x="763" y="372" height="60" width="891" format="[general]"  name=bill_mort_note edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=11 alignment="0" tabsequence=100 border="5" color="0" x="763" y="460" height="60" width="891" format="[general]"  name=grt_amt_note edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=13 alignment="0" tabsequence=120 border="5" color="0" x="763" y="548" height="60" width="891" format="[general]"  name=rent_grt_note edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=15 alignment="0" tabsequence=140 border="5" color="0" x="763" y="636" height="60" width="891" format="[general]"  name=rent_amt_note edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=17 alignment="0" tabsequence=160 border="5" color="0" x="763" y="724" height="60" width="891" format="[general]"  name=inte_amt_note edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

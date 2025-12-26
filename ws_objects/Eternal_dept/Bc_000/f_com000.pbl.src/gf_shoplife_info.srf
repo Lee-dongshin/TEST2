@@ -1,0 +1,38 @@
+﻿$PBExportHeader$gf_shoplife_info.srf
+global type gf_shoplife_info from function_object
+end type
+
+forward prototypes
+global function integer gf_shoplife_info (string as_shop_cd, string as_shop_nm)
+end prototypes
+
+global function integer gf_shoplife_info (string as_shop_cd, string as_shop_nm);/*===========================================================================*/
+/* 작성자      : 최용운                                                   */	
+/* 작성일      : 2002..                                                  */	
+/* 수정일      : 2002..                                                  */
+/*===========================================================================*/
+long ll_rows
+string ls_empnm, ls_yymmdd
+
+if isnull(as_shop_cd) or LenA(as_shop_cd) <> 6 then return 0
+
+open(w_com700)
+
+select dbo.sf_emp_nm(empno) , convert(char(8),getdate(),112)
+	into :ls_empnm, :ls_yymmdd
+from tb_91100_m (nolock) where shop_cd = :as_shop_cd;
+
+
+w_com700.dw_1.object.t_title.text = '기준일자:' + ls_yymmdd +'    매장:' + as_shop_cd + '  ' + as_shop_nm + '    담당:' + ls_empnm
+
+
+ll_rows = w_com700.dw_1.retrieve(as_shop_cd, as_shop_nm)
+
+return	1
+
+
+
+
+
+end function
+

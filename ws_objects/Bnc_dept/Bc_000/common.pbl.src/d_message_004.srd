@@ -1,0 +1,18 @@
+﻿$PBExportHeader$d_message_004.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=2 grid.columnmove=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=88 color="536870912" )
+detail(height=72 color="553648127" )
+table(column=(type=char(15) updatewhereclause=no name=level dbname="level" )
+ column=(type=char(10) updatewhereclause=no name=ord_origin dbname="ord_origin" )
+ procedure="1 execute dbo.sp_message_004;1 @person_id = :person_id" arguments=(("person_id", string)) )
+text(band=header alignment="2" text="번호" border="6" color="0" x="9" y="16" height="56" width="110"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+button(band=header text="새로고침"filename=""action="0" border="0" color="16777215" x="128" y="0" height="80" width="329" vtextalign="0" htextalign="0"  name=b_refresh  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421376" )
+compute(band=detail alignment="2" expression="getrow()"border="6" color="0" x="9" y="4" height="60" width="110" format="##0"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="128" x="128" y="0" height="68" width="334" format="@@@@@@@@_@"  name=ord_origin edit.limit=9 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=footer alignment="2" text="계:" border="6" color="0" x="9" y="8" height="52" width="110"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+compute(band=footer alignment="2" expression="rowcount()"border="5" color="128" x="128" y="0" height="60" width="334" format="[GENERAL]"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="12632256" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,83 @@
+﻿$PBExportHeader$d_91003_d01.srd
+$PBExportComments$품종 코드 관리
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=160 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=28 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(1) update=yes updatewhereclause=yes key=yes name=item dbname="tb_91030_c.ITEM" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=item_nm dbname="tb_91030_c.ITEM_NM" )
+ column=(type=char(5) update=yes updatewhereclause=yes name=edi_item dbname="tb_91030_c.edi_item" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=new_edi_item dbname="tb_91030_c.new_edi_item" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="tb_91030_c.REG_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="tb_91030_c.REG_DT" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="tb_91030_c.MOD_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="tb_91030_c.MOD_DT" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=item_xnm dbname="tb_91030_c.ITEM_XnM" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=new_edi_item_x dbname="tb_91030_c.new_edi_item_x" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=item_znm dbname="tb_91030_c.ITEM_Znm" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=new_edi_item_z dbname="tb_91030_c.new_edi_item_z" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=item_ynm dbname="tb_91030_c.ITEM_Ynm" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=new_edi_item_y dbname="tb_91030_c.new_edi_item_y" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=item_wnm dbname="tb_91030_c.ITEM_Wnm" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=new_edi_item_w dbname="tb_91030_c.new_edi_item_W" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=item_vnm dbname="tb_91030_c.ITEM_Vnm" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=new_edi_item_v dbname="tb_91030_c.new_edi_item_V" )
+ retrieve="  SELECT ITEM,   
+         ITEM_NM,   
+			edi_item,
+			new_edi_item,
+         REG_ID,   
+         REG_DT,   
+         MOD_ID,   
+         MOD_DT ,
+         ITEM_XnM,
+			new_edi_item_x,
+			ITEM_Znm,
+			new_edi_item_z,
+			ITEM_Ynm,
+			new_edi_item_y,
+			ITEM_Wnm,
+			new_edi_item_W,
+			ITEM_Vnm,
+			new_edi_item_V
+    FROM TB_91030_C  
+   WHERE ITEM LIKE :as_item + '%' 
+ AND ISNULL(ITEM_NM, '') LIKE :as_item_nm + '%'   
+" update="TB_91030_C" updatewhere=0 updatekeyinplace=yes arguments=(("as_item", string),("as_item_nm", string)) )
+text(band=header alignment="2" text="코 드" border="6" color="0" x="160" y="4" height="148" width="270"  name=item_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="품 종" border="6" color="0" x="448" y="4" height="148" width="649"  name=item_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="EDI 코드" border="6" color="0" x="1115" y="4" height="148" width="270"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82899184" )
+text(band=header alignment="0" text="세분류코드" border="6" color="0" x="1403" y="4" height="148" width="283"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82899184" )
+text(band=header alignment="0" text="세분류코드" border="6" color="0" x="2373" y="4" height="148" width="283"  name=t_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82899184" )
+text(band=header alignment="0" text="세분류코드" border="6" color="0" x="3342" y="4" height="148" width="283"  name=t_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82899184" )
+text(band=header alignment="2" text="리빙품종" border="6" color="0" x="2674" y="8" height="144" width="649"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=header alignment="0" text="세분류코드" border="6" color="0" x="4311" y="4" height="148" width="283"  name=t_8  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82899184" )
+text(band=header alignment="2" text="잡화품종
+라빠2017년 X이전" border="6" color="0" x="1705" y="4" height="148" width="649"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="코스메틱품종" border="6" color="0" x="3643" y="8" height="144" width="649"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="160" y="4" height="60" width="270" format="[general]"  name=item  tag="OE" edit.limit=1 edit.case=upper edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="5" color="0" x="1115" y="4" height="60" width="270" format="[general]"  name=edi_item edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="448" y="4" height="60" width="649" format="[general]"  name=item_nm  tag="DK" edit.limit=20 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="5" color="0" x="1403" y="4" height="60" width="283" format="[general]"  name=new_edi_item edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=10 alignment="0" tabsequence=60 border="5" color="0" x="2373" y="4" height="60" width="283" format="[general]"  name=new_edi_item_x edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=12 alignment="0" tabsequence=80 border="5" color="0" x="3342" y="4" height="60" width="283" format="[general]"  name=new_edi_item_z edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=11 alignment="0" tabsequence=70 border="5" color="0" x="2674" y="4" height="60" width="649" format="[general]"  name=item_znm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=13 alignment="0" tabsequence=90 border="5" color="0" x="3643" y="4" height="60" width="649" format="[general]"  name=item_ynm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=14 alignment="0" tabsequence=100 border="5" color="0" x="4311" y="4" height="60" width="283" format="[general]"  name=new_edi_item_y edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=9 alignment="0" tabsequence=50 border="5" color="0" x="1705" y="4" height="60" width="649" format="[general]"  name=item_xnm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=summary id=5 alignment="0" tabsequence=32766 border="5" color="0" x="1691" y="44" height="56" width="165" format="[general]"  name=reg_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=summary id=6 alignment="0" tabsequence=32766 border="5" color="0" x="1856" y="44" height="56" width="512" format="[shortdate] [time]"  name=reg_dt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=summary id=7 alignment="0" tabsequence=32766 border="5" color="0" x="2368" y="44" height="56" width="165" format="[general]"  name=mod_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=summary id=8 alignment="0" tabsequence=32766 border="5" color="0" x="2533" y="44" height="56" width="517" format="[shortdate] [time]"  name=mod_dt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=header alignment="0" text="세분류코드" border="6" color="0" x="5280" y="4" height="148" width="283"  name=t_9  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82899184" )
+text(band=header alignment="2" text="라빠레트품종" border="6" color="0" x="4613" y="8" height="144" width="649"  name=t_10  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=15 alignment="0" tabsequence=110 border="5" color="0" x="4613" y="4" height="60" width="649" format="[general]"  name=item_wnm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=16 alignment="0" tabsequence=120 border="5" color="0" x="5280" y="4" height="60" width="283" format="[general]"  name=new_edi_item_w edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=header alignment="2" text="미밍코품종" border="6" color="0" x="5582" y="4" height="148" width="649"  name=t_12  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=17 alignment="0" tabsequence=130 border="5" color="0" x="5582" y="4" height="60" width="649"  name=item_vnm  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=header alignment="0" text="세분류코드" border="6" color="0" x="6249" y="4" height="148" width="283"  name=t_11  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82899184" )
+column(band=detail id=18 alignment="0" tabsequence=140 border="5" color="0" x="6249" y="4" height="60" width="283"  name=new_edi_item_v  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

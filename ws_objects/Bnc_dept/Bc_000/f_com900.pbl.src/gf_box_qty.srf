@@ -1,0 +1,19 @@
+﻿$PBExportHeader$gf_box_qty.srf
+global type gf_box_qty from function_object
+end type
+
+forward prototypes
+global function integer gf_box_qty (string as_yymmdd, string as_shop_cd, string as_shop_type, string as_out_no, ref integer ai_box_qty)
+end prototypes
+
+global function integer gf_box_qty (string as_yymmdd, string as_shop_cd, string as_shop_type, string as_out_no, ref integer ai_box_qty);
+SELECT dbo.sf_GetBox_qty(:as_yymmdd, :as_shop_cd, :as_shop_type, :as_out_no)
+  INTO :ai_box_qty
+  FROM DUAL ;
+
+IF ISNULL(ai_box_qty) or ai_box_qty < 0 THEN RETURN 100
+
+RETURN sqlca.sqlcode 
+
+end function
+

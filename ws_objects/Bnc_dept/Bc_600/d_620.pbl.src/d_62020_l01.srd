@@ -1,0 +1,12 @@
+﻿$PBExportHeader$d_62020_l01.srd
+$PBExportComments$각종 분석 차트
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=1660 color="536870912" )
+table(column=(type=char(1) updatewhereclause=no name=opt dbname="opt" initial="A" values="월별원자재입고	A/원자재 재고	B/월별제품판매량	C/월별제품판매금액	D/복종별 판매	E/월별자재계산서금액	F/월별생산계산서금액	G/월별원자재출고	H/월별소비자클레임	I/매장별 판매	J/색상별 판매	K/감도별 판매	L/유통망별 판매	M/지역별 판매	N/일자별 판매	O/패턴별 판매	P/생산형태별 판매	Q/디자이너별 판매	R/원료별 판매	S/출고차순별 판매	T/가격대별 판매	U/월별자재생산클레임	V/월별원가투입	W/제품소재별 판매	X/스타일별 판매	Y/원자재별 판매	Z/" )
+ )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="0" x="0" y="4" height="1668" width="626" format="[general]"  name=opt radiobuttons.columns=1 radiobuttons.scale=yes radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

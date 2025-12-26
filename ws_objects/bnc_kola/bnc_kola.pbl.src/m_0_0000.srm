@@ -1,0 +1,510 @@
+﻿$PBExportHeader$m_0_0000.srm
+$PBExportComments$보끄레 시스템 마스타 메뉴
+forward
+global type m_0_0000 from menu
+end type
+type m_file from menu within m_0_0000
+end type
+type m_printersetup from menu within m_file
+end type
+type m_-11 from menu within m_file
+end type
+type m_close from menu within m_file
+end type
+type m_-12 from menu within m_file
+end type
+type m_exit from menu within m_file
+end type
+type m_file from menu within m_0_0000
+m_printersetup m_printersetup
+m_-11 m_-11
+m_close m_close
+m_-12 m_-12
+m_exit m_exit
+end type
+type m_tool from menu within m_0_0000
+end type
+type m_사용자loginl from menu within m_tool
+end type
+type m_open_menu from menu within m_tool
+end type
+type m_월마감조회 from menu within m_tool
+end type
+type m_임시파일업로드_excel from menu within m_tool
+end type
+type m_tool from menu within m_0_0000
+m_사용자loginl m_사용자loginl
+m_open_menu m_open_menu
+m_월마감조회 m_월마감조회
+m_임시파일업로드_excel m_임시파일업로드_excel
+end type
+type m_win from menu within m_0_0000
+end type
+type m_바둑판세로 from menu within m_win
+end type
+type m_horizontal from menu within m_win
+end type
+type m_cascade from menu within m_win
+end type
+type m_layer from menu within m_win
+end type
+type m_icons from menu within m_win
+end type
+type m_win from menu within m_0_0000
+m_바둑판세로 m_바둑판세로
+m_horizontal m_horizontal
+m_cascade m_cascade
+m_layer m_layer
+m_icons m_icons
+end type
+type m_help from menu within m_0_0000
+end type
+type m_help_about from menu within m_help
+end type
+type m_help from menu within m_0_0000
+m_help_about m_help_about
+end type
+type m_board from menu within m_0_0000
+end type
+type m_brand_board from menu within m_board
+end type
+type m_board from menu within m_0_0000
+m_brand_board m_brand_board
+end type
+global type m_0_0000 from menu
+m_file m_file
+m_tool m_tool
+m_win m_win
+m_help m_help
+m_board m_board
+end type
+end forward
+
+global type m_0_0000 from menu
+m_file m_file
+m_tool m_tool
+m_win m_win
+m_help m_help
+m_board m_board
+end type
+global m_0_0000 m_0_0000
+
+on m_0_0000.create
+m_0_0000=this
+call super::create
+this.m_file=create m_file
+this.m_tool=create m_tool
+this.m_win=create m_win
+this.m_help=create m_help
+this.m_board=create m_board
+this.Item[UpperBound(this.Item)+1]=this.m_file
+this.Item[UpperBound(this.Item)+1]=this.m_tool
+this.Item[UpperBound(this.Item)+1]=this.m_win
+this.Item[UpperBound(this.Item)+1]=this.m_help
+this.Item[UpperBound(this.Item)+1]=this.m_board
+end on
+
+on m_0_0000.destroy
+call super::destroy
+destroy(this.m_file)
+destroy(this.m_tool)
+destroy(this.m_win)
+destroy(this.m_help)
+destroy(this.m_board)
+end on
+
+type m_file from menu within m_0_0000
+m_printersetup m_printersetup
+m_-11 m_-11
+m_close m_close
+m_-12 m_-12
+m_exit m_exit
+end type
+
+on m_file.create
+call super::create
+this.text = "시스템(&F)"
+this.m_printersetup=create m_printersetup
+this.m_-11=create m_-11
+this.m_close=create m_close
+this.m_-12=create m_-12
+this.m_exit=create m_exit
+this.Item[UpperBound(this.Item)+1]=this.m_printersetup
+this.Item[UpperBound(this.Item)+1]=this.m_-11
+this.Item[UpperBound(this.Item)+1]=this.m_close
+this.Item[UpperBound(this.Item)+1]=this.m_-12
+this.Item[UpperBound(this.Item)+1]=this.m_exit
+end on
+
+on m_file.destroy
+call super::destroy
+destroy(this.m_printersetup)
+destroy(this.m_-11)
+destroy(this.m_close)
+destroy(this.m_-12)
+destroy(this.m_exit)
+end on
+
+type m_printersetup from menu within m_file
+end type
+
+on clicked;PrintSetup()
+end on
+
+on m_printersetup.create
+call super::create
+this.text = "프린터 설정 ~tCtrl+Shift+P"
+this.shortcut = 1360
+this.microhelp = "프린트를 설정합니다"
+end on
+
+on m_printersetup.destroy
+call super::destroy
+end on
+
+type m_-11 from menu within m_file
+end type
+
+on m_-11.create
+call super::create
+this.text = "-"
+end on
+
+on m_-11.destroy
+call super::destroy
+end on
+
+type m_close from menu within m_file
+end type
+
+on clicked;close (parentwindow)
+end on
+
+on m_close.create
+call super::create
+this.visible = false
+this.text = "닫기~tCtrl+F4"
+this.shortcut = 371
+this.microhelp = "윈도우를 닫습니다"
+this.toolbaritemorder = 30
+this.toolbaritemspace = 2
+end on
+
+on m_close.destroy
+call super::destroy
+end on
+
+type m_-12 from menu within m_file
+end type
+
+on m_-12.create
+call super::create
+this.visible = false
+this.text = "."
+end on
+
+on m_-12.destroy
+call super::destroy
+end on
+
+type m_exit from menu within m_file
+end type
+
+event clicked;Close(ParentWindow)
+Halt Close
+
+end event
+
+on m_exit.create
+call super::create
+this.text = "종료(&X) ~tCtrl+Q"
+this.shortcut = 337
+this.microhelp = "작업을 종료합니다"
+this.toolbaritemvisible = false
+this.toolbaritemorder = 13
+this.toolbaritemspace = 2
+end on
+
+on m_exit.destroy
+call super::destroy
+end on
+
+type m_tool from menu within m_0_0000
+m_사용자loginl m_사용자loginl
+m_open_menu m_open_menu
+m_월마감조회 m_월마감조회
+m_임시파일업로드_excel m_임시파일업로드_excel
+end type
+
+on m_tool.create
+call super::create
+this.text = "프로그램메뉴(&T)"
+this.m_사용자loginl=create m_사용자loginl
+this.m_open_menu=create m_open_menu
+this.m_월마감조회=create m_월마감조회
+this.m_임시파일업로드_excel=create m_임시파일업로드_excel
+this.Item[UpperBound(this.Item)+1]=this.m_사용자loginl
+this.Item[UpperBound(this.Item)+1]=this.m_open_menu
+this.Item[UpperBound(this.Item)+1]=this.m_월마감조회
+this.Item[UpperBound(this.Item)+1]=this.m_임시파일업로드_excel
+end on
+
+on m_tool.destroy
+call super::destroy
+destroy(this.m_사용자loginl)
+destroy(this.m_open_menu)
+destroy(this.m_월마감조회)
+destroy(this.m_임시파일업로드_excel)
+end on
+
+type m_사용자loginl from menu within m_tool
+end type
+
+on m_사용자loginl.create
+call super::create
+this.text = "사용자 Login(&L)~tCtrl+L"
+this.shortcut = 332
+end on
+
+on m_사용자loginl.destroy
+call super::destroy
+end on
+
+event clicked;//ParentWindow.ParentWindow().TriggerEvent("ue_logon")
+end event
+
+type m_open_menu from menu within m_tool
+end type
+
+event clicked;//ParentWindow.ParentWindow().TriggerEvent("ue_pgm_open")
+
+end event
+
+on m_open_menu.create
+call super::create
+this.text = "시험분석등록~tCtrl+I"
+this.shortcut = 329
+end on
+
+on m_open_menu.destroy
+call super::destroy
+end on
+
+type m_월마감조회 from menu within m_tool
+end type
+
+on m_월마감조회.create
+call super::create
+this.text = "시험분석조회~tCtrl+V"
+this.shortcut = 342
+end on
+
+on m_월마감조회.destroy
+call super::destroy
+end on
+
+event clicked;//ParentWindow.ParentWindow().TriggerEvent("ue_report_open")
+end event
+
+type m_임시파일업로드_excel from menu within m_tool
+end type
+
+on m_임시파일업로드_excel.create
+call super::create
+this.text = "임시파일업로드_Excel"
+end on
+
+on m_임시파일업로드_excel.destroy
+call super::destroy
+end on
+
+event clicked;//ParentWindow.ParentWindow().TriggerEvent("ue_report_open")
+end event
+
+type m_win from menu within m_0_0000
+m_바둑판세로 m_바둑판세로
+m_horizontal m_horizontal
+m_cascade m_cascade
+m_layer m_layer
+m_icons m_icons
+end type
+
+on m_win.create
+call super::create
+this.text = "창(&W)"
+this.m_바둑판세로=create m_바둑판세로
+this.m_horizontal=create m_horizontal
+this.m_cascade=create m_cascade
+this.m_layer=create m_layer
+this.m_icons=create m_icons
+this.Item[UpperBound(this.Item)+1]=this.m_바둑판세로
+this.Item[UpperBound(this.Item)+1]=this.m_horizontal
+this.Item[UpperBound(this.Item)+1]=this.m_cascade
+this.Item[UpperBound(this.Item)+1]=this.m_layer
+this.Item[UpperBound(this.Item)+1]=this.m_icons
+end on
+
+on m_win.destroy
+call super::destroy
+destroy(this.m_바둑판세로)
+destroy(this.m_horizontal)
+destroy(this.m_cascade)
+destroy(this.m_layer)
+destroy(this.m_icons)
+end on
+
+type m_바둑판세로 from menu within m_win
+event clicked ( )
+end type
+
+event clicked;ParentWindow.ArrangeSheets(Tile!)
+end event
+
+on m_바둑판세로.create
+call super::create
+this.text = "바둑판(세로)"
+this.microhelp = "화면을 세로로 배열합니다."
+this.toolbaritemvisible = false
+this.toolbaritemtext = "AAA"
+this.toolbaritemorder = 7
+end on
+
+on m_바둑판세로.destroy
+call super::destroy
+end on
+
+type m_horizontal from menu within m_win
+end type
+
+event clicked;ParentWindow.ArrangeSheets(TileHorizontal!)
+end event
+
+on m_horizontal.create
+call super::create
+this.text = "바둑판(가로)"
+this.microhelp = "화면을 가로로 배열합니다."
+this.toolbaritemvisible = false
+this.toolbaritemorder = 8
+end on
+
+on m_horizontal.destroy
+call super::destroy
+end on
+
+type m_cascade from menu within m_win
+end type
+
+event clicked;ParentWindow.ArrangeSheets(Cascade!)
+end event
+
+on m_cascade.create
+call super::create
+this.text = "계단식 "
+this.microhelp = "화면을 계단식으로 배열합니다."
+this.toolbaritemvisible = false
+this.toolbaritemorder = 9
+end on
+
+on m_cascade.destroy
+call super::destroy
+end on
+
+type m_layer from menu within m_win
+end type
+
+event clicked;ParentWindow.ArrangeSheets(Layer!)
+
+end event
+
+on m_layer.create
+call super::create
+this.text = "크게 "
+this.microhelp = "화면을 크게 배열합니다."
+this.toolbaritemvisible = false
+this.toolbaritemorder = 10
+end on
+
+on m_layer.destroy
+call super::destroy
+end on
+
+type m_icons from menu within m_win
+end type
+
+event clicked;Parentwindow.ArrangeSheets(Icons!)
+end event
+
+on m_icons.create
+call super::create
+this.text = "아이콘정렬 "
+this.microhelp = "아이콘을 정렬합니다."
+this.toolbaritemvisible = false
+this.toolbaritemorder = 11
+end on
+
+on m_icons.destroy
+call super::destroy
+end on
+
+type m_help from menu within m_0_0000
+m_help_about m_help_about
+end type
+
+on m_help.create
+call super::create
+this.text = "도움말(&H)"
+this.m_help_about=create m_help_about
+this.Item[UpperBound(this.Item)+1]=this.m_help_about
+end on
+
+on m_help.destroy
+call super::destroy
+destroy(this.m_help_about)
+end on
+
+type m_help_about from menu within m_help
+end type
+
+on m_help_about.create
+call super::create
+this.text = "시스템 정보(&A)"
+end on
+
+event clicked;// ParentWindow.TriggerEvent("ue_help_about")
+end event
+
+on m_help_about.destroy
+call super::destroy
+end on
+
+type m_board from menu within m_0_0000
+m_brand_board m_brand_board
+end type
+
+on m_board.create
+call super::create
+this.text = "게시판"
+this.m_brand_board=create m_brand_board
+this.Item[UpperBound(this.Item)+1]=this.m_brand_board
+end on
+
+on m_board.destroy
+call super::destroy
+destroy(this.m_brand_board)
+end on
+
+type m_brand_board from menu within m_board
+end type
+
+event clicked;Run("C:\BNC_DEPT\board.exe", Maximized!)
+end event
+
+on m_brand_board.create
+call super::create
+this.text = "브랜드게시판"
+end on
+
+on m_brand_board.destroy
+call super::destroy
+end on
+

@@ -1,0 +1,29 @@
+﻿$PBExportHeader$gf_style_chk1.srf
+$PBExportComments$품번 체크 항목별
+global type gf_style_chk1 from function_object
+end type
+
+forward prototypes
+global function long gf_style_chk1 (string as_style, string as_chno, string as_color, string as_size, ref string as_err_cd)
+end prototypes
+
+global function long gf_style_chk1 (string as_style, string as_chno, string as_color, string as_size, ref string as_err_cd);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 작 성 일  : 2001/09/27                                     */
+/* 수 정 일  : 2001/09/27                                     */
+/* 내    용  : 품번이 있는지 체크한다.                        */
+/*============================================================*/
+
+SELECT dbo.sf_style_chk1(:as_style, :as_chno, :as_color, :as_size)
+  INTO :as_err_cd
+  FROM DUAL ;
+
+
+IF ISNULL(as_style) or ISNULL(as_chno) or ISNULL(as_color) or ISNULL(as_size) THEN RETURN 100
+
+
+RETURN sqlca.sqlcode 
+
+
+end function
+

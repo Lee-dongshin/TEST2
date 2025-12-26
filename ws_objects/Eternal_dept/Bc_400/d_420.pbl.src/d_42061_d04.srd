@@ -1,0 +1,45 @@
+﻿$PBExportHeader$d_42061_d04.srd
+$PBExportComments$행낭사용내역조회(현대택배)
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(6) updatewhereclause=yes name=fr_shop_cd dbname="TB_53020_H.fr_shoP_cd" )
+ column=(type=char(30) updatewhereclause=yes name=fr_shop_nm dbname="fr_shop_nm" )
+ column=(type=char(6) updatewhereclause=yes name=to_shop_cd dbname="TB_53020_H.to_shop_cd" )
+ column=(type=char(30) updatewhereclause=yes name=to_shop_nm dbname="to_shop_nm" )
+ column=(type=char(13) updatewhereclause=yes name=style_no dbname="style_no" )
+ column=(type=decimal(0) updatewhereclause=yes name=move_qty dbname="move_qty" )
+ column=(type=char(30) updatewhereclause=yes name=tran_type dbname="tran_type" )
+ column=(type=long updatewhereclause=yes name=box_no dbname="TB_53020_H.box_no" )
+ retrieve="
+
+select 	fr_shoP_cd, dbo.sf_shop_nm(fr_shop_cd,'s') as fr_shop_nm,
+	to_shop_cd, dbo.sf_shop_nm(to_shop_cd,'s') as to_shop_nm,
+	style + chno + color + size	as style_no, 
+	sum(move_qty)	as move_qty , 
+	dbo.sf_inter_nm('406',tran_type) 	as tran_type, 
+	box_no
+from tb_53020_h
+where fr_ymd = :as_yymmdd
+and  isnull(tran_cust,'XX') = :as_tran_cust
+and  brand    = :as_brand
+group by fr_shoP_cd, to_shop_cd, style + chno + color + size,  tran_type, box_no" arguments=(("as_yymmdd", string),("as_tran_cust", string),("as_brand", string)) )
+text(band=header alignment="2" text="발송매장" border="6" color="0" x="14" y="8" height="56" width="709"  name=fr_shop_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="인수매장" border="6" color="0" x="736" y="8" height="56" width="709"  name=to_shop_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="이송방법" border="6" color="0" x="1458" y="8" height="56" width="357"  name=tran_type_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Box No" border="6" color="0" x="1829" y="8" height="56" width="206"  name=box_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="품번" border="6" color="0" x="2048" y="8" height="56" width="526"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="수량" border="6" color="0" x="2587" y="8" height="56" width="192"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="2587" y="4" height="60" width="192" format="#,###"  name=move_qty edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="14" y="4" height="60" width="233" format="[general]"  name=fr_shop_cd edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="736" y="4" height="60" width="233" format="[general]"  name=to_shop_cd edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="261" y="4" height="60" width="462" format="[general]"  name=fr_shop_nm edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="983" y="4" height="60" width="462" format="[general]"  name=to_shop_nm edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="1458" y="4" height="60" width="357" format="[general]"  name=tran_type edit.limit=4 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="1829" y="4" height="60" width="206" format="[general]"  name=box_no edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0" x="2048" y="4" height="60" width="526" format="@@@@@@@@-@-@@-@@"  name=style_no edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

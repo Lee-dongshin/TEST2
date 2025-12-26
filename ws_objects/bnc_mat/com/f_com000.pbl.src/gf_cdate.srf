@@ -1,0 +1,26 @@
+﻿$PBExportHeader$gf_cdate.srf
+global type gf_cdate from function_object
+end type
+
+forward prototypes
+global function boolean gf_cdate (ref datetime mm_date, integer mm)
+end prototypes
+
+global function boolean gf_cdate (ref datetime mm_date, integer mm);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 내    용  : System의 현재날짜에서 mm월이후 시각을 Select한다.        */
+/*============================================================*/
+
+SELECT dateadd(month,:mm,getdate())
+  INTO :mm_date
+  FROM DUAL ;
+
+IF sqlca.sqlcode <> 0  THEN
+	MessageBox("입력일자 조회오류", SQLCA.SQLErrText)
+	RETURN FALSE
+END IF
+
+RETURN TRUE
+
+end function
+

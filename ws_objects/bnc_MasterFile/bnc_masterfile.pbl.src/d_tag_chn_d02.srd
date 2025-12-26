@@ -1,0 +1,14 @@
+﻿$PBExportHeader$d_tag_chn_d02.srd
+$PBExportComments$케어라벨생성처리(NEW)
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=88 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=char(161) updatewhereclause=yes name=compute_0001 dbname="compute_0001" )
+ procedure="1 execute dbo.sp_tag_chn;1 @brand = :brand, @year = :year" arguments=(("brand", string),("year", string)) )
+text(band=header alignment="2" text="Tag  Data" border="0" color="16777215" x="9" y="12" height="72" width="3511"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="32768" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="8" height="76" width="3511" format="[general]"  name=compute_0001 edit.limit=161 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

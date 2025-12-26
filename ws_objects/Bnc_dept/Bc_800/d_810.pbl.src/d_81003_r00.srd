@@ -1,0 +1,15 @@
+﻿$PBExportHeader$d_81003_r00.srd
+$PBExportComments$자기개발계획표
+release 7;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=5 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=596 color="536870912"  height.autosize=yes)
+table(column=(type=char(10) updatewhereclause=yes name=a dbname="a" )
+ unbound = "yes"arguments=(("yyyy", string),("empno", string)) )
+report(band=detail dataobject="d_81003_r01" x="46" y="20" height="120" width="3433" border="0"  height.autosize=yes criteria="" nest_arguments=((" yyyy "),(" empno ")) trail_footer = yes  name=dw_1  slideup=directlyabove )
+report(band=detail dataobject="d_81003_r02" x="46" y="164" height="120" width="3433" border="0"  height.autosize=yes criteria="" nest_arguments=((" yyyy "),(" empno ")) trail_footer = yes  name=dw_2  slideup=directlyabove )
+report(band=detail dataobject="d_81003_r03" x="46" y="308" height="120" width="3433" border="0"  height.autosize=yes criteria="" nest_arguments=((" yyyy "),(" empno ")) trail_footer = yes  name=dw_3  slideup=directlyabove )
+report(band=detail dataobject="d_81003_r04" x="46" y="452" height="120" width="3433" border="0"  height.autosize=yes criteria="" nest_arguments=((" yyyy "),(" empno ")) trail_footer = yes  name=dw_4  slideup=directlyabove )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

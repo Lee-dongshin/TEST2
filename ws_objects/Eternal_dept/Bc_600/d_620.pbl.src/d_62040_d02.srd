@@ -1,0 +1,32 @@
+﻿$PBExportHeader$d_62040_d02.srd
+$PBExportComments$품번색상별 정상/행사 기준정보
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes name=style dbname="style" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=color dbname="color" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=chno dbname="chno" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=size dbname="size" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=event_gubn dbname="event_gubn" )
+ retrieve="  SELECT a.style,   
+         a.color,   
+         a.chno,   
+         a.size,     
+         a.event_gubn  
+    from tb_54060_h a with(nolock) left outer join vi_12024_1 b with(nolock) on a.style = b.style and a.chno = b.chno and a.color = b.color and a.size = b.size
+	where b.brand like :is_brand
+	  and b.year like :is_year
+	  and b.season like :is_season
+	  and b.style like :is_style
+	  and b.chno like :is_chno
+	  and b.color like :is_color
+	  and a.event_gubn like :is_event_gubn" arguments=(("is_brand", string),("is_year", string),("is_season", string),("is_style", string),("is_chno", string),("is_color", string),("is_event_gubn", string)) )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="0" x="9" y="8" height="76" width="247" format="[general]"  name=style edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="0" x="265" y="8" height="76" width="137" format="[general]"  name=color edit.limit=2 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="0" color="0" x="411" y="8" height="76" width="137" format="[general]"  name=chno edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="0" color="0" x="558" y="8" height="76" width="119" format="[general]"  name=size edit.limit=2 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=50 border="0" color="0" x="686" y="8" height="76" width="306" format="[general]"  name=event_gubn edit.limit=2 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

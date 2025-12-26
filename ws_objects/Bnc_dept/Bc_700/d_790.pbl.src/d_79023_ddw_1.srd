@@ -1,0 +1,27 @@
+﻿$PBExportHeader$d_79023_ddw_1.srd
+$PBExportComments$상담자[DDW]
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(6) updatewhereclause=yes name=empno dbname="empno" )
+ column=(type=char(14) updatewhereclause=yes name=kname dbname="kname" )
+ column=(type=char(4) updatewhereclause=yes name=dept_code dbname="dept_code" )
+ column=(type=char(20) updatewhereclause=yes name=dept_nm dbname="Dept_Nm" )
+ column=(type=char(1) updatewhereclause=yes name=goout_gubn dbname="goout_gubn" )
+ retrieve="SELECT	empno                      AS empno, 
+         kname                      AS kname, 
+         dept_code                  AS dept_code, 
+         Dbo.Sf_Dept_Nm(Dept_Code)  AS Dept_Nm, 
+         goout_gubn                 AS goout_gubn   
+FROM 		VI_93000_1  with (nolock) 
+where		dept_code in ('T810','3200','S320') and 
+			goout_gubn = '1'"  sort="goout_gubn A empno A " )
+text(band=header alignment="2" text="사번" border="6" color="0" x="9" y="8" height="60" width="201"  name=empno_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="사원명" border="6" color="0" x="229" y="8" height="60" width="411"  name=kname_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0~tif( goout_gubn = '2', rgb(255,0,0),  rgb(0, 0, 0))" x="9" y="4" height="60" width="201" format="[general]" protect="0~tif( isrownew(), 0, 1 )"  name=empno  tag="OE" edit.limit=6 edit.case=upper edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="536870912~tif( isrownew(), RGB(255,255, 255), 536870912 )" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="229" y="4" height="60" width="411" format="[general]" protect="0~tif( isrownew(), 0, 1 )"  name=kname  tag="DK" edit.limit=14 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="536870912~tif( isrownew(), RGB(255,255, 255), 536870912 )" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

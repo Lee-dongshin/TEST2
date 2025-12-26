@@ -1,0 +1,32 @@
+﻿$PBExportHeader$gf_table_nm.srf
+$PBExportComments$Table 명칭 읽어온다
+global type gf_table_nm from function_object
+end type
+
+forward prototypes
+global function integer gf_table_nm (string as_table_id, ref string as_table_nm)
+end prototypes
+
+global function integer gf_table_nm (string as_table_id, ref string as_table_nm);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 작 성 일  : 2001/09/28                                     */
+/* 수 정 일  : 2001/09/28                                     */
+/* 내    용  : TABLE 명칭을 읽어온다.                         */
+/*============================================================*/
+
+SELECT TABLE_NM 
+  INTO :as_table_nm 
+  FROM VI_99001_1
+ WHERE TABLE_ID = :as_table_id ;
+
+IF sqlca.sqlcode = 100 THEN
+	RETURN -1
+ELSEIF sqlca.sqlcode <> 0  THEN
+	MessageBox("SQL 오류", SQLCA.SQLErrText)
+	RETURN -1
+END IF
+
+RETURN 0
+
+end function
+

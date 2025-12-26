@@ -1,0 +1,18 @@
+﻿$PBExportHeader$d_56021_r02.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=5 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=248 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=148 color="536870912"  height.autosize=yes)
+table(column=(type=char(10) updatewhereclause=yes name=a dbname="a" )
+ unbound = "yes"arguments=(("as_year", string),("as_season", string),("as_brand", string),("as_sale_type1", string),("as_sale_type2", string),("as_sale_type3", string)) )
+report(band=detail dataobject="d_56021_r01" x="32" y="12" height="120" width="1147" border="0"  height.autosize=yes criteria="" nest_arguments=((" as_year "),(" as_season "),(" as_brand "),(" as_sale_type1 "),(" as_sale_type2 "),(" as_sale_type3 ")) trail_footer = yes  slideleft=yes  slideup=directlyabove )
+text(band=header alignment="0" text="품번별 할인현황표" border="0" color="0" x="951" y="24" height="96" width="1234"  name=t_1  font.face="굴림체" font.height="-16" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" font.underline="1" background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="브랜드:" border="0" color="0" x="46" y="184" height="56" width="274"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="text" border="0" color="0" x="338" y="184" height="56" width="443"  name=t_brand  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="년도/시즌:" border="0" color="0" x="832" y="184" height="56" width="357"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="text" border="0" color="0" x="1202" y="184" height="56" width="247"  name=t_year  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="text" border="0" color="0" x="1467" y="184" height="56" width="357"  name=t_season  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

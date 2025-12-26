@@ -1,0 +1,26 @@
+﻿$PBExportHeader$d_55020_r04.srd
+$PBExportComments$년도 시즌 월매장수
+release 7;
+datawindow(units=0 timer_interval=0 color=82042848 processing=4 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no  crosstab.dynamic = yes grid.lines=0 grid.columnmove=no selected.mouse=no )
+header[1](height=0 color="536870912" )
+header[2](height=76 color="536870912" )
+summary(height=72 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(20) updatewhereclause=yes name=shop_div dbname="shop_div" )
+ column=(type=number updatewhereclause=yes name=shop_cnt dbname="shop_cnt" )
+ procedure="1 execute dbo.SP_55020_D02;1 @frm_yymm = :frm_yymm, @to_yymm = :to_yymm, @brand = :brand, @year = :year, @season = :season, @shop_div = :shop_div, @opt_shop_type = :opt_shop_type" arguments=(("frm_yymm", string),("to_yymm", string),("brand", string),("year", string),("season", string),("shop_div", string),("opt_shop_type", string))  sort="shop_div A " )
+text(band=header[1] alignment="0" text="Sum Of Shop Cnt" border="0" color="33554432" x="9" y="4" height="56" width="855"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header[1] alignment="0" text="Yymm" border="0" color="33554432" x="873" y="4" height="56" width="955"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header[2] alignment="2" text="매장형태" border="6" color="33554432" x="9" y="12" height="60" width="855"  name=shop_div_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header[2] alignment="2" text="@yymm" border="6" color="33554432" x="873" y="12" height="60" width="955"  name=shop_cnt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header[2] alignment="2" text="평균매장수" border="6" color="33554432" x="1838" y="12" height="60" width="1047"  name=grand_sum_shop_cnt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="9" y="4" height="60" width="855" format="[general]"  name=shop_div edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+compute(band=detail alignment="1" expression="crosstabavg( 1 )"border="0" color="33554432" x="1838" y="8" height="60" width="1047" format="0.00"  name=grand_sum_shop_cnt  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="33554432" x="873" y="4" height="60" width="955" format="[general]"  name=shop_cnt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes crosstab.repeat=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33484273" )
+compute(band=summary alignment="2" expression="~"[ 총  계 ]~""border="0" color="33554432" x="9" y="8" height="60" width="855" format="[general]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression=" grand_sum_shop_cnt "border="0" color="33554432" x="1838" y="8" height="60" width="1047" format="0.00"  name=compute_3 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=summary alignment="1" expression="sum(shop_cnt for all )"border="0" color="33554432" x="873" y="8" height="60" width="955" format="[general]"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33484273" )
+ crosstab(band = foreground  crosstabonly = yes 
+ columns = "yymm" rows = "shop_div" values = "sum(shop_cnt for crosstab)" sourcenames = "yymm, shop_div, shop_cnt")htmltable(border="0" cellpadding="1" cellspacing="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,19 @@
+﻿$PBExportHeader$d_sh194_d36.srd
+$PBExportComments$안내문구(카드번호 오류자)
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=540 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=0 color="536870912" )
+table(column=(type=char(50) updatewhereclause=yes name=brand dbname="brand" )
+ )
+text(band=header alignment="0" text="
+ 고객님의 멤버쉽카드번호 인식을 실패 하였습니다. 
+
+ 스마트월렛 이나 모카월렛에서 다운받으신 
+
+                 브랜드 멤버쉽카드를 삭제후 다시 다운받아 주세요." border="0" color="0" x="27" y="0" height="408" width="3374"  name=t_1  font.face="굴림체" font.height="-11" font.weight="700"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="" border="0" color="255" x="37" y="296" height="68" width="686"  name=t_brand  font.face="굴림체" font.height="-11" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

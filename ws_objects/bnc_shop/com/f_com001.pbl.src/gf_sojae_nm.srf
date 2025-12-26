@@ -1,0 +1,26 @@
+﻿$PBExportHeader$gf_sojae_nm.srf
+$PBExportComments$소재구분명 읽어온다
+global type gf_sojae_nm from function_object
+end type
+
+forward prototypes
+global function long gf_sojae_nm (string as_sojae, ref string as_sojae_nm)
+end prototypes
+
+global function long gf_sojae_nm (string as_sojae, ref string as_sojae_nm);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 작 성 일  : 2002/01/04                                     */
+/* 수 정 일  : 2002/01/04                                     */
+/* 내    용  : 소재명을 읽어온다.                             */
+/*============================================================*/
+
+SELECT dbo.sf_sojae_nm(:as_sojae)
+  INTO :as_sojae_nm 
+  FROM DUAL ;
+
+IF ISNULL(as_sojae_nm) THEN RETURN 100
+
+RETURN sqlca.sqlcode 
+
+end function
+

@@ -1,0 +1,18 @@
+﻿$PBExportHeader$d_11000_l01.srd
+$PBExportComments$사업계획기준표
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="27911377" )
+table(column=(type=char(1) updatewhereclause=no name=brand dbname="brand" )
+ column=(type=char(4) updatewhereclause=no name=year dbname="year" )
+ column=(type=char(1) updatewhereclause=no name=season dbname="season" )
+ column=(type=char(1) updatewhereclause=no name=plan_fg dbname="plan_fg" )
+ column=(type=decimal(0) updatewhereclause=no name=prot dbname="prot" )
+ procedure="1 execute dbo.sp_11000_l01;1 @brand = :brand, @year = :year, @season = :season" arguments=(("brand", string),("year", string),("season", string)) )
+text(band=header alignment="2" text="계획구분" border="6" color="0" x="9" y="12" height="60" width="713"  name=plan_fg_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="5" color="0" x="5" y="8" height="60" width="713" format="[general]" protect="0~tprot"  name=plan_fg edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=300 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

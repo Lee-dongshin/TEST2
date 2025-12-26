@@ -1,0 +1,24 @@
+﻿$PBExportHeader$d_54009_d08.srd
+$PBExportComments$rt코디 스타일
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=64 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=style dbname="style" )
+ retrieve="
+select distinct b.style+'-'+b.chno  as style
+from tb_12021_d b
+where b.mat_cd in (select distinct mat_cd 
+			From tb_12025_d
+			where style = :as_style
+			and   chno like  :as_chno
+			and   substring(mat_cd, 2,1) = '1'  )
+and   b.style <> :as_style
+union
+select distinct b.style+'-'+b.chno from tb_12021_d b
+where b.style like substring(:as_style, 1,4) + '_' + substring(:as_style, 6,8)
+and   b.style <> :as_style" arguments=(("as_style", string),("as_chno", string)) )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="0" y="0" height="60" width="389" format="[general]"  name=style edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

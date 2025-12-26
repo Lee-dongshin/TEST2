@@ -1,0 +1,98 @@
+﻿$PBExportHeader$d_56101_d01.srd
+$PBExportComments$수금 내역 등록
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=176 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes key=yes name=yymmdd dbname="YYMMDD" )
+ column=(type=char(6) update=yes updatewhereclause=yes key=yes name=shop_cd dbname="SHOP_CD" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=deposit_no dbname="DEPOSIT_NO" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=no dbname="NO" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=deposit_fg dbname="DEPOSIT_FG" )
+ column=(type=char(5) update=yes updatewhereclause=yes name=acc_cd dbname="ACC_CD" )
+ column=(type=char(20) updatewhereclause=yes name=sname dbname="SNAME" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=deposit_amt dbname="DEPOSIT_AMT" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=draft_no dbname="DRAFT_NO" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=issue_ymd dbname="ISSUE_YMD" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=issue_nm dbname="ISSUE_NM" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=full_ymd dbname="FULL_YMD" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=bank_cd dbname="BANK_CD" )
+ column=(type=char(40) update=yes updatewhereclause=yes name=remark dbname="REMARK" )
+ column=(type=char(2) updatewhereclause=yes name=slip_bonji dbname="SLIP_BONJI" )
+ column=(type=char(10) updatewhereclause=yes name=slip_date dbname="SLIP_DATE" )
+ column=(type=char(4) updatewhereclause=yes name=slip_no dbname="SLIP_NO" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=brand dbname="BRAND" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=shop_div dbname="SHOP_DIV" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="REG_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="REG_DT" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="MOD_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="MOD_DT" )
+ retrieve="SELECT A.YYMMDD,
+		 A.SHOP_CD,
+		 A.DEPOSIT_NO,
+		 A.NO,
+		 A.DEPOSIT_FG,
+		 A.ACC_CD,
+		 B.SNAME,
+		 A.DEPOSIT_AMT,
+		 A.DRAFT_NO,
+		 A.ISSUE_YMD,
+		 A.ISSUE_NM, 
+		 A.FULL_YMD,
+		 A.BANK_CD,
+		 A.REMARK,
+		 A.SLIP_BONJI,
+		 A.SLIP_DATE,
+		 A.SLIP_NO,
+		 A.BRAND,
+		 A.SHOP_DIV,
+		 A.REG_ID,
+		 A.REG_DT,
+		 A.MOD_ID,
+		 A.MOD_DT
+  FROM TB_56040_H    A with (nolock), 
+       MIS.DBO.TAB01 B with (nolock)
+ WHERE A.BRAND    = :as_brand
+   AND A.YYMMDD   = :as_yymmdd
+   AND A.DEPOSIT_NO LIKE :as_deposit_no + '%'
+   AND A.SHOP_CD    LIKE :as_shop_cd  + '%'
+   AND A.ACC_CD  *= B.ACC_CODE
+ORDER BY A.NO  " update="TB_56040_H" updatewhere=0 updatekeyinplace=yes arguments=(("as_brand", string),("as_yymmdd", string),("as_deposit_no", string),("as_shop_cd", string)) )
+text(band=header alignment="2" text="" border="6" color="0" x="5" y="108" height="60" width="142"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="순 번" border="6" color="0" x="165" y="108" height="60" width="178"  name=no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="수금 구분" border="6" color="0" x="361" y="108" height="60" width="407"  name=sugm_gubn_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="어음 번호" border="6" color="0" x="3054" y="108" height="60" width="549"  name=draft_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="번 호" border="6" color="0" x="4539" y="108" height="60" width="201"  name=issue_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="회계 계정명" border="6" color="0" x="2619" y="108" height="60" width="416"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="발행일" border="6" color="0" x="3621" y="108" height="60" width="288"  name=press_date_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="만기일" border="6" color="0" x="3927" y="108" height="60" width="288"  name=full_date_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="발의 일자" border="6" color="0" x="4233" y="108" height="60" width="288"  name=issue_date_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="내 용" border="6" color="0" x="786" y="108" height="60" width="613"  name=sugm_note_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="금 액" border="6" color="0" x="1417" y="108" height="60" width="393"  name=amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="지급 은행" border="6" color="0" x="1829" y="108" height="60" width="517"  name=jikb_bank_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="회계 계정" border="6" color="0" x="2363" y="108" height="60" width="238"  name=acc_code_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="수 금 계" border="0" color="0" x="521" y="20" height="56" width="242"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="공 제 계" border="0" color="0" x="1440" y="20" height="56" width="242"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="합 계" border="0" color="0" x="2345" y="20" height="56" width="192"  name=t_5  slideup=allabove  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=header alignment="1" expression="sum( sukum_amt for all )"border="5" color="32768" x="777" y="16" height="60" width="562" format="#,##0"  name=sukum_tot  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+compute(band=header alignment="1" expression="sukum_tot + gongje_tot "border="5" color="32768" x="2560" y="16" height="60" width="562" format="#,##0"  name=hap_tot  moveable=1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+compute(band=header alignment="1" expression="sum( gongje_amt for all )"border="5" color="32768" x="1687" y="16" height="60" width="562" format="#,##0"  name=gongje_tot  slideleft=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+compute(band=detail alignment="2" expression="getrow()"border="6" color="0" x="5" y="0" height="60" width="142" format="0"  name=compute_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="5" color="0" x="165" y="0" height="60" width="178" format="[general]"  name=no edit.limit=4 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=10 border="5" color="0" x="352" y="0" height="60" width="411" format="[general]"  name=deposit_fg  tag="DE" edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33554431" )
+column(band=detail id=8 alignment="1" tabsequence=30 border="5" color="0" x="1408" y="0" height="60" width="398" format="#,##0"  name=deposit_amt  tag="DE" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33554431" )
+column(band=detail id=14 alignment="0" tabsequence=20 border="5" color="0" x="777" y="0" height="60" width="617" format="[general]"  name=remark  tag="DK" edit.limit=40 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33554431" )
+column(band=detail id=13 alignment="0" tabsequence=40 border="5" color="0" x="1819" y="0" height="60" width="521" format="[general]"  name=bank_cd  tag="DE" edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33554431" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="5" color="0" x="4229" y="0" height="60" width="293" format="[general]"  name=slip_date edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="5" color="0" x="4535" y="0" height="60" width="206" format="[general]"  name=slip_no edit.limit=4 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=50 border="5" color="0" x="2354" y="0" height="60" width="242" format="[general]"  name=acc_cd  tag="DE" edit.limit=5 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33554431" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="5" color="0" x="2615" y="0" height="60" width="421" format="[general]"  name=sname edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=80 border="5" color="0" x="3922" y="0" height="60" width="293" format="@@@@/@@/@@"  name=full_ymd  tag="DE" edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33554431" )
+column(band=detail id=9 alignment="0" tabsequence=60 border="5" color="0" x="3049" y="0" height="60" width="549" format="[general]"  name=draft_no  tag="DE" edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33554431" )
+column(band=detail id=10 alignment="0" tabsequence=70 border="5" color="0" x="3611" y="0" height="60" width="297" format="@@@@/@@/@@"  name=issue_ymd  tag="DE" edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33554431" )
+compute(band=detail alignment="0" expression="if( deposit_fg <> ~"99~", deposit_amt, 0 )"border="0" color="0" x="1184" y="160" height="76" width="256" format="[GENERAL]"  name=sukum_amt  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+compute(band=detail alignment="0" expression="if(  deposit_fg = ~"99~",  deposit_amt , 0 )"border="0" color="0" x="1605" y="160" height="76" width="256" format="[GENERAL]"  name=gongje_amt  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

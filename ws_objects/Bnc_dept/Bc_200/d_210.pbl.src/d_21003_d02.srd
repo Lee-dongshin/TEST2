@@ -1,0 +1,130 @@
+﻿$PBExportHeader$d_21003_d02.srd
+$PBExportComments$원자재 발주의뢰(detail)
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=156 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=256 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=mat_cd dbname="TB_21011_D.mat_cd" )
+ column=(type=char(2) update=yes updatewhereclause=yes key=yes name=color dbname="TB_21011_D.color" )
+ column=(type=char(15) update=yes updatewhereclause=yes name=spec dbname="TB_21011_D.spec" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=req_qty dbname="TB_21011_D.req_qty" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=ord_qty dbname="TB_21011_D.ord_qty" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=in_qty dbname="TB_21011_D.in_Qty" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=req_price dbname="TB_21011_D.req_price" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=nego_price dbname="TB_21011_D.nego_price" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=brand dbname="TB_21011_D.Brand" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=mat_year dbname="TB_21011_D.mat_Year" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=mat_season dbname="TB_21011_D.mat_Season" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=mat_sojae dbname="TB_21011_D.mat_sojae" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=mat_chno dbname="TB_21011_D.mat_Chno" )
+ column=(type=char(3) update=yes updatewhereclause=yes name=out_seq dbname="TB_21011_D.Out_Seq" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="TB_21011_D.Reg_id" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="TB_21011_D.Mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="TB_21011_D.Mod_Dt" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=ord_qty_chn dbname="TB_21011_D.ord_qty_chn" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=price_claim dbname="TB_21011_D.price_claim" initial="00" values="정상	00/컬러클레임	01/델리클레임	02/" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=dlvy_color_ymd dbname="TB_21011_D.dlvy_color_ymd" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=test_outymd dbname="TB_21011_D.test_outymd" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=test_outymd2 dbname="TB_21011_D.test_outymd2" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=test_outymd3 dbname="TB_21011_D.test_outymd3" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=test_outymd4 dbname="TB_21011_D.test_outymd4" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=urgency dbname="TB_21011_D.urgency" values="급	Y/급	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=urgency2 dbname="TB_21011_D.urgency2" values="급	Y/급	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=urgency3 dbname="TB_21011_D.urgency3" values="급	Y/급	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=urgency4 dbname="TB_21011_D.urgency4" values="급	Y/급	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=kc_test dbname="TB_21011_D.KC_test" values="KC	Y/KC	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=kc_test2 dbname="TB_21011_D.KC_test2" values="KC	Y/KC	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=kc_test3 dbname="TB_21011_D.KC_test3" values="KC	Y/KC	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=kc_test4 dbname="TB_21011_D.KC_test4" values="KC	Y/KC	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=gb_test dbname="TB_21011_D.GB_test" values="GB	Y/GB	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=gb_test2 dbname="TB_21011_D.GB_test2" values="GB	Y/GB	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=gb_test3 dbname="TB_21011_D.GB_test3" values="GB	Y/GB	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=gb_test4 dbname="TB_21011_D.GB_test4" values="GB	Y/GB	N" )
+ retrieve="  SELECT mat_cd,   
+         color,   
+         spec,   
+         req_qty,   
+         ord_qty,   
+         in_Qty,   
+         req_price,   
+         nego_price,   
+         Brand,   
+         mat_Year,   
+         mat_Season,   
+         mat_sojae,   
+         mat_Chno,   
+         Out_Seq,   
+         Reg_id,   
+         Mod_id,   
+         Mod_Dt,
+			ord_qty_chn ,
+			price_claim ,
+			dlvy_color_ymd,
+			test_outymd,
+			test_outymd2,
+			test_outymd3,
+			test_outymd4,
+			urgency,
+			urgency2,
+			urgency3,
+			urgency4,
+			KC_test,
+			KC_test2,
+			KC_test3,
+			KC_test4,
+			GB_test,
+			GB_test2,
+			GB_test3,
+			GB_test4
+    FROM TB_21011_D  (nolock) 
+   WHERE mat_cd = :as_mat_cd 
+
+" update="TB_21011_D" updatewhere=0 updatekeyinplace=yes arguments=(("as_mat_cd", string)) )
+text(band=header alignment="2" text="폭" border="6" color="0" x="530" y="84" height="60" width="325"  name=spec_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="의뢰량" border="6" color="0" x="873" y="84" height="60" width="283"  name=req_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="의뢰단가" border="6" color="0" x="1175" y="84" height="60" width="329"  name=req_price_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="발주량" border="6" color="0" x="1522" y="84" height="60" width="283"  name=ord_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="입고량" border="6" color="0" x="2171" y="84" height="60" width="283"  name=in_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="발주단가" border="6" color="0" x="1824" y="84" height="60" width="329"  name=nego_price_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="색상" border="6" color="0" x="9" y="84" height="60" width="503"  name=color_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+button(band=header text="추가"filename=""action="11" border="0" color="16777215" x="5" y="0" height="76" width="448" vtextalign="0" htextalign="0"  name=b_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="32768" )
+button(band=header text="삭제"filename=""action="0" border="0" color="16777215" x="453" y="0" height="76" width="448" vtextalign="0" htextalign="0"  name=b_delete  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="32768" )
+text(band=header alignment="2" text="중국직송" border="6" color="0" x="2487" y="84" height="60" width="293"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="가격클레임사유" border="6" color="0" x="2798" y="84" height="60" width="544"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="색상별납기일" border="6" color="0" x="3355" y="84" height="60" width="347"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="5" color="0" x="2171" y="8" height="60" width="283" format="#,###.0"  name=in_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="5" color="0" x="9" y="8" height="60" width="503" format="[general]"  name=color  tag="OE" edit.name="색상" dddw.name=d_com901 dddw.displaycolumn=color_display dddw.datacolumn=color dddw.percentwidth=100 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="5" color="0" x="530" y="8" height="60" width="325" format="[general]"  name=spec  tag="OE" edit.limit=15 edit.case=upper edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="5" color="0" x="873" y="8" height="60" width="283" format="[general]"  name=req_qty  tag="OE" editmask.mask="#,###.0" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="5" color="0" x="1175" y="8" height="60" width="329" format="[general]"  name=req_price  tag="OE" editmask.mask="##,###,###" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=5 alignment="1" tabsequence=10 border="5" color="0" x="1522" y="8" height="60" width="283" format="#,###.0"  name=ord_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=8 alignment="1" tabsequence=20 border="5" color="0" x="1824" y="8" height="60" width="329" format="#,##"  name=nego_price edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=18 alignment="1" tabsequence=30 border="5" color="0" x="2487" y="8" height="56" width="293" format="#,###.0"  name=ord_qty_chn edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=19 alignment="0" tabsequence=40 border="5" color="0" x="2798" y="4" height="64" width="544" format="[general]"  name=price_claim ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.useasborder=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=20 alignment="0" tabsequence=50 border="5" color="0" x="3355" y="8" height="60" width="347" format="@@@@/@@/@@"  name=dlvy_color_ymd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="분석의뢰" border="6" color="65535" x="0" y="96" height="56" width="357"  name=t_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="32768" )
+text(band=detail alignment="1" text="1차:" border="0" color="16711680" x="361" y="100" height="56" width="119"  name=t_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=25 alignment="0" tabsequence=70 border="6" color="255" x="494" y="172" height="56" width="128" format="[general]"  name=urgency checkbox.text="급" checkbox.on="Y" checkbox.off="N" checkbox.lefttext=yes checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33282037" )
+column(band=detail id=29 alignment="0" tabsequence=80 border="6" color="16711680" x="640" y="172" height="56" width="128" format="[general]"  name=kc_test checkbox.text="KC" checkbox.on="Y" checkbox.off="N" checkbox.lefttext=yes checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33282037" )
+column(band=detail id=33 alignment="0" tabsequence=90 border="6" color="16711680" x="786" y="172" height="56" width="128" format="[general]"  name=gb_test checkbox.text="GB" checkbox.on="Y" checkbox.off="N" checkbox.lefttext=yes checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33282037" )
+text(band=detail alignment="1" text="2차:" border="0" color="16711680" x="1029" y="100" height="56" width="137"  name=t_8  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=26 alignment="0" tabsequence=110 border="6" color="255" x="1175" y="172" height="56" width="128" format="[general]"  name=urgency2 checkbox.text="급" checkbox.on="Y" checkbox.off="N" checkbox.lefttext=yes checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33282037" )
+text(band=detail alignment="1" text="3차:" border="0" color="16711680" x="1701" y="100" height="56" width="137"  name=t_9  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=27 alignment="0" tabsequence=150 border="6" color="255" x="1851" y="172" height="56" width="128" format="[general]"  name=urgency3 checkbox.text="급" checkbox.on="Y" checkbox.off="N" checkbox.lefttext=yes checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33282037" )
+column(band=detail id=31 alignment="0" tabsequence=160 border="6" color="16711680" x="1993" y="172" height="56" width="128" format="[general]"  name=kc_test3 checkbox.text="KC" checkbox.on="Y" checkbox.off="N" checkbox.lefttext=yes checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33282037" )
+text(band=detail alignment="1" text="4차:" border="0" color="16711680" x="2418" y="100" height="56" width="137"  name=t_10  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=28 alignment="0" tabsequence=190 border="6" color="255" x="2574" y="172" height="56" width="128" format="[general]"  name=urgency4 checkbox.text="급" checkbox.on="Y" checkbox.off="N" checkbox.lefttext=yes checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33282037" )
+column(band=detail id=32 alignment="0" tabsequence=200 border="6" color="16711680" x="2715" y="172" height="56" width="128" format="[general]"  name=kc_test4 checkbox.text="KC" checkbox.on="Y" checkbox.off="N" checkbox.lefttext=yes checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33282037" )
+column(band=detail id=30 alignment="0" tabsequence=120 border="6" color="16711680" x="1317" y="172" height="56" width="128" format="[general]"  name=kc_test2 checkbox.text="KC" checkbox.on="Y" checkbox.off="N" checkbox.lefttext=yes checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33282037" )
+column(band=detail id=34 alignment="0" tabsequence=130 border="6" color="0" x="1463" y="172" height="56" width="128" format="[general]"  name=gb_test2 checkbox.text="GB" checkbox.on="Y" checkbox.off="N" checkbox.lefttext=yes checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33282037" )
+column(band=detail id=35 alignment="0" tabsequence=170 border="6" color="0" x="2139" y="172" height="56" width="128" format="[general]"  name=gb_test3 checkbox.text="GB" checkbox.on="Y" checkbox.off="N" checkbox.lefttext=yes checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33282037" )
+column(band=detail id=36 alignment="0" tabsequence=210 border="6" color="16711680" x="2857" y="172" height="56" width="128" format="[general]"  name=gb_test4 checkbox.text="GB" checkbox.on="Y" checkbox.off="N" checkbox.lefttext=yes checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33282037" )
+column(band=detail id=23 alignment="0" tabsequence=140 border="5" color="0" x="1851" y="100" height="56" width="411" format="@@@@/@@/@@"  name=test_outymd3 edit.limit=8 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=24 alignment="0" tabsequence=180 border="5" color="0" x="2569" y="100" height="56" width="411" format="@@@@/@@/@@"  name=test_outymd4 edit.limit=8 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=detail x1="18" y1="248" x2="3735" y2="244"  name=l_1 pen.style="2" pen.width="5" pen.color="32896"  background.mode="2" background.color="16777215" )
+column(band=detail id=22 alignment="0" tabsequence=100 border="5" color="0" x="1179" y="100" height="56" width="407" format="@@@@/@@/@@"  name=test_outymd2 edit.limit=8 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=21 alignment="0" tabsequence=60 border="5" color="0" x="498" y="100" height="56" width="411" format="@@@@/@@/@@"  name=test_outymd  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

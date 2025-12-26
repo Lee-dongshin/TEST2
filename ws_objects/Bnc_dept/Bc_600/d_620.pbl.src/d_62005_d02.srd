@@ -1,0 +1,49 @@
+﻿$PBExportHeader$d_62005_d02.srd
+$PBExportComments$판매감도분석(복종스타일별)
+release 7;
+datawindow(units=0 timer_interval=0 color=80269528 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=148 color="536870912" )
+summary(height=228 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(1) updatewhereclause=yes name=item dbname="item" )
+ column=(type=char(20) updatewhereclause=yes name=item_nm dbname="item_nm" )
+ column=(type=char(1) updatewhereclause=yes name=concept dbname="concept" )
+ column=(type=char(8) updatewhereclause=yes name=style dbname="style" )
+ column=(type=decimal(0) updatewhereclause=yes name=in_qty dbname="in_qty" )
+ column=(type=decimal(0) updatewhereclause=yes name=sale_qty1 dbname="sale_qty1" )
+ column=(type=decimal(0) updatewhereclause=yes name=sale_qty2 dbname="sale_qty2" )
+ column=(type=decimal(0) updatewhereclause=yes name=sale_qty3 dbname="sale_qty3" )
+ column=(type=decimal(2) updatewhereclause=yes name=i_p_rate dbname="i_p_rate" )
+ column=(type=decimal(0) updatewhereclause=yes name=dep_qty dbname="dep_qty" )
+ procedure="1 execute dbo.SP_62005_D02;1 @ps_brand = :ps_brand, @ps_year = :ps_year, @ps_season = :ps_season, @mrs_gbn = :mrs_gbn, @expt_gubn = :expt_gubn, @yymmdd = :yymmdd" arguments=(("ps_brand", string),("ps_year", string),("ps_season", string),("mrs_gbn", string),("expt_gubn", string),("yymmdd", string)) )
+data(null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null ) 
+text(band=header alignment="2" text="판매수량" border="6" color="0" x="1463" y="8" height="56" width="1006"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+복    종" border="6" color="0" x="9" y="8" height="128" width="503"  name=item_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+감도" border="6" color="0" x="530" y="8" height="128" width="219"  name=sensitive_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+Style" border="6" color="0" x="768" y="8" height="128" width="334"  name=style_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="입고
+수량" border="6" color="0" x="1120" y="8" height="128" width="325"  name=in_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="정상" border="6" color="0" x="1463" y="80" height="56" width="325"  name=naml_panme_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="세일" border="6" color="0" x="1806" y="80" height="56" width="325"  name=sale_panme_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="계" border="6" color="0" x="2149" y="80" height="56" width="320"  name=tot_panme_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="입고비
+판매율" border="6" color="0" x="2487" y="8" height="128" width="224"  name=panme_rate_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+부진판매" border="6" color="0" x="2729" y="8" height="128" width="329"  name=bujin_panme_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="" border="0" color="0" x="9" y="0" height="68" width="507"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="9" y="0" height="68" width="507" format="[general]"  name=item_nm edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="129" background.mode="0" background.color="15793151~tcase( item_nm when '소계' then RGB(235,232,255) when '총계' then RGB(235,232,255) )" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="0" color="0" x="2725" y="0" height="68" width="338" format="#,##0"  name=dep_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="129" background.mode="0" background.color="15793151~tcase( item_nm when '소계' then RGB(235,232,255) when '총계' then RGB(235,232,255) )" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="763" y="0" height="68" width="343" format="[general]"  name=style edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="129" background.mode="0" background.color="15793151~tcase( item_nm when '소계' then RGB(235,232,255) when '총계' then RGB(235,232,255) )" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="1111" y="0" height="68" width="338" format="#,##0"  name=in_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="129" background.mode="0" background.color="15793151~tcase( item_nm when '소계' then RGB(235,232,255) when '총계' then RGB(235,232,255) )" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="1458" y="0" height="68" width="334" format="#,##0"  name=sale_qty1 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="129" background.mode="0" background.color="15793151~tcase( item_nm when '소계' then RGB(235,232,255) when '총계' then RGB(235,232,255) )" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="1801" y="0" height="68" width="334" format="#,##0"  name=sale_qty2 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="129" background.mode="0" background.color="15793151~tcase( item_nm when '소계' then RGB(235,232,255) when '총계' then RGB(235,232,255) )" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="2144" y="0" height="68" width="329" format="#,##0"  name=sale_qty3 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="129" background.mode="0" background.color="15793151~tcase( item_nm when '소계' then RGB(235,232,255) when '총계' then RGB(235,232,255) )" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="255" x="2482" y="0" height="68" width="233" format="#,###.##"  name=i_p_rate edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="129" background.mode="0" background.color="15793151~tcase( item_nm when '소계' then RGB(235,232,255) when '총계' then RGB(235,232,255) )" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="526" y="0" height="68" width="229" format="[general]"  name=concept edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="129" background.mode="0" background.color="15793151~tcase( item_nm when '소계' then RGB(235,232,255) when '총계' then RGB(235,232,255) )" )
+
+sparse(names="item_nm")htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

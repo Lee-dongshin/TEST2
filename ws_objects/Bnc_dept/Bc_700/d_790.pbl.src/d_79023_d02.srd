@@ -1,0 +1,118 @@
+﻿$PBExportHeader$d_79023_d02.srd
+$PBExportComments$전화상담내역관리
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=2120 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes key=yes name=yymmdd dbname="YYMMDD" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=seq_no dbname="SEQ_NO" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=shop_cd dbname="SHOP_CD" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=brand dbname="BRAND" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=person_nm dbname="PERSON_NM" )
+ column=(type=char(15) update=yes updatewhereclause=yes name=tel_no1 dbname="TEL_NO1" )
+ column=(type=char(15) update=yes updatewhereclause=yes name=tel_no2 dbname="TEL_NO2" )
+ column=(type=char(200) update=yes updatewhereclause=yes name=addr dbname="ADDR" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=zipcode dbname="ZIPCODE" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=invoice_no dbname="INVOICE_NO" )
+ column=(type=char(9) updatewhereclause=yes name=style_no dbname="style_no" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=style dbname="STYLE" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=chno dbname="CHNO" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=color dbname="COLOR" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=size dbname="SIZE" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=qty dbname="QTY" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=counsel_memb dbname="COUNSEL_MEMB" values="상담원	1/고   객	2/" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=counsel_type dbname="COUNSEL_TYPE" values="상품	01/배송	02/A//S	03/반품	04/교환	05/기타	06/" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=counsel_empno dbname="COUNSEL_EMPNO" values="최소영	A20721/박소담	A80501/김수연	A80719/최혜나	B11207/김미현	B10307/오미숙	B00103/" )
+ column=(type=datetime update=yes updatewhereclause=yes name=first_time dbname="FIRST_TIME" )
+ column=(type=char(4099) update=yes updatewhereclause=yes name=first_counsel dbname="FIRST_COUNSEL" )
+ column=(type=datetime update=yes updatewhereclause=yes name=second_time dbname="SECOND_TIME" )
+ column=(type=char(4099) update=yes updatewhereclause=yes name=second_counsel dbname="SECOND_COUNSEL" )
+ column=(type=datetime update=yes updatewhereclause=yes name=third_time dbname="THIRD_TIME" )
+ column=(type=char(4099) update=yes updatewhereclause=no name=third_counsel dbname="THIRD_COUNSEL" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="REG_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="REG_DT" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="MOD_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="MOD_DT" )
+ retrieve="SELECT	YYMMDD,
+			SEQ_NO,
+			SHOP_CD,
+			BRAND,
+			PERSON_NM,			
+			TEL_NO1,
+			TEL_NO2,
+			ADDR,
+			ZIPCODE,
+			INVOICE_NO,
+			STYLE + CHNO style_no,
+			STYLE,
+			CHNO,
+			COLOR,
+			SIZE,
+			QTY,
+			COUNSEL_MEMB,
+			COUNSEL_TYPE,
+			COUNSEL_EMPNO,
+			FIRST_TIME,
+			FIRST_COUNSEL,
+			SECOND_TIME,
+			SECOND_COUNSEL,
+			THIRD_TIME,
+			THIRD_COUNSEL,
+			REG_ID,
+			REG_DT,
+			MOD_ID,
+			MOD_DT
+FROM		TB_79023_D (NOLOCK)
+WHERE YYMMDD = :AS_YYMMDD
+ AND  SEQ_NO = :AS_SEQ_NO
+
+" update="TB_79023_D" updatewhere=0 updatekeyinplace=no arguments=(("AS_YYMMDD", string),("AS_SEQ_NO", string)) )
+groupbox(band=detail text=""border="3" color="0" x="23" y="8" height="600" width="2318"  name=gb_3  resizeable=1  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="80269524" )
+groupbox(band=detail text="3차 상담 및 이력"border="3" color="16711680" x="23" y="1620" height="468" width="2318"  name=gb_4  resizeable=1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=24 alignment="0" tabsequence=32766 border="2" color="0" x="41" y="1680" height="56" width="512" format="[shortdate] [time]"  name=third_time editmask.mask="mm/dd/yy hh:mm:ss" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=25 alignment="0" tabsequence=180 border="5" color="0" x="41" y="1764" height="312" width="2277" format="[general]"  name=third_counsel edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autovscroll=yes edit.vscrollbar=yes criteria.override_edit=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+groupbox(band=detail text="1차 상담 및 이력"border="3" color="16711680" x="23" y="632" height="468" width="2318"  name=gb_1  resizeable=1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=20 alignment="0" tabsequence=32766 border="2" color="0" x="41" y="696" height="56" width="512" format="[shortdate] [time]"  name=first_time editmask.mask="mm/dd/yy hh:mm:ss" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=21 alignment="0" tabsequence=160 border="5" color="0" x="41" y="776" height="312" width="2277" format="[general]"  name=first_counsel edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autovscroll=yes edit.vscrollbar=yes criteria.override_edit=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+groupbox(band=detail text="2차 상담 및 이력"border="3" color="16711680" x="23" y="1128" height="468" width="2318"  name=gb_2  resizeable=1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=22 alignment="0" tabsequence=32766 border="2" color="0" x="41" y="1188" height="56" width="512" format="[shortdate] [time]"  name=second_time editmask.mask="mm/dd/yy hh:mm:ss" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=23 alignment="0" tabsequence=170 border="5" color="0" x="46" y="1272" height="312" width="2277" format="[general]"  name=second_counsel edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autovscroll=yes edit.vscrollbar=yes criteria.override_edit=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+button(band=detail text=""filename="find.bmp"action="0" border="0" color="0" x="2222" y="136" height="80" width="91" vtextalign="0" htextalign="0"  name=cb_person_nm  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="67108864" )
+text(band=detail alignment="1" text="주    소:" border="0" color="0" x="37" y="336" height="56" width="251"  name=addr_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="문의구분:" border="0" color="0" x="37" y="528" height="56" width="251"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="5" color="0" x="311" y="44" height="60" width="494" format="@@@@/@@/@@"  name=yymmdd edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="5" color="0" x="832" y="44" height="60" width="210" format="[general]"  name=seq_no edit.limit=4 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="5" color="0" x="311" y="144" height="56" width="631" format="[general]"  name=shop_cd dddw.name=d_79023_ddw_2 dddw.displaycolumn=shop_snm dddw.datacolumn=shop_cd dddw.percentwidth=150 dddw.lines=0 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+button(band=detail text=""filename="find.bmp"action="0" border="0" color="0" x="960" y="136" height="80" width="91" vtextalign="0" htextalign="0"  name=cb_shop_cd  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="67108864" )
+column(band=detail id=9 alignment="0" tabsequence=70 border="5" color="0" x="311" y="336" height="56" width="293" format="[general]"  name=zipcode editmask.mask="XXXXXX" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+button(band=detail text=""filename="find.bmp"action="0" border="0" color="0" x="622" y="328" height="76" width="91" vtextalign="0" htextalign="0"  name=cb_zipcode  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="67108864" )
+column(band=detail id=8 alignment="0" tabsequence=80 border="5" color="0" x="731" y="336" height="60" width="1586" format="[general]"  name=addr edit.limit=200 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+button(band=detail text=""filename="find.bmp"action="0" border="0" color="0" x="777" y="420" height="80" width="91" vtextalign="0" htextalign="0"  name=cb_style_no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="67108864" )
+text(band=detail alignment="1" text="문의유형:" border="0" color="0" x="763" y="528" height="56" width="251"  name=counsel_gubn_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="연락처 1:" border="0" color="0" x="37" y="240" height="56" width="251"  name=tel_no1_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=40 border="5" color="0" x="311" y="240" height="60" width="430" format="[general]"  name=tel_no1 edit.limit=15 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="연락처 2:" border="0" color="0" x="763" y="240" height="56" width="251"  name=zip_code_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=50 border="5" color="0" x="1038" y="240" height="56" width="430" format="[general]"  name=tel_no2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="수    량:" border="0" color="0" x="1541" y="432" height="56" width="251"  name=tel_no2_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="상 담 자:" border="0" color="0" x="1541" y="528" height="56" width="251"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=detail alignment="1" text="운송장번호:" border="0" color="0" x="1490" y="240" height="56" width="302"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="품    번:" border="0" color="0" x="37" y="432" height="56" width="251"  name=style_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="1" tabsequence=120 border="5" color="0" x="1815" y="432" height="56" width="503" format="[general]"  name=qty edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=14 alignment="0" tabsequence=100 border="5" color="0" x="891" y="432" height="56" width="288" format="[general]"  name=color edit.name="품번별 색상" dddw.name=d_com008 dddw.displaycolumn=color_display dddw.datacolumn=color dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=15 alignment="0" tabsequence=110 border="5" color="0" x="1202" y="432" height="56" width="288" format="[general]"  name=size edit.name="품번색상별 사이즈" dddw.name=d_com009 dddw.displaycolumn=size_display dddw.datacolumn=size dddw.percentwidth=150 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="5" color="0" x="2446" y="496" height="56" width="215" format="[general]"  name=style visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="5" color="0" x="2437" y="592" height="56" width="238" format="[general]"  name=chno visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=19 alignment="0" tabsequence=150 border="5" color="0" x="1815" y="528" height="56" width="503" format="[general]"  name=counsel_empno ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.vscrollbar=yes ddlb.useasborder=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="0" tabsequence=90 border="5" color="0" x="315" y="432" height="56" width="430" format="[general]"  name=style_no edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=18 alignment="0" tabsequence=140 border="5" color="0" x="1038" y="528" height="56" width="457" format="[general]"  name=counsel_type ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.useasborder=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=17 alignment="0" tabsequence=130 border="5" color="0" x="315" y="528" height="56" width="430" format="[general]"  name=counsel_memb ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.useasborder=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="고 객 명:" border="0" color="0" x="1541" y="144" height="56" width="251"  name=person_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="브 랜 드:" border="0" color="0" x="1490" y="44" height="56" width="302"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="매 장 명:" border="0" color="0" x="37" y="144" height="56" width="251"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="상담일자:" border="0" color="0" x="37" y="44" height="56" width="251"  name=yymmdd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=30 border="5" color="0" x="1815" y="144" height="60" width="384" format="[general]"  name=person_nm edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=60 border="5" color="0" x="1815" y="240" height="56" width="503" format="[general]"  name=invoice_no edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=10 border="5" color="0" x="1815" y="44" height="60" width="503" format="[general]"  name=brand edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=180 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,32 @@
+﻿$PBExportHeader$d_sh152_d02.srd
+$PBExportComments$매장미판등록리스트
+release 7;
+datawindow(units=0 timer_interval=0 color=82899184 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=156 color="536870912" )
+summary(height=84 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=yymmdd dbname="TB_53019_H.yymmdd" )
+ column=(type=char(6) updatewhereclause=yes name=shop_cd dbname="TB_53019_H.shop_cd" )
+ column=(type=char(12) updatewhereclause=yes name=style dbname="style" )
+ column=(type=decimal(0) updatewhereclause=yes name=qty dbname="qty" )
+ retrieve="select yymmdd, shop_cd, style + color + size as style, sum(qty) as qty
+from tb_53019_h (nolock)
+where yymmdd like :as_yymmdd + '%'
+and   shop_cd = :as_shop_cd
+group by yymmdd, shop_cd, style + color + size
+" arguments=(("as_yymmdd", string),("as_shop_cd", string))  sort="yymmdd A style A " )
+text(band=header alignment="2" text="Shop Cd" border="0" color="0" x="974" y="12" height="60" width="229"  name=shop_cd_t visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="일자" border="6" color="0" x="46" y="84" height="60" width="375"  name=yymmdd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="더블클릭! 일자별 조회!" border="0" color="255" x="37" y="8" height="56" width="677"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="등록수량" border="6" color="0" x="832" y="84" height="60" width="274"  name=qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="품번" border="6" color="0" x="439" y="84" height="60" width="379"  name=style_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="46" y="4" height="60" width="375" format="[general]"  name=yymmdd editmask.mask="XXXX/XX/XX" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30539508" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="434" y="4" height="60" width="379" format="[general]"  name=style editmask.mask="XXXXXXXX-XX-XX" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30539508" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="1065" y="12" height="60" width="192" format="[general]"  name=shop_cd visible="1~t0" edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="832" y="4" height="60" width="274" format="#,##0"  name=qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33417214" )
+line(band=summary x1="96" y1="0" x2="1106" y2="0"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+compute(band=summary alignment="2" expression="left(yymmdd ,6) + '월 계'"border="0" color="16711680" x="46" y="16" height="60" width="375" format="[GENERAL]"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82899184" )
+compute(band=summary alignment="1" expression="sum(qty for all)"border="0" color="0" x="832" y="16" height="60" width="274" format="#,##0"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33417214" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

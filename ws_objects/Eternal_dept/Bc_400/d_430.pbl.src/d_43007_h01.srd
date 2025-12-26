@@ -1,0 +1,39 @@
+﻿$PBExportHeader$d_43007_h01.srd
+$PBExportComments$특정품번별창고재고내역조회
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=276 color="536870912" )
+table(column=(type=char(1) updatewhereclause=yes name=brand dbname="brand" )
+ column=(type=char(3) updatewhereclause=yes name=style_no dbname="style_no" )
+ column=(type=char(6) updatewhereclause=yes name=house_cd dbname="house_cd" )
+ column=(type=char(4) updatewhereclause=yes name=year dbname="year" )
+ column=(type=char(1) updatewhereclause=yes name=season dbname="season" )
+ column=(type=char(1) updatewhereclause=yes name=sojae dbname="sojae" )
+ column=(type=char(1) updatewhereclause=yes name=item dbname="item" )
+ retrieve="select 
+'n'			brand,
+'010'	      style_no,
+'010000'			house_cd,
+'2001'		year,
+'m'			season,
+'w'			sojae,
+'p'			item
+from dual" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="375" y="20" height="60" width="562" format="[general]"  name=brand edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=30 border="5" color="0" x="375" y="104" height="60" width="562" format="[general]"  name=year edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd1 dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="브랜드:" border="0" color="0" x="82" y="20" height="56" width="274"  name=brand_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="년  도:" border="0" color="0" x="137" y="104" height="56" width="219"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="5" color="0" x="1280" y="20" height="60" width="562" format="[general]"  name=house_cd edit.name="창고" dddw.name=d_com910 dddw.displaycolumn=shop_display dddw.datacolumn=shop_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=40 border="5" color="0" x="1280" y="104" height="60" width="562" format="[general]"  name=season edit.name="내부코드" dddw.name=d_com001_n dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="창 고:" border="0" color="0" x="1070" y="20" height="56" width="192"  name=house_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="시 즌:" border="0" color="0" x="1042" y="104" height="56" width="219"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="소  재:" border="0" color="0" x="137" y="188" height="56" width="219"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=70 border="5" color="0" x="2194" y="188" height="56" width="297" format="[general]"  name=style_no editmask.mask="XXXX" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="품 번:" border="0" color="0" x="1929" y="188" height="56" width="247"  name=style_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=50 border="5" color="0" x="375" y="188" height="60" width="562" format="[general]"  name=sojae edit.name="소재유형" dddw.name=d_com002_n01 dddw.displaycolumn=sojae_display dddw.datacolumn=sojae dddw.percentwidth=200 dddw.lines=6 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="0" tabsequence=60 border="5" color="0" x="1280" y="188" height="60" width="562" format="[general]"  name=item edit.name="품종(품번)" dddw.name=d_com003_n01 dddw.displaycolumn=item_display dddw.datacolumn=item dddw.percentwidth=200 dddw.lines=6 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="복 종:" border="0" color="0" x="1015" y="188" height="56" width="247"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

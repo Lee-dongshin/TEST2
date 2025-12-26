@@ -1,0 +1,96 @@
+﻿$PBExportHeader$d_54009_d09.srd
+$PBExportComments$rt코디 스타일
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(1) update=yes updatewhereclause=yes key=yes name=brand dbname="tb_54009_h.brand" )
+ column=(type=char(8) update=yes updatewhereclause=yes key=yes name=yymmdd dbname="tb_54009_h.yymmdd" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=recall_no dbname="tb_54009_h.recall_no" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=no dbname="tb_54009_h.no" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=shop_cd dbname="tb_54009_h.shop_cd" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=style dbname="tb_54009_h.style" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=chno dbname="tb_54009_h.chno" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=color dbname="tb_54009_h.color" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=size dbname="tb_54009_h.size" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=year dbname="tb_54009_h.year" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=season dbname="tb_54009_h.season" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=item dbname="tb_54009_h.item" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=out_qty dbname="tb_54009_h.out_qty" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=sale_qty dbname="tb_54009_h.sale_qty" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=recall_qty dbname="tb_54009_h.recall_qty" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=rcv_check dbname="tb_54009_h.rcv_check" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=accept_yn dbname="tb_54009_h.accept_yn" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="tb_54009_h.Reg_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="tb_54009_h.Reg_Dt" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="tb_54009_h.Mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="tb_54009_h.Mod_Dt" )
+ retrieve="select 
+brand, 
+yymmdd,   
+recall_no,
+no,
+shop_cd, 
+style,    
+chno, 
+color, 
+size, 
+year, 
+season, 
+item, 
+out_qty,            
+sale_qty,           
+recall_qty,         
+rcv_check, 
+accept_yn ,
+Reg_id,
+Reg_Dt,
+Mod_id,
+Mod_Dt
+from tb_54009_h
+where yymmdd = :as_yymmdd
+and   recall_no = :as_recall_no
+and   brand = :as_brand
+and   style = :as_style
+and   chno = :as_chno" update="tb_54009_h" updatewhere=1 updatekeyinplace=no arguments=(("as_yymmdd", string),("as_recall_no", string),("as_brand", string),("as_style", string),("as_chno", string)) )
+text(band=header alignment="2" text="Brand" border="6" color="0" x="5" y="4" height="60" width="155"  name=brand_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Yymmdd" border="6" color="0" x="174" y="4" height="60" width="247"  name=yymmdd_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Recall No" border="6" color="0" x="434" y="4" height="60" width="256"  name=recall_no_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Shop Cd" border="6" color="0" x="704" y="4" height="60" width="229"  name=shop_cd_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Style" border="6" color="0" x="946" y="4" height="60" width="247"  name=style_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Chno" border="6" color="0" x="1207" y="4" height="60" width="137"  name=chno_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Color" border="6" color="0" x="1362" y="4" height="60" width="133"  name=color_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Size" border="6" color="0" x="1513" y="4" height="60" width="119"  name=size_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Year" border="6" color="0" x="1646" y="4" height="60" width="137"  name=year_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Recall Qty" border="6" color="0" x="2825" y="4" height="60" width="329"  name=recall_qty_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Sale Qty" border="6" color="0" x="2482" y="4" height="60" width="329"  name=sale_qty_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Out Qty" border="6" color="0" x="2139" y="4" height="60" width="329"  name=out_qty_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Item" border="6" color="0" x="2011" y="4" height="60" width="114"  name=item_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Season" border="6" color="0" x="1797" y="4" height="60" width="201"  name=season_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Accept Yn" border="6" color="0" x="3479" y="4" height="60" width="279"  name=accept_yn_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Rcv Check" border="6" color="0" x="3182" y="4" height="60" width="283"  name=rcv_check_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="5" y="4" height="60" width="155" format="[general]"  name=brand edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="174" y="4" height="60" width="247" format="[general]"  name=yymmdd edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="5" color="0" x="434" y="4" height="60" width="256" format="[general]"  name=recall_no edit.limit=4 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=40 border="5" color="0" x="704" y="4" height="60" width="229" format="[general]"  name=shop_cd edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=50 border="5" color="0" x="946" y="4" height="60" width="247" format="[general]"  name=style edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=60 border="5" color="0" x="1207" y="4" height="60" width="137" format="[general]"  name=chno edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=70 border="5" color="0" x="1362" y="4" height="60" width="133" format="[general]"  name=color edit.limit=2 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=80 border="5" color="0" x="1513" y="4" height="60" width="119" format="[general]"  name=size edit.limit=2 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=90 border="5" color="0" x="1646" y="4" height="60" width="137" format="[general]"  name=year edit.limit=4 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="1" tabsequence=140 border="5" color="0" x="2825" y="4" height="60" width="329" format="[general]"  name=recall_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="1" tabsequence=130 border="5" color="0" x="2482" y="4" height="60" width="329" format="[general]"  name=sale_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="1" tabsequence=120 border="5" color="0" x="2139" y="4" height="60" width="329" format="[general]"  name=out_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=110 border="5" color="0" x="2011" y="4" height="60" width="114" format="[general]"  name=item edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=100 border="5" color="0" x="1797" y="4" height="60" width="201" format="[general]"  name=season edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=17 alignment="0" tabsequence=180 border="5" color="0" x="3479" y="4" height="60" width="279" format="[general]"  name=accept_yn edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="0" tabsequence=170 border="5" color="0" x="3182" y="4" height="60" width="283" format="[general]"  name=rcv_check edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="5" color="0" x="3785" y="0" height="64" width="165" format="[general]"  name=reg_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=19 alignment="0" tabsequence=32766 border="5" color="0" x="3973" y="0" height="64" width="517" format="[shortdate] [time]"  name=reg_dt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=20 alignment="0" tabsequence=32766 border="5" color="0" x="4526" y="0" height="64" width="165" format="[general]"  name=mod_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=21 alignment="0" tabsequence=32766 border="5" color="0" x="4722" y="4" height="64" width="517" format="[shortdate] [time]"  name=mod_dt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="5239" y="0" height="64" width="110" format="[general]"  name=no edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,26 @@
+﻿$PBExportHeader$gf_pic_dir.srf
+$PBExportComments$그림화일명 산출
+global type gf_pic_dir from function_object
+end type
+
+forward prototypes
+global function long gf_pic_dir (string as_flag, string as_pic_cd, ref string as_pic_nm)
+end prototypes
+
+global function long gf_pic_dir (string as_flag, string as_pic_cd, ref string as_pic_nm);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 작 성 일  : 2002/01/04                                     */
+/* 수 정 일  : 2002/01/04                                     */
+/* 내    용  : 그림화일 위치 산출.                            */
+/*============================================================*/
+
+SELECT dbo.sf_pic_dir(:as_flag, :as_pic_cd)
+  INTO :as_pic_nm 
+  FROM DUAL ;
+
+IF ISNULL(as_pic_nm) THEN RETURN 100
+
+RETURN sqlca.sqlcode 
+
+end function
+

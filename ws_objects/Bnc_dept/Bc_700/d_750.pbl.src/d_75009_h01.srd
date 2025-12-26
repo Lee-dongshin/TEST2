@@ -1,0 +1,19 @@
+﻿$PBExportHeader$d_75009_h01.srd
+$PBExportComments$고객 반응분석
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=112 color="536870912" )
+table(column=(type=char(8) updatewhereclause=no name=fr_ymd dbname="name_2" )
+ column=(type=char(8) updatewhereclause=no name=to_ymd dbname="name_1" )
+ column=(type=char(50) updatewhereclause=no name=event_nm dbname="event_nm" )
+ )
+text(band=detail alignment="1" text="이벤트등록번호:" border="0" color="0" x="0" y="24" height="56" width="453"  name=yymmdd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="-" border="0" color="0" x="795" y="24" height="56" width="41"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="850" y="24" height="56" width="302" format="@@@@.@@.@@"  name=to_ymd  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="475" y="24" height="56" width="302" format="@@@@.@@.@@"  name=fr_ymd  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="5" color="0" x="1701" y="24" height="56" width="672" format="[general]"  name=event_nm edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="1" text="이벤트 명:" border="0" color="0" x="1225" y="24" height="56" width="453"  name=event_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

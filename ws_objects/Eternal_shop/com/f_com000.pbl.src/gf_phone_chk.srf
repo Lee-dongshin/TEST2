@@ -1,0 +1,36 @@
+﻿$PBExportHeader$gf_phone_chk.srf
+$PBExportComments$고객등록여부체크(핸드폰)
+global type gf_phone_chk from function_object
+end type
+
+forward prototypes
+global function boolean gf_phone_chk (string as_tel_no, ref string as_jumin, ref string as_user_name, ref string as_card_no)
+end prototypes
+
+global function boolean gf_phone_chk (string as_tel_no, ref string as_jumin, ref string as_user_name, ref string as_card_no);
+/*============================================================*/
+/* 작 성 자  : 지우정보(김영일)                               */
+/* 작 성 일  : 2002/02/18                                     */
+/* 수 정 일  : 2002/02/18                                     */
+/* 내    용  : 회원이 있는지 체크한다.                        */
+/*============================================================*/
+long ls_cnt
+
+
+	SELECT count(jumin)
+	INTO  :ls_cnt
+	FROM beaucre.dbo.TB_71010_M
+	where replace(tel_no3,'-','') = replace(:as_tel_no,'-','');
+	
+	IF ls_cnt <> 1 Then 
+		RETURN False
+	ELSE
+		SELECT jumin,user_name,card_no 
+		INTO  :as_jumin,:as_user_name,:as_card_no 
+		FROM beaucre.dbo.TB_71010_M
+		where replace(tel_no3,'-','') = replace(:as_tel_no,'-','');
+		RETURN True
+	END IF
+
+end function
+

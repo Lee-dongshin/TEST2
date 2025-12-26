@@ -1,0 +1,80 @@
+﻿$PBExportHeader$d_91002_d01.srd
+$PBExportComments$소재 코드 관리
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=168 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(1) update=yes updatewhereclause=yes key=yes name=sojae dbname="tb_91020_c.sojae" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=sojae_nm dbname="tb_91020_c.sojae_NM" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=sojae_grp dbname="tb_91020_c.sojae_GRP" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=plan_fg dbname="tb_91020_c.plan_fg" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="tb_91020_c.REG_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="tb_91020_c.REG_DT" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="tb_91020_c.MOD_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="tb_91020_c.MOD_DT" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=sojae_ynm dbname="tb_91020_c.sojae_YNM" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=plan_yfg dbname="tb_91020_c.plan_Yfg" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=sojae_xnm dbname="tb_91020_c.sojae_XNM" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=plan_xfg dbname="tb_91020_c.plan_Xfg" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=sojae_znm dbname="tb_91020_c.sojae_ZNM" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=plan_zfg dbname="tb_91020_c.plan_Zfg" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=sojae_wnm dbname="tb_91020_c.sojae_WNM" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=plan_wfg dbname="tb_91020_c.plan_Wfg" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=sojae_vnm dbname="tb_91020_c.sojae_VNM" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=plan_vfg dbname="tb_91020_c.plan_Vfg" )
+ retrieve="  SELECT sojae,   
+         sojae_NM,   
+         sojae_GRP,  
+         plan_fg,  
+         REG_ID,   
+         REG_DT,   
+         MOD_ID,   
+         MOD_DT,
+         sojae_YNM, 
+         plan_Yfg,
+         sojae_XNM, 
+         plan_Xfg,
+         sojae_ZNM, 
+         plan_Zfg ,
+         sojae_WNM, 
+         plan_Wfg,  
+         sojae_VNM, 
+         plan_Vfg  
+  
+    FROM TB_91020_C 
+	WHERE sojae LIKE :as_sojae + '%'
+	  AND ISNULL(sojae_NM, '') LIKE :as_sojae_nm + '%'  
+" update="TB_91020_C" updatewhere=0 updatekeyinplace=yes arguments=(("as_sojae", string),("as_sojae_nm", string)) )
+text(band=header alignment="2" text="코 드" border="6" color="0" x="160" y="8" height="152" width="210"  name=sojae_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="소 재" border="6" color="0" x="389" y="8" height="152" width="823"  name=sojae_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="소재 그룹" border="6" color="0" x="1230" y="8" height="152" width="475"  name=sojae_grp_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="잡화사업계획 구분" border="6" color="0" x="3049" y="8" height="152" width="475"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="슈즈소재" border="6" color="0" x="3543" y="8" height="156" width="814"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="슈즈사업계획 구분" border="6" color="0" x="4370" y="12" height="148" width="485"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="코스메틱계획 구분" border="6" color="0" x="5701" y="8" height="152" width="475"  name=t_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="코스메틱소재" border="6" color="0" x="4869" y="8" height="152" width="814"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="사업계획 구분" border="6" color="0" x="1723" y="8" height="152" width="475"  name=plan_sojae_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="잡화소재
+(라빠2017년X까지만 포함)" border="6" color="0" x="2217" y="8" height="152" width="814"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="잡화소재" border="6" color="0" x="6194" y="8" height="152" width="814"  name=t_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="잡화계획 구분" border="6" color="0" x="7031" y="8" height="152" width="471"  name=t_8  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="160" y="4" height="60" width="210" format="[general]"  name=sojae  tag="OE" edit.limit=1 edit.case=upper edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="5" color="0" x="1230" y="4" height="60" width="475" format="[general]"  name=sojae_grp  tag="OE" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="5" color="0" x="1723" y="4" height="60" width="475" format="[general]"  name=plan_fg edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="389" y="4" height="60" width="823" format="[general]"  name=sojae_nm  tag="DE" edit.limit=20 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=12 alignment="0" tabsequence=60 border="5" color="0" x="3049" y="4" height="60" width="475" format="[general]"  name=plan_xfg edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=13 alignment="0" tabsequence=70 border="5" color="0" x="3547" y="4" height="60" width="814" format="[general]"  name=sojae_znm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=14 alignment="0" tabsequence=80 border="5" color="0" x="4379" y="4" height="60" width="475" format="[general]"  name=plan_zfg dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=10 alignment="0" tabsequence=100 border="5" color="0" x="5701" y="4" height="60" width="475" format="[general]"  name=plan_yfg edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=9 alignment="0" tabsequence=90 border="5" color="0" x="4869" y="4" height="60" width="814" format="[general]"  name=sojae_ynm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=11 alignment="0" tabsequence=50 border="5" color="0" x="2217" y="4" height="60" width="814" format="[general]"  name=sojae_xnm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=15 alignment="0" tabsequence=110 border="5" color="0" x="6194" y="4" height="60" width="814" format="[general]"  name=sojae_wnm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=16 alignment="0" tabsequence=120 border="5" color="0" x="7026" y="4" height="60" width="475" format="[general]"  name=plan_wfg edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=header alignment="2" text="미밍코소재" border="6" color="0" x="7520" y="8" height="152" width="814"  name=t_9 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="미밍코계획 구분" border="6" color="0" x="8347" y="8" height="152" width="475"  name=t_10 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=17 alignment="0" tabsequence=130 border="5" color="0" x="7520" y="4" height="60" width="814" format="[general]"  name=sojae_vnm visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=18 alignment="0" tabsequence=140 border="5" color="0" x="8352" y="4" height="60" width="475" format="[general]"  name=plan_vfg visible="1~t0" edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

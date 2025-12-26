@@ -1,0 +1,17 @@
+// function define 방법.
+function ulong addToolTipItem(ulong hWndTool, string text) library "PBSupports.dll"
+function ulong releaseToolTipItem(ulong hWndTool) library "PBSupports.dll"
+
+1. addToolTipItem, releaseToolTipItem는 ToolTip 관련 함수들.
+   addToolTipItem은 ToolTip을 생성해 주고, releaseToolTipItem은 ToolTip을 제거.
+   성공하면 true, 실패하면 false return.
+
+example
+       addToolTipItem을 call하면 ToolTip작동시작. control의 생성자가 적당한 위치.
+   ex) addToolTipItem(handle(this), "☞ F6")
+
+       releaseToolTipItem을 call하면 ToolTip소멸. control의 소멸자 정도가 적절한 위치.
+   ex  releaseToolTipItem(handle(this))
+
+       * 같은 control에 두번이상 addToolTipItem만 두번하지 않도록 주의.
+       * 모든 add에 대해서는 꼭 release를 해 줄것!

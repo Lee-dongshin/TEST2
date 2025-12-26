@@ -1,0 +1,31 @@
+﻿$PBExportHeader$gf_style_no_chk.srf
+$PBExportComments$품번체크[스타일+차수+색상+사이즈]
+global type gf_style_no_chk from function_object
+end type
+
+forward prototypes
+global function boolean gf_style_no_chk (string as_style, string as_chno, string as_color, string as_size)
+end prototypes
+
+global function boolean gf_style_no_chk (string as_style, string as_chno, string as_color, string as_size);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 작 성 일  : 2002/01/21                                     */
+/* 수 정 일  : 2002/01/21                                     */
+/* 내    용  : 품번이 있는지 체크한다.                        */
+/*============================================================*/
+Long ll_cnt
+
+  SELECT COUNT(STYLE)
+    INTO :ll_cnt
+	 FROM VI_12024_1
+	WHERE STYLE = :as_style
+	  AND CHNO  = :as_chno
+	  AND COLOR = :as_color
+	  AND SIZE  = :as_size;
+
+IF ll_cnt = 0 Then RETURN False	
+
+RETURN True
+
+end function
+

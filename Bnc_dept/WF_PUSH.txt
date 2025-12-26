@@ -1,0 +1,39 @@
+10  Matches Found On "WF_PUSH":
+
+Entry Name: C:\bnc_dept\Bc_500\w_540.pbl(w_54009_e)
+  Functions For: w_54009_e
+    public subroutine wf_push_insert (string as_yymmdd, string as_brand)
+ 
+  Control/Function: cb_5
+  Event Name: clicked
+    0010: wf_push_insert(is_yymmdd, is_brand)
+ 
+Entry Name: C:\bnc_dept\Bc_500\w_540.pbl(w_54013_e)
+  Functions For: w_54013_e
+    public subroutine wf_push_insert (string as_yymmdd, string as_brand)
+ 
+  Event Name: ue_update()
+    0119:    wf_push_insert(is_yymmdd, is_brand)
+ 
+  Control/Function: cb_5
+  Event Name: clicked
+    0010: wf_push_insert(is_yymmdd, is_brand)
+ 
+Entry Name: C:\bnc_dept\Bc_500\w_540.pbl(w_54018_e)
+  Functions For: w_54018_e
+    public subroutine wf_push_insert (string as_yymmdd, string as_brand)
+ 
+  Event Name: ue_update()
+    0078:    wf_push_insert(is_yymmdd, is_brand)  //PUSH 넣기
+ 
+  Control/Function: cb_5
+  Event Name: clicked
+    0010: wf_push_insert(is_yymmdd, is_brand)
+ 
+Entry Name: C:\bnc_dept\Bc_500\w_570.pbl(w_57001_e)
+  Functions For: w_57001_e
+    public subroutine wf_push (string as_shop_cd, string as_yymmdd, string as_send_id, long al_mes_seq)
+ 
+  Control/Function: wf_send_msg
+    0031:  // wf_push(dw_5.GetItemString(i,'shop_cd'), is_yymmdd, is_send_id, ii_mes_seq)       //푸쉬넣기
+ 

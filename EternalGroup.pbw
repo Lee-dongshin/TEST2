@@ -1,0 +1,15 @@
+Save Format v3.0(19990112)
+@begin Targets
+ 0 "bnc_cust\\bnc_cust.pbt";
+ 1 "Bnc_dept\\beaucre.pbt";
+ 2 "bnc_kola\\kola.pbt";
+ 3 "bnc_MasterFile\\bnc_masterfile.pbt";
+ 4 "bnc_mat\\bnc_mat.pbt";
+ 5 "bnc_shop\\bnc_shop.pbt";
+ 6 "bnc_smat\\bnc_smat.pbt";
+ 7 "Eternal_dept\\eternal.pbt";
+ 8 "Eternal_shop\\eternal_shop.pbt";
+@end;
+DefaultTarget "bnc_kola\\kola.pbt";
+DefaultExportEncode "UTF-8";
+DefaultRemoteTarget "bnc_kola\\kola.pbt";

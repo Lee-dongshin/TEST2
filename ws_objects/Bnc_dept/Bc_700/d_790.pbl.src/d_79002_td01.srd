@@ -1,0 +1,55 @@
+﻿$PBExportHeader$d_79002_td01.srd
+$PBExportComments$A/S 의뢰 등록
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=yymmdd dbname="TB_79010_M.YYMMDD" )
+ column=(type=char(4) updatewhereclause=yes name=seq_no dbname="TB_79010_M.SEQ_NO" )
+ column=(type=char(4) updatewhereclause=yes name=b_no dbname="TB_79010_M.NO" )
+ column=(type=char(13) updatewhereclause=yes name=jumin dbname="TB_79010_M.JUMIN" )
+ column=(type=char(16) updatewhereclause=yes name=card_no dbname="TB_79010_M.CARD_NO" )
+ column=(type=char(20) updatewhereclause=yes name=custom_nm dbname="TB_79010_M.CUSTOM_NM" )
+ column=(type=char(1) updatewhereclause=yes name=b_judg_fg dbname="TB_79010_M.JUDG_FG" )
+ column=(type=char(20) updatewhereclause=yes name=judg_fg_nm dbname="JUDG_FG_NM" )
+ column=(type=char(8) updatewhereclause=yes name=b_judg_ymd dbname="TB_79010_M.JUDG_YMD" )
+ column=(type=char(6) updatewhereclause=yes name=shop_cd dbname="TB_79010_M.SHOP_CD" )
+ column=(type=char(30) updatewhereclause=yes name=shop_nm dbname="SHOP_NM" )
+ retrieve="  SELECT A.YYMMDD, A.SEQ_NO, B.NO, A.JUMIN, A.CARD_NO, A.CUSTOM_NM, 
+         B.JUDG_FG, dbo.sf_inter_nm('799', B.JUDG_FG) AS JUDG_FG_NM,
+         B.JUDG_YMD, A.SHOP_CD, dbo.sf_shop_nm(A.SHOP_CD, 'S') AS SHOP_NM
+    FROM TB_79010_M A with (nolock),
+         TB_79011_D B with (nolock)
+   WHERE A.YYMMDD = B.YYMMDD
+     AND A.SEQ_NO = B.SEQ_NO
+     AND A.YYMMDD    BETWEEN :as_fr_ymd AND :as_to_ymd
+     AND A.JUMIN     LIKE    :as_jumin
+     AND A.CARD_NO   LIKE    :as_card_no
+     AND A.CUSTOM_NM LIKE    :as_custom_nm
+     AND A.BRAND     =       :as_brand
+     AND ISNULL(B.JUDG_FG, '0') LIKE :as_judg_fg
+" arguments=(("as_brand", string),("as_fr_ymd", string),("as_to_ymd", string),("as_judg_fg", string),("as_card_no", string),("as_jumin", string),("as_custom_nm", string)) )
+text(band=header alignment="2" text="의뢰일자" border="6" color="0" x="9" y="8" height="60" width="315"  name=yymmdd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="번호" border="6" color="0" x="343" y="8" height="60" width="128"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="고객명" border="6" color="0" x="489" y="8" height="60" width="311"  name=custom_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="순번" border="6" color="0" x="818" y="8" height="60" width="114"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="판정일자" border="6" color="0" x="1189" y="8" height="60" width="302"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="주민번호" border="6" color="0" x="1509" y="8" height="60" width="389"  name=jumin_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="카드번호" border="6" color="0" x="1915" y="8" height="60" width="526"  name=card_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="접수매장" border="6" color="0" x="2459" y="8" height="60" width="786"  name=shop_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="판정구분" border="6" color="0" x="951" y="8" height="60" width="219"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="5" color="0" x="9" y="4" height="60" width="315" format="@@@@/@@/@@"  name=yymmdd edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="5" color="0" x="343" y="4" height="60" width="128" format="[general]"  name=seq_no edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="5" color="0" x="489" y="4" height="60" width="311" format="[general]"  name=custom_nm edit.limit=20 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="5" color="0" x="1509" y="4" height="60" width="389" format="[general]"  name=jumin edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="5" color="0" x="1915" y="4" height="60" width="526" format="@@@@-@@@@-@@@@-@@@@"  name=card_no edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="5" color="0" x="2459" y="4" height="60" width="169" format="[general]"  name=shop_cd edit.limit=6 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="5" color="0" x="2647" y="4" height="60" width="599" format="[general]"  name=shop_nm edit.limit=30 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="5" color="0" x="951" y="4" height="60" width="219" format="[general]"  name=judg_fg_nm edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=0 border="0" color="0" x="3246" y="0" height="56" width="110"  name=b_no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=0 border="0" color="0" x="3355" y="0" height="56" width="27"  name=b_judg_fg  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=0 border="0" color="0" x="3383" y="0" height="56" width="215"  name=b_judg_ymd  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

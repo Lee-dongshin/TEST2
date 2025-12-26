@@ -1,0 +1,16 @@
+﻿$PBExportHeader$d_cu100_h03.srd
+$PBExportComments$생산진도관리(납품예정등록)
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=120 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=input_req_ymd dbname="input_req_ymd" )
+ column=(type=char(10) updatewhereclause=yes name=input_req_time dbname="input_req_time" values="	 /09시	09시/10시	10시/11시	11시/12시	12시/오후1시	오후1시/오후2시	오후2시/오후3시	오후3시/오후4시	오후4시/오후5시	오후5시/오후6시	오후6시/오후7시	오후7시/" )
+ )
+column(band=detail id=1 alignment="2" tabsequence=10 border="5" color="0" x="384" y="28" height="60" width="357" format="@@@@/@@/@@"  name=input_req_ymd edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="납품예정일" border="0" color="0" x="41" y="28" height="56" width="325"  name=input_req_ymd_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="1001" y="32" height="60" width="434" format="[general]"  name=input_req_time ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.vscrollbar=yes ddlb.useasborder=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="시간" border="0" color="0" x="809" y="36" height="56" width="165"  name=input_req_time_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

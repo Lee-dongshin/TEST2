@@ -1,0 +1,31 @@
+﻿$PBExportHeader$d_com008.srd
+$PBExportComments$품번별 색상[dddw]
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(2) updatewhereclause=yes name=color dbname="tb_12024_d.color" )
+ column=(type=char(20) updatewhereclause=yes name=bb_color_enm dbname="tb_12024_d.color_enm" )
+ column=(type=char(20) updatewhereclause=yes name=bb_color_knm dbname="tb_12024_d.color_knm" )
+ column=(type=char(5) updatewhereclause=yes name=bb_color_snm dbname="tb_12024_d.color_snm" )
+ retrieve="  SELECT distinct aa.color,   
+         bb.color_enm,   
+         bb.color_knm,   
+         bb.color_snm  
+    FROM tb_12024_d aa  with (nolock),   
+         tb_91040_c bb  with (nolock)    
+   WHERE bb.color = aa.color 
+     AND aa.style = :as_style 
+     AND aa.chno  = :as_chno     
+" arguments=(("as_style", string),("as_chno", string)) )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="60" width="96" format="[general]"  name=color edit.limit=2 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="color  + ~" ~" +  bb_color_enm "border="0" color="0" x="119" y="0" height="60" width="210" format="[GENERAL]"  name=color_display visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=0 border="0" color="0" x="343" y="0" height="56" width="530"  name=bb_color_enm  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Bb Color Enm" border="0" color="0" x="338" y="4" height="76" width="535"  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=0 border="0" color="0" x="887" y="0" height="56" width="530"  name=bb_color_knm  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Bb Color Knm" border="0" color="0" x="882" y="4" height="76" width="535"  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=0 border="0" color="0" x="1431" y="0" height="56" width="128"  name=bb_color_snm  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Bb Color Snm" border="0" color="0" x="1426" y="4" height="76" width="133"  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

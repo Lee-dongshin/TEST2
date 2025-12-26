@@ -1,0 +1,175 @@
+﻿$PBExportHeader$d_47014_d04.srd
+$PBExportComments$직영몰판매비교(직영몰VS메이크샵)
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=92 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes key=yes name=yymm dbname="tb_45040_s.yymm" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=brand dbname="tb_45040_s.brand" )
+ column=(type=char(30) update=yes updatewhereclause=yes key=yes name=shop_nm dbname="tb_45040_s.shop_nm" )
+ column=(type=char(40) update=yes updatewhereclause=yes key=yes name=order_id dbname="tb_45040_s.order_id" )
+ column=(type=char(40) update=yes updatewhereclause=yes key=yes name=order_no dbname="tb_45040_s.order_no" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=stat dbname="tb_45040_s.stat" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=gubn dbname="tb_45040_s.gubn" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=payment_stat dbname="tb_45040_s.payment_stat" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=payment_method dbname="tb_45040_s.payment_method" )
+ column=(type=char(40) update=yes updatewhereclause=yes name=order_stat dbname="tb_45040_s.order_stat" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=ord_ymd dbname="tb_45040_s.ord_ymd" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=invoice dbname="tb_45040_s.invoice" )
+ column=(type=char(9) update=yes updatewhereclause=yes name=style_no dbname="tb_45040_s.style_no" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=m_style dbname="tb_45040_s.m_style" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=qty dbname="tb_45040_s.qty" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=sale_qty dbname="tb_45040_s.sale_qty" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=erp_sale_amt dbname="tb_45040_s.erp_sale_amt" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=sale_price dbname="tb_45040_s.sale_price" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=cha_amt_1 dbname="tb_45040_s.cha_amt_1" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=make_sale_amt dbname="tb_45040_s.make_sale_amt" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=sil_amt dbname="tb_45040_s.sil_amt" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=cha_amt_2 dbname="tb_45040_s.cha_amt_2" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=goods_amt dbname="tb_45040_s.goods_amt" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=coupon_amt dbname="tb_45040_s.coupon_amt" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=mobile_amt dbname="tb_45040_s.mobile_amt" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=use_amt dbname="tb_45040_s.use_amt" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=total_use dbname="tb_45040_s.total_use" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=ship_charge dbname="tb_45040_s.ship_charge" )
+ column=(type=char(6) update=yes updatewhereclause=yes key=yes name=shop_cd dbname="tb_45040_s.shop_cd" )
+ column=(type=char(8) update=yes updatewhereclause=yes key=yes name=sale_ymd dbname="tb_45040_s.sale_ymd" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=s_shop_type dbname="tb_45040_s.s_shop_type" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=sale_no dbname="tb_45040_s.sale_no" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=s_no dbname="tb_45040_s.s_no" )
+ column=(type=char(9) update=yes updatewhereclause=yes key=yes name=rtrn_sale_ymd dbname="tb_45040_s.rtrn_sale_ymd" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=r_shop_type dbname="tb_45040_s.r_shop_type" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=rtrn_no dbname="tb_45040_s.rtrn_no" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=r_no dbname="tb_45040_s.r_no" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="tb_45040_s.reg_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="tb_45040_s.reg_dt" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="tb_45040_s.mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="tb_45040_s.mod_dt" )
+ retrieve="  SELECT dbo.tb_45040_s.yymm,   
+         dbo.tb_45040_s.brand,   
+         dbo.tb_45040_s.shop_nm,   
+         dbo.tb_45040_s.order_id,
+         dbo.tb_45040_s.order_no,  
+         dbo.tb_45040_s.stat,   
+         dbo.tb_45040_s.gubn,   
+         dbo.tb_45040_s.payment_stat,   
+         dbo.tb_45040_s.payment_method,   
+         dbo.tb_45040_s.order_stat,   
+         dbo.tb_45040_s.ord_ymd,   
+         dbo.tb_45040_s.invoice,   
+         dbo.tb_45040_s.style_no,   
+         dbo.tb_45040_s.m_style,   
+         dbo.tb_45040_s.qty,   
+         dbo.tb_45040_s.sale_qty,   
+         dbo.tb_45040_s.erp_sale_amt,   
+         dbo.tb_45040_s.sale_price,
+			dbo.tb_45040_s.cha_amt_1,
+         dbo.tb_45040_s.make_sale_amt,
+         dbo.tb_45040_s.sil_amt,
+			dbo.tb_45040_s.cha_amt_2,
+         dbo.tb_45040_s.goods_amt,   
+         dbo.tb_45040_s.coupon_amt,  
+         dbo.tb_45040_s.mobile_amt,  
+         dbo.tb_45040_s.use_amt,   
+         dbo.tb_45040_s.total_use,   
+         dbo.tb_45040_s.ship_charge, 
+         dbo.tb_45040_s.shop_cd,   
+         dbo.tb_45040_s.sale_ymd,
+         dbo.tb_45040_s.s_shop_type,
+         dbo.tb_45040_s.sale_no,   
+         dbo.tb_45040_s.s_no,   
+         dbo.tb_45040_s.rtrn_sale_ymd,
+         dbo.tb_45040_s.r_shop_type,
+         dbo.tb_45040_s.rtrn_no,   
+         dbo.tb_45040_s.r_no,   
+         dbo.tb_45040_s.reg_id,   
+         dbo.tb_45040_s.reg_dt,   
+         dbo.tb_45040_s.mod_id,   
+         dbo.tb_45040_s.mod_dt  
+    FROM dbo.tb_45040_s" update="dbo.tb_45040_s" updatewhere=0 updatekeyinplace=yes )
+text(band=header alignment="2" text="Yymm" border="0" color="0" x="9" y="8" height="64" width="247"  name=yymm_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Brand" border="0" color="0" x="265" y="8" height="64" width="155"  name=brand_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Shop Nm" border="0" color="0" x="430" y="8" height="64" width="850"  name=shop_nm_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Order No" border="0" color="0" x="1289" y="8" height="64" width="1125"  name=order_no_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Stat" border="0" color="0" x="2423" y="8" height="64" width="302"  name=stat_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Gubn" border="0" color="0" x="2734" y="8" height="64" width="302"  name=gubn_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Payment Stat" border="0" color="0" x="3045" y="8" height="64" width="576"  name=payment_stat_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Payment Method" border="0" color="0" x="3630" y="8" height="64" width="576"  name=payment_method_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Order Stat" border="0" color="0" x="4215" y="8" height="64" width="576"  name=order_stat_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Sale Ymd" border="0" color="0" x="4800" y="8" height="64" width="261"  name=sale_ymd_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Invoice" border="0" color="0" x="5070" y="8" height="64" width="247"  name=invoice_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="M Style" border="0" color="0" x="5326" y="8" height="64" width="1399"  name=m_style_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Qty" border="0" color="0" x="6734" y="8" height="64" width="329"  name=qty_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Sale Qty" border="0" color="0" x="7072" y="8" height="64" width="329"  name=sale_qty_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Erp Sale Amt" border="0" color="0" x="7410" y="8" height="64" width="357"  name=erp_sale_amt_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Make Sale Amt" border="0" color="0" x="7776" y="8" height="64" width="411"  name=make_sale_amt_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Goods Amt" border="0" color="0" x="8197" y="8" height="64" width="329"  name=goods_amt_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Coupon Amt" border="0" color="0" x="8535" y="8" height="64" width="329"  name=coupon_amt_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Use Amt" border="0" color="0" x="8873" y="8" height="64" width="329"  name=use_amt_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Ship Charge" border="0" color="0" x="9211" y="8" height="64" width="329"  name=ship_charge_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Shop Cd" border="0" color="0" x="9550" y="8" height="64" width="229"  name=shop_cd_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Sale No" border="0" color="0" x="9787" y="8" height="64" width="210"  name=sale_no_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="S No" border="0" color="0" x="10007" y="8" height="64" width="137"  name=s_no_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Rtrn No" border="0" color="0" x="10153" y="8" height="64" width="201"  name=rtrn_no_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="R No" border="0" color="0" x="10363" y="8" height="64" width="137"  name=r_no_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Reg Id" border="0" color="0" x="10510" y="8" height="64" width="192"  name=reg_id_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Reg Dt" border="0" color="0" x="10711" y="8" height="64" width="603"  name=reg_dt_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Mod Id" border="0" color="0" x="11323" y="8" height="64" width="192"  name=mod_id_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Mod Dt" border="0" color="0" x="11525" y="8" height="64" width="603"  name=mod_dt_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="Style No" border="0" color="0" x="12137" y="4" height="76" width="233"  name=t_1  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Order Id" border="0" color="0" x="12379" y="4" height="76" width="1070"  name=t_3  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Ord Ymd" border="0" color="0" x="13458" y="4" height="76" width="206"  name=t_4  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Sale Price" border="0" color="0" x="13673" y="4" height="76" width="2341"  name=t_5  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="S Shop Type" border="0" color="0" x="16023" y="4" height="76" width="18"  name=t_8  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Rtrn Sale Ymd" border="0" color="0" x="16050" y="4" height="76" width="206"  name=t_9  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="R Shop Type" border="0" color="0" x="16265" y="4" height="76" width="18"  name=t_10  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Cha Amt 1" border="0" color="0" x="16293" y="4" height="76" width="2341"  name=t_12  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Sil Amt" border="0" color="0" x="18642" y="4" height="76" width="2341"  name=t_13  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Cha Amt 2" border="0" color="0" x="20992" y="4" height="76" width="2341"  name=t_14  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Total Use" border="0" color="0" x="23342" y="4" height="76" width="2341"  name=t_15  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Mobile Amt" border="0" color="0" x="25691" y="4" height="76" width="2341"  name=t_2  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="0" x="9" y="8" height="76" width="247" format="[general]"  name=yymm edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="0" x="265" y="8" height="76" width="155" format="[general]"  name=brand edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="0" color="0" x="430" y="8" height="76" width="850" format="[general]"  name=shop_nm edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=40 border="0" color="0" x="1289" y="8" height="76" width="1125" format="[general]"  name=order_no edit.limit=40 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=50 border="0" color="0" x="2423" y="8" height="76" width="302" format="[general]"  name=stat edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=60 border="0" color="0" x="2734" y="8" height="76" width="302" format="[general]"  name=gubn edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=70 border="0" color="0" x="3045" y="8" height="76" width="576" format="[general]"  name=payment_stat edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=80 border="0" color="0" x="3630" y="8" height="76" width="576" format="[general]"  name=payment_method edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=90 border="0" color="0" x="4215" y="8" height="76" width="576" format="[general]"  name=order_stat edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=30 alignment="0" tabsequence=100 border="0" color="0" x="4800" y="8" height="76" width="261" format="[general]"  name=sale_ymd edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=110 border="0" color="0" x="5070" y="8" height="76" width="247" format="[general]"  name=invoice edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="0" tabsequence=120 border="0" color="0" x="5326" y="8" height="76" width="1399" format="[general]"  name=m_style edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="1" tabsequence=130 border="0" color="0" x="6734" y="8" height="76" width="329" format="[general]"  name=qty edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="1" tabsequence=140 border="0" color="0" x="7072" y="8" height="76" width="329" format="[general]"  name=sale_qty edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=17 alignment="1" tabsequence=150 border="0" color="0" x="7410" y="8" height="76" width="357" format="[general]"  name=erp_sale_amt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=20 alignment="1" tabsequence=160 border="0" color="0" x="7776" y="8" height="76" width="411" format="[general]"  name=make_sale_amt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=23 alignment="1" tabsequence=170 border="0" color="0" x="8197" y="8" height="76" width="329" format="[general]"  name=goods_amt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=24 alignment="1" tabsequence=180 border="0" color="0" x="8535" y="8" height="76" width="329" format="[general]"  name=coupon_amt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=26 alignment="1" tabsequence=190 border="0" color="0" x="8873" y="8" height="76" width="329" format="[general]"  name=use_amt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=28 alignment="1" tabsequence=200 border="0" color="0" x="9211" y="8" height="76" width="329" format="[general]"  name=ship_charge edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=29 alignment="0" tabsequence=210 border="0" color="0" x="9550" y="8" height="76" width="229" format="[general]"  name=shop_cd edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=32 alignment="0" tabsequence=220 border="0" color="0" x="9787" y="8" height="76" width="210" format="[general]"  name=sale_no edit.limit=4 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=33 alignment="0" tabsequence=230 border="0" color="0" x="10007" y="8" height="76" width="137" format="[general]"  name=s_no edit.limit=4 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=36 alignment="0" tabsequence=240 border="0" color="0" x="10153" y="8" height="76" width="201" format="[general]"  name=rtrn_no edit.limit=4 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=37 alignment="0" tabsequence=250 border="0" color="0" x="10363" y="8" height="76" width="137" format="[general]"  name=r_no edit.limit=4 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=38 alignment="0" tabsequence=260 border="0" color="0" x="10510" y="8" height="76" width="192" format="[general]"  name=reg_id edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=39 alignment="0" tabsequence=270 border="0" color="0" x="10711" y="8" height="76" width="603" format="[shortdate] [time]"  name=reg_dt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=40 alignment="0" tabsequence=280 border="0" color="0" x="11323" y="8" height="76" width="192" format="[general]"  name=mod_id edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=41 alignment="0" tabsequence=290 border="0" color="0" x="11525" y="8" height="76" width="603" format="[shortdate] [time]"  name=mod_dt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="12137" y="0" height="64" width="233" format="[general]"  name=style_no edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="12379" y="0" height="64" width="1070" format="[general]"  name=order_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="13458" y="0" height="64" width="206" format="[general]"  name=ord_ymd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="0" color="0" x="13673" y="0" height="64" width="2341" format="[general]"  name=sale_price edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=31 alignment="0" tabsequence=32766 border="0" color="0" x="16023" y="0" height="64" width="18" format="[general]"  name=s_shop_type edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=34 alignment="0" tabsequence=32766 border="0" color="0" x="16050" y="0" height="64" width="206" format="[general]"  name=rtrn_sale_ymd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=35 alignment="0" tabsequence=32766 border="0" color="0" x="16265" y="0" height="64" width="18" format="[general]"  name=r_shop_type edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=19 alignment="0" tabsequence=32766 border="0" color="0" x="16293" y="0" height="64" width="2341" format="[general]"  name=cha_amt_1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=21 alignment="0" tabsequence=32766 border="0" color="0" x="18642" y="0" height="64" width="2341" format="[general]"  name=sil_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=22 alignment="0" tabsequence=32766 border="0" color="0" x="20992" y="0" height="64" width="2341" format="[general]"  name=cha_amt_2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=27 alignment="0" tabsequence=32766 border="0" color="0" x="23342" y="0" height="64" width="2341" format="[general]"  name=total_use edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=25 alignment="0" tabsequence=32766 border="0" color="0" x="25691" y="0" height="64" width="2341" format="[general]"  name=mobile_amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

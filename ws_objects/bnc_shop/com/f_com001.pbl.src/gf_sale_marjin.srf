@@ -1,0 +1,55 @@
+﻿$PBExportHeader$gf_sale_marjin.srf
+$PBExportComments$판매 마진율 산출
+global type gf_sale_marjin from function_object
+end type
+
+forward prototypes
+global function boolean gf_sale_marjin (string as_yymmdd, string as_shop_cd, string as_shop_type, string as_style, ref string as_sale_type, ref decimal adc_marjin, ref long al_dc_rate, ref long al_sale_price, ref long al_sale_collect)
+end prototypes
+
+global function boolean gf_sale_marjin (string as_yymmdd, string as_shop_cd, string as_shop_type, string as_style, ref string as_sale_type, ref decimal adc_marjin, ref long al_dc_rate, ref long al_sale_price, ref long al_sale_collect);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 작 성 일  : 2002/02/22                                     */
+/* 수 정 일  : 2002/02/22                                     */
+/* 내    용  : 판매 마진율 정보.                              */
+/*    as_yymmdd     : 일자      as_shop_cd    : 매장코드      */
+/*    as_shop_type  : 매장형태  as_style      : 품번(8자리)   */    
+/*    as_sale_type  : 판매형태  adc_marjin    : 마진율        */  
+/*    al_dc_rate    : 할인율    al_curr_price : 현재가        */ 
+/*    al_out_price  : 출고가                                  */ 
+/*============================================================*/
+String ls_sale_type = SPACE(2)
+
+SQLCA.SP_SaleMargin(as_yymmdd,    as_shop_cd, as_shop_type, as_style, &
+                   ls_sale_type, adc_marjin, al_dc_rate,   al_sale_price, al_sale_collect)
+
+IF SQLCA.SQLCODE <> 0 THEN 
+	MessageBox("SQL 오류", SQLCA.SQLERRTEXT)
+	RETURN FALSE 
+ELSEIF isnull(adc_marjin) OR adc_marjin = 0 THEN
+	if MidA(as_shop_cd,2,1) <> "D" then 
+			if MidA(as_shop_cd,2,1) <> "B" then 
+				if MidA(as_shop_cd,2,1) <> "X" then 
+					if MidA(as_shop_cd,2,1) <> "M" then 
+						if MidA(as_shop_cd,2,1) <> "K" then 
+							if MidA(as_shop_cd,2,1) <> "H" then 
+									if as_shop_cd <> "YG0309" 		then 
+											if as_shop_cd <> "YG0336" 		then 
+												MessageBox("판매 마진율", "해당 품번 마진율이 없습니다.")				
+												RETURN FALSE
+ 								  			end if
+
+ 								  		end if
+							end if
+						end if
+					end if
+				end if	
+			end if	
+   end if	
+END IF 
+
+as_sale_type = ls_sale_type
+
+RETURN TRUE
+end function
+

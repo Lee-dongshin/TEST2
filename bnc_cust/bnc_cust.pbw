@@ -1,0 +1,6 @@
+Save Format v3.0(19990112)
+@begin Targets
+ 0 "bnc_cust.pbt";
+@end;
+DefaultTarget "bnc_cust.pbt";
+DefaultRemoteTarget "bnc_cust.pbt";

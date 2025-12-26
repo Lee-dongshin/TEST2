@@ -1,0 +1,22 @@
+﻿$PBExportHeader$d_58025_d01.srd
+$PBExportComments$제품수출 팩킹리스트
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=116 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=pac_ymd dbname="pac_ymd" )
+ column=(type=char(8) updatewhereclause=yes name=box_no dbname="box_no" )
+ column=(type=decimal(1) updatewhereclause=yes name=weight_g dbname="weight_g" )
+ column=(type=decimal(1) updatewhereclause=yes name=weight_n dbname="weight_n" )
+ procedure="1 execute dbo.SP_58025_D01;1 @pac_ymd = :pac_ymd, @box_no = :box_no" arguments=(("pac_ymd", string),("box_no", string)) )
+text(band=detail alignment="1" text="팩킹일자:" border="0" color="0" x="41" y="36" height="56" width="261"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="320" y="36" height="56" width="334" format="@@@@/@@/@@"  name=pac_ymd edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="1" text="박스번호:" border="0" color="0" x="699" y="36" height="56" width="279"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="997" y="36" height="56" width="247" format="[general]"  name=box_no edit.limit=8 edit.case=upper edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="1" text="중량(kg):" border="0" color="0" x="1280" y="36" height="56" width="329"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="1" tabsequence=30 border="5" color="0" x="1623" y="36" height="56" width="206" format="#,##0"  name=weight_g edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=detail alignment="1" text="net:" border="0" color="0" x="1865" y="36" height="56" width="128"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="1" tabsequence=40 border="5" color="0" x="2011" y="36" height="56" width="206" format="#,##0"  name=weight_n edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

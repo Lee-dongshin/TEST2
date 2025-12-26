@@ -1,0 +1,57 @@
+﻿$PBExportHeader$d_57001_d04.srd
+$PBExportComments$메시지관리[수신조회]
+release 7;
+datawindow(units=0 timer_interval=0 color=15793151 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=148 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes key=yes name=yymmdd dbname="TB_57011_H.yymmdd" )
+ column=(type=char(6) update=yes updatewhereclause=yes key=yes name=send_id dbname="TB_57011_H.send_id" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=mes_seq dbname="TB_57011_H.mes_seq" )
+ column=(type=char(6) update=yes updatewhereclause=yes key=yes name=recv_id dbname="TB_57011_H.recv_id" )
+ column=(type=char(20) updatewhereclause=yes name=shop_nm dbname="shop_nm" )
+ column=(type=datetime update=yes updatewhereclause=yes key=yes name=send_dt dbname="TB_57011_H.send_dt" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=confirm_yn dbname="TB_57011_H.confirm_yn" )
+ column=(type=datetime update=yes updatewhereclause=yes name=confirm_dt dbname="TB_57011_H.confirm_dt" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="TB_57011_H.Reg_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="TB_57011_H.Reg_Dt" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="TB_57011_H.Mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="TB_57011_H.Mod_Dt" )
+ column=(type=char(20) updatewhereclause=yes name=kname dbname="kname" )
+ retrieve="  SELECT yymmdd,   
+         send_id,   
+         mes_seq,   
+         recv_id,   
+         dbo.sf_user_nm(recv_id) as shop_nm,   
+         send_dt,   
+         confirm_yn,   
+         confirm_dt,   
+         Reg_id,   
+         Reg_Dt,   
+         Mod_id,   
+         Mod_Dt,
+			(select  max(a.kname) from vi_93010_4 a where a.jumn_no = b.jumn_no and a.shop_cd not like '_H%' and a.shop_cd = b.recv_id)	as kname	
+    FROM TB_57011_H b with (nolock)
+   WHERE ( b.yymmdd = :as_yymmdd ) AND  
+         ( b.send_id = :as_send_id ) AND  
+         ( b.mes_seq = :ai_mes_seq )   
+ORDER BY b.recv_id ASC   
+" update="TB_57011_H" updatewhere=0 updatekeyinplace=yes arguments=(("as_yymmdd", string),("as_send_id", string),("ai_mes_seq", number))  sort="shop_nm A " )
+text(band=header alignment="2" text="발신일시" border="6" color="0" x="9" y="4" height="56" width="571"  name=send_dt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269528" )
+text(band=header alignment="2" text="수신매장" border="6" color="0" x="599" y="4" height="56" width="814"  name=recv_id_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269528" )
+text(band=header alignment="2" text="확인일시" border="6" color="0" x="1431" y="4" height="56" width="571"  name=confirm_dt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269528" )
+text(band=header alignment="2" text="메세지확인자" border="6" color="0" x="2016" y="8" height="52" width="370"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="0" color="0~tif(  confirm_yn   = 'N',RGB(128,0,255),RGB(0,0,0))
+" x="0" y="4" height="68" width="608" format="[shortdate] [time]"  name=send_dt editmask.mask="yyyy-mm-dd hh:mm:ss" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15780518" )
+column(band=detail id=8 alignment="2" tabsequence=32766 border="0" color="0~tif(  confirm_yn   = 'N',RGB(128,0,255),RGB(0,0,0))
+" x="1431" y="4" height="68" width="571" format="[shortdate] [time]"  name=confirm_dt editmask.mask="yyyy-mm-dd hh:mm:ss" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0~tif(  confirm_yn   = 'N',RGB(128,0,255),RGB(0,0,0))
+" x="832" y="4" height="68" width="585" format="[general]"  name=shop_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0~tif(  confirm_yn   = 'N',RGB(128,0,255),RGB(0,0,0))
+" x="622" y="4" height="68" width="197" format="[general]"  name=recv_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="2016" y="4" height="68" width="370" format="[general]"  name=kname edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15780518" )
+rectangle(band=footer x="0" y="0" height="152" width="2391"  name=r_1 brush.hatch="6" brush.color="80269528" pen.style="0" pen.width="5" pen.color="80269528"  background.mode="2" background.color="80269528" )
+button(band=footer text="닫기"filename=""action="0" border="0" color="0" x="823" y="32" height="76" width="320" vtextalign="0" htextalign="0"  name=cb_mes_close  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15780518" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

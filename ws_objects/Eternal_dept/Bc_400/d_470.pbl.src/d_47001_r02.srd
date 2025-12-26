@@ -1,0 +1,67 @@
+﻿$PBExportHeader$d_47001_r02.srd
+release 7;
+datawindow(units=2 timer_interval=0 color=16777215 processing=2 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 500 print.margin.right = 500 print.margin.top = 500 print.margin.bottom = 498 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no label.name="Laser Audio Cassette 5198" label.width=3500 label.height=1667 label.rows=6 label.rows.spacing=50 label.columns=2 label.columns.spacing=200 label.topdown=no label.sheet=yes label.shape=roundrectangle label.ellipse_height=0 label.ellipse_width=0 )
+detail(height=1677 color="536870912" )
+table(column=(type=char(1) update=yes updatewhereclause=yes key=yes name=gubn dbname="tb_45030_h.gubn" )
+ column=(type=char(8) update=yes updatewhereclause=yes key=yes name=yymmdd dbname="tb_45030_h.yymmdd" )
+ column=(type=char(8) update=yes updatewhereclause=yes key=yes name=ord_ymd dbname="tb_45030_h.ord_ymd" )
+ column=(type=char(6) update=yes updatewhereclause=yes key=yes name=shop_cd dbname="tb_45030_h.shop_cd" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=shop_nm dbname="shop_nm" )
+ column=(type=char(40) update=yes updatewhereclause=yes key=yes name=order_no dbname="tb_45030_h.order_no" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=no dbname="tb_45030_h.no" )
+ column=(type=char(5) update=yes updatewhereclause=yes name=order_name dbname="order_name" )
+ column=(type=char(17) update=yes updatewhereclause=yes name=order_mobile dbname="order_mobile" )
+ column=(type=char(17) updatewhereclause=yes name=order_tel dbname="order_tel" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=style dbname="tb_45030_h.style" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=chno dbname="tb_45030_h.chno" )
+ column=(type=char(44) update=yes updatewhereclause=yes name=color dbname="color" )
+ column=(type=char(14) update=yes updatewhereclause=yes name=size dbname="size" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=qty dbname="tb_45030_h.qty" )
+ column=(type=char(255) update=yes updatewhereclause=yes name=addr dbname="tb_45030_h.addr" )
+ column=(type=char(14) update=yes updatewhereclause=yes name=db dbname="db" )
+ column=(type=long updatewhereclause=yes name=count_item dbname="count_item" )
+ retrieve="select 
+gubn,
+yymmdd,
+ord_ymd,
+shop_cd,
+dbo.sf_shop_nm(shop_cd,'s')	as shop_nm,
+order_no,
+no,
+left(isnull(receiver_name,order_name),2) + '*' as order_name,
+~"***-****-~" + right(case when len(receiver_mobile) < 8 then order_tel
+	  else receiver_mobile end,4)	  as order_mobile,
+~"***-****-~" + right(case when len(order_tel) < 8 then receiver_tel
+	  else order_tel end,4)	  as order_tel,
+
+style,
+chno,
+color + '(' + dbo.sf_color_nm(color,'k') + ')' as color,
+size + '(' + dbo.sf_size_nm(size) + ')' as size,
+qty,
+addr,
+~"*~" + db	 + ~"*~" as db,
+(select count(*) from tb_45030_h b (nolock)
+ where a.yymmdd = b.yymmdd
+ and a.gubn = b.gubn
+and a.db = b.db) as count_item	
+from tb_45030_h a
+where yymmdd = :As_yymmdd
+and   gubn   = :as_gubn
+order by db, ord_ymd, order_no" update="tb_45030_h" updatewhere=1 updatekeyinplace=no arguments=(("as_yymmdd", string),("as_gubn", string)) )
+column(band=detail id=17 alignment="2" tabsequence=32766 border="0" color="0" x="187" y="1177" height="406" width="3093" format="[general]"  name=db edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="3 of 9 Barcode" font.height="-36" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="114" y="937" height="197" width="677" format="[general]"  name=style edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="802" y="937" height="197" width="125" format="[general]"  name=chno edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="958" y="937" height="197" width="1250" format="[general]"  name=color edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="2239" y="937" height="197" width="822" format="[general]"  name=size edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="1" tabsequence=32766 border="0" color="0" x="3093" y="937" height="197" width="250" format="[general]"  name=qty edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="if( count_item > 1 , '합배송', '')"border="0" color="0" x="52" y="31" height="145" width="406" format="[GENERAL]"  name=compute_1  font.face="굴림" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="1" tabsequence=32766 border="0" color="0~tif( count_item < 2 ,rgb(255,255,255), rgb(0,0,0))" x="447" y="31" height="145" width="177" format="[general]"  name=count_item edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="if( count_item > 1 , '개 품목', '')"border="0" color="0" x="645" y="31" height="145" width="500" format="[GENERAL]"  name=compute_2  font.face="굴림" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="52" y="239" height="197" width="1552" format="[general]"  name=shop_nm edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="1635" y="239" height="197" width="1770" format="[general]"  name=order_no edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="177" y="604" height="197" width="1312" format="[general]"  name=order_name edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="1989" y="479" height="197" width="1312" format="[general]"  name=order_mobile edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="0" color="0" x="1989" y="729" height="166" width="1312" format="[general]"  name=order_tel edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

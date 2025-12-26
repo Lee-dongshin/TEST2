@@ -1,0 +1,46 @@
+﻿$PBExportHeader$d_99012_d02.srd
+$PBExportComments$도서대여관리
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=decimal(0) update=yes updatewhereclause=yes identity=yes name=idx dbname="tb_book_h.idx" )
+ column=(type=char(6) update=yes updatewhereclause=yes key=yes name=person_id dbname="tb_book_h.person_id" )
+ column=(type=char(8) update=yes updatewhereclause=yes key=yes name=lend_dt dbname="tb_book_h.lend_dt" )
+ column=(type=char(12) update=yes updatewhereclause=yes key=yes name=book_id dbname="tb_book_h.book_id" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=return_dt dbname="tb_book_h.return_dt" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=bigo dbname="tb_book_h.bigo" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="tb_book_h.reg_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="tb_book_h.reg_dt" )
+ retrieve="  SELECT tb_book_h.idx,   
+         tb_book_h.person_id,   
+         tb_book_h.lend_dt,   
+         tb_book_h.book_id,   
+         tb_book_h.return_dt,   
+         tb_book_h.bigo,   
+         tb_book_h.reg_id,   
+         tb_book_h.reg_dt  
+    FROM tb_book_h 
+   WHERE tb_book_h.person_id = :ls_person_id    
+     AND tb_book_h.book_id   = :ls_book_id
+     AND tb_book_h.return_dt is null;" update="tb_book_h" updatewhere=1 updatekeyinplace=no arguments=(("ls_person_id", string),("ls_book_id", string)) )
+text(band=header alignment="2" text="Idx" border="0" color="0" x="5" y="4" height="64" width="329"  name=idx_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Person Id" border="0" color="0" x="338" y="4" height="64" width="251"  name=person_id_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Lend Dt" border="0" color="0" x="594" y="4" height="64" width="247"  name=lend_dt_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Book Id" border="0" color="0" x="846" y="4" height="64" width="357"  name=book_id_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Return Dt" border="0" color="0" x="1207" y="4" height="64" width="251"  name=return_dt_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Bigo" border="0" color="0" x="1463" y="4" height="64" width="850"  name=bigo_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Reg Id" border="0" color="0" x="2322" y="4" height="64" width="192"  name=reg_id_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Reg Dt" border="0" color="0" x="2519" y="4" height="64" width="603"  name=reg_dt_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="1" tabsequence=32766 border="0" color="0" x="5" y="4" height="76" width="329" format="[general]"  name=idx edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="0" color="0" x="338" y="4" height="76" width="192" format="[general]"  name=person_id edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="0" color="0" x="594" y="4" height="76" width="247" format="[general]"  name=lend_dt edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=30 border="0" color="0" x="846" y="4" height="76" width="357" format="[general]"  name=book_id edit.limit=12 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=40 border="0" color="0" x="1207" y="4" height="76" width="251" format="[general]"  name=return_dt edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=50 border="0" color="0" x="1463" y="4" height="76" width="850" format="[general]"  name=bigo edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=60 border="0" color="0" x="2322" y="4" height="76" width="192" format="[general]"  name=reg_id edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=70 border="0" color="0" x="2519" y="4" height="76" width="603" format="[shortdate] [time]"  name=reg_dt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

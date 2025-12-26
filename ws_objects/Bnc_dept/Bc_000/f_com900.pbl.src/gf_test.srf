@@ -1,0 +1,17 @@
+﻿$PBExportHeader$gf_test.srf
+global type gf_test from function_object
+end type
+
+forward prototypes
+global function string gf_test (string as_user_id)
+end prototypes
+
+global function string gf_test (string as_user_id);String ls_nm
+
+select dbo.sf_user_nm(:as_user_id) 
+  into :ls_nm 
+  from dual ;
+  
+return ls_nm
+end function
+

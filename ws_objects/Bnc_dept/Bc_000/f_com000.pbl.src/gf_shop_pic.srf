@@ -1,0 +1,24 @@
+﻿$PBExportHeader$gf_shop_pic.srf
+global type gf_shop_pic from function_object
+end type
+
+forward prototypes
+global function integer gf_shop_pic (string as_shop_cd)
+end prototypes
+
+global function integer gf_shop_pic (string as_shop_cd);/*===========================================================================*/
+/* 작성자      : 최용운                                                   */	
+/* 작성일      : 2002..                                                  */	
+/* 수정일      : 2002..                                                  */
+/*===========================================================================*/
+long ll_rows
+
+if isnull(as_shop_cd) or LenA(as_shop_cd) <> 6 then return 0
+
+open(w_com500)
+ll_rows = w_com500.dw_1.retrieve(as_shop_cd)
+
+return	1
+
+end function
+

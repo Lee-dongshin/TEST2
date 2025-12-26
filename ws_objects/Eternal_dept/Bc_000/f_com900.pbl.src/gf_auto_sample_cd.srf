@@ -1,0 +1,27 @@
+﻿$PBExportHeader$gf_auto_sample_cd.srf
+$PBExportComments$샘플코드자동생성
+global type gf_auto_sample_cd from function_object
+end type
+
+forward prototypes
+global function boolean gf_auto_sample_cd (ref string as_sample, string as_brand)
+end prototypes
+
+global function boolean gf_auto_sample_cd (ref string as_sample, string as_brand);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 내    용  : System의 현재날짜에서 mm월이후 시각을 Select한다.        */
+/*============================================================*/
+
+SELECT dbo.SF_auto_sample_cd(:as_sample, :as_brand)
+  INTO :as_sample
+  FROM DUAL ;
+
+IF sqlca.sqlcode <> 0  THEN
+	MessageBox("입력일자 조회오류", SQLCA.SQLErrText)
+	RETURN FALSE
+END IF
+
+RETURN TRUE
+
+end function
+

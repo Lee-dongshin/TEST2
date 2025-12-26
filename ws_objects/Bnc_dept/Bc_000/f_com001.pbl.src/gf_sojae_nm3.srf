@@ -1,0 +1,32 @@
+﻿$PBExportHeader$gf_sojae_nm3.srf
+$PBExportComments$소재구분명 읽어온다
+global type gf_sojae_nm3 from function_object
+end type
+
+forward prototypes
+global function long gf_sojae_nm3 (string as_sojae, string as_brand, string as_year, string as_season, ref string as_sojae_nm)
+end prototypes
+
+global function long gf_sojae_nm3 (string as_sojae, string as_brand, string as_year, string as_season, ref string as_sojae_nm);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 작 성 일  : 2002/01/04                                     */
+/* 수 정 일  : 2002/01/04                                     */
+/* 내    용  : 소재명을 읽어온다.                             */
+/*============================================================*/
+
+//(@sojae  VarChar(01),
+//	 @brand	 varchar(01),
+//	 @year   varchar(04),
+//	 @season varchar(01))
+//Returns VarChar(20)
+
+SELECT dbo.sf_sojae_nm4(:as_sojae, :as_brand, :as_year, :as_season)
+  INTO :as_sojae_nm 
+  FROM DUAL ;
+
+IF ISNULL(as_sojae_nm) THEN RETURN 100
+
+RETURN sqlca.sqlcode 
+
+end function
+

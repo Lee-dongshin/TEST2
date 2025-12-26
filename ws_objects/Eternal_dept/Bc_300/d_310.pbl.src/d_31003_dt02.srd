@@ -1,0 +1,173 @@
+﻿$PBExportHeader$d_31003_dt02.srd
+$PBExportComments$생산 공정 진행 관리
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=228 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes key=yes name=work_dt dbname="WORK_DT" )
+ column=(type=char(6) update=yes updatewhereclause=yes key=yes name=cust_cd dbname="CUST_CD" )
+ column=(type=char(8) update=yes updatewhereclause=yes key=yes name=style dbname="STYLE" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=chno dbname="CHNO" )
+ column=(type=char(9) updatewhereclause=yes name=style_no dbname="STYLE_NO" )
+ column=(type=char(8) updatewhereclause=yes name=order_ymd dbname="ORDER_YMD" )
+ column=(type=char(8) updatewhereclause=yes name=delivery_ymd dbname="DELIVERY_YMD" )
+ column=(type=decimal(0) updatewhereclause=yes name=order_qty dbname="ORDER_QTY" )
+ column=(type=decimal(0) updatewhereclause=yes name=in_qty dbname="IN_QTY" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=qc_dt dbname="QC_DT" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=cut_qty dbname="CUT_QTY" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=sew_qty dbname="SEW_QTY" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=fin_qty dbname="FIN_QTY" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=test_qty dbname="TEST_QTY" )
+ column=(type=decimal(0) updatewhereclause=yes name=cut_sum dbname="CUT_SUM" )
+ column=(type=decimal(0) updatewhereclause=yes name=sew_sum dbname="SEW_SUM" )
+ column=(type=decimal(0) updatewhereclause=yes name=fin_sum dbname="FIN_SUM" )
+ column=(type=decimal(0) updatewhereclause=yes name=test_sum dbname="TEST_SUM" )
+ column=(type=decimal(0) updatewhereclause=yes name=cut_last dbname="CUT_LAST" )
+ column=(type=decimal(0) updatewhereclause=yes name=sew_last dbname="SEW_LAST" )
+ column=(type=decimal(0) updatewhereclause=yes name=fin_last dbname="FIN_LAST" )
+ column=(type=decimal(0) updatewhereclause=yes name=test_last dbname="TEST_LAST" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="REG_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="REG_DT" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="MOD_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="MOD_DT" )
+ column=(type=char(8) updatewhereclause=yes name=new_chk dbname="NEW_CHK" )
+ retrieve="  SELECT CAST(:as_work_dt AS VARCHAR(8)) AS WORK_DT, A.CUST_CD AS CUST_CD, 
+			A.STYLE AS STYLE, A.CHNO AS CHNO,
+			A.STYLE + A.CHNO AS STYLE_NO,
+			A.ORD_YMD AS ORDER_YMD, A.DLVY_YMD AS DELIVERY_YMD, 
+			ISNULL(SUM(A.ORD_QTY), 0) AS ORDER_QTY, 
+			ISNULL(SUM(A.IN_QTY), 0) AS IN_QTY,
+			MAX(A.QC_DT) AS QC_DT,
+			ISNULL(SUM(A.CUT_QTY), 0)  AS CUT_QTY, 
+			ISNULL(SUM(A.SEW_QTY), 0)  AS SEW_QTY,
+			ISNULL(SUM(A.FIN_QTY), 0)  AS FIN_QTY, 
+			ISNULL(SUM(A.TEST_QTY), 0) AS TEST_QTY,
+			ISNULL(SUM(A.CUT_SUM), 0)  AS CUT_SUM, 
+			ISNULL(SUM(A.SEW_SUM), 0)  AS SEW_SUM,
+			ISNULL(SUM(A.FIN_SUM), 0)  AS FIN_SUM,
+			ISNULL(SUM(A.TEST_SUM), 0) AS TEST_SUM,
+			ISNULL(SUM(A.CUT_SUM), 0)  - ISNULL(SUM(A.CUT_QTY), 0)  AS CUT_LAST, 
+			ISNULL(SUM(A.SEW_SUM), 0)  - ISNULL(SUM(A.SEW_QTY), 0)  AS SEW_LAST, 
+			ISNULL(SUM(A.FIN_SUM), 0)  - ISNULL(SUM(A.FIN_QTY), 0)  AS FIN_LAST, 
+			ISNULL(SUM(A.TEST_SUM), 0) - ISNULL(SUM(A.TEST_QTY), 0) AS TEST_LAST, 
+			MAX(A.REG_ID) AS REG_ID, MAX(A.REG_DT) AS REG_DT,
+			MAX(A.MOD_ID) AS MOD_ID, MAX(A.MOD_DT) AS MOD_DT,
+			MAX(A.NEW_CHK) AS NEW_CHK
+	 FROM ( SELECT A.CUST_CD AS CUST_CD, A.STYLE AS STYLE, A.CHNO AS CHNO,
+						A.ORD_YMD AS ORD_YMD, A.DLVY_YMD AS DLVY_YMD, 
+						A.ORD_QTY AS ORD_QTY, A.IN_QTY AS IN_QTY,
+						ISNULL(B.QC_DT, A.QC_YMD) AS QC_DT,
+						B.CUT_QTY AS CUT_QTY, B.SEW_QTY AS SEW_QTY,
+						B.FIN_QTY AS FIN_QTY, B.TEST_QTY AS TEST_QTY,
+						0 AS CUT_SUM, 0 AS SEW_SUM, 0 AS FIN_SUM, 0 AS TEST_SUM,
+						B.REG_ID AS REG_ID, B.REG_DT AS REG_DT,
+						B.MOD_ID AS MOD_ID, B.MOD_DT AS MOD_DT,
+						ISNULL(B.STYLE, 'N') AS NEW_CHK
+				 FROM	( SELECT A.CUST_CD AS CUST_CD, A.STYLE AS STYLE, A.CHNO AS CHNO,
+									A.ORD_YMD AS ORD_YMD, A.DLVY_YMD AS DLVY_YMD, A.QC_YMD AS QC_YMD,
+									SUM(A.ORD_QTY) AS ORD_QTY, SUM(A.IN_QTY) AS IN_QTY
+							 FROM ( SELECT A.CUST_CD AS CUST_CD, A.STYLE AS STYLE, A.CHNO AS CHNO,
+												A.ORD_YMD AS ORD_YMD, A.DLVY_YMD AS DLVY_YMD, A.QC_YMD AS QC_YMD,
+												SUM(B.ORD_QTY) AS ORD_QTY, 0 AS IN_QTY
+										 FROM TB_12021_D A,
+												TB_12030_S B
+										WHERE A.STYLE = B.STYLE
+										  AND A.CHNO  = B.CHNO
+										  AND A.CUST_CD = :as_cust_cd
+										  AND A.YEAR BETWEEN :as_st_yy AND :as_ed_yy
+										  AND ISNULL(A.LAST_YMD, '99999999') > :as_work_dt
+										GROUP BY A.CUST_CD, A.STYLE, A.CHNO, A.ORD_YMD, A.DLVY_YMD, A.QC_YMD
+										UNION ALL
+									  SELECT A.CUST_CD AS CUST_CD, A.STYLE AS STYLE, A.CHNO AS CHNO,
+												A.ORD_YMD AS ORD_YMD, A.DLVY_YMD AS DLVY_YMD, A.QC_YMD AS QC_YMD,
+												0 AS ORD_QTY, SUM(B.IN_QTY) AS IN_QTY
+										 FROM TB_12021_D A,
+												TB_12031_S B
+										WHERE A.STYLE = B.STYLE
+										  AND A.CHNO  = B.CHNO
+										  AND A.CUST_CD = :as_cust_cd
+										  AND B.YEAR BETWEEN :as_st_yy AND :as_ed_yy
+										  AND B.YYMM <= CONVERT(VARCHAR(6), DATEADD(MM, -1, CAST(:as_work_dt AS DATETIME)), 112)
+										  AND ISNULL(A.LAST_YMD, '99999999') > :as_work_dt
+										GROUP BY A.CUST_CD, A.STYLE, A.CHNO, A.ORD_YMD, A.DLVY_YMD, A.QC_YMD
+										UNION ALL
+									  SELECT A.CUST_CD AS CUST_CD, A.STYLE AS STYLE, A.CHNO AS CHNO,
+												A.ORD_YMD AS ORD_YMD, A.DLVY_YMD AS DLVY_YMD, A.QC_YMD AS QC_YMD,
+												0 AS ORD_QTY, SUM(B.IN_QTY) AS IN_QTY
+										 FROM TB_12021_D A,
+												TB_12032_S B
+										WHERE A.STYLE = B.STYLE
+										  AND A.CHNO  = B.CHNO
+										  AND A.CUST_CD = :as_cust_cd
+										  AND B.YEAR BETWEEN :as_st_yy AND :as_ed_yy
+										  AND B.YYMMDD BETWEEN LEFT(:as_work_dt, 6) + '01' AND :as_work_dt
+										  AND ISNULL(A.LAST_YMD, '99999999') > :as_work_dt
+										GROUP BY A.CUST_CD, A.STYLE, A.CHNO, A.ORD_YMD, A.DLVY_YMD, A.QC_YMD 
+                           ) A
+							GROUP BY A.CUST_CD, A.STYLE, A.CHNO, A.ORD_YMD, A.DLVY_YMD, A.QC_YMD 
+                  ) A,
+						TB_31011_H B
+				WHERE A.CUST_CD *= B.CUST_CD 
+				  AND A.STYLE   *= B.STYLE 
+				  AND A.CHNO    *= B.CHNO
+				  AND B.WORK_DT = :as_work_dt
+				UNION ALL
+			  SELECT A.CUST_CD AS CUST_CD, A.STYLE AS STYLE, A.CHNO AS CHNO,
+						A.ORD_YMD AS ORD_YMD, A.DLVY_YMD AS DLVY_YMD, 
+						0 AS ORD_QTY, 0 AS IN_QTY,
+						NULL AS QC_DT,
+						0 AS CUT_QTY, 0 AS SEW_QTY, 0 AS FIN_QTY, 0 AS TEST_QTY,
+						SUM(B.CUT_QTY) AS CUT_SUM, SUM(B.SEW_QTY)  AS SEW_SUM,
+						SUM(B.FIN_QTY) AS FIN_SUM, SUM(B.TEST_QTY) AS TEST_SUM,
+						NULL AS REG_ID, NULL AS REG_DT,
+						NULL AS MOD_ID, NULL AS MOD_DT,
+						NULL AS NEW_CHK
+				 FROM VI_12020_1 A, 
+						TB_31011_H B
+				WHERE A.STYLE   = B.STYLE 
+				  AND A.CHNO    = B.CHNO
+				  AND A.CUST_CD = B.CUST_CD 
+				  AND A.CUST_CD = :as_cust_cd
+				  AND A.YEAR BETWEEN :as_st_yy AND :as_ed_yy
+				  AND ISNULL(A.LAST_YMD, '99999999') > :as_work_dt
+				  AND B.WORK_DT <= :as_work_dt
+				GROUP BY A.CUST_CD, A.STYLE, A.CHNO, A.ORD_YMD, A.DLVY_YMD 
+         ) A
+	GROUP BY A.CUST_CD, A.STYLE, A.CHNO, A.ORD_YMD, A.DLVY_YMD
+" update="TB_31011_H" updatewhere=0 updatekeyinplace=yes arguments=(("as_work_dt", string),("as_cust_cd", string),("as_st_yy", string),("as_ed_yy", string)) )
+text(band=header alignment="2" text="Style No" border="6" color="0" x="9" y="8" height="60" width="274"  name=style_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="발주일" border="6" color="0" x="302" y="8" height="60" width="274"  name=order_ymd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="납기예정일" border="6" color="0" x="594" y="8" height="60" width="274"  name=delivery_ymd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="입고량" border="6" color="0" x="1234" y="8" height="60" width="329"  name=in_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="발주량" border="6" color="0" x="887" y="8" height="60" width="329"  name=order_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="QC일" border="6" color="0" x="1582" y="8" height="60" width="274"  name=qc_dt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="재단량" border="6" color="0" x="2002" y="8" height="60" width="329"  name=cut_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="검사량" border="6" color="0" x="3045" y="8" height="60" width="329"  name=test_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="완성량" border="6" color="0" x="2697" y="8" height="60" width="329"  name=fin_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="봉제량" border="6" color="0" x="2350" y="8" height="60" width="329"  name=sew_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="구분" border="6" color="0" x="1874" y="8" height="60" width="110"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="전일" border="6" color="0" x="1874" y="4" height="60" width="110"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="누계" border="6" color="0" x="1874" y="156" height="60" width="110"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="금일" border="6" color="0" x="1874" y="80" height="60" width="110"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="5" color="0" x="9" y="4" height="212" width="274" format="@@@@@@@@-@"  name=style_no edit.limit=9 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="5" color="0" x="302" y="4" height="212" width="274" format="@@@@/@@/@@"  name=order_ymd edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="2" tabsequence=32766 border="5" color="0" x="594" y="4" height="212" width="274" format="@@@@/@@/@@"  name=delivery_ymd edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=10 border="5" color="0" x="1582" y="4" height="212" width="274" format="@@@@/@@/@@"  name=qc_dt edit.limit=8 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=11 alignment="1" tabsequence=20 border="5" color="0" x="2002" y="80" height="60" width="329" format="#,##0"  name=cut_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=15 alignment="1" tabsequence=60 border="5" color="0" x="2002" y="156" height="60" width="329" format="#,##0"  name=cut_sum edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=12 alignment="1" tabsequence=30 border="5" color="0" x="2350" y="80" height="60" width="329" format="#,##0"  name=sew_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=13 alignment="1" tabsequence=40 border="5" color="0" x="2697" y="80" height="60" width="329" format="#,##0"  name=fin_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=14 alignment="1" tabsequence=50 border="5" color="0" x="3045" y="80" height="60" width="329" format="#,##0"  name=test_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=16 alignment="1" tabsequence=70 border="5" color="0" x="2350" y="156" height="60" width="329" format="#,##0"  name=sew_sum edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=17 alignment="1" tabsequence=80 border="5" color="0" x="2697" y="156" height="60" width="329" format="#,##0"  name=fin_sum edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=18 alignment="1" tabsequence=90 border="5" color="0" x="3045" y="156" height="60" width="329" format="#,##0"  name=test_sum edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=19 alignment="1" tabsequence=32766 border="5" color="0" x="2002" y="4" height="60" width="329" format="#,##0"  name=cut_last edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=20 alignment="1" tabsequence=32766 border="5" color="0" x="2350" y="4" height="60" width="329" format="#,##0"  name=sew_last edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=21 alignment="1" tabsequence=32766 border="5" color="0" x="2697" y="4" height="60" width="329" format="#,##0"  name=fin_last edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=22 alignment="1" tabsequence=32766 border="5" color="0" x="3045" y="4" height="60" width="329" format="#,##0"  name=test_last edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="5" color="0" x="1234" y="4" height="212" width="329" format="#,##0"  name=in_qty edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="5" color="0" x="887" y="4" height="212" width="329" format="#,##0"  name=order_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

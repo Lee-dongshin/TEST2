@@ -1,0 +1,26 @@
+﻿$PBExportHeader$d_sh126_h01.srd
+$PBExportComments$반품박스등록
+release 7;
+datawindow(units=0 timer_interval=0 color=82042848 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=136 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=box_ymd dbname="BOX_YMD" )
+ column=(type=char(4) updatewhereclause=yes name=box_no dbname="BOX_NO" )
+ column=(type=char(1) updatewhereclause=yes name=proc_yn dbname="PROC_YN" values="%  전체	%/N  미처리	N/Y  처리완료	Y/" )
+ column=(type=char(1) updatewhereclause=yes name=brand dbname="BRAND" )
+ retrieve="SELECT '20030509'		AS BOX_YMD,
+		 '0001'			AS BOX_NO,
+		 'N'				AS PROC_YN,
+		 'N'				AS BRAND
+FROM DUAL	" )
+text(band=detail alignment="1" text="등록일자:" border="0" color="0" x="55" y="28" height="60" width="320"  name=box_ymd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="393" y="28" height="60" width="320" format="[general]"  name=box_ymd editmask.mask="XXXX/XX/XX" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="박스번호:" border="0" color="0" x="814" y="28" height="60" width="293"  name=box_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="브랜드:" border="0" color="0" x="1317" y="28" height="56" width="283"  name=brand_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="처리여부:" border="0" color="0" x="2167" y="28" height="56" width="283"  name=t_1 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=20 border="5" color="0" x="1120" y="28" height="60" width="169" format="[general]"  name=box_no editmask.mask="XXXX" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=30 border="5" color="0" x="1614" y="28" height="56" width="526" format="[general]"  name=brand edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=40 border="5" color="0" x="2464" y="28" height="60" width="448" format="[general]"  name=proc_yn visible="1~t0" ddlb.limit=0 ddlb.allowedit=no ddlb.case=any ddlb.useasborder=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

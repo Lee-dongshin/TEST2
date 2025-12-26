@@ -1,0 +1,20 @@
+﻿$PBExportHeader$d_22015_d02.srd
+$PBExportComments$원자재 검단관리
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=340 color="536870912" )
+table(column=(type=char(10) updatewhereclause=no key=yes name=mat_cd dbname="mat_cd" )
+ column=(type=char(200) updatewhereclause=no name=bigo dbname="bigo" )
+ column=(type=char(200) update=yes updatewhereclause=no name=bigo_dept dbname="bigo_dept" )
+ column=(type=char(1) update=yes updatewhereclause=no name=usable_yn dbname="usable_yn" initial=" " values="사용가능	Y/사용불가	N/미정	/불량가능	H/" )
+ procedure="1 execute dbo.sp_22006_d02;1 @mat_cd = :mat_cd" update="tb_21010_m" updatewhere=0 updatekeyinplace=yes arguments=(("mat_cd", string)) )
+text(band=detail alignment="1" text="검단결과:" border="0" color="0" x="37" y="16" height="56" width="274"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="5" color="0" x="329" y="20" height="124" width="2889" format="[general]"  name=bigo edit.limit=200 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30273523" )
+text(band=detail alignment="1" text="부서의견:" border="0" color="0" x="37" y="196" height="56" width="274"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=10 border="5" color="0" x="329" y="200" height="124" width="2889" format="[general]"  name=bigo_dept edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+groupbox(band=detail text="판정결과"border="2" color="16711680" x="3255" y="24" height="312" width="1143"  name=gb_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="0" tabsequence=20 border="6" color="0" x="3333" y="108" height="184" width="983" format="[general]"  name=usable_yn radiobuttons.columns=2 radiobuttons.scale=no radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33158632" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,14 @@
+﻿$PBExportHeader$d_56209_d03.srd
+$PBExportComments$매출세금계산서 발행 현황
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(40) updatewhereclause=yes name=remark dbname="REMARK" )
+ column=(type=decimal(0) updatewhereclause=yes name=tot_amt dbname="TOT_AMT" )
+ procedure="1 execute dbo.SP_56209_D03;1 @ps_shop_cd = :ps_shop_cd, @ps_yymm = :ps_yymm" arguments=(("ps_shop_cd", string),("ps_yymm", string)) )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="60" width="663" format="[general]"  name=remark edit.limit=40 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0" x="690" y="4" height="60" width="471" format="#,##0"  name=tot_amt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

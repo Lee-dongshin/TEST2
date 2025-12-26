@@ -1,0 +1,78 @@
+﻿$PBExportHeader$d_23089_d01.srd
+$PBExportComments$부자재 시즌/월/품목별 마감 현황
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=152 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=152 color="536870912" )
+table(column=(type=char(1) updatewhereclause=yes name=item_l dbname="ITEM_L" )
+ column=(type=long updatewhereclause=yes name=amt_1 dbname="DUAL.AMT_1" )
+ column=(type=long updatewhereclause=yes name=amt_2 dbname="DUAL.AMT_2" )
+ column=(type=long updatewhereclause=yes name=amt_3 dbname="DUAL.AMT_3" )
+ column=(type=long updatewhereclause=yes name=amt_4 dbname="DUAL.AMT_4" )
+ column=(type=long updatewhereclause=yes name=amt_5 dbname="DUAL.AMT_5" )
+ column=(type=long updatewhereclause=yes name=amt_6 dbname="DUAL.AMT_6" )
+ column=(type=long updatewhereclause=yes name=amt_7 dbname="DUAL.AMT_7" )
+ column=(type=long updatewhereclause=yes name=amt_8 dbname="DUAL.AMT_8" )
+ column=(type=long updatewhereclause=yes name=amt_9 dbname="DUAL.AMT_9" )
+ column=(type=long updatewhereclause=yes name=amt_10 dbname="DUAL.AMT_10" )
+ column=(type=long updatewhereclause=yes name=amt_11 dbname="DUAL.AMT_11" )
+ column=(type=long updatewhereclause=yes name=amt_12 dbname="DUAL.AMT_12" )
+ column=(type=long updatewhereclause=yes name=amt dbname="DUAL.AMT" )
+ column=(type=long updatewhereclause=yes name=vat dbname="DUAL.VAT" )
+ column=(type=long updatewhereclause=yes name=tot dbname="DUAL.TOT" )
+ retrieve="  SELECT ' ' AS ITEM_L,
+			0 AS AMT_1,
+			0 AS AMT_2,
+			0 AS AMT_3,
+			0 AS AMT_4,
+			0 AS AMT_5,
+			0 AS AMT_6,
+			0 AS AMT_7,
+			0 AS AMT_8,
+			0 AS AMT_9,
+			0 AS AMT_10,
+			0 AS AMT_11,
+			0 AS AMT_12,
+			0 AS AMT,
+			0 AS VAT,
+			0 AS TOT
+	 FROM DUAL
+" )
+data(null null null null null null null null null null null null null null null null ) 
+text(band=header alignment="2" text="
+품     종" border="6" color="0" x="9" y="8" height="136" width="498"  name=cust_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=0 border="5" color="0" x="9" y="4" height="136" width="498"  name=item_l  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="1 월" border="6" color="0" x="526" y="8" height="60" width="329"  name=amt_1_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="7 월" border="6" color="0" x="526" y="84" height="60" width="329"  name=amt_7_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="5" color="0" x="526" y="4" height="60" width="329" format="[general]"  name=amt_1 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="5" color="0" x="526" y="80" height="60" width="329" format="[general]"  name=amt_7 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="2 월" border="6" color="0" x="873" y="8" height="60" width="329"  name=amt_2_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="3 월" border="6" color="0" x="1221" y="8" height="60" width="329"  name=amt_3_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="6 월" border="6" color="0" x="2263" y="8" height="60" width="329"  name=amt_6_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="8 월" border="6" color="0" x="873" y="84" height="60" width="329"  name=amt_8_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="9 월" border="6" color="0" x="1221" y="84" height="60" width="329"  name=amt_9_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="12 월" border="6" color="0" x="2263" y="84" height="60" width="329"  name=amt_12_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="총계금액" border="6" color="0" x="2610" y="8" height="60" width="329"  name=amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="VAT" border="6" color="0" x="2610" y="84" height="60" width="329"  name=vat_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="10 월" border="6" color="0" x="1568" y="84" height="60" width="329"  name=amt_10_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="4 월" border="6" color="0" x="1568" y="8" height="60" width="329"  name=amt_4_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="11 월" border="6" color="0" x="1915" y="84" height="60" width="329"  name=amt_11_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="5 월" border="6" color="0" x="1915" y="8" height="60" width="329"  name=amt_5_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="합  계" border="6" color="0" x="2958" y="8" height="136" width="329"  name=tot_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="5" color="0" x="873" y="4" height="60" width="329" format="[general]"  name=amt_2 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="5" color="0" x="1221" y="4" height="60" width="329" format="[general]"  name=amt_3 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="5" color="0" x="1568" y="4" height="60" width="329" format="[general]"  name=amt_4 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="5" color="0" x="873" y="80" height="60" width="329" format="[general]"  name=amt_8 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="5" color="0" x="1221" y="80" height="60" width="329" format="[general]"  name=amt_9 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="1" tabsequence=32766 border="5" color="0" x="1568" y="80" height="60" width="329" format="[general]"  name=amt_10 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="5" color="0" x="1915" y="4" height="60" width="329" format="[general]"  name=amt_5 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="5" color="0" x="2263" y="4" height="60" width="329" format="[general]"  name=amt_6 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="1" tabsequence=32766 border="5" color="0" x="1915" y="80" height="60" width="329" format="[general]"  name=amt_11 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="1" tabsequence=32766 border="5" color="0" x="2263" y="80" height="60" width="329" format="[general]"  name=amt_12 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="1" tabsequence=32766 border="5" color="0" x="2610" y="4" height="60" width="329" format="[general]"  name=amt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="1" tabsequence=32766 border="5" color="0" x="2610" y="80" height="60" width="329" format="[general]"  name=vat edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="1" tabsequence=32766 border="5" color="0" x="2958" y="4" height="136" width="329" format="[general]"  name=tot edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,15 @@
+﻿$PBExportHeader$d_21032_d04.srd
+$PBExportComments$전안법_제품설명서등록
+release 7;
+datawindow(units=0 timer_interval=0 color=1090519039 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no rows_per_detail = 4 )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=60 color="536870912" )
+table(column=(type=char(9) updatewhereclause=yes name=sub_style dbname="sub_style" )
+ procedure="1 execute dbo.sp_21032_d04;1 @brand = :brand, @year = :year, @style = :style, @chno = :chno, @color = :color" arguments=(("brand", string),("year", string),("style", string),("chno", string),("color", string)) )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="5" y="4" height="52" width="274" format="[general]" row_in_detail=1  name=sub_style_1 edit.limit=9 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="288" y="4" height="52" width="274" format="[general]" row_in_detail=2  name=sub_style_2 edit.limit=9 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="571" y="4" height="52" width="274" format="[general]" row_in_detail=3  name=sub_style_3 edit.limit=9 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="855" y="4" height="52" width="274" format="[general]" row_in_detail=4  name=sub_style_4 edit.limit=9 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

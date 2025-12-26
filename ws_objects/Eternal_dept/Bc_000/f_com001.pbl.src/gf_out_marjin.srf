@@ -1,0 +1,38 @@
+﻿$PBExportHeader$gf_out_marjin.srf
+$PBExportComments$출고 마진율 산출
+global type gf_out_marjin from function_object
+end type
+
+forward prototypes
+global function boolean gf_out_marjin (string as_yymmdd, string as_shop_cd, string as_shop_type, string as_style, ref string as_sale_type, ref decimal adc_marjin, ref decimal adc_dc_rate, ref long al_curr_price, ref long al_out_price)
+end prototypes
+
+global function boolean gf_out_marjin (string as_yymmdd, string as_shop_cd, string as_shop_type, string as_style, ref string as_sale_type, ref decimal adc_marjin, ref decimal adc_dc_rate, ref long al_curr_price, ref long al_out_price);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 작 성 일  : 2002/02/22                                     */
+/* 수 정 일  : 2002/02/22                                     */
+/* 내    용  : 출고 마진율 정보.                              */
+/*    as_yymmdd     : 일자      as_shop_cd    : 매장코드      */
+/*    as_shop_type  : 매장형태  as_style      : 품번(8자리)   */    
+/*    as_sale_type  : 판매형태  adc_marjin    : 마진율        */  
+/*    al_dc_rate    : 할인율    al_curr_price : 현재가        */ 
+/*    al_out_price  : 출고가                                  */ 
+/*============================================================*/
+String ls_sale_type = space(2) 
+
+SQLCA.SP_OutMargin(as_yymmdd,    as_shop_cd, as_shop_type, as_style, &
+                   ls_sale_type, adc_marjin, adc_dc_rate,   al_curr_price, al_out_price)
+
+IF SQLCA.SQLCODE <> 0 THEN 
+	MessageBox("SQL 오류", SQLCA.SQLERRTEXT)
+	RETURN FALSE 
+ELSEIF isnull(ls_sale_type) OR Trim(ls_sale_type) = "" THEN
+	MessageBox("출고 마진율", "해당 품번 마진율이 없습니다.")
+	RETURN FALSE
+END IF 
+
+as_sale_type = ls_sale_type
+
+RETURN TRUE
+end function
+

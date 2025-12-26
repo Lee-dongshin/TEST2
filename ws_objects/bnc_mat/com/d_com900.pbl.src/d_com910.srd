@@ -1,0 +1,19 @@
+﻿$PBExportHeader$d_com910.srd
+$PBExportComments$창고[dddw]
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 grid.columnmove=no selected.mouse=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(6) update=yes updatewhereclause=yes key=yes name=shop_cd dbname="TB_91100_M.SHOP_CD" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=shop_snm dbname="TB_91100_M.SHOP_SNM" )
+ retrieve="  SELECT SHOP_CD,   
+         SHOP_SNM  
+    FROM TB_91100_M    with (nolock)
+   WHERE SHOP_DIV = 'A' 
+" update="TB_91100_M" updatewhere=1 updatekeyinplace=no )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="0" x="9" y="8" height="60" width="165" format="[general]"  name=shop_cd edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="0" x="183" y="8" height="60" width="389" format="[general]"  name=shop_snm edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression=" shop_cd  + ~" ~" +  shop_snm "border="0" color="0" x="581" y="8" height="60" width="535" format="[GENERAL]"  name=shop_display visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,53 @@
+﻿$PBExportHeader$gf_connect_dbms_china.srf
+$PBExportComments$DBMS와 CONNECT하는 함수
+global type gf_connect_dbms_china from function_object
+end type
+
+forward prototypes
+global function boolean gf_connect_dbms_china (ref transaction tr_sqlca)
+end prototypes
+
+global function boolean gf_connect_dbms_china (ref transaction tr_sqlca);/*------------------------------------------------------------*/
+/* 작 성 자  : 지우정보                                       */
+/* 내    용  : DBMS에 Connect한다.                            */
+/*------------------------------------------------------------*/
+string 		ls_ini_file
+
+// *** Connect of DBMS((주)보끄레 머천다이징)************
+if (isNull(tr_SQLCA.DBHandle()) or tr_SQLCA.DBHandle() = 0) then
+	
+	// Profile china
+		/*
+		tr_SQLCA.DBMS = "MSS Microsoft SQL Server 6.x"
+		tr_SQLCA.Database = "china"
+		tr_SQLCA.ServerName = "210.14.71.106"
+		tr_SQLCA.LogId = "bc_dept"
+		tr_SQLCA.LogPass = "tpedcb"
+		tr_SQLCA.AutoCommit = False
+		tr_SQLCA.DBParm = "CommitOnDisconnect='No'"
+		*/
+		
+		// Profile ETERNAL
+		tr_SQLCA.DBMS = "MSOLEDBSQL SQL Server"
+		tr_SQLCA.LogPass = "tpedcb"
+		tr_SQLCA.ServerName = "211.118.198.183,1433"
+		tr_SQLCA.LogId = "BC_DEPT"
+		tr_SQLCA.AutoCommit = False
+		tr_SQLCA.DBParm = "Database='china',Provider='MSOLEDBSQL19'"
+	
+		CONNECT USING tr_SQLCA ;
+					
+		if (tr_SQLCA.SQLCODE<> 0) then
+				MessageBox ("데이타베이스 연결 에러", "데이타베이스가 연결되지 않았습니다.")
+				Return FALSE
+		end if							
+		
+end if
+
+
+Return TRUE
+
+
+
+end function
+

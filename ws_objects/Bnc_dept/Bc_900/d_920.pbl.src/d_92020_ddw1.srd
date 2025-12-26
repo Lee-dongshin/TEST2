@@ -1,0 +1,24 @@
+﻿$PBExportHeader$d_92020_ddw1.srd
+$PBExportComments$기부금명세
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(20) updatewhereclause=yes name=kname dbname="tpt06_dedu.kname" )
+ column=(type=char(255) updatewhereclause=yes name=jumin_no dbname="tpt06_dedu.jumin_no" )
+ retrieve="
+select kname, jumin_no
+from tpt06_dedu (nolock)
+where base_year = :as_year
+and   empno     = :as_empno
+and   jumin_no  like :as_jumin_no + '%'
+union 
+select kname, replace(jumn_no,'-','')
+from mis.dbo.thb01
+where empno = :as_empno" arguments=(("as_year", string),("as_empno", string),("as_jumin_no", string)) )
+text(band=header alignment="2" text="Jumin No" border="0" color="0" x="5" y="4" height="64" width="384"  name=jumin_no_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="402" y="4" height="60" width="430" format="@@@@@@-@@@@@@@"  name=jumin_no edit.limit=13 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="60" width="384" format="[general]"  name=kname edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

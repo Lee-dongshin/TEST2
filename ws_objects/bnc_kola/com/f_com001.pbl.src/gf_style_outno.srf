@@ -1,0 +1,34 @@
+﻿$PBExportHeader$gf_style_outno.srf
+$PBExportComments$품번 출고/반품 전표 채번
+global type gf_style_outno from function_object
+end type
+
+forward prototypes
+global function boolean gf_style_outno (string as_yymmdd, string as_brand, ref string as_out_no)
+end prototypes
+
+global function boolean gf_style_outno (string as_yymmdd, string as_brand, ref string as_out_no);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 작 성 일  : 2002/02/22                                     */
+/* 수 정 일  : 2002/02/22                                     */
+/* 내    용  : 품번 출고,반품 전표 산출                       */
+/*    as_yymmdd  : 일자        as_brand : 브랜드              */
+/*    as_out_no  : 출고전표번호                               */    
+/*============================================================*/
+String ls_out_no = space(4)
+
+SQLCA.SP_GET_OutNo(as_yymmdd, as_brand, ls_out_no)
+
+IF SQLCA.SQLCODE <> 0 THEN 
+	MessageBox("전표채번 오류", SQLCA.SQLERRTEXT)
+	RETURN FALSE 
+ELSEIF isnull(ls_out_no) OR Trim(ls_out_no) = '' THEN
+	MessageBox("전표채번 오류", "출고/반품 전표 채번실패 ! ")
+	RETURN FALSE
+END IF 
+
+as_out_no = ls_out_no
+
+RETURN TRUE
+end function
+

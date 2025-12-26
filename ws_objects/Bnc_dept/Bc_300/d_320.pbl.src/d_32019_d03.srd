@@ -1,0 +1,44 @@
+﻿$PBExportHeader$d_32019_d03.srd
+$PBExportComments$사전 원가계산서 등록(TASSE)
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=528 color="553648127" )
+table(column=(type=char(8) updatewhereclause=yes key=yes name=style dbname="tb_12020_m.STYLE" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=smat_agree dbname="tb_12020_m.SMAT_AGREE" values="	Y/	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=make_agree dbname="tb_12020_m.MAKE_AGREE" values="	Y/	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=tag_agree dbname="tb_12020_m.TAG_AGREE" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=busi_agree dbname="BUSI_AGREE" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=md_agree dbname="MD_AGREE" values="	Y/	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=design_agree dbname="tb_12020_m.DESIGN_AGREE" values="	Y/	N" )
+ column=(type=char(2) updatewhereclause=yes name=season_bae_su dbname="season_bae_su" )
+ retrieve="  SELECT A.STYLE, A.SMAT_AGREE, A.MAKE_AGREE, B.TAG_AGREE,
+			case when isnull(busi_price,0) > 0 then 'Y' else 'N' end AS BUSI_AGREE,
+			case when isnull(md_price,0)   > 0 then 'Y' else 'N' end AS MD_AGREE,
+			A.DESIGN_AGREE, space(2) as season_bae_su 
+    FROM TB_12020_M A(nolock), tb_12021_d  b(nolock)
+   WHERE a.style = b.style
+	and   A.STYLE = LEFT(:as_style_no, 8)
+   and   b.chno  = substring(:as_style_no,9,1)
+
+" update="TB_12020_M" updatewhere=0 updatekeyinplace=yes arguments=(("as_style_no", string)) )
+text(band=detail alignment="1" text="부자재:" border="6" color="0" x="128" y="12" height="60" width="338"  name=smat_agree_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+text(band=detail alignment="1" text="생  산:" border="6" color="0" x="128" y="100" height="60" width="338"  name=make_agree_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+text(band=detail alignment="1" text="가격택발행:" border="6" color="0" x="128" y="452" height="60" width="338"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+text(band=detail alignment="1" text="M   D :" border="6" color="0" x="128" y="364" height="56" width="338"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+text(band=detail alignment="2" text="
+원
+가
+확
+인" border="6" color="128" x="9" y="12" height="500" width="101"  name=t_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="31318232" )
+text(band=detail alignment="1" text="M   D :" border="6" color="0" x="128" y="276" height="60" width="338"  name=t_3 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+text(band=detail alignment="1" text="영  업:" border="6" color="0" x="128" y="188" height="60" width="338"  name=t_4 visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=2 alignment="2" tabsequence=10 border="6" color="0" x="485" y="12" height="60" width="114" format="[general]" protect="0~tif(make_agree = 'Y',1,0)"  name=smat_agree checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.lefttext=yes checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=4 alignment="2" tabsequence=60 border="6" color="0" x="485" y="452" height="60" width="114" format="[general]" protect="0~t0"  name=tag_agree checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.lefttext=yes checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=3 alignment="2" tabsequence=20 border="6" color="0" x="485" y="100" height="60" width="114" format="[general]" protect="0~tif(design_agree = 'Y',1,0)"  name=make_agree checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.lefttext=yes checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=7 alignment="1" tabsequence=50 border="6" color="0" x="485" y="364" height="60" width="114" format="[general]" protect="0~t0"  name=design_agree checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.lefttext=yes checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=6 alignment="0" tabsequence=40 border="6" color="0" x="485" y="276" height="60" width="114" format="[general]" protect="0~t0"  name=md_agree visible="1~t0" checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.lefttext=yes checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=5 alignment="0" tabsequence=30 border="6" color="0" x="485" y="188" height="60" width="114" format="[general]" protect="0~t0"  name=busi_agree visible="1~t0" checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.lefttext=yes checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="80269524" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

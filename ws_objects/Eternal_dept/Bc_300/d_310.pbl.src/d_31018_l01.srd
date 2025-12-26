@@ -1,0 +1,34 @@
+﻿$PBExportHeader$d_31018_l01.srd
+$PBExportComments$검사결과보고서품번리스트
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=style dbname="TB_31050_M.style" )
+ column=(type=char(1) updatewhereclause=yes name=chno dbname="TB_31050_M.chno" )
+ column=(type=char(8) updatewhereclause=yes name=yymmdd dbname="yymmdd" )
+ column=(type=char(1) updatewhereclause=yes name=chk_input dbname="chk_input" )
+ retrieve="
+select b.style, b.chno, isnull(a.yymmdd, :as_yymmdd) as yymmdd,
+		 case when a.yymmdd is null then 'Y' else 'N' end  as chk_input
+from tb_31050_M a (nolock), tb_12021_d b (nolock)
+where a.style =*  b.style
+and   a.chno  =*  b.chno
+and   a.yymmdd <= :As_yymmdd
+and   b.year like :as_year + '%'
+and   b.season like :as_season + '%'
+AND   B.STYLE  LIKE :AS_STYLE + '%'
+AND   B.CHNO  LIKE :AS_CHNO + '%'
+and   b.brand = :as_brand
+order by isnull(a.yymmdd, :as_yymmdd),b.style, b.chno" arguments=(("as_brand", string),("as_style", string),("as_chno", string),("as_year", string),("as_season", string),("as_yymmdd", string)) )
+text(band=header alignment="2" text="품번" border="6" color="0" x="5" y="4" height="60" width="361"  name=b_style_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="등록일자" border="6" color="0" x="384" y="8" height="56" width="283"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0~tif( chk_input = 'N', rgb(0,0,0), rgb(247,74,194))" x="5" y="4" height="60" width="270" format="[general]"  name=style edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30800893" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0~tif( chk_input = 'N', rgb(0,0,0), rgb(247,74,194))" x="288" y="4" height="60" width="87" format="[general]"  name=chno edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30800893" )
+text(band=detail alignment="2" text="미등록" border="0" color="255" x="389" y="4" height="60" width="283"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30800893" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="585" y="8" height="56" width="82" format="[general]"  name=chk_input visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30800893" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0~tif( chk_input = 'N', rgb(0,0,0), rgb(247,74,194))" x="389" y="4" height="60" width="283" format="@@@@/@@/@@"  name=yymmdd visible="1~tif( chk_input = 'N', 1,0)" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30800893" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

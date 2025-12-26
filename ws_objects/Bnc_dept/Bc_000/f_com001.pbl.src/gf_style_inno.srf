@@ -1,0 +1,26 @@
+﻿$PBExportHeader$gf_style_inno.srf
+$PBExportComments$제품 입고번호 산출
+global type gf_style_inno from function_object
+end type
+
+forward prototypes
+global function long gf_style_inno (string as_yymmdd, string as_brand, ref string as_in_no)
+end prototypes
+
+global function long gf_style_inno (string as_yymmdd, string as_brand, ref string as_in_no);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 작 성 일  : 2002/01/04                                     */
+/* 수 정 일  : 2002/01/04                                     */
+/* 내    용  : 입고번호 부여.                                 */
+/*============================================================*/
+
+SELECT dbo.sf_style_inno(:as_yymmdd, :as_brand)
+  INTO :as_in_no 
+  FROM DUAL ;
+
+IF ISNULL(as_in_no) THEN RETURN 100
+
+RETURN sqlca.sqlcode 
+
+end function
+

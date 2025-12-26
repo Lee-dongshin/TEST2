@@ -1,0 +1,25 @@
+﻿$PBExportHeader$gf_get_shop_info.srf
+$PBExportComments$매장정보조회
+global type gf_get_shop_info from function_object
+end type
+
+forward prototypes
+global function boolean gf_get_shop_info (string as_shop_cd, ref string as_shop_div)
+end prototypes
+
+global function boolean gf_get_shop_info (string as_shop_cd, ref string as_shop_div);/*============================================================*/
+/* 작 성 자  : 지우정보(동은아빠)                             */
+/* 작 성 일  : 2002/01/28                                     */
+/* 수 정 일  : 2002/01/28                                     */
+/* 내    용  : 매장정보조회.                                 */
+/*============================================================*/
+String ls_plan_yn
+
+SELECT shop_div INTO :as_shop_div
+FROM TB_91100_M
+WHERE shop_cd = :as_shop_cd;
+
+RETURN True
+
+end function
+

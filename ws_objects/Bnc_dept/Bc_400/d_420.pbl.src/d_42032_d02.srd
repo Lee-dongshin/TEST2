@@ -1,0 +1,67 @@
+﻿$PBExportHeader$d_42032_d02.srd
+$PBExportComments$BOX 출고 관리
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes key=yes name=yymmdd dbname="TB_42070_H.yymmdd" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=out_no dbname="TB_42070_H.Out_NO" )
+ column=(type=char(6) update=yes updatewhereclause=yes key=yes name=shop_cd dbname="TB_42070_H.Shop_CD" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=shop_type dbname="TB_42070_H.Shop_Type" )
+ column=(type=char(2) update=yes updatewhereclause=yes key=yes name=gubn dbname="TB_42070_H.Gubn" )
+ column=(type=char(3) update=yes updatewhereclause=yes name=mng_cust dbname="TB_42070_H.mng_cust" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=qty dbname="TB_42070_H.Qty" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=brand dbname="TB_42070_H.Brand" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="TB_42070_H.Reg_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="TB_42070_H.Reg_Dt" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="TB_42070_H.Mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="TB_42070_H.Mod_Dt" )
+ column=(type=char(250) update=yes updatewhereclause=yes name=note dbname="TB_42070_H.note" )
+ retrieve="select
+yymmdd,   
+Out_NO,  
+Shop_CD, 
+Shop_Type, 
+Gubn, 
+mng_cust,
+Qty,        
+Brand, 
+Reg_id, 
+Reg_Dt ,                                                
+Mod_id ,
+Mod_Dt     ,
+note   
+from tb_42070_h
+where brand = :as_brand
+and   yymmdd = :as_yymmdd
+and   out_no = :as_out_no
+and   mng_cust = :As_mng_cust" update="tb_42070_h" updatewhere=1 updatekeyinplace=yes arguments=(("as_brand", string),("as_yymmdd", string),("as_out_no", string),("as_mng_cust", string)) )
+text(band=header alignment="2" text="Yymmdd" border="0" color="0" x="5" y="4" height="64" width="247"  name=yymmdd_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Reg Dt" border="0" color="0" x="2286" y="4" height="64" width="603"  name=reg_dt_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Mod Id" border="0" color="0" x="2894" y="4" height="64" width="192"  name=mod_id_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Mod Dt" border="0" color="0" x="3090" y="4" height="64" width="603"  name=mod_dt_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Qty" border="0" color="0" x="1595" y="4" height="64" width="329"  name=qty_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Reg Id" border="0" color="0" x="2089" y="4" height="64" width="192"  name=reg_id_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Out No" border="0" color="0" x="256" y="4" height="64" width="329"  name=out_no_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Shop Cd" border="0" color="0" x="594" y="4" height="64" width="229"  name=shop_cd_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Shop Type" border="0" color="0" x="827" y="4" height="64" width="283"  name=shop_type_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Gubn" border="0" color="0" x="1125" y="4" height="64" width="142"  name=gubn_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="mng_cust" border="0" color="0" x="1289" y="4" height="64" width="261"  name=t_1  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Brand" border="0" color="0" x="1929" y="4" height="64" width="155"  name=brand_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="5" y="4" height="76" width="256" format="[general]"  name=yymmdd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="1595" y="4" height="76" width="329" format="[general]"  name=qty edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="2089" y="4" height="76" width="192" format="[general]"  name=reg_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="2295" y="4" height="76" width="608" format="[shortdate] [time]"  name=reg_dt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="2903" y="4" height="76" width="192" format="[general]"  name=mod_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="3095" y="4" height="76" width="608" format="[shortdate] [time]"  name=mod_dt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="256" y="4" height="76" width="329" format="[general]"  name=out_no edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="594" y="4" height="76" width="229" format="[general]"  name=shop_cd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="827" y="4" height="76" width="283" format="[general]"  name=shop_type edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1125" y="4" height="76" width="142" format="[general]"  name=gubn edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1289" y="4" height="76" width="261" format="[general]"  name=mng_cust edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="1929" y="4" height="76" width="155" format="[general]"  name=brand edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="3735" y="8" height="56" width="4389" format="[general]"  name=note edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

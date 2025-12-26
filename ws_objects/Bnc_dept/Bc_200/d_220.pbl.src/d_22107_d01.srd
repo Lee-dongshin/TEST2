@@ -1,0 +1,91 @@
+﻿$PBExportHeader$d_22107_d01.srd
+$PBExportComments$자재 SAMPLE출고 등록
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(1) update=yes updatewhereclause=yes key=yes name=brand dbname="TB_22020_H.BRAND" )
+ column=(type=char(8) update=yes updatewhereclause=yes key=yes name=out_ymd dbname="TB_22020_H.OUT_YMD" )
+ column=(type=char(2) update=yes updatewhereclause=yes key=yes name=out_gubn dbname="TB_22020_H.OUT_GUBN" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=out_no dbname="TB_22020_H.OUT_NO" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=io_gubn dbname="TB_22020_H.IO_GUBN" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=house dbname="TB_22020_H.HOUSE" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=cust_cd dbname="TB_22020_H.CUST_CD" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=mat_cd dbname="TB_22020_H.MAT_CD" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=color dbname="TB_22020_H.COLOR" )
+ column=(type=char(2) updatewhereclause=yes name=color1_nm dbname="TB_22020_H.COLOR1" )
+ column=(type=char(2) updatewhereclause=yes name=color2_nm dbname="TB_22020_H.COLOR2" )
+ column=(type=char(15) update=yes updatewhereclause=yes name=spec dbname="TB_22020_H.SPEC" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=unit dbname="TB_22020_H.UNIT" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=qty dbname="QTY" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=price dbname="PRICE" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=amt dbname="AMT" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=smp_item dbname="TB_22020_H.SMP_ITEM" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=smp_pcs dbname="SMP_PCS" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=mat_year dbname="TB_22020_H.MAT_YEAR" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=mat_season dbname="TB_22020_H.MAT_SEASON" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=mat_sojae dbname="TB_22020_H.MAT_SOJAE" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=mat_chno dbname="TB_22020_H.MAT_CHNO" )
+ column=(type=char(3) update=yes updatewhereclause=yes name=out_seq dbname="TB_22020_H.OUT_SEQ" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=mat_gubn dbname="TB_22020_H.MAT_GUBN" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="TB_22020_H.REG_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="TB_22020_H.REG_DT" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="TB_22020_H.MOD_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="TB_22020_H.MOD_DT" )
+ column=(type=char(30) updatewhereclause=yes name=mat_nm dbname="MAT_NM" )
+ column=(type=decimal(2) updatewhereclause=yes name=stock_qty dbname="STOCK_QTY" )
+ column=(type=decimal(0) updatewhereclause=yes name=stock_amt dbname="STOCK_AMT" )
+ retrieve="  SELECT A.BRAND, A.OUT_YMD, A.OUT_GUBN, A.OUT_NO,
+         A.IO_GUBN, A.HOUSE, A.CUST_CD, 
+         A.MAT_CD, A.COLOR, A.COLOR AS COLOR1, A.COLOR AS COLOR2,
+         A.SPEC, A.UNIT, 
+         ISNULL(A.QTY, 0) AS QTY, 
+         ISNULL(A.PRICE, 0) AS PRICE, 
+         ISNULL(A.AMT, 0) AS AMT, 
+         A.SMP_ITEM, 
+         ISNULL(A.SMP_PCS, 0) AS SMP_PCS,
+         A.MAT_YEAR, A.MAT_SEASON, A.MAT_SOJAE, A.MAT_CHNO, A.OUT_SEQ, A.MAT_GUBN,
+         A.REG_ID, A.REG_DT, A.MOD_ID, A.MOD_DT,
+         dbo.sf_mat_nm(A.MAT_CD) AS MAT_NM, 
+         ISNULL(B.STOCK_QTY, 0) AS STOCK_QTY,
+         ISNULL(B.STOCK_AMT, 0) AS STOCK_AMT
+    FROM TB_22020_H A,
+         VI_29012_1 B
+   WHERE A.MAT_CD = B.MAT_CD
+     AND A.COLOR  = B.COLOR
+     AND A.HOUSE  = B.HOUSE
+     AND A.BRAND = :as_brand
+     AND A.OUT_YMD = :as_yymmdd
+     AND A.OUT_GUBN = '04'
+     AND A.HOUSE    = :as_house
+     AND A.CUST_CD  = :as_cust_cd
+     AND A.MAT_GUBN = :as_mat_gubn
+" update="TB_22020_H" updatewhere=0 updatekeyinplace=yes arguments=(("as_brand", string),("as_yymmdd", string),("as_mat_gubn", string),("as_house", string),("as_cust_cd", string))  sort="mat_cd A color A spec A " )
+text(band=header alignment="2" text="SAMPLE 수량" border="6" color="0" x="498" y="8" height="60" width="329"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="1" tabsequence=20 border="5" color="0" x="498" y="4" height="60" width="329" format="#,##0" protect="0~tIf( IsRowNew(), 0, 1 )"  name=smp_pcs edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="1090519039~tIf( IsRowNew(), RGB(255, 255, 255), RGB(192, 192, 192) )" )
+text(band=header alignment="2" text="자재코드" border="6" color="0" x="846" y="8" height="60" width="352"  name=mat_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="자  재  명" border="6" color="0" x="1216" y="8" height="60" width="699"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="자재 색상" border="6" color="0" x="1934" y="8" height="60" width="498"  name=color_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="출고수량" border="6" color="0" x="3255" y="8" height="60" width="329"  name=qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="출고단가" border="6" color="0" x="3602" y="8" height="60" width="329"  name=price_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="출고금액" border="6" color="0" x="3950" y="8" height="60" width="329"  name=amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="폭(규격)" border="6" color="0" x="2798" y="8" height="60" width="439"  name=spec_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="재고수량" border="6" color="0" x="2450" y="8" height="60" width="329"  name=stock_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=30 border="5" color="0" x="846" y="4" height="60" width="352" format="@@@@@@@@@-@" protect="0~tIf( IsRowNew(), 0, 1 )"  name=mat_cd  tag="OE" edit.limit=10 edit.case=upper edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="1090519039~tIf( IsRowNew(), RGB(255, 255, 255), RGB(192, 192, 192) )" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="5" color="0" x="2094" y="4" height="60" width="338" format="[general]"  name=color2_nm  tag="OE" visible="1~tIf( as_mat_gubn = '2', 1, 0 )" edit.name="색상" dddw.name=d_com901 dddw.displaycolumn=color_enm dddw.datacolumn=color dddw.percentwidth=100 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+button(band=detail text=""filename="find.bmp"action="0" border="0" color="0" x="1211" y="0" height="72" width="87" vtextalign="0" htextalign="0"  name=cb_mat_cd  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="67108864" )
+column(band=detail id=29 alignment="0" tabsequence=32766 border="5" color="0" x="1307" y="4" height="60" width="608" format="[general]"  name=mat_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="1" tabsequence=70 border="5" color="0" x="3255" y="4" height="60" width="329" format="#,##0.00" protect="0~tIf( IsRowNew(), If( IsNull( color ) or Trim( color ) = ~"~", 1, 0 ), 1)"  name=qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="1090519039~tIf( IsRowNew(), If( IsNull( color ) or Trim( color ) = ~"~", RGB(192, 192, 192), RGB(255, 255, 255) ), RGB(192, 192, 192) )" )
+column(band=detail id=15 alignment="1" tabsequence=32766 border="5" color="0" x="3602" y="4" height="60" width="329" format="#,##0"  name=price edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="5" color="0" x="2094" y="4" height="60" width="338" format="[general]"  name=color1_nm  tag="OE" visible="1~tIf( as_mat_gubn = '1', 1, 0 )" edit.name="색상" dddw.name=d_com901 dddw.displaycolumn=color_enm dddw.datacolumn=color dddw.percentwidth=100 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=no dddw.case=any dddw.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=11 alignment="0" tabsequence=50 border="5" color="0" x="1934" y="4" height="60" width="142" format="[general]" protect="0~tIf( IsRowNew(), If( IsNull( mat_cd ) or Trim( mat_cd ) = ~"~", 1, 0), 1)"  name=color2  tag="OE" visible="1~tIf( as_mat_gubn = '2', 1, 0 )" edit.name="색상" dddw.name=d_com901 dddw.displaycolumn=color dddw.datacolumn=color dddw.percentwidth=400 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="1090519039~tIf( IsRowNew(), If( IsNull( mat_cd ) or Trim( mat_cd ) = ~"~", RGB(192, 192, 192), RGB(255, 255, 255) ), RGB(192, 192, 192) )" )
+column(band=detail id=10 alignment="0" tabsequence=40 border="5" color="0" x="1934" y="4" height="60" width="142" format="[general]" protect="0~tIf( IsRowNew(), If( IsNull( mat_cd ) or Trim( mat_cd ) = ~"~", 1, 0), 1)"  name=color1  tag="OE" visible="1~tIf( as_mat_gubn = '1', 1, 0 )" edit.name="원자재별 색상" dddw.name=d_com007 dddw.displaycolumn=color dddw.datacolumn=color dddw.percentwidth=400 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="1090519039~tIf( IsRowNew(), If( IsNull( mat_cd ) or Trim( mat_cd ) = ~"~", RGB(192, 192, 192), RGB(255, 255, 255) ), RGB(192, 192, 192) )" )
+column(band=detail id=12 alignment="0" tabsequence=60 border="5" color="0" x="2798" y="4" height="60" width="439" format="[general]" protect="0~tIf( IsRowNew(), If( IsNull( color ) or Trim( color ) = ~"~", 1, 0 ), 1)"  name=spec  tag="DE" edit.limit=15 edit.case=upper edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="1090519039~tIf( IsRowNew(), If( IsNull( color ) or Trim( color ) = ~"~", RGB(192, 192, 192), RGB(255, 255, 255) ), RGB(192, 192, 192) )" )
+column(band=detail id=30 alignment="1" tabsequence=32766 border="5" color="0" x="2450" y="4" height="60" width="329" format="#,##0.00"  name=stock_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression="If( IsRowNew(), qty * price, amt)"border="5" color="0" x="3950" y="4" height="60" width="329" format="#,##0"  name=amt1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="SAMPLE 품종" border="6" color="0" x="9" y="8" height="60" width="471"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=17 alignment="0" tabsequence=10 border="5" color="0" x="9" y="4" height="60" width="471" format="[general]" protect="0~tIf( IsRowNew(), 0, 1 )"  name=smp_item  tag="OE" edit.name="품종(품번)" dddw.name=d_com003 dddw.displaycolumn=item_display dddw.datacolumn=item dddw.percentwidth=100 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="1090519039~tIf( IsRowNew(), RGB(255, 255, 255), RGB(192, 192, 192) )" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

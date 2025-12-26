@@ -1,0 +1,96 @@
+﻿$PBExportHeader$d_52013_d02.srd
+$PBExportComments$Order배분출고의뢰[db용]
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes key=yes name=out_ymd dbname="tb_52031_h.out_ymd" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=deal_seq dbname="tb_52031_h.deal_seq" )
+ column=(type=char(8) update=yes updatewhereclause=yes key=yes name=style dbname="tb_52031_h.style" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=chno dbname="tb_52031_h.chno" )
+ column=(type=char(2) update=yes updatewhereclause=yes key=yes name=color dbname="tb_52031_h.color" )
+ column=(type=char(2) update=yes updatewhereclause=yes key=yes name=size dbname="tb_52031_h.size" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=deal_fg dbname="tb_52031_h.deal_fg" )
+ column=(type=char(6) update=yes updatewhereclause=yes key=yes name=shop_cd dbname="tb_52031_h.shop_cd" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=deal_qty dbname="tb_52031_h.deal_qty" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=out_qty dbname="tb_52031_h.out_qty" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=proc_yn dbname="tb_52031_h.proc_yn" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="tb_52031_h.reg_id" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="tb_52031_h.mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="tb_52031_h.mod_dt" )
+ column=(type=char(20) updatewhereclause=yes name=b_shop_nm dbname="tb_52031_h.shop_nm" )
+ column=(type=char(2) updatewhereclause=yes name=b_shop_stat dbname="tb_52031_h.shop_stat" )
+ column=(type=char(1) updatewhereclause=yes name=b_deal_yn dbname="tb_52031_h.deal_yn" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=rshop_cd dbname="tb_52031_h.rshop_cd" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=shop_type dbname="tb_52031_h.shop_type" )
+ retrieve="  SELECT a.out_ymd,   
+         a.deal_seq,   
+         a.style,   
+         a.chno,   
+         a.color,   
+         a.size,   
+         a.deal_fg,   
+         a.shop_cd,   
+         a.deal_qty,   
+         a.out_qty,   
+         a.proc_yn,   
+         a.reg_id,   
+         a.mod_id,   
+         a.mod_dt, 
+         b.shop_snm   as shop_nm, 
+         b.shop_stat  as shop_stat, 
+         b.deal_yn    as deal_yn ,
+			a.rshop_cd,
+			a.shop_type
+    FROM tb_52031_h a with (nolock), 
+         tb_91100_m b with (nolock) 
+   WHERE b.shop_cd  = a.shop_cd 
+     and a.out_ymd  =    :as_out_ymd 
+     and a.deal_seq =    :an_deal_seq 
+     and a.style    =    :as_style 
+     and a.chno     =    :as_chno 
+     and a.color    like :as_color 
+     and a.deal_fg  = '1'
+   ORDER BY B.SHOP_DIV, B.AREA_CD, B.SHOP_CD " update="tb_52031_h" updatewhere=0 updatekeyinplace=no arguments=(("as_out_ymd", string),("an_deal_seq", number),("as_style", string),("as_chno", string),("as_color", string)) )
+text(band=header alignment="2" text="Out Ymd" border="6" color="0" x="9" y="8" height="56" width="247"  name=out_ymd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Deal Seq" border="6" color="0" x="265" y="8" height="56" width="329"  name=deal_seq_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Style" border="6" color="0" x="603" y="8" height="56" width="247"  name=style_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Chno" border="6" color="0" x="859" y="8" height="56" width="137"  name=chno_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Color" border="6" color="0" x="1006" y="8" height="56" width="137"  name=color_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Size" border="6" color="0" x="1152" y="8" height="56" width="119"  name=size_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Deal Fg" border="6" color="0" x="1280" y="8" height="56" width="206"  name=deal_fg_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Shop Cd" border="6" color="0" x="1495" y="8" height="56" width="229"  name=shop_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Deal Qty" border="6" color="0" x="1733" y="8" height="56" width="329"  name=deal_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Out Qty" border="6" color="0" x="2071" y="8" height="56" width="329"  name=out_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Proc Yn" border="6" color="0" x="2409" y="8" height="56" width="215"  name=proc_yn_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Reg Id" border="6" color="0" x="2633" y="8" height="56" width="192"  name=reg_id_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Mod Id" border="6" color="0" x="2834" y="8" height="56" width="192"  name=mod_id_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Mod Dt" border="6" color="0" x="3035" y="8" height="56" width="603"  name=mod_dt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="B Shop Nm" border="0" color="0" x="3648" y="4" height="76" width="530"  name=t_4  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="B Shop Stat" border="0" color="0" x="4187" y="4" height="76" width="46"  name=t_5  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="B Deal Yn" border="0" color="0" x="4242" y="4" height="76" width="18"  name=t_6  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="0" x="9" y="8" height="60" width="247" format="[general]"  name=out_ymd edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="1" tabsequence=20 border="0" color="0" x="265" y="8" height="60" width="329" format="[general]"  name=deal_seq edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="0" color="0" x="603" y="8" height="60" width="247" format="[general]"  name=style edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="0" color="0" x="859" y="8" height="60" width="137" format="[general]"  name=chno edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=50 border="0" color="0" x="1006" y="8" height="60" width="137" format="[general]"  name=color edit.limit=2 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=60 border="0" color="0" x="1152" y="8" height="60" width="119" format="[general]"  name=size edit.limit=2 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=70 border="0" color="0" x="1280" y="8" height="60" width="206" format="[general]"  name=deal_fg edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=80 border="0" color="0" x="1495" y="8" height="60" width="229" format="[general]"  name=shop_cd edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="1" tabsequence=90 border="0" color="0" x="1733" y="8" height="60" width="329" format="[general]"  name=deal_qty edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="1" tabsequence=100 border="0" color="0" x="2071" y="8" height="60" width="329" format="[general]"  name=out_qty edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=110 border="0" color="0" x="2409" y="8" height="60" width="215" format="[general]"  name=proc_yn edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=120 border="0" color="0" x="2633" y="8" height="60" width="192" format="[general]"  name=reg_id edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="0" tabsequence=130 border="0" color="0" x="2834" y="8" height="60" width="192" format="[general]"  name=mod_id edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="0" tabsequence=140 border="0" color="0" x="3035" y="8" height="60" width="603" format="[shortdate] [time]"  name=mod_dt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="3648" y="0" height="56" width="530" format="[general]"  name=b_shop_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="0" x="4187" y="0" height="56" width="46" format="[general]"  name=b_shop_stat edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="0" color="0" x="4242" y="0" height="56" width="18" format="[general]"  name=b_deal_yn edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="0" tabsequence=0 border="0" color="0" x="4274" y="8" height="76" width="183"  name=rshop_cd  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Rshop Cd" border="0" color="0" x="4270" y="4" height="76" width="187"  name=t_1  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=19 alignment="0" tabsequence=0 border="0" color="0" x="4471" y="16" height="76" width="23"  name=shop_type  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="Shop Type" border="0" color="0" x="4466" y="4" height="76" width="27"  name=t_2  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

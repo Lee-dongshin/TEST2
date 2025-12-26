@@ -1,0 +1,65 @@
+﻿$PBExportHeader$d_com741.srd
+$PBExportComments$회원조회 [검색창]
+release 7;
+datawindow(units=0 timer_interval=0 color=80269528 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(20) updatewhereclause=yes name=receiver_name dbname="receiver_name" )
+ column=(type=char(255) updatewhereclause=yes name=receiver_mobile dbname="receiver_mobile" )
+ column=(type=char(255) updatewhereclause=yes name=receiver_tel dbname="receiver_tel" )
+ column=(type=char(6) updatewhereclause=yes name=shop_cd dbname="shop_cd" )
+ column=(type=char(30) updatewhereclause=yes name=shop_nm dbname="shop_nm" )
+ column=(type=char(13) updatewhereclause=yes name=style_no dbname="style_no" )
+ column=(type=decimal(0) updatewhereclause=yes name=qty dbname="qty" )
+ column=(type=char(20) updatewhereclause=yes name=invoice_no dbname="invoice_no" )
+ column=(type=char(255) updatewhereclause=yes name=addr dbname="addr" )
+ column=(type=char(7) updatewhereclause=yes name=zipcode dbname="zipcode" )
+ column=(type=char(40) updatewhereclause=yes name=order_no dbname="order_no" )
+ column=(type=char(8) updatewhereclause=yes name=ord_ymd dbname="ord_ymd" )
+ column=(type=char(2) updatewhereclause=yes name=proc_stat dbname="proc_stat" )
+ column=(type=char(2) updatewhereclause=yes name=rtrn_stat dbname="rtrn_stat" )
+ column=(type=char(2) updatewhereclause=yes name=brand dbname="brand" )
+ retrieve="select	isnull(a.receiver_name,'')	as receiver_name,
+			replace(isnull(a.receiver_mobile,''),'-','') as receiver_mobile,
+			replace(isnull(a.receiver_tel,''),'-','')	as receiver_tel,
+			shop_cd,
+			dbo.sf_shop_nm(shop_cd, 's') as shop_nm,
+			style + chno + color + size as style_no,
+			qty,	
+			invoice_no, 
+			addr,
+			zipcode,
+			order_no,
+			ord_ymd,
+			proc_stat,
+			rtrn_stat,
+			brand
+from vi_45030_2 a (nolock)
+" )
+text(band=header alignment="2" text="주문일자" border="6" color="0" x="9" y="8" height="56" width="288"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="주문번호" border="6" color="0" x="311" y="8" height="56" width="402"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="수량" border="6" color="0" x="1175" y="8" height="56" width="114"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="매장코드" border="6" color="0" x="1303" y="8" height="56" width="229"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="매장명" border="6" color="0" x="1545" y="8" height="56" width="562"  name=jumin_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="품번" border="6" color="0" x="727" y="8" height="56" width="434"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="고객명" border="6" color="0" x="2121" y="8" height="56" width="247"  name=user_name_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="자택전화" border="6" color="0" x="2382" y="8" height="56" width="357"  name=tel_no1_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="휴대전화" border="6" color="0" x="2752" y="8" height="56" width="357"  name=tel_no3_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="1947" y="124" height="56" width="526" format="[general]"  name=invoice_no visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="2491" y="128" height="56" width="160" format="[general]"  name=proc_stat visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="2656" y="128" height="56" width="206" format="[general]"  name=rtrn_stat visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="2862" y="120" height="56" width="192" format="[general]"  name=zipcode visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="5" color="0" x="9" y="8" height="56" width="288" format="[general]"  name=ord_ymd editmask.mask="XXXX-XX-XX" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="5" color="0" x="311" y="8" height="56" width="402" format="[general]"  name=order_no edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="5" color="0" x="1175" y="8" height="56" width="114" format="[general]"  name=qty edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="5" color="0" x="1303" y="8" height="56" width="229" format="[general]"  name=shop_cd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="5" color="0" x="1545" y="8" height="56" width="562" format="[general]"  name=shop_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="5" color="0" x="727" y="8" height="56" width="434" format="[general]"  name=style_no edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="5" color="0" x="2121" y="8" height="56" width="247" format="[general]"  name=receiver_name edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="5" color="0" x="2382" y="8" height="56" width="357" format="[general]"  name=receiver_tel edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="5" color="0" x="2752" y="8" height="56" width="357" format="[general]"  name=receiver_mobile edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="1586" y="140" height="56" width="165" format="[general]"  name=brand edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,23 @@
+﻿$PBExportHeader$d_21004_d07.srd
+$PBExportComments$소요량변경 알림창
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=60 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=style dbname="style" )
+ column=(type=char(1) updatewhereclause=yes name=chno dbname="chno" )
+ column=(type=char(30) updatewhereclause=yes name=bigo dbname="bigo" )
+ column=(type=datetime updatewhereclause=yes name=yymmdd dbname="yymmdd" )
+ procedure="1 execute dbo.sp_21004_d07;1 " )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="1090519039" x="18" y="0" height="60" width="238" format="[general]"  name=style edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="8388608" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="1090519039" x="261" y="0" height="60" width="55" format="[general]"  name=chno edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="8388608" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="1090519039" x="325" y="0" height="60" width="375" format="[general]"  name=bigo edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="8388608" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="1090519039" x="709" y="0" height="60" width="448" format="[shortdate] [time]"  name=yymmdd edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="8388608" )
+text(band=header alignment="2" text="스타일" border="6" color="0" x="18" y="8" height="56" width="293"  name=style_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="비고" border="6" color="0" x="325" y="8" height="56" width="370"  name=bigo_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="변경일자" border="6" color="0" x="709" y="8" height="56" width="448"  name=yymmdd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+button(band=header text="새로고침"filename=""action="0" border="1" color="128" x="9" y="0" height="68" width="306" vtextalign="0" htextalign="0"  name=cb_refresh  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="12639424" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

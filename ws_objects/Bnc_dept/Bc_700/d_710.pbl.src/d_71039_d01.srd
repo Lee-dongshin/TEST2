@@ -1,0 +1,64 @@
+﻿$PBExportHeader$d_71039_d01.srd
+$PBExportComments$이벤트 등록
+release 7;
+datawindow(units=0 timer_interval=0 color=82042848 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=84 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes name=give_date dbname="TB_71019_M.give_date" )
+ column=(type=char(6) update=yes updatewhereclause=yes key=yes name=event_id dbname="TB_71019_M.event_id" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=event_nm dbname="TB_71019_M.event_nm" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=close_ymd dbname="TB_71019_M.close_ymd" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="TB_71019_M.Reg_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="TB_71019_M.Reg_Dt" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="TB_71019_M.Mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="TB_71019_M.Mod_Dt" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=brand dbname="TB_71019_M.brand" )
+ column=(type=long updatewhereclause=yes name=coupon_cnt dbname="coupon_cnt" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=visible dbname="TB_71019_M.visible" values="	1/	0" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=dc_rate dbname="TB_71019_M.dc_rate" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=non_mem_use dbname="TB_71019_M.non_mem_use" values="사용	Y/사용	N" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=price dbname="TB_71019_M.price" )
+ retrieve="select 
+give_date,
+event_id,
+event_nm,
+close_ymd,
+Reg_id,
+Reg_Dt,
+Mod_id,
+Mod_Dt,
+brand,
+(select count(coupon_no) from tb_71011_h (nolock)
+	where coupon_no = a.event_id) as coupon_cnt,
+visible,
+dc_rate,
+non_mem_use	,
+price
+ from tb_71019_m a(nolock)
+	where event_id like :event_id + '%'" update="tb_71019_m" updatewhere=0 updatekeyinplace=no arguments=(("event_id", string))  sort="give_date D " )
+text(band=header alignment="2" text="번호" border="6" color="0" x="59" y="20" height="56" width="165"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="행사코드" border="6" color="0" x="238" y="20" height="56" width="306"  name=event_id_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="유효기간" border="6" color="0" x="1312" y="20" height="56" width="805"  name=give_date_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="행사명" border="6" color="0" x="562" y="20" height="56" width="736"  name=event_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="2" expression="getrow()"border="6" color="0" x="59" y="8" height="60" width="155" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82042848" )
+text(band=detail alignment="2" text="~~" border="0" color="0" x="1696" y="8" height="60" width="46"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=20 border="5" color="0" x="238" y="8" height="60" width="306" format="[general]"  name=event_id edit.limit=6 edit.case=upper edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="5" color="0" x="562" y="8" height="60" width="736" format="[general]"  name=event_nm edit.limit=20 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=1 alignment="2" tabsequence=10 border="5" color="0" x="1339" y="8" height="60" width="338" format="@@@@/@@/@@"  name=give_date edit.limit=8 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=4 alignment="2" tabsequence=40 border="5" color="0" x="1760" y="8" height="60" width="338" format="@@@@/@@/@@"  name=close_ymd edit.limit=8 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=14 alignment="1" tabsequence=80 border="5" color="0" x="3328" y="8" height="60" width="398" format="#,###"  name=price  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="발행수" border="6" color="0" x="2130" y="20" height="56" width="229"  name=coupon_cnt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="5" color="0" x="2130" y="8" height="60" width="229" format="#,##0"  name=coupon_cnt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30337019" )
+text(band=header alignment="2" text="적용브랜드" border="6" color="0" x="2373" y="20" height="56" width="507"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=50 border="5" color="0" x="2386" y="8" height="60" width="489" format="[general]"  name=brand edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=header alignment="2" text="보이기" border="6" color="0" x="2898" y="20" height="56" width="178"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="할인율" border="6" color="0" x="3095" y="20" height="56" width="219"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="2" tabsequence=60 border="6" color="0" x="2889" y="8" height="60" width="192" format="[general]"  name=visible checkbox.text="" checkbox.on="1" checkbox.off="0" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30337019" )
+column(band=detail id=12 alignment="1" tabsequence=70 border="5" color="0" x="3104" y="8" height="60" width="206" format="###"  name=dc_rate edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+text(band=header alignment="2" text="할인금액" border="6" color="0" x="3328" y="20" height="56" width="402"  name=t_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="비회원사용" border="6" color="0" x="3744" y="20" height="56" width="311"  name=t_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="0" tabsequence=90 border="0" color="0" x="3744" y="8" height="60" width="311" format="[general]"  name=non_mem_use checkbox.text="사용" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30861767" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,40 @@
+﻿$PBExportHeader$d_79024_d01.srd
+$PBExportComments$불량유형관리리스트
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes key=yes name=yymmdd dbname="TB_79012_h.YYMMDD" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=seq_no dbname="TB_79012_h.SEQ_NO" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=style dbname="TB_79012_h.STYLE" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=chno dbname="TB_79012_h.CHNO" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=brand dbname="TB_79012_h.BRAND" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=judg_l dbname="TB_79012_h.judg_l" )
+ column=(type=char(3) update=yes updatewhereclause=yes name=judg_s dbname="TB_79012_h.judg_s" )
+ retrieve="select 	YYMMDD,
+			SEQ_NO,
+			STYLE,
+			CHNO,
+			BRAND,
+			judg_l,
+			judg_s
+from TB_79012_h (nolock)
+where brand  = :as_brand and
+      yymmdd between :as_fr_yymmdd and :as_to_yymmdd and
+      style like '%' + :as_style and
+      chno  like '%' + :as_chno and
+		judg_l like '%' + :as_judg_l and
+		judg_s like '%' + :as_judg_s and
+      receipt_type like '%' + :as_receipt_type
+" update="TB_79012_h" updatewhere=1 updatekeyinplace=no arguments=(("as_brand", string),("as_fr_yymmdd", string),("as_to_yymmdd", string),("as_style", string),("as_chno", string),("as_judg_l", string),("as_judg_s", string),("as_receipt_type", string)) )
+text(band=header alignment="2" text="일자" border="6" color="0" x="5" y="4" height="60" width="229"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="좌번" border="6" color="0" x="251" y="4" height="60" width="146"  name=seq_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="품번" border="6" color="0" x="416" y="4" height="60" width="315"  name=style_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="5" y="4" height="60" width="229" format="[general]"  name=yymmdd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="251" y="4" height="60" width="146" format="[general]"  name=seq_no edit.limit=4 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="677" y="4" height="60" width="55" format="[general]"  name=chno edit.limit=1 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="416" y="4" height="60" width="247" format="[general]"  name=style edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

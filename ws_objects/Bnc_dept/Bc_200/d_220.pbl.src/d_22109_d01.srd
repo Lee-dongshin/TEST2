@@ -1,0 +1,82 @@
+﻿$PBExportHeader$d_22109_d01.srd
+$PBExportComments$부자재 출고반품 등록
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=152 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(1) updatewhereclause=yes name=brand dbname="TB_22020_H.BRAND" )
+ column=(type=char(8) updatewhereclause=yes name=out_ymd dbname="TB_22020_H.OUT_YMD" )
+ column=(type=char(2) updatewhereclause=yes name=out_gubn dbname="TB_22020_H.OUT_GUBN" )
+ column=(type=char(4) updatewhereclause=yes name=out_no dbname="TB_22020_H.OUT_NO" )
+ column=(type=char(1) updatewhereclause=yes name=io_gubn dbname="TB_22020_H.IO_GUBN" )
+ column=(type=char(6) updatewhereclause=yes name=house dbname="TB_22020_H.HOUSE" )
+ column=(type=char(6) updatewhereclause=yes name=cust_cd dbname="TB_22020_H.CUST_CD" )
+ column=(type=char(10) updatewhereclause=yes name=mat_cd dbname="TB_22020_H.MAT_CD" )
+ column=(type=char(30) updatewhereclause=yes name=mat_nm dbname="MAT_NM" )
+ column=(type=char(2) updatewhereclause=yes name=color dbname="TB_22020_H.COLOR" )
+ column=(type=char(20) updatewhereclause=yes name=color_nm dbname="COLOR_NM" )
+ column=(type=char(15) updatewhereclause=yes name=spec dbname="TB_22020_H.SPEC" )
+ column=(type=char(2) updatewhereclause=yes name=unit dbname="TB_22020_H.UNIT" )
+ column=(type=decimal(2) updatewhereclause=yes name=qty dbname="QTY" )
+ column=(type=decimal(0) updatewhereclause=yes name=price dbname="PRICE" )
+ column=(type=decimal(0) updatewhereclause=yes name=amt dbname="AMT" )
+ column=(type=char(8) updatewhereclause=yes name=style dbname="TB_22020_H.STYLE" )
+ column=(type=char(1) updatewhereclause=yes name=st_chno dbname="TB_22020_H.ST_CHNO" )
+ column=(type=char(2) updatewhereclause=yes name=st_color dbname="TB_22020_H.ST_COLOR" )
+ column=(type=char(20) updatewhereclause=yes name=st_color_nm dbname="ST_COLOR_NM" )
+ column=(type=char(4) updatewhereclause=yes name=mat_year dbname="TB_22020_H.MAT_YEAR" )
+ column=(type=char(1) updatewhereclause=yes name=mat_season dbname="TB_22020_H.MAT_SEASON" )
+ column=(type=char(1) updatewhereclause=yes name=mat_sojae dbname="TB_22020_H.MAT_SOJAE" )
+ column=(type=char(1) updatewhereclause=yes name=mat_chno dbname="TB_22020_H.MAT_CHNO" )
+ column=(type=char(3) updatewhereclause=yes name=out_seq dbname="TB_22020_H.OUT_SEQ" )
+ column=(type=char(1) updatewhereclause=yes name=mat_gubn dbname="TB_22020_H.MAT_GUBN" )
+ column=(type=char(6) updatewhereclause=yes name=reg_id dbname="TB_22020_H.REG_ID" )
+ retrieve="  SELECT A.BRAND,			A.OUT_YMD,		A.OUT_GUBN,		A.OUT_NO,   
+         A.IO_GUBN,		A.HOUSE,			A.CUST_CD,		
+         A.MAT_CD,		dbo.sf_mat_nm(A.MAT_CD) AS MAT_NM,
+         A.COLOR,			dbo.sf_color_nm(A.COLOR, 'E') AS COLOR_NM,
+         A.SPEC,			A.UNIT,			
+         ISNULL(A.QTY,   0) AS QTY, 
+         ISNULL(A.PRICE, 0) AS PRICE, 
+         ISNULL(A.AMT,   0) AS AMT,
+         A.STYLE,			A.ST_CHNO,		A.ST_COLOR,		dbo.sf_color_nm(A.ST_COLOR, 'E') AS ST_COLOR_NM,
+         A.MAT_YEAR,		A.MAT_SEASON,	A.MAT_SOJAE,
+         A.MAT_CHNO,		A.OUT_SEQ,		A.MAT_GUBN,
+			A.REG_ID
+    FROM TB_22020_H A
+   WHERE A.BRAND    = :as_brand
+     AND A.OUT_YMD  BETWEEN :as_fr_out_ymd AND :as_to_out_ymd
+     AND A.OUT_GUBN = '01'
+     AND A.IO_GUBN  = '+'
+     AND A.HOUSE    = :as_house
+     AND A.CUST_CD  = :as_cust_cd
+     AND A.MAT_GUBN = '2'
+     AND A.MAT_CD   LIKE :as_smat_cd
+" arguments=(("as_brand", string),("as_fr_out_ymd", string),("as_to_out_ymd", string),("as_house", string),("as_cust_cd", string),("as_smat_cd", string))  sort="out_ymd A out_no A " )
+text(band=header alignment="0" text="  ※    적    용    출    고    내    역    선    택" border="6" color="1090519039" x="9" y="8" height="60" width="3899"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421376" )
+text(band=header alignment="2" text="출고금액" border="6" color="0" x="2363" y="84" height="60" width="329"  name=amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="출고단가" border="6" color="0" x="2021" y="84" height="60" width="325"  name=price_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="출고일" border="6" color="0" x="9" y="84" height="60" width="279"  name=in_ymd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="부자재코드" border="6" color="0" x="306" y="84" height="60" width="320"  name=mat_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="부자재명" border="6" color="0" x="645" y="84" height="60" width="549"  name=mat_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="자재 색상" border="6" color="0" x="1211" y="84" height="60" width="489"  name=color_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="출고량" border="6" color="0" x="1719" y="84" height="60" width="283"  name=sil_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="폭" border="6" color="0" x="2711" y="84" height="60" width="407"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="STYLE NO" border="6" color="0" x="3136" y="84" height="60" width="306"  name=style_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="STYLE 색상" border="6" color="0" x="3461" y="84" height="60" width="448"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="1" tabsequence=32766 border="5" color="0" x="2021" y="4" height="60" width="325" format="#,##0"  name=price edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="1" tabsequence=32766 border="5" color="0" x="2363" y="4" height="60" width="329" format="#,##0"  name=amt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="5" color="0" x="1312" y="4" height="60" width="389" format="[general]"  name=color_nm edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="5" color="0" x="9" y="4" height="60" width="279" format="@@@@/@@/@@"  name=out_ymd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="5" color="0" x="306" y="4" height="60" width="320" format="@@@@@@@@@-@"  name=mat_cd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="5" color="0" x="645" y="4" height="60" width="549" format="[general]"  name=mat_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="2" tabsequence=32766 border="5" color="0" x="1211" y="4" height="60" width="82" format="[general]"  name=color edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="1" tabsequence=32766 border="5" color="0" x="1719" y="4" height="60" width="283" format="#,##0.00"  name=qty edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="5" color="0" x="2711" y="4" height="60" width="407" format="[general]"  name=spec edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression=" style  +  st_chno "border="5" color="0" x="3136" y="4" height="60" width="306" format="@@@@@@@@-@"  name=style_no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=19 alignment="0" tabsequence=32766 border="5" color="0" x="3461" y="4" height="60" width="59" format="[general]"  name=st_color edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=20 alignment="0" tabsequence=32766 border="5" color="0" x="3538" y="4" height="60" width="370" format="[general]"  name=st_color_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

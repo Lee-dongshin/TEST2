@@ -1,0 +1,40 @@
+﻿$PBExportHeader$d_92020_d04.srd
+$PBExportComments$연금저축명세
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(4) update=yes updatewhereclause=yes key=yes name=base_year dbname="tpt06_pension.base_year" )
+ column=(type=char(6) update=yes updatewhereclause=yes key=yes name=empno dbname="tpt06_pension.empno" )
+ column=(type=long update=yes updatewhereclause=yes key=yes identity=yes name=seq dbname="tpt06_pension.seq" )
+ column=(type=char(2) update=yes updatewhereclause=yes key=yes name=mone_type dbname="tpt06_pension.mone_type" )
+ column=(type=char(3) update=yes updatewhereclause=yes key=yes name=mone_dep dbname="tpt06_pension.mone_dep" )
+ column=(type=char(30) update=yes updatewhereclause=yes key=yes name=acc_num dbname="tpt06_pension.acc_num" )
+ column=(type=long update=yes updatewhereclause=yes name=annual dbname="tpt06_pension.annual" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=payment_amt dbname="tpt06_pension.payment_amt" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=deduc_amt dbname="tpt06_pension.deduc_amt" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=mone_dep_nm dbname="tpt06_pension.mone_dep_nm" )
+ retrieve="SELECT  base_year,  empno,  seq,
+        mone_type,   mone_dep, acc_num,
+        annual, payment_amt,  deduc_amt, mone_dep_nm
+From beaucre.dbo.tpt06_pension (NOLOCK)
+WHERE base_year = :as_base_year
+and   empno     = :as_empno
+" update="beaucre.dbo.tpt06_pension" updatewhere=1 updatekeyinplace=no arguments=(("as_base_year", string),("as_empno", string)) )
+text(band=header alignment="2" text="불입횟수" border="6" color="0" x="2254" y="8" height="60" width="329"  name=annual_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="금융기관" border="6" color="0" x="649" y="8" height="60" width="727"  name=mone_dep_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="공제종류" border="6" color="0" x="27" y="8" height="60" width="608"  name=mone_type_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="계좌번호" border="6" color="0" x="1390" y="8" height="60" width="850"  name=acc_num_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="공제금액" border="6" color="0" x="3026" y="8" height="60" width="357"  name=deduc_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="불입금액" border="6" color="0" x="2597" y="8" height="60" width="416"  name=payment_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=40 border="5" color="0" x="2254" y="4" height="60" width="329" format="#,###"  name=annual edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=20 border="5" color="0" x="649" y="4" height="60" width="727" format="[general]"  name=mone_dep edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=10 border="5" color="0" x="27" y="4" height="60" width="608" format="[general]"  name=mone_type edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=30 border="5" color="0" x="1390" y="4" height="60" width="850" format="[general]"  name=acc_num edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="1" tabsequence=60 border="5" color="0" x="3026" y="4" height="60" width="357" format="#,###"  name=deduc_amt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="1" tabsequence=50 border="5" color="0" x="2597" y="4" height="60" width="416" format="#,###"  name=payment_amt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="3410" y="16" height="56" width="1353" format="[general]"  name=mone_dep_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

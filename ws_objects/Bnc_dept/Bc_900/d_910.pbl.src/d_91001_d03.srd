@@ -1,0 +1,69 @@
+﻿$PBExportHeader$d_91001_d03.srd
+$PBExportComments$내부코드 관리
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=172 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(3) update=yes updatewhereclause=yes key=yes name=inter_grp dbname="tb_91011_c.INTER_GRP" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=inter_cd dbname="tb_91011_c.INTER_CD" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=inter_nm dbname="tb_91011_c.INTER_NM" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=sort_seq dbname="tb_91011_c.SORT_SEQ" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=inter_cd1 dbname="tb_91011_c.INTER_CD1" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=inter_cd2 dbname="tb_91011_c.INTER_CD2" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=inter_data1 dbname="tb_91011_c.INTER_DATA1" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=inter_data2 dbname="tb_91011_c.INTER_DATA2" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="tb_91011_c.REG_ID" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="tb_91011_c.MOD_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="tb_91011_c.MOD_DT" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=china_nm dbname="tb_91011_c.CHINA_NM" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=eng_nm dbname="tb_91011_c.eng_nm" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=inter_dec1 dbname="tb_91011_c.inter_dec1" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=inter_dec2 dbname="tb_91011_c.inter_dec2" )
+ retrieve="  SELECT INTER_GRP,   
+         INTER_CD,
+         INTER_NM,   
+			SORT_SEQ,
+         INTER_CD1,   
+         INTER_CD2,   
+         INTER_DATA1,   
+         INTER_DATA2,   
+         REG_ID,   
+         MOD_ID,   
+         MOD_DT,
+
+		   CHINA_NM,
+			eng_nm,
+			inter_dec1,
+			inter_dec2   
+    FROM TB_91011_C (nolock)
+	WHERE INTER_GRP = :as_inter_grp
+	ORDER BY SORT_SEQ
+" update="TB_91011_C" updatewhere=0 updatekeyinplace=yes arguments=(("as_inter_grp", string)) )
+button(band=header text="추가"filename=""action="11" border="0" color="1090519039" x="5" y="4" height="92" width="320" vtextalign="0" htextalign="0"  name=cb_insertrow  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421376" )
+button(band=header text="삭제"filename=""action="0" border="0" color="1090519039" x="329" y="4" height="92" width="320" vtextalign="0" htextalign="0"  name=cb_deleterow  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421376" )
+text(band=header alignment="2" text="내부코드" border="6" color="0" x="9" y="104" height="60" width="233"  name=inter_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="관련코드1" border="6" color="0" x="1275" y="104" height="60" width="302"  name=inter_cd1_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="정렬순서" border="6" color="0" x="1042" y="104" height="60" width="219"  name=sort_seq_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="관련코드2" border="6" color="0" x="1595" y="104" height="60" width="302"  name=inter_cd2_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="관련Data1" border="6" color="0" x="1915" y="104" height="60" width="302"  name=inter_data1_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="관련Data2" border="6" color="0" x="2235" y="104" height="60" width="302"  name=inter_data2_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="중국어명" border="6" color="0" x="2555" y="100" height="64" width="800"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="코 드 명" border="6" color="0" x="256" y="104" height="60" width="763"  name=inter_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="영어명" border="6" color="0" x="3369" y="100" height="64" width="800"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="inter_dec1" border="6" color="0" x="4183" y="100" height="64" width="302"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="inter_dec2" border="6" color="0" x="4498" y="100" height="64" width="302"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="5" color="0" x="18" y="4" height="56" width="219" format="[general]"  name=inter_cd_1 edit.limit=4 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=40 border="5" color="0" x="1275" y="4" height="60" width="302" format="[general]"  name=inter_cd1  tag="OE" edit.limit=10 edit.case=upper edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="1" tabsequence=30 border="5" color="0" x="1038" y="4" height="60" width="219" format="[general]"  name=sort_seq edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=50 border="5" color="0" x="1595" y="4" height="60" width="302" format="[general]"  name=inter_cd2  tag="OE" edit.limit=10 edit.case=upper edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="0" tabsequence=60 border="5" color="0" x="1915" y="4" height="60" width="302" format="[general]"  name=inter_data1 edit.limit=10 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=70 border="5" color="0" x="2231" y="4" height="60" width="302" format="[general]"  name=inter_data2 edit.limit=10 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="5" color="0" x="261" y="4" height="56" width="754" format="[general]"  name=inter_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=15 alignment="0" tabsequence=110 border="5" color="0" x="4494" y="4" height="56" width="302" format="#,##0.00"  name=inter_dec2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=14 alignment="0" tabsequence=100 border="5" color="0" x="4178" y="4" height="56" width="302" format="#,##0.00"  name=inter_dec1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=13 alignment="0" tabsequence=90 border="5" color="0" x="3355" y="4" height="56" width="809" format="[general]"  name=eng_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=12 alignment="0" tabsequence=80 border="5" color="0" x="2551" y="4" height="60" width="786" format="[general]"  name=china_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

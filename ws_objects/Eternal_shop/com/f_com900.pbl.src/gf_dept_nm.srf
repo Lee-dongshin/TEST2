@@ -1,0 +1,26 @@
+﻿$PBExportHeader$gf_dept_nm.srf
+$PBExportComments$부서명을 읽어온다.
+global type gf_dept_nm from function_object
+end type
+
+forward prototypes
+global function integer gf_dept_nm (string as_dept_cd, ref string as_dept_nm)
+end prototypes
+
+global function integer gf_dept_nm (string as_dept_cd, ref string as_dept_nm);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 작 성 일  : 2001/09/14                                     */
+/* 수 정 일  : 2001/09/14                                     */
+/* 내    용  : 사용자명을 읽어온다.                           */
+/*============================================================*/
+
+SELECT dbo.SF_DEPT_NM(:as_dept_cd)
+  INTO :as_dept_nm 
+  FROM DUAL ;
+
+IF ISNULL(as_dept_nm) THEN RETURN 100
+
+RETURN sqlca.sqlcode 
+
+end function
+

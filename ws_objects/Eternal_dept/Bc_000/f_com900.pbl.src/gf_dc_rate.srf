@@ -1,0 +1,18 @@
+﻿$PBExportHeader$gf_dc_rate.srf
+global type gf_dc_rate from function_object
+end type
+
+forward prototypes
+global function integer gf_dc_rate (string as_yymmdd, string as_shop_cd, string as_shop_type, string as_sale_type, string as_style, ref decimal as_disc_rate)
+end prototypes
+
+global function integer gf_dc_rate (string as_yymmdd, string as_shop_cd, string as_shop_type, string as_sale_type, string as_style, ref decimal as_disc_rate);select dbo.sf_Getmargin(:as_yymmdd, :as_shop_cd, :as_shop_type, :as_sale_type, :as_style)
+  INTO :as_disc_rate
+  FROM DUAL ;
+
+IF ISNULL(as_yymmdd) or ISNULL(as_shop_cd)  or ISNULL(as_shop_type)  or ISNULL(as_sale_type)  or ISNULL(as_style) THEN RETURN 100
+
+RETURN sqlca.sqlcode 
+
+end function
+

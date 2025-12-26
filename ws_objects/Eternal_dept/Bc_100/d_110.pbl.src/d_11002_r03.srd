@@ -1,0 +1,48 @@
+﻿$PBExportHeader$d_11002_r03.srd
+$PBExportComments$유통망전개계획(오픈)
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=168 color="536870912" )
+summary(height=4 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(6) updatewhereclause=yes name=yymm dbname="TB_11020_M.YYmm" )
+ column=(type=char(1) updatewhereclause=yes name=brand dbname="TB_11020_M.brand" )
+ column=(type=char(20) updatewhereclause=yes name=shop_div dbname="Shop_Div" )
+ column=(type=char(4) updatewhereclause=yes name=seq dbname="TB_11020_M.Seq" )
+ column=(type=char(20) updatewhereclause=yes name=shop_nm dbname="TB_11020_M.Shop_Nm" )
+ retrieve="  SELECT YYmm                              AS YYmm,   
+         Brand                             AS brand,   
+         dbo.sf_inter_nm('910', Shop_Div)  AS Shop_Div,   
+         Seq                               AS Seq,   
+         Shop_Nm                           AS Shop_Nm    
+    FROM TB_11020_M   
+   WHERE YYmm  Like :as_yyyy + '%' 
+     AND Brand =    :as_brand 
+
+" arguments=(("as_yyyy", string),("as_brand", string)) )
+text(band=header alignment="2" text="매장 OPEN 계획" border="0" color="0" x="37" y="24" height="56" width="1166"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+line(band=header x1="23" y1="12" x2="1216" y2="12"  name=l_5 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="23" y1="84" x2="1216" y2="84"  name=l_6 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="23" y1="164" x2="1216" y2="164"  name=l_7 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="매장 명칭" border="0" color="0" x="626" y="96" height="60" width="576"  name=shop_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="유통망" border="0" color="0" x="251" y="96" height="60" width="352"  name=shop_div_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="년월" border="0" color="0" x="37" y="96" height="60" width="192"  name=yymm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+line(band=header x1="238" y1="80" x2="238" y2="252"  name=l_2 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="613" y1="80" x2="613" y2="252"  name=l_3 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="23" y1="12" x2="23" y2="252"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="1211" y1="16" x2="1211" y2="256"  name=l_4 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="617" y1="0" x2="1211" y2="0"  name=l_12 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="23" y1="0" x2="23" y2="240"  name=l_10 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="238" y1="0" x2="238" y2="240"  name=l_8 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="613" y1="0" x2="613" y2="240"  name=l_9 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="1211" y1="0" x2="1211" y2="240"  name=l_11 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="27" y1="0" x2="238" y2="0"  name=l_13 visible="1~tif(getrow() = 1, 1,  if( yymm [-1] =  yymm , 0, 1))" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="242" y1="0" x2="613" y2="0"  name=l_14 visible="1~tif(getrow() = 1, 1,  if( yymm [-1] =  yymm and  shop_div [-1] =  shop_div , 0, 1))" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="37" y="16" height="60" width="192" format="@@@@/@@"  name=yymm  tag="OE" edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="251" y="16" height="60" width="352" format="[general]"  name=shop_div  tag="OE" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="626" y="16" height="60" width="576" format="[general]"  name=shop_nm  tag="DK" edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+line(band=summary x1="23" y1="0" x2="1216" y2="0"  name=l_15 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+
+sparse(names="yymm	shop_div")htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

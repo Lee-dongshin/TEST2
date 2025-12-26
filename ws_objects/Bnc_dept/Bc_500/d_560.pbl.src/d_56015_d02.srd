@@ -1,0 +1,12 @@
+﻿$PBExportHeader$d_56015_d02.srd
+$PBExportComments$점재고 재매입
+release 7;
+datawindow(units=0 timer_interval=0 color=8421376 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=144 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=a dbname="a" )
+ )
+text(band=detail alignment="2" text="※ 현재작업이 진행 중 입니다! 잠시만 기다려주세요!" border="0" color="65535" x="9" y="40" height="68" width="2011"  name=a_t  font.face="굴림체" font.height="-11" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

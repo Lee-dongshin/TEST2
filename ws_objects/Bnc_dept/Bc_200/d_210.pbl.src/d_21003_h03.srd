@@ -1,0 +1,35 @@
+﻿$PBExportHeader$d_21003_h03.srd
+$PBExportComments$자재발주 복종별 모델수
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(10) update=yes updatewhereclause=yes key=yes name=mat_cd dbname="TB_21013_D.Mat_Cd" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=item dbname="TB_21013_D.item" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=mod_cnt dbname="TB_21013_D.Mod_Cnt" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=plan_qty dbname="TB_21013_D.Plan_Qty" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="TB_21013_D.Reg_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="TB_21013_D.Reg_Dt" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="TB_21013_D.Mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="TB_21013_D.Mod_Dt" )
+ retrieve="  SELECT Mat_Cd,   
+         item,   
+         Mod_Cnt,   
+         Plan_Qty,   
+         Reg_id,   
+         Reg_Dt,   
+         Mod_id,   
+         Mod_Dt  
+    FROM TB_21013_D   
+	where mat_cd = :as_mat_cd
+" update="TB_21013_D" updatewhere=1 updatekeyinplace=no arguments=(("as_mat_cd", string)) )
+text(band=header alignment="2" text="복종" border="6" color="0" x="9" y="8" height="56" width="389"  name=item_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="모텔수" border="6" color="0" x="407" y="8" height="56" width="210"  name=mod_cnt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="계획량" border="6" color="0" x="626" y="8" height="56" width="238"  name=plan_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="5" color="0" x="9" y="0" height="60" width="389" format="[general]"  name=item edit.name="품종(품번)" dddw.name=d_com003 dddw.displaycolumn=item_display dddw.datacolumn=item dddw.percentwidth=100 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="1" tabsequence=20 border="5" color="0" x="407" y="0" height="60" width="210" format="[general]"  name=mod_cnt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="1" tabsequence=30 border="5" color="0" x="626" y="0" height="60" width="238" format="[general]"  name=plan_qty edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

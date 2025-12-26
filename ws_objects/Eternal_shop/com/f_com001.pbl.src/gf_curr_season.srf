@@ -1,0 +1,31 @@
+﻿$PBExportHeader$gf_curr_season.srf
+$PBExportComments$기준일에 따른 해당 시즌
+global type gf_curr_season from function_object
+end type
+
+forward prototypes
+global function boolean gf_curr_season (datetime adt_date, ref string as_season)
+end prototypes
+
+global function boolean gf_curr_season (datetime adt_date, ref string as_season);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 작 성 일  : 2001/12/28                                     */
+/* 수 정 일  : 2001/12/28                                     */
+/* 내    용  : 기준일자에 해당하는 시즌년도 산출              */
+/*============================================================*/
+
+select dbo.sf_curr_season(:adt_date)
+  into :as_season
+  from DUAL;
+
+IF SQLCA.SQLCODE <> 0 THEN
+	MessageBox("System 오류", SQLCA.SqlErrText) 
+	Return False
+END IF
+
+IF ISNULL(as_season) THEN RETURN FALSE
+
+RETURN TRUE  
+
+end function
+

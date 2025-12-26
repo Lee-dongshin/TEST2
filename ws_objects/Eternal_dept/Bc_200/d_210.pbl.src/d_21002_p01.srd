@@ -1,0 +1,31 @@
+﻿$PBExportHeader$d_21002_p01.srd
+$PBExportComments$테스트 일자 팝업
+release 7;
+datawindow(units=0 timer_interval=0 color=82899184 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=532 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes key=yes name=style dbname="test_0226_m.style" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=test_date dbname="test_0226_m.test_date" )
+ column=(type=char(200) update=yes updatewhereclause=yes name=test_detail dbname="test_0226_m.test_detail" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="test_0226_m.reg_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="test_0226_m.reg_dt" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="test_0226_m.mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="test_0226_m.mod_dt" )
+ retrieve="  SELECT style,   
+         test_date,   
+         test_detail,   
+         reg_id,   
+         reg_dt,   
+         mod_id,   
+         mod_dt
+    FROM dbo.test_0226_m
+	WHERE STYLE LIKE :p_style" update="dbo.test_0226_m" updatewhere=0 updatekeyinplace=yes arguments=(("p_style", string)) )
+text(band=detail alignment="1" text="테스트 일자" border="0" color="0" x="850" y="44" height="68" width="361"  name=test_date_t  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="스타일번호" border="0" color="0" x="27" y="44" height="68" width="361"  name=style_t  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="테스트 내용" border="0" color="0" x="27" y="140" height="68" width="361"  name=test_detail_t  font.face="굴림체" font.height="-10" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=10 border="5" color="0" x="411" y="140" height="372" width="1234" format="[general]"  name=test_detail edit.limit=200 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autovscroll=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="2" color="0" x="411" y="40" height="68" width="407" format="[general]"  name=style edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-10" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="0" x="1239" y="40" height="68" width="407" format="@@@@/@@/@@"  name=test_date edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="82899184" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

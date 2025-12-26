@@ -1,0 +1,133 @@
+﻿$PBExportHeader$d_62011_d01.srd
+$PBExportComments$매장/품번별판매순위(이미지)
+release 7;
+datawindow(units=1 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 1 print.margin.left = 24 print.margin.right = 24 print.margin.top = 24 print.margin.bottom = 24 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=1 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=287 color="536870912"  height.autosize=yes)
+table(column=(type=char(8) updatewhereclause=yes name=style1 dbname="VI_12020_1.STYLE1" )
+ column=(type=char(1) updatewhereclause=yes name=chno1 dbname="VI_12020_1.CHNO1" )
+ column=(type=decimal(0) updatewhereclause=yes name=tag_price1 dbname="VI_12020_1.TAG_PRICE1" )
+ column=(type=char(10) updatewhereclause=yes name=mat_cd1 dbname="VI_12020_1.MAT_CD1" )
+ column=(type=char(30) updatewhereclause=yes name=mat_nm1 dbname="VI_12020_1.MAT_NM1" )
+ column=(type=char(60) updatewhereclause=yes name=style_pic1 dbname="STYLE_PIC1" )
+ column=(type=char(8) updatewhereclause=yes name=style2 dbname="VI_12020_1.STYLE2" )
+ column=(type=char(1) updatewhereclause=yes name=chno2 dbname="VI_12020_1.CHNO2" )
+ column=(type=decimal(0) updatewhereclause=yes name=tag_price2 dbname="VI_12020_1.TAG_PRICE2" )
+ column=(type=char(10) updatewhereclause=yes name=mat_cd2 dbname="VI_12020_1.MAT_CD2" )
+ column=(type=char(30) updatewhereclause=yes name=mat_nm2 dbname="VI_12020_1.MAT_NM2" )
+ column=(type=char(60) updatewhereclause=yes name=style_pic2 dbname="STYLE_PIC2" )
+ column=(type=char(8) updatewhereclause=yes name=style3 dbname="VI_12020_1.STYLE3" )
+ column=(type=char(1) updatewhereclause=yes name=chno3 dbname="VI_12020_1.CHNO3" )
+ column=(type=decimal(0) updatewhereclause=yes name=tag_price3 dbname="VI_12020_1.TAG_PRICE3" )
+ column=(type=char(10) updatewhereclause=yes name=mat_cd3 dbname="VI_12020_1.MAT_CD3" )
+ column=(type=char(30) updatewhereclause=yes name=mat_nm3 dbname="VI_12020_1.MAT_NM3" )
+ column=(type=char(60) updatewhereclause=yes name=style_pic3 dbname="STYLE_PIC3" )
+ column=(type=char(8) updatewhereclause=yes name=style4 dbname="VI_12020_1.STYLE4" )
+ column=(type=char(1) updatewhereclause=yes name=chno4 dbname="VI_12020_1.CHNO4" )
+ column=(type=decimal(0) updatewhereclause=yes name=tag_price4 dbname="VI_12020_1.TAG_PRICE4" )
+ column=(type=char(10) updatewhereclause=yes name=mat_cd4 dbname="VI_12020_1.MAT_CD4" )
+ column=(type=char(30) updatewhereclause=yes name=mat_nm4 dbname="VI_12020_1.MAT_NM4" )
+ column=(type=char(60) updatewhereclause=yes name=style_pic4 dbname="STYLE_PIC4" )
+ column=(type=char(8) updatewhereclause=yes name=style5 dbname="VI_12020_1.STYLE5" )
+ column=(type=char(1) updatewhereclause=yes name=chno5 dbname="VI_12020_1.CHNO5" )
+ column=(type=decimal(0) updatewhereclause=yes name=tag_price5 dbname="VI_12020_1.TAG_PRICE5" )
+ column=(type=char(10) updatewhereclause=yes name=mat_cd5 dbname="VI_12020_1.MAT_CD5" )
+ column=(type=char(30) updatewhereclause=yes name=mat_nm5 dbname="VI_12020_1.MAT_NM5" )
+ column=(type=char(60) updatewhereclause=yes name=style_pic5 dbname="STYLE_PIC5" )
+ column=(type=char(8) updatewhereclause=yes name=fr_yymmdd dbname="fr_yymmdd" )
+ column=(type=char(8) updatewhereclause=yes name=to_yymmdd dbname="to_yymmdd" )
+ column=(type=char(6) updatewhereclause=yes name=shop_cd dbname="shop_cd" )
+ column=(type=char(1) updatewhereclause=yes name=sale_type dbname="sale_type" )
+ column=(type=char(1) updatewhereclause=yes name=sort_fg dbname="sort_fg" )
+ retrieve="  SELECT  
+         STYLE AS STYLE1, CHNO AS CHNO1,
+         TAG_PRICE AS TAG_PRICE1,
+         MAT_CD    AS MAT_CD1, 
+         MAT_NM    AS MAT_NM1,
+         SPACE(60) AS STYLE_PIC1,    
+         STYLE AS STYLE2, CHNO AS CHNO2,
+         TAG_PRICE AS TAG_PRICE2,
+         MAT_CD    AS MAT_CD2, 
+         MAT_NM    AS MAT_NM2,
+         SPACE(60) AS STYLE_PIC2,      
+         STYLE AS STYLE3, CHNO AS CHNO3,
+         TAG_PRICE AS TAG_PRICE3,
+         MAT_CD    AS MAT_CD3, 
+         MAT_NM    AS MAT_NM3,
+         SPACE(60) AS STYLE_PIC3, 
+         STYLE AS STYLE4, CHNO AS CHNO4,
+         TAG_PRICE AS TAG_PRICE4,
+         MAT_CD    AS MAT_CD4, 
+         MAT_NM    AS MAT_NM4,
+         SPACE(60) AS STYLE_PIC4,
+         STYLE AS STYLE5, CHNO AS CHNO5,
+          TAG_PRICE AS TAG_PRICE5,
+         MAT_CD    AS MAT_CD5, 
+         MAT_NM    AS MAT_NM5,
+         SPACE(60) AS STYLE_PIC5,
+         space(8)  as fr_yymmdd,
+         space(8)  as to_yymmdd,
+         space(6)  as shop_cd,
+         space(1)  as sale_type,
+         space(1)  as sort_fg 
+    FROM vi_12020_1
+   where brand = 'x'
+" )
+compute(band=detail alignment="2" expression=" style1 + '-' + chno1 "border="2" color="0" x="79" y="6" height="18" width="108" format=""  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="2" color="0" x="79" y="25" height="17" width="108" format="#,##0"  name=tag_price1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="2" color="0" x="79" y="43" height="18" width="108" format="@@@@@@@@@-@"  name=mat_cd1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="2" color="0" x="79" y="62" height="18" width="108" format="[general]"  name=mat_nm1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="190" y="81" height="166" width="166" format="[general]"  name=style_pic2 bitmapname=yes edit.limit=12 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="판매가" border="2" color="0" x="188" y="25" height="17" width="61"  name=cust_cd2_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33487337" )
+text(band=detail alignment="2" text="소재명" border="2" color="0" x="188" y="62" height="18" width="61"  name=t_20  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33487337" )
+text(band=detail alignment="2" text="소재" border="2" color="0" x="188" y="43" height="18" width="61"  name=t_15  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33487337" )
+text(band=detail alignment="2" text="Style No" border="2" color="0" x="188" y="6" height="18" width="61"  name=style_no2_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33487337" )
+compute(band=detail alignment="2" expression=" style2 + '-' + chno2"border="2" color="0" x="250" y="6" height="18" width="108" format=""  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="2" tabsequence=32766 border="2" color="0" x="250" y="43" height="18" width="108" format="@@@@@@@@@-@"  name=mat_cd2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="2" tabsequence=32766 border="2" color="0" x="250" y="62" height="18" width="108" format="[general]"  name=mat_nm2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="0" color="0" x="361" y="81" height="166" width="166" format="[general]"  name=style_pic3 bitmapname=yes edit.limit=12 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="소재명" border="2" color="0" x="359" y="62" height="18" width="61"  name=t_24  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33487337" )
+text(band=detail alignment="2" text="소재" border="2" color="0" x="359" y="43" height="18" width="61"  name=t_23  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33487337" )
+text(band=detail alignment="2" text="판매가" border="2" color="0" x="359" y="25" height="17" width="61"  name=cust_cd3_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33487337" )
+text(band=detail alignment="2" text="Style No" border="2" color="0" x="359" y="6" height="18" width="61"  name=style_no3_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33487337" )
+compute(band=detail alignment="2" expression=" style3 + '-' + chno3"border="2" color="0" x="421" y="6" height="18" width="108" format=""  name=compute_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="2" tabsequence=32766 border="2" color="0" x="421" y="25" height="17" width="108" format="#,##0"  name=tag_price3 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="2" tabsequence=32766 border="2" color="0" x="421" y="43" height="18" width="108" format="@@@@@@@@@-@"  name=mat_cd3 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=17 alignment="2" tabsequence=32766 border="2" color="0" x="421" y="62" height="18" width="108" format="[general]"  name=mat_nm3 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=24 alignment="0" tabsequence=32766 border="0" color="0" x="532" y="81" height="166" width="166" format="[general]"  name=style_pic4 bitmapname=yes edit.limit=12 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="소재명" border="2" color="0" x="530" y="62" height="18" width="61"  name=t_22  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33487337" )
+text(band=detail alignment="2" text="소재" border="2" color="0" x="530" y="43" height="18" width="61"  name=t_21  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33487337" )
+text(band=detail alignment="2" text="판매가" border="2" color="0" x="530" y="25" height="17" width="61"  name=cust_cd4_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33487337" )
+text(band=detail alignment="2" text="Style No" border="2" color="0" x="530" y="6" height="18" width="61"  name=style_no4_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33487337" )
+compute(band=detail alignment="2" expression=" style4 + '-' + chno4"border="2" color="0" x="592" y="6" height="18" width="108" format=""  name=compute_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=22 alignment="2" tabsequence=32766 border="2" color="0" x="592" y="43" height="18" width="108" format="@@@@@@@@@-@"  name=mat_cd4 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=23 alignment="2" tabsequence=32766 border="2" color="0" x="592" y="62" height="18" width="108" format="[general]"  name=mat_nm4 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="Style No" border="2" color="0" x="701" y="6" height="18" width="61"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33487337" )
+column(band=detail id=21 alignment="2" tabsequence=32766 border="2" color="0" x="592" y="25" height="17" width="108" format="#,##0"  name=tag_price4 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=30 alignment="0" tabsequence=32766 border="0" color="0" x="703" y="81" height="166" width="166" format="[general]"  name=style_pic5 bitmapname=yes edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="2" expression=" style5 + '-' + chno5"border="2" color="0" x="763" y="6" height="18" width="108" format=""  name=compute_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="판매가" border="2" color="0" x="701" y="25" height="17" width="61"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33487337" )
+text(band=detail alignment="2" text="소재" border="2" color="0" x="701" y="43" height="18" width="61"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33487337" )
+text(band=detail alignment="2" text="소재명" border="2" color="0" x="701" y="62" height="18" width="61"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33487337" )
+column(band=detail id=27 alignment="2" tabsequence=32766 border="2" color="0" x="763" y="25" height="17" width="108" format="#,##0"  name=tag_price5 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="2" tabsequence=32766 border="2" color="0" x="250" y="25" height="17" width="108" format="#,##0"  name=tag_price2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=28 alignment="2" tabsequence=32766 border="2" color="0" x="763" y="43" height="18" width="108" format="[general]"  name=mat_cd5 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=29 alignment="2" tabsequence=32766 border="2" color="0" x="763" y="62" height="18" width="108" format="[general]"  name=mat_nm5 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="소재명" border="2" color="0" x="17" y="62" height="18" width="61"  name=t_11  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33487337" )
+text(band=detail alignment="2" text="소재" border="2" color="0" x="17" y="43" height="18" width="61"  name=t_10  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33487337" )
+text(band=detail alignment="2" text="판매가" border="2" color="0" x="17" y="25" height="17" width="61"  name=cust_cd1_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33487337" )
+text(band=detail alignment="2" text="Style No" border="2" color="0" x="17" y="6" height="18" width="61"  name=style_no1_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33487337" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="19" y="81" height="166" width="166" format="[general]"  name=style_pic1 bitmapname=yes edit.limit=12 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="" border="2" color="0" x="701" y="81" height="168" width="170"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="" border="2" color="0" x="530" y="81" height="168" width="170"  name=t_13  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="" border="2" color="0" x="359" y="81" height="168" width="170"  name=t_14  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="" border="2" color="0" x="188" y="81" height="168" width="170"  name=t_12  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="" border="2" color="0" x="17" y="81" height="168" width="170"  name=t_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+report(band=detail dataobject="d_62011_d02" x="17" y="252" height="30" width="180" border="0"  height.autosize=yes criteria="" nest_arguments=((" fr_yymmdd "),(" to_yymmdd "),(" shop_cd "),(" style1 "),(" chno1 "),(" sale_type "),(" sort_fg ")) trail_footer = yes  name=dw_detail1  slideup=directlyabove )
+report(band=detail dataobject="d_62011_d02" x="188" y="252" height="30" width="180" border="0"  height.autosize=yes criteria="" nest_arguments=((" fr_yymmdd "),(" to_yymmdd "),(" shop_cd "),(" style2 "),(" chno2 "),(" sale_type "),(" sort_fg ")) trail_footer = yes  name=dw_1  slideup=directlyabove )
+report(band=detail dataobject="d_62011_d02" x="359" y="252" height="30" width="180" border="0"  height.autosize=yes criteria="" nest_arguments=((" fr_yymmdd "),(" to_yymmdd "),(" shop_cd "),(" style3 "),(" chno3 "),(" sale_type "),(" sort_fg ")) trail_footer = yes  name=dw_2  slideup=directlyabove )
+report(band=detail dataobject="d_62011_d02" x="530" y="252" height="30" width="180" border="0"  height.autosize=yes criteria="" nest_arguments=((" fr_yymmdd "),(" to_yymmdd "),(" shop_cd "),(" style4 "),(" chno4 "),(" sale_type "),(" sort_fg ")) trail_footer = yes  name=dw_3  slideup=directlyabove )
+report(band=detail dataobject="d_62011_d02" x="701" y="252" height="30" width="177" border="0"  height.autosize=yes criteria="" nest_arguments=((" fr_yymmdd "),(" to_yymmdd "),(" shop_cd "),(" style5 "),(" chno5 "),(" sale_type "),(" sort_fg ")) trail_footer = yes  name=dw_4  slideup=directlyabove )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

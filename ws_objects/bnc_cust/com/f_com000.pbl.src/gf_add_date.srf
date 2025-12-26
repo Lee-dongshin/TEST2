@@ -1,0 +1,28 @@
+﻿$PBExportHeader$gf_add_date.srf
+$PBExportComments$기준일자에 일자를 더한 일자 구하기
+global type gf_add_date from function_object
+end type
+
+forward prototypes
+global function boolean gf_add_date (datetime ad_datetime, integer ai_day, ref string as_date)
+end prototypes
+
+global function boolean gf_add_date (datetime ad_datetime, integer ai_day, ref string as_date);/*============================================================*/
+/* 작 성 자  : 김 종 호                                       */
+/* 내    용  : 기준일에서 일자를 더한 일자를 구한다.          */
+/*============================================================*/
+
+
+SELECT CONVERT(VARCHAR(8), DATEADD(Day,  :ai_day, :ad_datetime), 112)
+  INTO :as_date
+  FROM DUAL ;
+  
+IF sqlca.sqlcode <> 0  THEN
+	MessageBox("일자 조회오류", SQLCA.SQLErrText)
+	RETURN FALSE
+END IF
+
+RETURN TRUE
+
+end function
+

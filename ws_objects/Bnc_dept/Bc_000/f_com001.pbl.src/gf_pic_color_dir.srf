@@ -1,0 +1,25 @@
+﻿$PBExportHeader$gf_pic_color_dir.srf
+global type gf_pic_color_dir from function_object
+end type
+
+forward prototypes
+global function long gf_pic_color_dir (string as_pic_cd, string as_color, ref string as_pic_nm)
+end prototypes
+
+global function long gf_pic_color_dir (string as_pic_cd, string as_color, ref string as_pic_nm);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 작 성 일  : 2002/01/04                                     */
+/* 수 정 일  : 2002/01/04                                     */
+/* 내    용  : 그림화일 위치 산출.                            */
+/*============================================================*/
+
+SELECT dbo.SF_PIC_COLOR_DIR(:as_pic_cd, :as_color)
+  INTO :as_pic_nm 
+  FROM DUAL ;
+
+IF ISNULL(as_pic_nm) THEN RETURN 100
+
+RETURN sqlca.sqlcode 
+
+end function
+

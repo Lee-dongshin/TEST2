@@ -1,0 +1,22 @@
+﻿$PBExportHeader$d_62013_r00.srd
+$PBExportComments$출고상품매장인기도 분석
+release 7;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=5 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=184 color="536870912" )
+summary(height=1860 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=136 color="536870912"  height.autosize=yes)
+table(column=(type=char(10) updatewhereclause=yes name=a dbname="a" )
+ unbound = "yes"arguments=(("brand", string),("year", string),("season", string),("item", string),("style", string),("c_style", string),("yymmdd", string),("gubn", string)) )
+text(band=header alignment="2" text="출고 상품 매장 인기도 분석" border="1" color="0" x="763" y="40" height="72" width="1362"  name=t_1  font.face="굴림체" font.height="-12" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="W_99999_E" border="0" color="0" x="2318" y="40" height="52" width="256"  name=t_pg_id  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="1999/99/99-99:99:99" border="0" color="0" x="2551" y="104" height="52" width="521"  name=t_datetime  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="M99999" border="0" color="0" x="2304" y="104" height="52" width="192"  name=t_user_id  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="-" border="0" color="0" x="2510" y="104" height="52" width="27"  name=t_14  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="-" border="0" color="0" x="2587" y="40" height="52" width="27"  name=t_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=header alignment="1" expression="~"Page: ~" + Fill(~"*~", 4 - Len(String(page()))) + page() + ~"/~" + Fill(~"*~", 4 - Len(String(pageCount()))) + pageCount()"border="0" color="0" x="2629" y="40" height="52" width="443" format="[GENERAL]"  name=compute_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+line(band=header x1="0" y1="176" x2="3077" y2="176"  name=l_1 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+report(band=detail dataobject="d_62013_r02" x="18" y="12" height="120" width="3077" border="0"  height.autosize=yes criteria="" nest_arguments=(("brand"),("year"),("season"),("item"),("style"),("yymmdd")) trail_footer = yes  name=dw_2  slideup=directlyabove )
+report(band=summary dataobject="d_62013_c02" x="18" y="8" height="1840" width="3072" border="0"  height.autosize=yes criteria="" nest_arguments=(("c_style"),("gubn")) trail_footer = yes  name=dw_1  slideup=directlyabove )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

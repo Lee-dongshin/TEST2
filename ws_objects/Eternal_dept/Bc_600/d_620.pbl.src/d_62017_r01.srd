@@ -1,0 +1,14 @@
+﻿$PBExportHeader$d_62017_r01.srd
+$PBExportComments$시즌별 판매배수 분석
+release 7;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=5 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=748 color="536870912"  height.autosize=yes)
+table(column=(type=char(10) updatewhereclause=yes name=a dbname="a" )
+ unbound = "yes")
+text(band=detail alignment="2" text="시즌별 배수분석" border="0" color="0" x="50" y="52" height="80" width="622"  name=t_1  font.face="Arial" font.height="-12" font.weight="700"  font.family="2" font.pitch="2" font.charset="0" font.underline="1" background.mode="2" background.color="16777215" )
+report(band=detail dataobject="d_62017_d01" x="32" y="620" height="120" width="1426" border="0"  height.autosize=yes criteria="" trail_footer = yes  name=dw_1  slideleft=yes  slideup=directlyabove )
+report(band=detail dataobject="d_62017_d02" x="32" y="332" height="120" width="1426" border="0"  height.autosize=yes criteria="" trail_footer = yes  name=dw_2  slideleft=yes  slideup=directlyabove )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

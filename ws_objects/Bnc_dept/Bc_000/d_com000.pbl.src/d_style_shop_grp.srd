@@ -1,0 +1,32 @@
+﻿$PBExportHeader$d_style_shop_grp.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no rows_per_detail = 2 )
+header(height=92 color="536870912" )
+summary(height=68 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(255) updatewhereclause=yes name=shop_nm dbname="shop_nm" )
+ column=(type=decimal(0) updatewhereclause=yes name=sale_qty dbname="sale_qty" )
+ retrieve="select top 10  replace(replace(dbo.sf_shop_nm(shop_cd, 's'),'(올리브)',''),'(W.)','') as shop_nm, 
+  sum(isnull(sale_qty,0)) - sum(isnull(sale_qty9,0)) as sale_qty
+from tb_44012_s a (nolock), tb_12020_m b (nolock)
+where a.style    = :As_style
+and   a.style    = b.style
+and   a.year     = b.year 
+and   a.season   = b.season
+and   a.shop_div in ('G','K','D','B','E','H')
+group by shop_cd
+having  sum(isnull(sale_qty,0)) - sum(isnull(sale_qty9,0))  > 0
+order by 2 desc
+" arguments=(("as_style", string)) )
+text(band=header alignment="2" text="매장명" border="6" color="33554432" x="5" y="8" height="60" width="457"  name=shop_nm_t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="판매수량" border="6" color="33554432" x="475" y="8" height="60" width="256"  name=sale_qty_t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="매장명" border="6" color="33554432" x="782" y="8" height="60" width="457"  name=shop_nm_t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="판매수량" border="6" color="33554432" x="1253" y="8" height="60" width="256"  name=sale_qty_t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="0" y="4" height="60" width="457" format="[general]" row_in_detail=1  name=shop_nm_1 edit.limit=255 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="33554432" x="782" y="4" height="60" width="457" format="[general]" row_in_detail=2  name=shop_nm_2 edit.limit=255 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="128" x="475" y="4" height="60" width="251" format="[general]" row_in_detail=1  name=sale_qty_1 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="128" x="1253" y="4" height="60" width="251" format="[general]" row_in_detail=2  name=sale_qty_2 edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=summary alignment="0" text="※더블클릭하시면 사라집니다!" border="0" color="16711680" x="18" y="8" height="56" width="1390"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

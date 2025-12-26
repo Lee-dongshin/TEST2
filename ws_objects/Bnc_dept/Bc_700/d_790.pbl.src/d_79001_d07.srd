@@ -1,0 +1,47 @@
+﻿$PBExportHeader$d_79001_d07.srd
+$PBExportComments$통화예약
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=136 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=156 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=a_reserv_date dbname="TB_79014_D.reserv_date" )
+ column=(type=char(5) updatewhereclause=yes name=a_reserv_time dbname="TB_79014_D.reserv_time" )
+ column=(type=char(4099) updatewhereclause=no name=a_reserv_text dbname="TB_79014_D.reserv_text" )
+ column=(type=char(20) updatewhereclause=yes name=b_custom_nm dbname="TB_79014_D.CUSTOM_NM" )
+ column=(type=char(6) updatewhereclause=yes name=b_shop_cd dbname="TB_79014_D.SHOP_CD" )
+ column=(type=char(30) updatewhereclause=yes name=shop_nm dbname="SHOP_NM" )
+ column=(type=char(20) updatewhereclause=yes name=b_tel_no3 dbname="TB_79014_D.tel_no3" )
+ column=(type=char(8) updatewhereclause=yes name=b_yymmdd dbname="TB_79014_D.yymmdd" )
+ column=(type=char(4) updatewhereclause=yes name=b_seq_no dbname="TB_79014_D.seq_no" )
+ column=(type=char(1) updatewhereclause=yes name=a_reserv_complete dbname="TB_79014_D.reserv_complete" )
+ retrieve="
+
+select a.reserv_date, a.reserv_time, a.reserv_text, 
+       b.CUSTOM_NM, 
+       b.SHOP_CD, dbo.sf_shop_nm(b.SHOP_CD, 'S') AS SHOP_NM,
+       b.tel_no3, b.yymmdd, b.seq_no, a.reserv_complete
+	
+		
+from tb_79014_d a (nolock), tb_79010_m b (nolock)
+where a.reserv_date = convert(char(8), getdate(), 112)
+and a.yymmdd = b.yymmdd
+and a.seq_no = b.seq_no
+and a.reg_id like :as_empno + '%'
+and a.reserv_time between  replace( convert(char(5), dateadd(mi,0, getdate()), 108), ':','')  and  replace( convert(char(5), dateadd(mi,0, getdate()), 108), ':','')
+and isnull(a.reserv_complete,'N') = 'N'
+" arguments=(("as_empno", string)) )
+text(band=header alignment="2" text="
+예약내역" border="6" color="0" x="320" y="4" height="124" width="1413"  name=a_reserv_text_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="예약시간" border="6" color="0" x="9" y="4" height="56" width="297"  name=a_reserv_time_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="고객명" border="6" color="0" x="9" y="72" height="56" width="297"  name=b_custom_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+연락처" border="6" color="0" x="1746" y="4" height="124" width="512"  name=b_tel_no3_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="320" y="4" height="132" width="1413" format="[general]"  name=a_reserv_text edit.limit=4099 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30800893" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="255" x="9" y="4" height="60" width="297" format="@@:@@"  name=a_reserv_time edit.limit=5 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="9" y="76" height="60" width="297" format="[general]"  name=b_custom_nm edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=7 alignment="2" tabsequence=32766 border="0" color="0" x="1746" y="4" height="132" width="512" format="[general]"  name=b_tel_no3 edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+line(band=detail x1="14" y1="148" x2="2254" y2="148"  name=l_1 pen.style="2" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

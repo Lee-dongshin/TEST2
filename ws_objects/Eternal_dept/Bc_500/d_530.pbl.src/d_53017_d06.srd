@@ -1,0 +1,17 @@
+﻿$PBExportHeader$d_53017_d06.srd
+$PBExportComments$타브랜드 월매출조회서브
+release 7;
+datawindow(units=0 timer_interval=0 color=82042848 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=816 color="536870912"  height.autosize=yes)
+table(column=(type=char(3) updatewhereclause=yes name=area_no dbname="area_no" )
+ column=(type=char(30) updatewhereclause=yes name=area_nm dbname="area_nm" )
+ column=(type=char(6) updatewhereclause=yes name=store_cd dbname="store_cd" )
+ column=(type=char(30) updatewhereclause=yes name=store_nm dbname="store_nm" )
+ column=(type=char(1) updatewhereclause=yes name=brand dbname="brand" )
+ column=(type=char(6) updatewhereclause=yes name=yymm dbname="yymm" )
+ procedure="1 execute dbo.sp_53017_d01;1 @brand = :brand, @yymm = :yymm, @area_no = :area_no" arguments=(("brand", string),("yymm", string),("area_no", string))  sort="store_cd A " )
+report(band=detail dataobject="d_53017_d05" x="18" y="8" height="804" width="4773" border="2" criteria="" nest_arguments=((" brand "),(" yymm "),(" area_no "),(" store_cd ")) trail_footer = yes  name=dw_1  slideup=directlyabove )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

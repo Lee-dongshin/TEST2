@@ -1,0 +1,19 @@
+﻿$PBExportHeader$d_mat_h21.srd
+$PBExportComments$클레임현황
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=132 color="536870912" )
+table(column=(type=char(1) updatewhereclause=yes name=brand dbname="brand" )
+ column=(type=char(8) updatewhereclause=yes name=fr_yymmdd dbname="fr_yymmdd" )
+ column=(type=char(8) updatewhereclause=yes name=to_yymmdd dbname="to_yymmdd" )
+ column=(type=char(6) updatewhereclause=yes name=cust_cd dbname="cust_cd" )
+ column=(type=char(20) updatewhereclause=yes name=cust_nm dbname="cust_nm" )
+ )
+text(band=detail alignment="2" text="~~" border="0" color="0" x="978" y="32" height="56" width="101"  name=to_yymmdd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="조회기간:" border="0" color="0" x="238" y="32" height="56" width="357"  name=fr_yymmdd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="617" y="32" height="60" width="347" format="@@@@.@@.@@"  name=fr_yymmdd edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="5" color="0" x="1093" y="32" height="60" width="347" format="@@@@.@@.@@"  name=to_yymmdd edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="1090519039" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

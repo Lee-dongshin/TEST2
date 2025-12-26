@@ -1,0 +1,52 @@
+﻿$PBExportHeader$d_com701.srd
+$PBExportComments$회원조회 [검색창]
+release 7;
+datawindow(units=0 timer_interval=0 color=80269528 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(16) updatewhereclause=yes name=card_no dbname="TB_71010_M.card_no" )
+ column=(type=char(13) update=yes updatewhereclause=yes key=yes name=jumin dbname="TB_71010_M.jumin" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=user_name dbname="TB_71010_M.user_name" )
+ column=(type=char(16) updatewhereclause=yes name=user_id dbname="TB_71010_M.user_id" )
+ column=(type=number updatewhereclause=yes name=sex dbname="TB_71010_M.sex" )
+ column=(type=char(50) updatewhereclause=yes name=email dbname="TB_71010_M.email" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=tel_no1 dbname="TB_71010_M.tel_no1" )
+ column=(type=char(20) updatewhereclause=yes name=tel_no2 dbname="TB_71010_M.tel_no2" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=tel_no3 dbname="TB_71010_M.tel_no3" )
+ column=(type=char(200) updatewhereclause=yes name=addr dbname="TB_71010_M.addr" )
+ column=(type=long updatewhereclause=yes name=total_point dbname="TB_71010_M.total_point" )
+ column=(type=long updatewhereclause=yes name=give_point dbname="TB_71010_M.give_point" )
+ column=(type=long updatewhereclause=yes name=accept_point dbname="TB_71010_M.accept_point" )
+ retrieve="  SELECT card_no,
+			jumin,   
+         user_name,  
+			user_id, 
+         sex, 
+         email,
+         tel_no1,   
+         tel_no2,
+         tel_no3,   
+         addr,   
+         total_point, 
+         give_point, 
+         accept_point 
+    FROM beaucre.dbo.TB_71010_M   with (nolock) 
+" update="TB_71010_M" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="카드번호" border="6" color="0" x="18" y="8" height="56" width="617"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="주민번호" border="6" color="0" x="654" y="8" height="56" width="443"  name=jumin_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="고객명" border="6" color="0" x="1115" y="8" height="56" width="302"  name=user_name_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="자택전화" border="6" color="0" x="2487" y="8" height="56" width="576"  name=tel_no1_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="휴대전화" border="6" color="0" x="3081" y="8" height="56" width="576"  name=tel_no3_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="e-Mail" border="6" color="0" x="1755" y="8" height="56" width="713"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="아이디" border="6" color="0" x="1435" y="8" height="56" width="302"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="2" tabsequence=10 border="5" color="0" x="18" y="8" height="56" width="617" format="[general]" protect="0~tif( isrownew(), 0, 1 )"  name=card_no editmask.mask="#### #### #### ####" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="536870912~tif( isrownew(), RGB(255,255, 255), 536870912 )" )
+column(band=detail id=2 alignment="2" tabsequence=20 border="5" color="0" x="654" y="8" height="56" width="443" format="[general]" protect="0~tif( isrownew(), 0, 1 )"  name=jumin editmask.mask="######-#######" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="536870912~tif( isrownew(), RGB(255,255, 255), 536870912 )" )
+column(band=detail id=7 alignment="2" tabsequence=60 border="5" color="0" x="2487" y="8" height="56" width="576" format="[general]" protect="0~tif( isrownew(), 0, 1 )"  name=tel_no1 edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="536870912~tif( isrownew(), RGB(255,255, 255), 536870912 )" )
+column(band=detail id=9 alignment="2" tabsequence=70 border="5" color="0" x="3081" y="8" height="56" width="576" format="[general]" protect="0~tif( isrownew(), 0, 1 )"  name=tel_no3 edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="536870912~tif( isrownew(), RGB(255,255, 255), 536870912 )" )
+column(band=detail id=6 alignment="0" tabsequence=50 border="5" color="0" x="1751" y="8" height="56" width="718" format="[general]" protect="0~tif( isrownew(), 0, 1 )"  name=email edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="536870912~tif( isrownew(), RGB(255,255, 255), 536870912 )" )
+column(band=detail id=3 alignment="2" tabsequence=30 border="5" color="0" x="1115" y="8" height="56" width="297" format="[general]" protect="0~tif( isrownew(), 0, 1 )"  name=user_name edit.limit=10 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="536870912~tif( isrownew(), RGB(255,255, 255), 536870912 )" )
+column(band=detail id=4 alignment="2" tabsequence=40 border="5" color="0" x="1431" y="8" height="56" width="302" format="[general]" protect="0~tif( isrownew(), 0, 1 )"  name=user_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="536870912~tif( isrownew(), RGB(255,255, 255), 536870912 )" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

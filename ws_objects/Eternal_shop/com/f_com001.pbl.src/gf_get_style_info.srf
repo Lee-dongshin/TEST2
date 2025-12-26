@@ -1,0 +1,31 @@
+﻿$PBExportHeader$gf_get_style_info.srf
+$PBExportComments$스타일정보조회
+global type gf_get_style_info from function_object
+end type
+
+forward prototypes
+global function boolean gf_get_style_info (string as_style, ref string as_brand, ref string as_year, ref string as_season, ref string as_sojae, ref string as_item, ref string as_shop_type)
+end prototypes
+
+global function boolean gf_get_style_info (string as_style, ref string as_brand, ref string as_year, ref string as_season, ref string as_sojae, ref string as_item, ref string as_shop_type);/*============================================================*/
+/* 작 성 자  : 지우정보(동은아빠)                             */
+/* 작 성 일  : 2002/01/28                                     */
+/* 수 정 일  : 2002/01/28                                     */
+/* 내    용  : 스타일정보조회.                                */
+/*============================================================*/
+String ls_plan_yn
+
+SELECT brand,year,season,sojae,item,plan_yn INTO :as_brand,:as_year,:as_season,:as_sojae,:as_item,:ls_plan_yn
+FROM tb_12020_m
+WHERE style = :as_style;
+
+IF ls_plan_yn = 'Y' THEN
+	as_shop_type = '3'
+ELSE
+	as_shop_type = '1'
+END IF
+
+RETURN True
+
+end function
+

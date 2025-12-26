@@ -1,0 +1,322 @@
+26  Matches Found On " tb_710":
+
+Entry Name: L:\Eternal\Eternal_shop\pbl\d_shop1.pbl(d_sh101_d04)
+  Text For: d_sh101_d04
+        FROM beaucre.dbo.TB_71011_H as  TB_71011_H 
+   WHERE jumin       = :as_jumin 
+     AND accept_flag = 'N' 
+  
+" update="TB_71011_H" updatewhere=0 updatekeyinplace=yes arguments=(("as_jumin", string)) )
+text(band=header alignment="2" text="Jumin" border="6" color="0" x="9" y="8" height="64" width="384"  name=jumin_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Give Date" border="6" color="0" x="402" y="8" height="64" width="256"  name=give_date_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Point Flag" border="6" color="0" x="667" y="8" height="64" width="270"  name=point_flag_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" b
+ 
+Entry Name: L:\Eternal\Eternal_shop\pbl\d_shop1.pbl(d_sh101_d06)
+  Text For: d_sh101_d06
+       FROM beaucre.dbo.TB_71011_H   as  TB_71011_H
+ WHERE jumin = :as_jumin
+ AND coupon_no = :as_coupon_no
+ AND point_flag = 1
+ AND accept_flag = 'N'" arguments=(("as_coupon_no", string),("as_jumin", string)) )
+text(band=header alignment="2" text="주민번호" border="6" color="0" x="0" y="4" height="64" width="425"  name=t_1  font.face="굴림" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="15780518" )
+text(band=header alignment="2" text="쿠폰금액" border="6" color="0" x="759" y="4" height="64" width="293"  name=give_point_t  font.face="굴림" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="15780518" )
+text(band=header alignment="2" text="쿠폰번호" border="6" color="0" x="443" y="4" height="64" width="297"  name=coupon_no_t  font.face="굴림" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background
+ 
+Entry Name: L:\Eternal\Eternal_shop\pbl\d_shop1.pbl(d_sh101_d20)
+  Text For: d_sh101_d20
+       CASE when Exists (select top 1 jumin from tb_71010_m with (nolock)
+   where jumin = a.jumin
+   and isnull(card_no,'') <> '') then 1 else 0 end as prot,
+   job,
+   tm_yn,
+   dm_yn,
+   mailing,
+   sms_yn,
+   recommender,
+   (select user_name 
+    from beaucre.dbo.TB_71010_M (nolock)
+    where card_no = a.recommender ) as rec_user_name,
+   (select tel_no3 
+    from beaucre.dbo.TB_71010_M (nolock)
+    where card_no = a.recommender )  as rec_tel_no
+   FROM beaucre.dbo.TB_71010_M a
+   WHERE jumin = :as_jumin " update="beaucre.dbo.TB_71010_M" updatewhere=0 updatekeyinplace=yes arguments=(("as_jumin", string)) )
+column(band=detail id=36 alignment="0" tabsequence=32766 border="0" color="0" x="1595" y="456" height="56" width="82" format="[general]"  name=prot edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="0" text=
+ 
+Entry Name: L:\Eternal\Eternal_shop\pbl\d_shop1.pbl(d_sh101_d30)
+  Text For: d_sh101_d30
+     retrieve="  SELECT TB_71021_H.give_date,   
+         TB_71021_H.present_no,   
+         TB_71021_H.goods_amt,   
+         TB_71021_H.use_ymd,   
+         TB_71021_H.jumin,   
+         TB_71021_H.card_no,   
+         TB_71021_H.accept_flag,   
+         TB_71021_H.accept_ymd,   
+         TB_71021_H.coupon_no,   
+         TB_71021_H.Reg_id,   
+         TB_71021_H.Reg_Dt,   
+         TB_71021_H.Mod_id,   
+         TB_71021_H.Mod_Dt,
+   TB_71021_H.dc_rate  
+    FROM beaucre.dbo.TB_71021_H as TB_71021_H    
+   WHERE TB_71021_H.present_no = :as_present_no;" update="TB_71021_H" updatewhere=1 updatekeyinplace=no arguments=(("as_present_no", string)) )
+text(band=header alignment="2" text="지급일" border="6" color="0" x="9" y="8" height="64" width="306"  name=give_date_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="증정권번호" border="6" color="0" x="3
+             TB_71021_H.present_no,   
+         TB_71021_H.goods_amt,   
+         TB_71021_H.use_ymd,   
+         TB_71021_H.jumin,   
+         TB_71021_H.card_no,   
+         TB_71021_H.accept_flag,   
+         TB_71021_H.accept_ymd,   
+         TB_71021_H.coupon_no,   
+         TB_71021_H.Reg_id,   
+         TB_71021_H.Reg_Dt,   
+         TB_71021_H.Mod_id,   
+         TB_71021_H.Mod_Dt,
+   TB_71021_H.dc_rate  
+    FROM beaucre.dbo.TB_71021_H as TB_71021_H    
+   WHERE TB_71021_H.present_no = :as_present_no;" update="TB_71021_H" updatewhere=1 updatekeyinplace=no arguments=(("as_present_no", string)) )
+text(band=header alignment="2" text="지급일" border="6" color="0" x="9" y="8" height="64" width="306"  name=give_date_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="증정권번호" border="6" color="0" x="325" y="8" height="64" width="526"  name=presen
+             TB_71021_H.goods_amt,   
+         TB_71021_H.use_ymd,   
+         TB_71021_H.jumin,   
+         TB_71021_H.card_no,   
+         TB_71021_H.accept_flag,   
+         TB_71021_H.accept_ymd,   
+         TB_71021_H.coupon_no,   
+         TB_71021_H.Reg_id,   
+         TB_71021_H.Reg_Dt,   
+         TB_71021_H.Mod_id,   
+         TB_71021_H.Mod_Dt,
+   TB_71021_H.dc_rate  
+    FROM beaucre.dbo.TB_71021_H as TB_71021_H    
+   WHERE TB_71021_H.present_no = :as_present_no;" update="TB_71021_H" updatewhere=1 updatekeyinplace=no arguments=(("as_present_no", string)) )
+text(band=header alignment="2" text="지급일" border="6" color="0" x="9" y="8" height="64" width="306"  name=give_date_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="증정권번호" border="6" color="0" x="325" y="8" height="64" width="526"  name=present_no_t  font.face="굴림체" font.heig
+             TB_71021_H.use_ymd,   
+         TB_71021_H.jumin,   
+         TB_71021_H.card_no,   
+         TB_71021_H.accept_flag,   
+         TB_71021_H.accept_ymd,   
+         TB_71021_H.coupon_no,   
+         TB_71021_H.Reg_id,   
+         TB_71021_H.Reg_Dt,   
+         TB_71021_H.Mod_id,   
+         TB_71021_H.Mod_Dt,
+   TB_71021_H.dc_rate  
+    FROM beaucre.dbo.TB_71021_H as TB_71021_H    
+   WHERE TB_71021_H.present_no = :as_present_no;" update="TB_71021_H" updatewhere=1 updatekeyinplace=no arguments=(("as_present_no", string)) )
+text(band=header alignment="2" text="지급일" border="6" color="0" x="9" y="8" height="64" width="306"  name=give_date_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="증정권번호" border="6" color="0" x="325" y="8" height="64" width="526"  name=present_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.fam
+             TB_71021_H.jumin,   
+         TB_71021_H.card_no,   
+         TB_71021_H.accept_flag,   
+         TB_71021_H.accept_ymd,   
+         TB_71021_H.coupon_no,   
+         TB_71021_H.Reg_id,   
+         TB_71021_H.Reg_Dt,   
+         TB_71021_H.Mod_id,   
+         TB_71021_H.Mod_Dt,
+   TB_71021_H.dc_rate  
+    FROM beaucre.dbo.TB_71021_H as TB_71021_H    
+   WHERE TB_71021_H.present_no = :as_present_no;" update="TB_71021_H" updatewhere=1 updatekeyinplace=no arguments=(("as_present_no", string)) )
+text(band=header alignment="2" text="지급일" border="6" color="0" x="9" y="8" height="64" width="306"  name=give_date_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="증정권번호" border="6" color="0" x="325" y="8" height="64" width="526"  name=present_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.chars
+             TB_71021_H.card_no,   
+         TB_71021_H.accept_flag,   
+         TB_71021_H.accept_ymd,   
+         TB_71021_H.coupon_no,   
+         TB_71021_H.Reg_id,   
+         TB_71021_H.Reg_Dt,   
+         TB_71021_H.Mod_id,   
+         TB_71021_H.Mod_Dt,
+   TB_71021_H.dc_rate  
+    FROM beaucre.dbo.TB_71021_H as TB_71021_H    
+   WHERE TB_71021_H.present_no = :as_present_no;" update="TB_71021_H" updatewhere=1 updatekeyinplace=no arguments=(("as_present_no", string)) )
+text(band=header alignment="2" text="지급일" border="6" color="0" x="9" y="8" height="64" width="306"  name=give_date_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="증정권번호" border="6" color="0" x="325" y="8" height="64" width="526"  name=present_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" ba
+             TB_71021_H.accept_flag,   
+         TB_71021_H.accept_ymd,   
+         TB_71021_H.coupon_no,   
+         TB_71021_H.Reg_id,   
+         TB_71021_H.Reg_Dt,   
+         TB_71021_H.Mod_id,   
+         TB_71021_H.Mod_Dt,
+   TB_71021_H.dc_rate  
+    FROM beaucre.dbo.TB_71021_H as TB_71021_H    
+   WHERE TB_71021_H.present_no = :as_present_no;" update="TB_71021_H" updatewhere=1 updatekeyinplace=no arguments=(("as_present_no", string)) )
+text(band=header alignment="2" text="지급일" border="6" color="0" x="9" y="8" height="64" width="306"  name=give_date_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="증정권번호" border="6" color="0" x="325" y="8" height="64" width="526"  name=present_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+tex
+             TB_71021_H.accept_ymd,   
+         TB_71021_H.coupon_no,   
+         TB_71021_H.Reg_id,   
+         TB_71021_H.Reg_Dt,   
+         TB_71021_H.Mod_id,   
+         TB_71021_H.Mod_Dt,
+   TB_71021_H.dc_rate  
+    FROM beaucre.dbo.TB_71021_H as TB_71021_H    
+   WHERE TB_71021_H.present_no = :as_present_no;" update="TB_71021_H" updatewhere=1 updatekeyinplace=no arguments=(("as_present_no", string)) )
+text(band=header alignment="2" text="지급일" border="6" color="0" x="9" y="8" height="64" width="306"  name=give_date_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="증정권번호" border="6" color="0" x="325" y="8" height="64" width="526"  name=present_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="금?
+             TB_71021_H.coupon_no,   
+         TB_71021_H.Reg_id,   
+         TB_71021_H.Reg_Dt,   
+         TB_71021_H.Mod_id,   
+         TB_71021_H.Mod_Dt,
+   TB_71021_H.dc_rate  
+    FROM beaucre.dbo.TB_71021_H as TB_71021_H    
+   WHERE TB_71021_H.present_no = :as_present_no;" update="TB_71021_H" updatewhere=1 updatekeyinplace=no arguments=(("as_present_no", string)) )
+text(band=header alignment="2" text="지급일" border="6" color="0" x="9" y="8" height="64" width="306"  name=give_date_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="증정권번호" border="6" color="0" x="325" y="8" height="64" width="526"  name=present_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="금액" border="6" color="0" x="859" y="8
+             TB_71021_H.Reg_id,   
+         TB_71021_H.Reg_Dt,   
+         TB_71021_H.Mod_id,   
+         TB_71021_H.Mod_Dt,
+   TB_71021_H.dc_rate  
+    FROM beaucre.dbo.TB_71021_H as TB_71021_H    
+   WHERE TB_71021_H.present_no = :as_present_no;" update="TB_71021_H" updatewhere=1 updatekeyinplace=no arguments=(("as_present_no", string)) )
+text(band=header alignment="2" text="지급일" border="6" color="0" x="9" y="8" height="64" width="306"  name=give_date_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="증정권번호" border="6" color="0" x="325" y="8" height="64" width="526"  name=present_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="금액" border="6" color="0" x="859" y="8" height="64" width="261"  name=goo
+             TB_71021_H.Reg_Dt,   
+         TB_71021_H.Mod_id,   
+         TB_71021_H.Mod_Dt,
+   TB_71021_H.dc_rate  
+    FROM beaucre.dbo.TB_71021_H as TB_71021_H    
+   WHERE TB_71021_H.present_no = :as_present_no;" update="TB_71021_H" updatewhere=1 updatekeyinplace=no arguments=(("as_present_no", string)) )
+text(band=header alignment="2" text="지급일" border="6" color="0" x="9" y="8" height="64" width="306"  name=give_date_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="증정권번호" border="6" color="0" x="325" y="8" height="64" width="526"  name=present_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="금액" border="6" color="0" x="859" y="8" height="64" width="261"  name=goods_amt_t  font.face="굴림체" fon
+             TB_71021_H.Mod_id,   
+         TB_71021_H.Mod_Dt,
+   TB_71021_H.dc_rate  
+    FROM beaucre.dbo.TB_71021_H as TB_71021_H    
+   WHERE TB_71021_H.present_no = :as_present_no;" update="TB_71021_H" updatewhere=1 updatekeyinplace=no arguments=(("as_present_no", string)) )
+text(band=header alignment="2" text="지급일" border="6" color="0" x="9" y="8" height="64" width="306"  name=give_date_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="증정권번호" border="6" color="0" x="325" y="8" height="64" width="526"  name=present_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="금액" border="6" color="0" x="859" y="8" height="64" width="261"  name=goods_amt_t  font.face="굴림체" font.height="-9" font.weight="400" 
+             TB_71021_H.Mod_Dt,
+   TB_71021_H.dc_rate  
+    FROM beaucre.dbo.TB_71021_H as TB_71021_H    
+   WHERE TB_71021_H.present_no = :as_present_no;" update="TB_71021_H" updatewhere=1 updatekeyinplace=no arguments=(("as_present_no", string)) )
+text(band=header alignment="2" text="지급일" border="6" color="0" x="9" y="8" height="64" width="306"  name=give_date_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="증정권번호" border="6" color="0" x="325" y="8" height="64" width="526"  name=present_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="금액" border="6" color="0" x="859" y="8" height="64" width="261"  name=goods_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" 
+       TB_71021_H.dc_rate  
+    FROM beaucre.dbo.TB_71021_H as TB_71021_H    
+   WHERE TB_71021_H.present_no = :as_present_no;" update="TB_71021_H" updatewhere=1 updatekeyinplace=no arguments=(("as_present_no", string)) )
+text(band=header alignment="2" text="지급일" border="6" color="0" x="9" y="8" height="64" width="306"  name=give_date_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="증정권번호" border="6" color="0" x="325" y="8" height="64" width="526"  name=present_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="금액" border="6" color="0" x="859" y="8" height="64" width="261"  name=goods_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background
+        FROM beaucre.dbo.TB_71021_H as TB_71021_H    
+   WHERE TB_71021_H.present_no = :as_present_no;" update="TB_71021_H" updatewhere=1 updatekeyinplace=no arguments=(("as_present_no", string)) )
+text(band=header alignment="2" text="지급일" border="6" color="0" x="9" y="8" height="64" width="306"  name=give_date_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="증정권번호" border="6" color="0" x="325" y="8" height="64" width="526"  name=present_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="금액" border="6" color="0" x="859" y="8" height="64" width="261"  name=goods_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.colo
+       WHERE TB_71021_H.present_no = :as_present_no;" update="TB_71021_H" updatewhere=1 updatekeyinplace=no arguments=(("as_present_no", string)) )
+text(band=header alignment="2" text="지급일" border="6" color="0" x="9" y="8" height="64" width="306"  name=give_date_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="증정권번호" border="6" color="0" x="325" y="8" height="64" width="526"  name=present_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="금액" border="6" color="0" x="859" y="8" height="64" width="261"  name=goods_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" tex
+ 
+Entry Name: L:\Eternal\Eternal_shop\pbl\d_shop1.pbl(d_sh101_d32)
+  Text For: d_sh101_d32
+    from  beaucre.dbo.tb_71011_h  as tb_71011_h (nolock)
+where jumin       = :as_jumin
+and point_flag  = '1'
+and   accept_flag = 'N'
+and  (coupon_no in ('first1','second')
+or    coupon_no like :as_brand+'%'
+or    coupon_no like 'T%') 
+and   isnull(use_shop,'%') = case when use_shop is null then '%' else :as_shop_cd end
+and   isnull(use_ymd,'9') >= convert(char(8),getdate(),112) 
+and   give_date <= convert(char(8),getdate(),112)  
+order by give_date desc" arguments=(("as_jumin", string),("as_brand", string),("as_shop_cd", string)) )
+text(band=header alignment="2" text="지급액" border="6" color="0" x="699" y="4" height="56" width="329"  name=give_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="구폰번호" border="6" color="0" x="375" y="4" height="56" width="311"  name=coupon_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" 
+ 
+Entry Name: L:\Eternal\Eternal_shop\pbl\d_shop1.pbl(d_sh191_d32)
+  Text For: d_sh191_d32
+    from  beaucre.dbo.tb_71011_h  as tb_71011_h (nolock)
+where jumin       = :as_jumin
+and point_flag  = '1'
+and   accept_flag = 'N'
+and  (coupon_no in ('first1','second')
+or    coupon_no like :as_brand+'%'
+or    coupon_no like 'T%') 
+and   isnull(use_shop,'%') = case when use_shop is null then '%' else :as_shop_cd end
+and   isnull(use_ymd,'9') >= convert(char(8),getdate(),112) 
+and   give_date <= convert(char(8),getdate(),112)  
+order by give_date desc" arguments=(("as_jumin", string),("as_brand", string),("as_shop_cd", string)) )
+text(band=header alignment="2" text="지급액" border="6" color="0" x="699" y="4" height="56" width="329"  name=give_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="구폰번호" border="6" color="0" x="375" y="4" height="56" width="311"  name=coupon_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" 
+ 
+Entry Name: L:\Eternal\Eternal_shop\pbl\d_shop2.pbl(d_71037_ddw)
+  Text For: d_71037_ddw
+     retrieve="select give_date, event_id,  event_nm from beaucre.dbo.tb_71019_m as tb_71019_m (nolock)
+where  :brand LIKE brand  + '%'
+AND    EVENT_NM IS NOT NULL" update="tb_71019_m" updatewhere=0 updatekeyinplace=no arguments=(("brand", string))  sort="give_date D " )
+text(band=header alignment="2" text="행사명" border="6" color="0" x="14" y="4" height="56" width="850"  name=event_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="0" expression="give_date + ':'+event_nm"border="0" color="0" x="14" y="4" height="56" width="850" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="30538238" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavas
+ 
+Entry Name: L:\Eternal\Eternal_shop\pbl\d_shop2.pbl(d_sh215_d02)
+  Text For: d_sh215_d02
+    from beaucre.dbo.tb_71085_h as tb_71085_h (nolock)
+where yymmdd >= substring(:as_yymmdd,1,6) + '01'
+and   yymmdd <= substring(:as_yymmdd,1,6) + '31'
+and   shop_cd = :as_shop_cd
+group by yymmdd, rqst_no,  snd_ymd, sms_contents, accept_send,
+  biz_chk, crm_chk, biz_reason,crm_reason,accept_send" arguments=(("as_yymmdd", string),("as_shop_cd", string)) )
+text(band=header alignment="2" text="요청일자" border="6" color="0" x="9" y="8" height="132" width="302"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+text(band=header alignment="2" text="요청번호" border="6" color="0" x="325" y="8" height="132" width="256"  name=rqst_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="대상수" border="6" color="0" x="594" y="8" height="132" width="187"  n
+ 
+Entry Name: L:\Eternal\Eternal_shop\pbl\d_shop2.pbl(d_sh218_d01)
+  Text For: d_sh218_d01
+      from beaucre.dbo.tb_71010_m as tb_71010_m (nolock)
+ where card_no like ~"%~" + :as_card_no + ~"%~"
+   and user_name  = :as_user_name
+   and shop_cd  = :as_shop_cd" update="beaucre.dbo.tb_71010_m" updatewhere=1 updatekeyinplace=no arguments=(("as_card_no", string),("as_user_name", string),("as_shop_cd", string)) )
+text(band=header alignment="2" text="카드번호" border="6" color="0" x="9" y="8" height="60" width="535"  name=card_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="주민번호" border="6" color="0" x="809" y="8" height="60" width="384"  name=jumin_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="0" font.pitch="0" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="발급일" border="6" color="0" x="553" y="8" height="60" width="247"  name=card_day_t  font.face="굴림체" font.h
+ 
+Entry Name: L:\Eternal\Eternal_shop\pbl\d_shop2.pbl(d_sh218_d02)
+  Text For: d_sh218_d02
+       CASE when Exists (select top 1 jumin from tb_71010_m with (nolock)
+   where jumin = a.jumin
+   and isnull(card_no,'') <> '') then 1 else 0 end as prot,
+   job,
+   tm_yn,
+   dm_yn,
+   mailing,
+   sms_yn,
+   recommender,
+   (select user_name 
+    from beaucre.dbo.TB_71010_M (nolock)
+    where card_no = a.recommender ) as rec_user_name,
+   (select tel_no3 
+    from beaucre.dbo.TB_71010_M (nolock)
+    where card_no = a.recommender )  as rec_tel_no
+   FROM beaucre.dbo.TB_71010_M a
+   WHERE jumin = :as_jumin " update="beaucre.dbo.TB_71010_M" updatewhere=0 updatekeyinplace=yes arguments=(("as_jumin", string)) )
+text(band=detail alignment="2" text="회원명" border="6" color="0" x="64" y="52" height="60" width="384"  name=user_name_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=10 border="5" color="0" x="466" y="52" height="60" width="
+ 
+Entry Name: L:\Eternal\Eternal_shop\com\d_com900.pbl(d_com701)
+  Text For: d_com701
+        FROM beaucre.dbo.TB_71010_M as TB_71010_M with (nolock)    " update="beaucre.dbo.TB_71010_M" updatewhere=1 updatekeyinplace=no )
+text(band=header alignment="2" text="회원명" border="6" color="0" x="9" y="12" height="56" width="242"  name=user_name_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="성별" border="6" color="0" x="704" y="12" height="56" width="197"  name=sex_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="카드번호" border="6" color="0" x="919" y="12" height="56" width="549"  name=card_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="주민번호" border
+ 

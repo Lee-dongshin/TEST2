@@ -1,0 +1,49 @@
+﻿$PBExportHeader$d_79002_d09.srd
+$PBExportComments$미처리내역
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(1) updatewhereclause=yes name=brand dbname="brand" )
+ column=(type=char(30) updatewhereclause=yes name=brand_nm dbname="BRAND_NM" )
+ column=(type=decimal(0) updatewhereclause=yes name=brand_sort dbname="BRAND_SORT" )
+ column=(type=char(8) updatewhereclause=yes name=b_yymmdd dbname="yymmdd" )
+ column=(type=char(4) updatewhereclause=yes name=b_seq_no dbname="seq_no" )
+ column=(type=char(4) updatewhereclause=yes name=no dbname="no" )
+ column=(type=char(8) updatewhereclause=yes name=style dbname="style" )
+ column=(type=char(20) updatewhereclause=yes name=b_custom_nm dbname="custom_nm" )
+ column=(type=char(255) updatewhereclause=yes name=remark dbname="remark" )
+ retrieve="select	a.brand,
+	DBO.SF_INTER_NM('001', a.BRAND) 	AS BRAND_NM,
+	DBO.SF_INTER_SORT_SEQ('001', a.BRAND) AS BRAND_SORT,
+	a.yymmdd,
+	a.seq_no,
+	a.no,
+	a.style,
+	custom_nm,
+	a.remark
+
+from TB_79011_D a with (nolock) left outer join tb_79010_m b with (nolock) on a.yymmdd = b.yymmdd and a.seq_no = b.seq_no
+where isnull(a.judg_L,'') = '' and 
+		a.brand = :as_brand and 
+		a.yymmdd between :ps_fr_yymm + '01' and :ps_to_yymm+'31' and
+		a.year like :as_year + '%' and
+		a.season like :as_season + '%'
+order by a.brand_sort, a.yymmdd
+" arguments=(("as_brand", string),("ps_fr_yymm", string),("ps_to_yymm", string),("as_year", string),("as_season", string)) )
+text(band=header alignment="2" text="브랜드" border="6" color="0" x="5" y="4" height="64" width="448"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="접수일자" border="6" color="0" x="471" y="4" height="64" width="274"  name=b_yymmdd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="순번" border="6" color="0" x="763" y="4" height="64" width="160"  name=b_seq_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="고객명" border="6" color="0" x="942" y="4" height="64" width="329"  name=b_custom_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="스타일" border="6" color="0" x="1289" y="4" height="64" width="261"  name=shop_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="비      고" border="6" color="0" x="1568" y="4" height="64" width="1275"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="5" y="4" height="60" width="448" format="[general]"  name=brand_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="471" y="4" height="60" width="274" format="[general]"  name=b_yymmdd editmask.mask="XXXX/XX/XX" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0" x="763" y="4" height="60" width="160" format="[general]"  name=b_seq_no edit.limit=4 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=8 alignment="2" tabsequence=32766 border="0" color="0" x="942" y="4" height="60" width="329" format="[general]"  name=b_custom_nm edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30800893" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="1289" y="4" height="60" width="261" format="[general]"  name=style edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="1568" y="4" height="60" width="1275" format="[general]"  name=remark edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

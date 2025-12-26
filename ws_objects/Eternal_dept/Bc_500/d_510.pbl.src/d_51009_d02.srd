@@ -1,0 +1,68 @@
+﻿$PBExportHeader$d_51009_d02.srd
+$PBExportComments$행사계획서 등록
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=712 color="536870912" )
+table(column=(type=char(6) update=yes updatewhereclause=yes key=yes name=shop_cd dbname="TB_51035_H.SHOP_CD" )
+ column=(type=char(8) update=yes updatewhereclause=yes key=yes name=frm_ymd dbname="TB_51035_H.FRM_YMD" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=to_ymd dbname="TB_51035_H.TO_YMD" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=brand dbname="TB_51035_H.BRAND" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=sale_type dbname="TB_51035_H.SALE_TYPE" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=plan_amt dbname="TB_51035_H.PLAN_AMT" )
+ column=(type=char(250) update=yes updatewhereclause=yes name=sale_scale dbname="TB_51035_H.SALE_SCALE" )
+ column=(type=char(150) update=yes updatewhereclause=yes name=dep_parti dbname="TB_51035_H.DEP_PARTI" )
+ column=(type=char(150) update=yes updatewhereclause=yes name=plan_parti dbname="TB_51035_H.PLAN_PARTI" )
+ column=(type=char(250) update=yes updatewhereclause=yes name=note dbname="TB_51035_H.NOTE" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=cancel dbname="TB_51035_H.CANCEL" values="행사취소	Y/행사취소	N" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="TB_51035_H.REG_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="TB_51035_H.REG_DT" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="TB_51035_H.MOD_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="TB_51035_H.MOD_DT" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=fr_year dbname="TB_51035_H.FR_YEAR" initial="%" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=fr_season dbname="TB_51035_H.FR_SEASON" initial="%" )
+ retrieve="SELECT 	SHOP_CD,
+			FRM_YMD,
+			TO_YMD,
+			BRAND,
+			SALE_TYPE,
+			PLAN_AMT,
+			SALE_SCALE,
+			DEP_PARTI,
+			PLAN_PARTI,
+			NOTE,
+			CANCEL,
+			REG_ID,
+			REG_DT,
+			MOD_ID,
+			MOD_DT,
+			FR_YEAR,
+			FR_SEASON
+FROM TB_51035_H (NOLOCK)
+WHERE SHOP_CD = :AS_SHOP_CD
+  AND FRM_YMD = :AS_FRM_YMD
+  AND TO_YMD  = :AS_TO_YMD
+  AND BRAND   = :AS_BRAND
+  AND ISNULL(CANCEL,'N') LIKE :AS_CANCEL + '%'
+" update="TB_51035_H" updatewhere=1 updatekeyinplace=no arguments=(("AS_SHOP_CD", string),("AS_FRM_YMD", string),("AS_TO_YMD", string),("AS_BRAND", string),("AS_CANCEL", string)) )
+column(band=detail id=2 alignment="0" tabsequence=10 border="5" color="0" x="334" y="16" height="60" width="288" format="[general]" protect="0~tif( isRowNew() , 0,1)"  name=frm_ymd editmask.mask="XXXX/XX/XX" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=20 border="5" color="0" x="709" y="20" height="60" width="288" format="[general]" protect="0~tif( isRowNew() , 0,1)"  name=to_ymd editmask.mask="XXXX/XX/XX" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="~~" border="0" color="0" x="640" y="20" height="56" width="46"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="행사기간:" border="0" color="16711680" x="23" y="20" height="56" width="288"  name=frm_ymd_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="규    모:" border="0" color="16711680" x="23" y="196" height="56" width="288"  name=sale_scale_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=60 border="5" color="0" x="334" y="200" height="96" width="1819" format="[general]"  name=sale_scale edit.limit=250 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes criteria.override_edit=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="비    고:" border="0" color="16711680" x="23" y="328" height="56" width="288"  name=note_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=70 border="5" color="0" x="334" y="328" height="180" width="1819" format="[general]"  name=note edit.limit=250 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes criteria.override_edit=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="0" tabsequence=80 border="5" color="255" x="1819" y="20" height="64" width="329" format="[general]"  name=cancel checkbox.text="행사취소" checkbox.on="Y" checkbox.off="N" checkbox.lefttext=yes checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=detail alignment="1" text="부진내역:" border="0" color="16711680" x="23" y="528" height="56" width="288"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=90 border="5" color="0" x="334" y="528" height="60" width="1819" format="[general]"  name=dep_parti edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="기획내역:" border="0" color="16711680" x="23" y="620" height="56" width="288"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=100 border="5" color="0" x="334" y="620" height="60" width="1819" format="[general]"  name=plan_parti edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="목표금액:" border="0" color="16711680" x="23" y="112" height="56" width="288"  name=plan_amt_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=30 border="5" color="0" x="334" y="112" height="60" width="329" format="#,###"  name=plan_amt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="진행시즌(FROM):" border="0" color="16711680" x="905" y="112" height="56" width="544"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=16 alignment="0" tabsequence=40 border="5" color="0" x="1467" y="112" height="56" width="320" format="[general]"  name=fr_year edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd1 dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=17 alignment="0" tabsequence=50 border="5" color="0" x="1801" y="112" height="56" width="352" format="[general]"  name=fr_season edit.name="내부코드" dddw.name=d_com001_n dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

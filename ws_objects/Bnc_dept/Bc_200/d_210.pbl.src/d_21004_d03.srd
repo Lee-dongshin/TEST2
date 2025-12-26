@@ -1,0 +1,23 @@
+﻿$PBExportHeader$d_21004_d03.srd
+$PBExportComments$부자재발주 발주번호검색용 ddw
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=64 color="536870912" )
+table(column=(type=char(1) updatewhereclause=yes name=brand dbname="TB_21020_M.brand" )
+ column=(type=char(4) updatewhereclause=yes name=ord_no dbname="TB_21020_M.ord_no" )
+ column=(type=char(10) updatewhereclause=yes name=ord_origin dbname="TB_21020_M.ord_origin" )
+ retrieve="	select 
+	brand, ord_no, ord_origin
+	from TB_21020_M
+" )
+text(band=header alignment="2" text="번호" border="6" color="0" x="270" y="8" height="56" width="256"  name=ord_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="발주근거" border="6" color="0" x="535" y="8" height="56" width="448"  name=ord_origin_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="브랜드" border="6" color="0" x="9" y="4" height="56" width="251"  name=obj_6838523  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="270" y="0" height="60" width="256" format="[general]"  name=ord_no edit.limit=4 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="535" y="0" height="60" width="448" format="[general]"  name=ord_origin edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="9" y="4" height="56" width="251" format="[general]"  name=brand edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

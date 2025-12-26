@@ -1,0 +1,39 @@
+﻿$PBExportHeader$d_sh127_d01.srd
+$PBExportComments$반품박스처리
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=148 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=box_ymd dbname="tb_42026_h.box_ymd" )
+ column=(type=char(4) updatewhereclause=yes name=box_no dbname="tb_42026_h.box_no" )
+ column=(type=char(8) updatewhereclause=yes name=yymmdd dbname="tb_42026_h.yymmdd" )
+ column=(type=char(4) updatewhereclause=yes name=out_no dbname="tb_42026_h.out_no" )
+ column=(type=char(1) updatewhereclause=yes name=proc_yn dbname="tb_42026_h.proc_yn" values="   처리	Y/   처리	N" )
+ column=(type=decimal(0) updatewhereclause=yes name=qty dbname="qty" )
+ column=(type=char(8) updatewhereclause=yes name=proc_stat dbname="proc_stat" )
+ retrieve="
+select box_ymd, box_no, yymmdd, out_no, proc_yn, sum(qty) as qty, case when proc_yn = ~"Y~" then ~"처리대기~"   when proc_yn = ~"C~" then ~"처리완료~" when proc_yn = ~"R~" then ~"처리취소~" else ~"의뢰대기~" end as proc_stat    
+from tb_42026_h
+where box_ymd between :as_fr_box_ymd and :as_to_box_ymd
+and   shop_cd = :as_shop_cd
+and   proc_yn like :as_proc_yn + '%'
+group by box_ymd, box_no, yymmdd, out_no, proc_yn" arguments=(("as_fr_box_ymd", string),("as_to_box_ymd", string),("as_shop_cd", string),("as_proc_yn", string)) )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="361" y="4" height="60" width="229" format="[general]"  name=box_no edit.limit=4 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33487085" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="0" y="4" height="60" width="347" format="[general]"  name=box_ymd editmask.mask="XXXX/XX/XX" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33487085" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="846" y="4" height="60" width="357" format="[general]"  name=yymmdd editmask.mask="XXXX/XX/XX" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="1216" y="4" height="60" width="224" format="[general]"  name=out_no edit.limit=4 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33484273" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="603" y="4" height="60" width="229" format="#,##0"  name=qty edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33487085" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="16711680~tif(proc_yn = 'R' , rgb(251,36,122), rgb(128,126,253))" x="1454" y="4" height="60" width="357" format="[general]"  name=proc_stat edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33487085" )
+column(band=detail id=5 alignment="2" tabsequence=10 border="0" color="0" x="1819" y="4" height="60" width="357" format="[general]" protect="0~tif ( proc_yn = ~"Y~" , 1,if ( proc_yn = ~"C~" , 1,if ( proc_yn = ~"R~" , 1,0)))"  name=proc_yn checkbox.text="   처리" checkbox.on="Y" checkbox.off="N" checkbox.lefttext=yes checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+text(band=header alignment="0" text="해당 박스번호 더블클릭시 상세내역이 조회됩니다." border="0" color="16711680" x="302" y="12" height="56" width="2053"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="등록일자" border="6" color="0" x="0" y="76" height="60" width="347"  name=box_ymd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="박스번호" border="6" color="0" x="361" y="76" height="60" width="229"  name=box_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="수량" border="6" color="0" x="603" y="76" height="60" width="229"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="전표일자" border="6" color="0" x="846" y="76" height="60" width="357"  name=yymmdd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="전표번호" border="6" color="0" x="1216" y="76" height="60" width="224"  name=out_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="처리여부" border="6" color="0" x="1454" y="76" height="60" width="357"  name=proc_yn_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="처리선택" border="6" color="0" x="1824" y="80" height="56" width="357"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

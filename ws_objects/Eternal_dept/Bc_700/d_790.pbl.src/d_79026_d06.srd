@@ -1,0 +1,16 @@
+﻿$PBExportHeader$d_79026_d06.srd
+$PBExportComments$claim접수현황
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=5 HTMLDW=no print.documentname="" print.orientation = 1 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=840 color="536870912"  height.autosize=yes)
+table(column=(type=char(10) updatewhereclause=yes name=a dbname="a" )
+ unbound = "yes"arguments=(("ps_brand", string),("ps_year", string),("ps_season", string),("ps_sojae", string),("ps_item", string),("ps_frm_ymd", string),("ps_to_ymd", string)) )
+report(band=detail dataobject="d_79026_d02" x="46" y="180" height="120" width="4695" border="0"  height.autosize=yes criteria="" nest_arguments=(("ps_brand"),("ps_year"),("ps_season"),("ps_sojae"),("ps_item"),("ps_frm_ymd"),("ps_to_ymd")) trail_footer = yes  name=dw_2  slideup=directlyabove )
+report(band=detail dataobject="d_79026_d04" x="46" y="500" height="120" width="5184" border="0"  height.autosize=yes criteria="" nest_arguments=(("ps_brand"),("ps_year"),("ps_season"),("ps_sojae"),("ps_item"),("ps_frm_ymd"),("ps_to_ymd")) trail_footer = yes  name=dw_4  slideup=directlyabove )
+report(band=detail dataobject="d_79026_d05" x="46" y="656" height="120" width="4978" border="0"  height.autosize=yes criteria="" nest_arguments=(("ps_brand"),("ps_year"),("ps_season"),("ps_sojae"),("ps_item"),("ps_frm_ymd"),("ps_to_ymd")) trail_footer = yes  name=dw_5  slideup=directlyabove )
+report(band=detail dataobject="d_79026_d01" x="46" y="20" height="120" width="5902" border="0"  height.autosize=yes criteria="" nest_arguments=((" ps_brand "),(" ps_year "),(" ps_season "),(" ps_sojae "),(" ps_item "),(" ps_frm_ymd "),(" ps_to_ymd ")) trail_footer = yes  name=dw_1  slideup=directlyabove )
+report(band=detail dataobject="d_79026_d03" x="46" y="340" height="120" width="1957" border="0"  height.autosize=yes criteria="" nest_arguments=(("ps_brand"),("ps_year"),("ps_season"),("ps_sojae"),("ps_item"),("ps_frm_ymd"),("ps_to_ymd")) trail_footer = yes  name=dw_3  slideup=directlyabove )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

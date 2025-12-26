@@ -1,0 +1,22 @@
+﻿$PBExportHeader$gf_user_connect_pgm.srf
+$PBExportComments$프로그램 사용 체크
+global type gf_user_connect_pgm from function_object
+end type
+
+forward prototypes
+global function string gf_user_connect_pgm (string as_person_id, string as_pgm_id, string as_in_out)
+end prototypes
+
+global function string gf_user_connect_pgm (string as_person_id, string as_pgm_id, string as_in_out);
+	DECLARE sp_user_connect_pgm PROCEDURE FOR sp_user_connect_pgm  
+		@person_id = :as_person_id,   
+		@pgm_id    = :as_pgm_id,   
+		@in_out    = :as_in_out ;
+
+	execute sp_user_connect_pgm;
+	
+	commit  USING SQLCA;
+	
+	return as_in_out
+end function
+

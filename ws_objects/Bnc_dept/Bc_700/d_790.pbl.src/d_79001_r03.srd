@@ -1,0 +1,89 @@
+﻿$PBExportHeader$d_79001_r03.srd
+$PBExportComments$고객과의 약속
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=4148 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=yymmdd dbname="yymmdd" )
+ column=(type=char(4) updatewhereclause=yes name=seq_no dbname="seq_no" )
+ column=(type=char(20) updatewhereclause=yes name=custom_nm dbname="custom_nm" )
+ column=(type=char(6) updatewhereclause=yes name=shop_cd dbname="shop_cd" )
+ column=(type=char(1) updatewhereclause=yes name=brand dbname="brand" )
+ column=(type=char(41) updatewhereclause=yes name=shop_nm dbname="shop_nm" )
+ column=(type=char(8) updatewhereclause=yes name=style dbname="style" )
+ column=(type=char(255) updatewhereclause=yes name=problem dbname="problem" )
+ column=(type=char(12) updatewhereclause=yes name=amt dbname="amt" )
+ retrieve="select 	a.yymmdd,
+			a.seq_no,
+			a.custom_nm,
+			a.shop_cd,
+			a.brand,
+			case	when isnull(a.shop_cd,'') = '' then dbo.sf_inter_nm('001',a.brand) + ' 고객상담팀'
+					when isnull(a.shop_cd,'') <> '' then dbo.sf_shop_nm(a.SHOP_CD, 'S')
+			else '' end  AS shop_nm,
+			b.style,
+			b.problem,
+			case	when isnull(b.pay_fg,'') = ''  then '무상'
+					when isnull(b.pay_fg,'') = '1' then '무상'
+					when isnull(b.pay_fg,'') = '2' and isnull(b.pay_amt,0) = 0 then '무상'
+					when isnull(b.pay_fg,'') = '3' and isnull(b.pay_amt,0) = 0 then '무상'
+					when isnull(b.pay_fg,'') = '4' and isnull(b.pay_amt,0) = 0 then '무상'
+					when isnull(b.pay_fg,'') = '5' and isnull(b.pay_amt,0) = 0 then '무상'
+					when isnull(b.pay_fg,'') = '5' and isnull(b.pay_amt,0) > 0 then convert(varchar(12),b.pay_amt)
+					when isnull(b.pay_fg,'') = '6' and isnull(b.pay_amt,0) = 0 then '무상'
+					when isnull(b.pay_fg,'') = '6' and isnull(b.pay_amt,0) > 0 then convert(varchar(12),b.pay_kamt)
+			else '' end as amt
+			
+from		tb_79010_m a with (nolock) inner join tb_79011_d b with (nolock) on a.yymmdd = b.yymmdd and a.seq_no = b.seq_no
+where		a.yymmdd = :as_yymmdd and
+			a.seq_no = :as_seq_no" arguments=(("as_yymmdd", string),("as_seq_no", string)) )
+line(band=detail x1="3387" y1="1336" x2="3387" y2="2264"  name=l_10 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="접수일자" border="0" color="0" x="1810" y="1372" height="68" width="366"  name=t_8  font.face="굴림체" font.height="-11" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="고객과의 약속" border="0" color="0" x="1111" y="428" height="124" width="1275"  name=t_1  font.face="굴림체" font.height="-20" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=detail x1="87" y1="2264" x2="3387" y2="2264"  name=l_5 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="87" y1="1724" x2="3387" y2="1724"  name=l_11 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="87" y1="1596" x2="3387" y2="1596"  name=l_3 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="87" y1="1468" x2="3387" y2="1468"  name=l_2 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="87" y1="1340" x2="3387" y2="1340"  name=l_1 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="91" y1="1336" x2="91" y2="2264"  name=l_6 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="품    번" border="0" color="0" x="174" y="1500" height="68" width="366"  name=t_6  font.face="굴림체" font.height="-11" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="접수매장" border="0" color="0" x="174" y="1372" height="68" width="366"  name=t_5  font.face="굴림체" font.height="-11" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=detail x1="613" y1="1340" x2="613" y2="2268"  name=l_7 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="1751" y1="1340" x2="1751" y2="1724"  name=l_8 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=detail x1="2235" y1="1340" x2="2235" y2="1724"  name=l_9 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="658" y="1500" height="68" width="1056" format="[general]"  name=style edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-11" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="원" border="0" color="0" x="1637" y="1628" height="76" width="78"  name=t_11  font.face="굴림체" font.height="-11" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="658" y="1372" height="76" width="1056" format="[general]"  name=shop_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-11" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="2286" y="1372" height="68" width="1056" format="[general]"  name=yymmdd editmask.mask="XXXX년 XX월 XX일" editmask.focusrectangle=no  font.face="굴림체" font.height="-11" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=detail x1="101" y1="784" x2="978" y2="784"  name=l_4 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="접수번호" border="0" color="0" x="1815" y="1500" height="68" width="366"  name=t_9  font.face="굴림체" font.height="-11" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="수선비용" border="0" color="0" x="174" y="1628" height="68" width="366"  name=t_10  font.face="굴림체" font.height="-11" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="담 당 자" border="0" color="0" x="1815" y="1628" height="68" width="366"  name=t_12  font.face="굴림체" font.height="-11" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="2286" y="1500" height="68" width="1056" format="[general]"  name=seq_no edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-11" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="0" text="" border="0" color="0" x="2286" y="1628" height="76" width="1056"  name=t_jik  font.face="굴림체" font.height="-11" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="0" text="" border="0" color="0" x="87" y="160" height="72" width="3301"  name=t_21  font.face="굴림체" font.height="-12" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="0" )
+text(band=detail alignment="0" text="on＆on" border="0" color="16777215" x="677" y="160" height="72" width="251"  name=t_23  font.face="굴림체" font.height="-12" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="OLIVE DES OLIVE" border="0" color="16777215" x="1463" y="160" height="72" width="622"  name=t_24  font.face="굴림체" font.height="-12" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="COIINCOS" border="0" color="16777215" x="2569" y="160" height="72" width="334"  name=t_25  font.face="굴림체" font.height="-12" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="" border="0" color="0" x="87" y="4016" height="72" width="3301"  name=t_26  font.face="굴림체" font.height="-12" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="0" )
+text(band=detail alignment="0" text="Lapalette" border="0" color="16777215" x="850" y="4016" height="72" width="375"  name=t_27  font.face="굴림체" font.height="-12" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="BAND OF PLAYERS" border="0" color="16777215" x="1979" y="4016" height="72" width="622"  name=t_28  font.face="굴림체" font.height="-12" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="0" text="* 제품에 대한 문의 및 불편사항이 있으시면 고객상담팀으로 연락 주시기 바랍니다." border="0" color="0" x="87" y="3408" height="72" width="3301"  name=t_13  font.face="굴림체" font.height="-12" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="0" text=" ☏ 080-733-0114 " border="0" color="0" x="1070" y="3552" height="72" width="663"  name=t_19  font.face="굴림체" font.height="-12" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="0" text="OLIVE DES OLIVE" border="0" color="0" x="407" y="3552" height="72" width="622"  name=t_16  font.face="굴림체" font.height="-12" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="0" text="on＆on" border="0" color="0" x="87" y="3552" height="72" width="251"  name=t_15  font.face="굴림체" font.height="-12" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="0" text=" ☏ 080-202-2002" border="0" color="0" x="1591" y="3672" height="72" width="658"  name=t_20  font.face="굴림체" font.height="-12" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="0" text="COIINCOS" border="0" color="0" x="87" y="3672" height="72" width="334"  name=t_22  font.face="굴림체" font.height="-12" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="0" text="Lapalette" border="0" color="0" x="489" y="3672" height="72" width="375"  name=t_17  font.face="굴림체" font.height="-12" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="0" text="BAND OF PLAYERS" border="0" color="0" x="928" y="3672" height="72" width="622"  name=t_18  font.face="굴림체" font.height="-12" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="고객님" border="0" color="0" x="754" y="712" height="72" width="215"  name=t_2  font.face="굴림체" font.height="-12" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="160" y="712" height="72" width="571" format="[general]"  name=custom_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-12" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="658" y="1628" height="76" width="955" format="[general]"  name=amt edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-11" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="수선내역" border="0" color="0" x="174" y="1760" height="68" width="366"  name=t_7  font.face="굴림체" font.height="-11" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="658" y="1760" height="464" width="2679" format="[general]"  name=problem edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-11" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="0" text="안녕하세요 (주)보끄레머천다이징, 올리브데올리브(주) 고객상담팀 입니다." border="0" color="0" x="87" y="1012" height="72" width="3301"  name=t_3  font.face="굴림체" font.height="-12" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="0" text="제품을 이용해 주신 고객님께 감사 드리며, 의뢰하신 제품의 A/S가 완료되어 안내 드립니다." border="0" color="0" x="87" y="1132" height="72" width="3301"  name=t_4  font.face="굴림체" font.height="-12" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="0" text="고객님의 만족을 위해 최선을 다할 것을 약속드리며, 항상 행복이 가득 하시길 기원 합니다." border="0" color="0" x="87" y="2368" height="72" width="3301"  name=t_14  font.face="굴림체" font.height="-12" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

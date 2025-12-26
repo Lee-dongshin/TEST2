@@ -1,0 +1,28 @@
+﻿$PBExportHeader$d_61023_r01.srd
+$PBExportComments$중국일별매출
+release 7;
+datawindow(units=0 timer_interval=0 color=1090519039 processing=4 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no  crosstab.dynamic = yes grid.lines=0 grid.columnmove=no selected.mouse=no )
+header[1](height=0 color="536870912" )
+header[2](height=72 color="536870912" )
+summary(height=72 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(20) updatewhereclause=yes name=shop_knm dbname="shop_knm" )
+ column=(type=number updatewhereclause=yes name=sale_amt dbname="sale_amt" )
+ procedure="1 execute dbo.sp_61023_d01;1 @brand = :brand, @fr_yymmdd = :fr_yymmdd, @to_yymmdd = :to_yymmdd" arguments=(("brand", string),("fr_yymmdd", string),("to_yymmdd", string))  sort="shop_knm A " )
+compute(band=detail alignment="0" expression="max(sale_amt)"border="0" color="0" x="1248" y="4" height="56" width="5" format="[GENERAL]"  name=max_sale_amt visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+compute(band=detail alignment="0" expression="max(grand_sum_sale_amt)"border="0" color="0" x="1262" y="12" height="56" width="5" format="[GENERAL]"  name=grandmax_sum_sale_amt visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15793151" )
+compute(band=detail alignment="0" expression="getrow()"border="0" color="0" x="9" y="4" height="56" width="110" format="[GENERAL]"  name=compute_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="128" y="4" height="60" width="503" format="[general]"  name=shop_knm edit.limit=40 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="1" tabsequence=32766 border="0" color="0~tif(sale_amt = max_sale_amt , rgb(255,0,0), rgb(0,0,0) )" x="640" y="4" height="60" width="242" format="#,###"  name=sale_amt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes crosstab.repeat=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+compute(band=detail alignment="1" expression="crosstabsum(1)"border="0" color="0~tif(grandmax_sum_sale_amt = grand_sum_sale_amt , rgb(255,0,0), rgb(0,0,0) )" x="891" y="4" height="60" width="347" format="#,###"  name=grand_sum_sale_amt  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+compute(band=summary alignment="1" expression="~"합계~""border="0" color="0" x="128" y="4" height="60" width="503" format="[general]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+compute(band=summary alignment="1" expression="sum(sale_amt for all )"border="0" color="0" x="640" y="4" height="60" width="242" format="#,###"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+compute(band=summary alignment="1" expression="sum(grand_sum_sale_amt for all )"border="0" color="0" x="891" y="4" height="60" width="347" format="#,###"  name=compute_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header[2] alignment="0" text="@day" border="0" color="0" x="640" y="12" height="52" width="242"  name=sale_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+text(band=header[2] alignment="2" text="매장계" border="0" color="0" x="891" y="12" height="52" width="347"  name=grand_sum_sale_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+text(band=header[2] alignment="2" text="매장명" border="0" color="0" x="128" y="12" height="52" width="503"  name=shop_knm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+text(band=header[2] alignment="2" text="" border="0" color="0" x="9" y="12" height="52" width="110"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+ crosstab(band = foreground  crosstabonly = yes 
+ columns = "day" rows = "shop_knm" values = "sum(sale_amt for crosstab)" sourcenames = "day, shop_knm, sale_amt")htmltable(border="0" cellpadding="1" cellspacing="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

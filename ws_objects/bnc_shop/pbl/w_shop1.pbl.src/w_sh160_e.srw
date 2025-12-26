@@ -1,0 +1,1391 @@
+﻿$PBExportHeader$w_sh160_e.srw
+$PBExportComments$RT 마켓 제품등록
+forward
+global type w_sh160_e from w_com000
+end type
+type dw_head from u_dw within w_sh160_e
+end type
+type ln_1 from line within w_sh160_e
+end type
+type ln_2 from line within w_sh160_e
+end type
+type dw_body from u_dw within w_sh160_e
+end type
+type dw_print from u_dw within w_sh160_e
+end type
+type dw_1 from datawindow within w_sh160_e
+end type
+end forward
+
+global type w_sh160_e from w_com000
+integer width = 2962
+integer height = 2084
+string menuname = "m_1_0000"
+boolean toolbarvisible = false
+event ue_title ( )
+event type integer ue_popup2 ( string as_column,  long al_row,  string as_data,  integer ai_div )
+dw_head dw_head
+ln_1 ln_1
+ln_2 ln_2
+dw_body dw_body
+dw_print dw_print
+dw_1 dw_1
+end type
+global w_sh160_e w_sh160_e
+
+type variables
+string is_yymmdd
+
+end variables
+
+forward prototypes
+public subroutine uf_set_data ()
+public function boolean wf_style_chk (integer al_row, string as_style_no)
+end prototypes
+
+event ue_title;/*===========================================================================*/
+/* 작성자      :                                                      */	
+/* 작성일      : 2002..                                                  */	
+/* 수정일      : 2002..                                                  */
+/*===========================================================================*/
+
+//datetime ld_datetime
+//string ls_modify, ls_datetime
+//
+//IF gf_sysdate(ld_datetime) = FALSE THEN
+//   ld_datetime = DateTime(Today(), Now())
+//END IF
+//
+//ls_datetime = String(ld_datetime, "yyyy/mm/dd-hh:mm:ss")
+//
+//ls_modify =	"t_pg_id.Text = '" + is_pgm_id + "'" + &
+//             "t_user_id.Text = '" + gs_shop_cd + "'" + &
+//             "t_datetime.Text = '" + ls_datetime + "'"
+//
+//dw_print.Modify(ls_modify)
+//
+
+end event
+
+event type integer ue_popup2(string as_column, long al_row, string as_data, integer ai_div);/*===========================================================================*/
+/* 작성자      : 김 태범                                                     */	
+/* 작성일      : 2002.02.15                                                  */	
+/* 수정일      : 2002.02.15                                                  */
+/*===========================================================================*/
+String     ls_style, ls_chno, ls_color, ls_size, ls_shop_nm
+Long       ll_row_cnt 
+Boolean    lb_check 
+DataStore  lds_Source 
+
+	CHOOSE CASE as_column
+	CASE "style"		
+			IF ai_div = 1 THEN 	
+				IF wf_style_chk(al_row, as_data)  THEN
+				   ll_row_cnt = dw_1.RowCount()
+				   IF al_row = ll_row_cnt THEN 
+					   ll_row_cnt = dw_1.insertRow(0)
+				   END IF
+               dw_1.SetItem(al_row, "qty", 1)
+					RETURN 0 
+				END IF 
+			END IF
+		   ls_style = as_data
+
+		   gst_cd.ai_div          = ai_div
+			gst_cd.window_title    = "품번 코드 검색" 
+			gst_cd.datawindow_nm   = "d_com012" 
+	      gst_cd.default_where   = "WHERE brand = '" + gs_brand + "' and year + convert(char(01),dbo.sf_inter_sort_seq('003', SEASON)) > '20032' and isnull(dep_fg,'N') <> 'Y'  "										
+			IF Trim(as_data) <> "" THEN
+				gst_cd.Item_where = "style  LIKE '" + ls_style + "%'" 
+			ELSE
+				gst_cd.Item_where = ""
+			END IF
+
+			lb_check = FALSE 
+			lds_Source = Create DataStore
+			OpenWithParm(W_COM200, lds_Source)
+
+			IF Isvalid(Message.PowerObjectParm) THEN
+				ib_itemchanged = True
+				lds_Source = Message.PowerObjectParm
+				IF ai_div = 2 THEN 
+				   dw_1.SetRow(al_row)
+				   dw_1.SetColumn(as_column)
+				END IF
+				
+
+			   dw_1.SetItem(al_row, "style",    lds_Source.GetItemString(1,"style"))
+			   dw_1.SetItem(al_row, "chno",     lds_Source.GetItemString(1,"chno"))
+			   dw_1.SetItem(al_row, "color",    lds_Source.GetItemString(1,"color"))
+			   dw_1.SetItem(al_row, "size",     lds_Source.GetItemString(1,"size"))
+			   dw_1.SetItem(al_row, "brand",    lds_Source.GetItemString(1,"brand"))
+				dw_1.SetItem(al_row, "year",     lds_Source.GetItemString(1,"year"))
+				dw_1.SetItem(al_row, "season",   lds_Source.GetItemString(1,"season"))
+				dw_1.SetItem(al_row, "item",     lds_Source.GetItemString(1,"item"))
+				dw_1.SetItem(al_row, "sojae",    lds_Source.GetItemString(1,"sojae"))				
+			   dw_1.SetItem(al_row, "color_nm", lds_Source.GetItemString(1,"color_nm"))
+				dw_1.SetItem(al_row, "qty", 1 )
+			   ib_changed = true
+            cb_update.enabled = true
+			   /* 다음컬럼으로 이동 */
+			   ll_row_cnt = dw_1.RowCount()
+			   IF al_row = ll_row_cnt THEN 
+				   ll_row_cnt = dw_1.insertRow(0)
+			   END IF
+			   dw_1.SetColumn("STYLE")
+		      lb_check = TRUE 
+				ib_itemchanged = FALSE
+			END IF
+			Destroy  lds_Source
+
+END CHOOSE
+
+IF ai_div = 1 THEN 
+	IF lb_check THEN
+      RETURN 2 
+	ELSE
+		RETURN 1
+	END IF
+END IF
+
+RETURN 0
+
+end event
+
+public subroutine uf_set_data ();string ls_style, ls_yymmdd, ls_shop_cd, ls_brand, ls_year, ls_season, ls_item, ls_sojae
+int i, li_rows
+
+li_rows = dw_body.rowcount()
+for i = 1 to li_rows 
+	ls_yymmdd = dw_body.getitemstring(i,"yymmdd")
+	
+	if isnull(ls_yymmdd) then
+		ls_style  = dw_body.getitemstring(i,"style")
+			
+		select convert(char(8),getdate(),112)	,
+			:gs_shop_cd,
+			brand, year,season, item, sojae
+			into :ls_yymmdd, :ls_shop_cd, :ls_brand, 
+				  :ls_year, :ls_season, :ls_item, :ls_sojae		
+		from tb_12020_m a(nolock)
+		where style = :ls_style;
+				
+		dw_body.setitem(i,"yymmdd"	,ls_yymmdd)
+		dw_body.setitem(i,"shop_cd",ls_shop_cd)
+		dw_body.setitem(i,"brand"	,ls_brand)
+		dw_body.setitem(i,"year"	,ls_year)
+		dw_body.setitem(i,"season"	,ls_season)
+		dw_body.setitem(i,"item"	,ls_item)
+		dw_body.setitem(i,"sojae"	,ls_sojae)
+		
+	end if
+next 
+
+
+li_rows = dw_1.rowcount()
+for i = 1 to li_rows 
+	ls_yymmdd = dw_1.getitemstring(i,"yymmdd")
+	
+	if isnull(ls_yymmdd) then
+		ls_style  = dw_1.getitemstring(i,"style")
+			
+		select convert(char(8),getdate(),112)	,
+			:gs_shop_cd,
+			brand, year,season, item, sojae
+			into :ls_yymmdd, :ls_shop_cd, :ls_brand, 
+				  :ls_year, :ls_season, :ls_item, :ls_sojae		
+		from tb_12020_m a(nolock)
+		where style = :ls_style;
+				
+		dw_1.setitem(i,"yymmdd"	,ls_yymmdd)
+		dw_1.setitem(i,"shop_cd",ls_shop_cd)
+		dw_1.setitem(i,"brand"	,ls_brand)
+		dw_1.setitem(i,"year"	,ls_year)
+		dw_1.setitem(i,"season"	,ls_season)
+		dw_1.setitem(i,"item"	,ls_item)
+		dw_1.setitem(i,"sojae"	,ls_sojae)
+		
+	end if
+next
+end subroutine
+
+public function boolean wf_style_chk (integer al_row, string as_style_no);/*===========================================================================*/
+/* 작성자      : 김 태범                                                     */	
+/* 작성일      : 2002.02.15                                                  */	
+/* 수정일      : 2002.02.15                                                  */
+/*===========================================================================*/
+String ls_style, ls_chno, ls_color,  ls_size
+String ls_brand, ls_plan_yn  
+Long   ll_tag_price 
+
+IF LenA(Trim(as_style_no)) <> 8 THEN RETURN FALSE
+
+ls_style = MidA(as_style_no,  1, 8)
+
+
+Select brand,     tag_price,     plan_yn   
+  into :ls_brand, :ll_tag_price, :ls_plan_yn    
+  from vi_12024_1 
+ where brand = :gs_brand 
+   and style = :ls_style 
+	and chno  = :ls_chno
+	and color = :ls_color 
+	and size  = :ls_size 
+	and isnull(dep_fg,'N') <> 'Y' 
+	and year + convert(char(01),dbo.sf_inter_sort_seq('003',season))  > '20032';
+
+IF SQLCA.SQLCODE <> 0 THEN 
+	Return False 
+END IF
+
+dw_body.SetItem(al_row, "tag_price", ll_tag_price) 
+IF ls_plan_yn = 'Y' THEN 
+	dw_body.Setitem(al_row, "fr_shop_type", '3')
+	dw_body.Setitem(al_row, "to_shop_type", '3')
+ELSE
+	dw_body.Setitem(al_row, "fr_shop_type", '1')
+	dw_body.Setitem(al_row, "to_shop_type", '1')
+END IF
+
+dw_body.SetItem(al_row, "style_no", as_style_no)
+dw_body.SetItem(al_row, "style",    ls_style)
+dw_body.SetItem(al_row, "chno",     ls_chno)
+dw_body.SetItem(al_row, "color",    ls_color)
+dw_body.SetItem(al_row, "size",     ls_size)
+dw_body.SetItem(al_row, "brand",    ls_brand)
+
+Return True
+
+end function
+
+on w_sh160_e.create
+int iCurrent
+call super::create
+if this.MenuName = "m_1_0000" then this.MenuID = create m_1_0000
+this.dw_head=create dw_head
+this.ln_1=create ln_1
+this.ln_2=create ln_2
+this.dw_body=create dw_body
+this.dw_print=create dw_print
+this.dw_1=create dw_1
+iCurrent=UpperBound(this.Control)
+this.Control[iCurrent+1]=this.dw_head
+this.Control[iCurrent+2]=this.ln_1
+this.Control[iCurrent+3]=this.ln_2
+this.Control[iCurrent+4]=this.dw_body
+this.Control[iCurrent+5]=this.dw_print
+this.Control[iCurrent+6]=this.dw_1
+end on
+
+on w_sh160_e.destroy
+call super::destroy
+if IsValid(MenuID) then destroy(MenuID)
+destroy(this.dw_head)
+destroy(this.ln_1)
+destroy(this.ln_2)
+destroy(this.dw_body)
+destroy(this.dw_print)
+destroy(this.dw_1)
+end on
+
+event pfc_preopen();call super::pfc_preopen;/*===========================================================================*/
+/* 작성자      : 지우정보 (김 태범) 		   										  */	
+/* 작성일      : 2001.01.01																  */	
+/* 수정일      : 2001.01.01																  */
+/*===========================================================================*/
+
+/* Data window Resize */
+inv_resize.of_Register(dw_body, "ScaleToBottom")
+inv_resize.of_Register(dw_1, "ScaleToRight&Bottom")
+
+inv_resize.of_Register(ln_1, "ScaleToRight")
+inv_resize.of_Register(ln_2, "ScaleToRight")
+
+//inv_resize.of_Register(dw_body, "ScaleToRight&Bottom")
+
+
+/* DataWindow의 Transction 정의 */
+dw_body.SetTransObject(SQLCA)
+dw_print.SetTransObject(SQLCA)
+dw_1.SetTransObject(SQLCA)
+
+/* Tab order가 존재한 처음과 마지막 Colunm 검색 */
+this.Trigger Event ue_init(dw_body)
+
+/* DataWindow Head에 One Row 추가 */
+dw_head.InsertRow(0)
+
+
+end event
+
+event ue_retrieve();call super::ue_retrieve;/*===========================================================================*/
+/* 작성자      :                                                       */	
+/* 작성일      : 2001..                                                  */	
+/* 수정일      : 2001..                                                  */
+/*===========================================================================*/
+
+/* dw_head 필수입력 column check */
+IF Trigger Event ue_keycheck('1') = FALSE THEN RETURN
+
+
+il_rows = dw_1.retrieve(is_yymmdd, gs_shop_cd)
+il_rows = dw_body.retrieve(is_yymmdd, gs_shop_cd)
+dw_body.SetFocus()
+dw_1.insertrow(0)
+dw_body.insertrow(0)
+
+This.Trigger Event ue_button(1, 1)
+This.Trigger Event ue_msg(1, 1)
+
+end event
+
+event type boolean ue_keycheck(string as_cb_div);call super::ue_keycheck;/*===========================================================================*/
+/* 작성자      :                                                       */	
+/* 작성일      : 2001..                                                  */	
+/* 수정일      : 2001..                                                  */
+/*===========================================================================*/
+/* Description : 조회,추가,저장 버튼 클릭시 발생                             */
+/*               Key 부분이 되는 경우는 Instance Variables로 선언하고 사용함 */
+/*===========================================================================*/
+string   ls_title
+
+IF as_cb_div = '1' THEN
+	ls_title = "조회오류"
+ELSEIF as_cb_div = '2' THEN
+	ls_title = "추가오류"
+ELSEIF as_cb_div = '3' THEN
+	ls_title = "저장오류"
+ELSE
+	ls_title = "오류"
+END IF
+
+IF dw_head.AcceptText() <> 1 THEN RETURN FALSE
+
+is_yymmdd = dw_head.GetItemString(1, "yymmdd")
+if IsNull(is_yymmdd) or Trim(is_yymmdd) = "" then
+   MessageBox(ls_title,"등록일자를 입력하십시요!")
+   dw_head.SetFocus()
+   dw_head.SetColumn("yymmdd")
+   return false
+end if
+
+return true
+end event
+
+event type integer ue_popup(string as_column, long al_row, string as_data, integer ai_div);call super::ue_popup;/*===========================================================================*/
+/* 작성자      : 김 태범                                                     */	
+/* 작성일      : 2002.02.15                                                  */	
+/* 수정일      : 2002.02.15                                                  */
+/*===========================================================================*/
+String     ls_style, ls_chno, ls_color, ls_size, ls_shop_nm
+Long       ll_row_cnt 
+Boolean    lb_check 
+DataStore  lds_Source 
+
+CHOOSE CASE as_column
+	CASE "style"		
+			IF ai_div = 1 THEN 	
+				IF wf_style_chk(al_row, as_data)  THEN
+				   ll_row_cnt = dw_1.RowCount()
+				   IF al_row = ll_row_cnt THEN 
+					   ll_row_cnt = dw_body.insertRow(0)
+				   END IF
+               dw_body.SetItem(al_row, "qty", 1)
+					RETURN 0 
+				END IF 
+			END IF
+		   ls_style = as_data
+
+		   gst_cd.ai_div          = ai_div
+			gst_cd.window_title    = "품번 코드 검색" 
+			gst_cd.datawindow_nm   = "d_com012" 
+	      gst_cd.default_where   = "WHERE brand = '" + gs_brand + "' and year + convert(char(01),dbo.sf_inter_sort_seq('003', SEASON)) > '20032' and isnull(dep_fg,'N') <> 'Y'  "										
+			IF Trim(as_data) <> "" THEN
+				gst_cd.Item_where = "style  LIKE '" + ls_style + "%'" 
+			ELSE
+				gst_cd.Item_where = ""
+			END IF
+
+			lb_check = FALSE 
+			lds_Source = Create DataStore
+			OpenWithParm(W_COM200, lds_Source)
+
+			IF Isvalid(Message.PowerObjectParm) THEN
+				ib_itemchanged = True
+				lds_Source = Message.PowerObjectParm
+				IF ai_div = 2 THEN 
+				   dw_body.SetRow(al_row)
+				   dw_body.SetColumn(as_column)
+				END IF
+				
+
+			   dw_body.SetItem(al_row, "style",    lds_Source.GetItemString(1,"style"))
+			   dw_body.SetItem(al_row, "chno",     lds_Source.GetItemString(1,"chno"))
+			   dw_body.SetItem(al_row, "color",    lds_Source.GetItemString(1,"color"))
+			   dw_body.SetItem(al_row, "size",     lds_Source.GetItemString(1,"size"))
+			   dw_body.SetItem(al_row, "brand",    lds_Source.GetItemString(1,"brand"))
+				dw_body.SetItem(al_row, "year",     lds_Source.GetItemString(1,"year"))
+				dw_body.SetItem(al_row, "season",   lds_Source.GetItemString(1,"season"))
+				dw_body.SetItem(al_row, "item",     lds_Source.GetItemString(1,"item"))
+				dw_body.SetItem(al_row, "sojae",    lds_Source.GetItemString(1,"sojae"))
+			   dw_body.SetItem(al_row, "color_nm", lds_Source.GetItemString(1,"color_nm"))
+				dw_body.SetItem(al_row, "qty", 1 )
+				
+			   ib_changed = true
+            cb_update.enabled = true
+			   /* 다음컬럼으로 이동 */
+			   ll_row_cnt = dw_body.RowCount()
+			   IF al_row = ll_row_cnt THEN 
+				   ll_row_cnt = dw_body.insertRow(0)
+			   END IF
+			   dw_body.SetColumn("STYLE")
+		      lb_check = TRUE 
+				ib_itemchanged = FALSE
+			END IF
+			Destroy  lds_Source
+
+END CHOOSE
+
+IF ai_div = 1 THEN 
+	IF lb_check THEN
+      RETURN 2 
+	ELSE
+		RETURN 1
+	END IF
+END IF
+
+RETURN 0
+
+end event
+
+event ue_button;call super::ue_button;/*===========================================================================*/
+/* 작성자      : 지우정보                                                    */	
+/* 작성일      : 2001..                                                  */	
+/* 수정일      : 2001..                                                  */
+/*===========================================================================*/
+/* ai_cd_div   : 1 - 조회, 2 - 추가, 3 - 저장, 4 - 삭제, 5 - 조건            */
+/*	al_rows     : 조회, 추가, 저장, 삭제 리턴값                               */
+/*===========================================================================*/
+
+CHOOSE CASE ai_cb_div
+   CASE 1		/* 조회 */
+      if al_rows > 0 then
+         cb_delete.enabled = true
+         cb_print.enabled = true
+         cb_preview.enabled = true
+         cb_retrieve.Text = "조건(&Q)"
+         dw_head.Enabled = false
+         dw_body.Enabled = true
+         dw_body.SetFocus()
+      else
+         cb_delete.enabled = false
+         cb_print.enabled = false
+         cb_preview.enabled = false
+      end if
+
+      if al_rows >= 0 then
+         ib_changed = false
+         cb_update.enabled = false
+      end if
+		
+   CASE 2   /* 추가 */
+      if al_rows > 0 then
+			cb_delete.enabled = true
+			cb_print.enabled = false
+			cb_preview.enabled = false
+			if dw_head.Enabled then
+				cb_retrieve.Text = "조건(&Q)"
+				dw_head.Enabled = false
+				dw_body.Enabled = true
+			end if
+		end if
+
+	CASE 3		/* 저장 */
+		if al_rows = 1 then
+			ib_changed = false
+			cb_print.enabled = true
+			cb_preview.enabled = true
+		end if
+
+	CASE 4		/* 삭제 */
+		if al_rows = 1 then
+			if dw_body.RowCount() = 0 then
+            cb_delete.enabled = false
+			end if
+         if idw_status <> new! and idw_status <> newmodified! then
+            ib_changed = true
+            cb_update.enabled = true
+			end if
+         cb_print.enabled = false
+         cb_preview.enabled = false
+		end if
+
+   CASE 5    /* 조건 */
+      cb_retrieve.Text = "조회(&Q)"
+      cb_delete.enabled = false
+      cb_print.enabled = false
+      cb_preview.enabled = false
+      cb_update.enabled = false
+      ib_changed = false
+      dw_body.Enabled = false
+      dw_head.Enabled = true
+      dw_head.SetFocus()
+      dw_head.SetColumn(1)
+END CHOOSE
+
+end event
+
+event ue_insert;call super::ue_insert;/*===========================================================================*/
+/* 작성자      : 지우정보 (김 태범)                                          */	
+/* 작성일      : 2001.01.01                                                  */	
+/* 수정일      : 2001.01.01                                                  */
+/*===========================================================================*/
+
+if dw_body.AcceptText() <> 1 then return
+
+/* dw_head 필수입력 column check ==> 조건을 누른후 추가시 */
+IF dw_head.Enabled THEN
+	IF Trigger Event ue_keycheck('2') = FALSE THEN RETURN 
+	dw_body.Reset()
+END IF
+
+il_rows = dw_body.InsertRow(0)
+
+/* 추가된 Row의 첫번째 Tab Order 항목으로 이동 */
+if il_rows > 0 then
+	dw_body.ScrollToRow(il_rows)
+	dw_body.SetColumn(ii_min_column_id)
+	dw_body.SetFocus()
+end if
+
+This.Trigger Event ue_button(2, il_rows)
+This.Trigger Event ue_msg(2, il_rows)
+
+end event
+
+event ue_msg;call super::ue_msg;/*===========================================================================*/
+/* 작성자      : 지우정보 (김 태범)                                          */	
+/* 작성일      : 2001.01.01                                                  */	
+/* 수정일      : 2001.01.01                                                  */
+/* ai_cb_div   : 1 - 조회, 2 - 추가, 3 - 저장, 4 - 삭제, 5 - 조건, 6 - 삭제  */
+/* al_rows     : 리턴값                                                      */
+/*===========================================================================*/
+
+String ls_msg
+
+CHOOSE CASE ai_cb_div
+   CASE 1      /* 조회 */
+      CHOOSE CASE al_rows
+         CASE IS > 0
+            ls_msg = "조회가 완료되었습니다."
+         CASE 0
+            ls_msg = "조회 할 자료가 없습니다."
+         CASE IS < 0
+            ls_msg = "조회가 실패하였습니다."
+      END CHOOSE
+   CASE 2      /* 추가 */
+      IF al_rows > 0 THEN
+         ls_msg = "자료를 입력하십시요."
+      ELSE
+         ls_msg = "자료 입력이 실패했습니다."
+      END IF
+   CASE 3      /* 저장 */
+      IF al_rows = 1 THEN
+         ls_msg = "자료가 저장되었습니다."
+      ELSE
+         ls_msg = "자료 저장이 실패하였습니다."
+      END IF
+   CASE 4      /* 삭제 */
+      IF al_rows > 0 THEN
+         ls_msg = "자료가 삭제되었습니다."
+      ELSE
+         ls_msg = "자료 삭제가 실패하였습니다."
+      END IF
+   CASE 5      /* 조건 */
+      ls_msg = "조회할 자료를 입력하세요."
+   CASE 6      /* 인쇄 */
+		IF al_rows = 1 THEN
+         ls_msg = "인쇄가 되었습니다."
+      ELSE
+         ls_msg = "인쇄가 실패하였습니다."
+      END IF
+END CHOOSE
+
+This.ParentWindow().SetMicroHelp(ls_msg)
+
+end event
+
+event ue_delete;call super::ue_delete;/*===========================================================================*/
+/* 작성자      : 지우정보 (김 태범)                                          */	
+/* 작성일      : 2001.01.01																  */	
+/* 수정일      : 2001.01.01																  */
+/*===========================================================================*/
+/* row에 따라 삭제조건이 틀릴경우 새로 작성 */
+long			ll_cur_row
+
+ll_cur_row = dw_body.GetRow()
+
+if ll_cur_row <= 0 then return
+
+idw_status = dw_body.GetItemStatus (ll_cur_row, 0, primary!)	
+
+il_rows = dw_body.DeleteRow (ll_cur_row)
+dw_body.SetFocus()
+
+This.Trigger Event ue_button(4, il_rows)
+This.Trigger Event ue_msg(4, il_rows)
+
+end event
+
+event ue_preview;call super::ue_preview;/*===========================================================================*/
+/* 작성자      : (주)지우정보                                                */	
+/* 작성일      : 2002.01.03                                                  */	
+/* 수정일      : 2002.01.03                                                  */
+/*===========================================================================*/
+
+This.Trigger Event ue_title ()
+
+dw_body.ShareData(dw_print)
+dw_print.inv_printpreview.of_SetZoom()
+
+end event
+
+event ue_print;call super::ue_print;/*===========================================================================*/
+/* 작성자      : (주)지우정보                                                */	
+/* 작성일      : 2002.01.03                                                  */	
+/* 수정일      : 2002.01.03                                                  */
+/*===========================================================================*/
+
+This.Trigger Event ue_title()
+
+dw_body.ShareData(dw_print)
+
+IF dw_print.RowCount() = 0 Then
+   MessageBox("인쇄오류","인쇄할 자료가 없습니다!")
+   il_rows = 0
+ELSE
+   il_rows = dw_print.Print()
+END IF
+This.Trigger Event ue_msg(6, il_rows)
+
+end event
+
+event type long ue_update();call super::ue_update;/*===========================================================================*/
+/* 작성자      :                                                       */	
+/* 작성일      : 2001..                                                  */	
+/* 수정일      : 2001..                                                  */
+/*===========================================================================*/
+long i, ll_row_count, li_no
+datetime ld_datetime
+string ls_yymmdd
+
+ll_row_count = dw_body.RowCount()
+IF dw_body.AcceptText() <> 1 THEN RETURN -1
+IF dw_1.AcceptText() <> 1 THEN RETURN -1
+
+/* 시스템 날짜를 가져온다 */
+IF gf_sysdate(ld_datetime) = FALSE THEN
+	Return 0
+END IF
+
+select max(demand_no) into :li_no from tb_mk_demand (nolock);
+if isnull(li_no) then 
+	li_no = 0
+else
+	li_no = li_no + 1
+end if
+
+ls_yymmdd = dw_head.getitemstring(1,"yymmdd")
+if isnull(ls_yymmdd) or LenA(ls_yymmdd) <> 8 then 
+	messagebox("주의", "등록일자를 올바로 입력하세요..")
+	dw_head.setfocus()
+	dw_head.setcolumn("yymmdd")	
+	return 0
+end if
+
+
+FOR i=1 TO ll_row_count
+   idw_status = dw_body.GetItemStatus(i, 0, Primary!)
+   IF idw_status = NewModified! THEN				/* New Record */
+		
+      dw_body.Setitem(i, "reg_id", gs_user_id)
+		dw_body.Setitem(i, "yymmdd", ls_yymmdd)
+		dw_body.Setitem(i, "shop_cd", gs_shop_cd)
+		dw_body.Setitem(i, "demand_no", li_no)
+		li_no = li_no + 1
+	ELSEIF idw_status = DataModified! THEN		/* Modify Record */
+      dw_body.Setitem(i, "mod_id", gs_user_id)
+      dw_body.Setitem(i, "mod_dt", ld_datetime)
+   END IF
+	
+NEXT
+
+il_rows = dw_body.Update(TRUE, FALSE)
+
+if il_rows = 1 then
+   dw_body.ResetUpdate()
+   commit  USING SQLCA;
+else
+   rollback  USING SQLCA;
+end if
+
+
+
+/////////////////////////////////////
+ll_row_count = dw_1.RowCount()
+li_no = 0
+select max(demand_no) into :li_no from tb_mk_demand (nolock);
+if isnull(li_no) then 
+	li_no = 0
+else
+	li_no = li_no + 1
+end if
+
+
+FOR i=1 TO ll_row_count
+   idw_status = dw_1.GetItemStatus(i, 0, Primary!)
+   IF idw_status = NewModified! THEN				/* New Record */
+      dw_1.Setitem(i, "reg_id", gs_user_id)
+		dw_1.Setitem(i, "yymmdd", ls_yymmdd)
+		dw_1.Setitem(i, "shop_cd", gs_shop_cd)
+		dw_1.Setitem(i, "supply_no", li_no)
+		li_no = li_no + 1
+   ELSEIF idw_status = DataModified! THEN		/* Modify Record */
+      dw_1.Setitem(i, "mod_id", gs_user_id)
+      dw_1.Setitem(i, "mod_dt", ld_datetime)
+   END IF
+	li_no = li_no + 1
+NEXT
+
+il_rows = dw_1.Update(TRUE, FALSE)
+
+if il_rows = 1 then
+   dw_1.ResetUpdate()
+   commit  USING SQLCA;
+else
+   rollback  USING SQLCA;
+end if
+
+
+This.Trigger Event ue_button(3, il_rows)
+This.Trigger Event ue_msg(3, il_rows)
+return il_rows
+
+end event
+
+event closequery;/*===========================================================================*/
+/* 작성자      : 지우정보                                                    */	
+/* 작성일      : 2001.01.01                                                  */	
+/* 수정일      : 2001.01.01                                                  */
+/*===========================================================================*/
+
+/* 변경된 자료가 있을때 저장여부를 확인*/
+IF ib_changed THEN 
+   IF This.Windowstate = Minimized! THEN
+	   This.Windowstate = Normal!
+   END IF
+   This.SetFocus()
+
+   CHOOSE CASE gf_update_yn(This.title)
+	   CASE 1
+		   IF This.Trigger Event ue_update() < 1 THEN
+			   Message.ReturnValue = 1
+			   return
+		   END IF		
+	   CASE 3
+		   Message.ReturnValue = 1
+		   return
+   END CHOOSE
+END IF
+
+end event
+
+event ue_head;call super::ue_head;/*===========================================================================*/
+/* 작성자      : 지우정보 ()                                                 */	
+/* 작성일      : 2001.01.01                                                  */	
+/* 수정일      : 2001.01.01                                                  */
+/*===========================================================================*/
+
+/* 변경된 자료가 있을때 저장여부를 확인*/
+IF ib_changed THEN 
+   CHOOSE CASE gf_update_yn(This.title)
+	   CASE 1
+		   IF This.Trigger Event ue_update() < 1 THEN
+			   return
+		   END IF		
+	   CASE 3
+		   return
+   END CHOOSE
+END IF
+
+This.Trigger Event ue_button(5, 2)
+This.Trigger Event ue_msg(5, 2)
+
+end event
+
+event open;call super::open;/*===========================================================================*/
+/* 작성자      : (주)지우정보 (김 태범) 												  */	
+/* 작성일      : 2001.12.27																  */	
+/* 수정일      : 2001.12.27																  */
+/* 설  명      : head 기본값 처리                                            */
+/*===========================================================================*/
+u_head_set lu_head_set
+
+lu_head_set = create u_head_set
+
+lu_head_set.uf_set(dw_head)
+
+if IsValid (lu_head_set) then
+   DESTROY lu_head_set
+end if
+
+trigger event ue_retrieve()
+
+
+end event
+
+type cb_close from w_com000`cb_close within w_sh160_e
+integer x = 2510
+integer taborder = 100
+end type
+
+type cb_delete from w_com000`cb_delete within w_sh160_e
+boolean visible = false
+integer x = 1083
+integer taborder = 50
+end type
+
+type cb_insert from w_com000`cb_insert within w_sh160_e
+boolean visible = false
+integer x = 741
+integer taborder = 40
+boolean enabled = false
+end type
+
+type cb_retrieve from w_com000`cb_retrieve within w_sh160_e
+integer x = 2167
+integer taborder = 20
+end type
+
+event cb_retrieve::clicked;call super::clicked;/*===========================================================================*/
+/* 작성자      : M.S.I (김태범) 															  */	
+/* 작성일      : 1999.11.04																  */	
+/* 수정일      : 1999.11.04																  */
+/*===========================================================================*/
+pointer oldpointer  // Declares a pointer variable
+
+This.Enabled = False
+oldpointer = SetPointer(HourGlass!)
+
+IF dw_head.Enabled THEN
+	Parent.Trigger Event ue_retrieve()	//조회
+ELSE
+	Parent.Trigger Event ue_head()	//조건
+END IF
+
+SetPointer(oldpointer)
+This.Enabled = True
+
+end event
+
+type cb_update from w_com000`cb_update within w_sh160_e
+integer taborder = 90
+end type
+
+type cb_print from w_com000`cb_print within w_sh160_e
+boolean visible = false
+integer x = 1426
+integer taborder = 60
+end type
+
+type cb_preview from w_com000`cb_preview within w_sh160_e
+boolean visible = false
+integer x = 1769
+integer taborder = 70
+end type
+
+type gb_button from w_com000`gb_button within w_sh160_e
+integer width = 2875
+integer taborder = 0
+end type
+
+type dw_head from u_dw within w_sh160_e
+event ue_keydown pbm_dwnkey
+integer x = 37
+integer y = 172
+integer width = 2830
+integer height = 132
+integer taborder = 10
+string dataobject = "d_sh160_h01"
+boolean vscrollbar = false
+boolean border = false
+borderstyle borderstyle = stylebox!
+end type
+
+event ue_keydown;/*===========================================================================*/
+/* 작성자      : 지우정보 (김태범)                                           */	
+/* 작성일      : 1999.11.08                                                  */	
+/* 수정일      : 1999.11.08                                                  */
+/*===========================================================================*/
+
+String ls_column_name, ls_tag, ls_report
+
+ls_column_name = This.GetColumnName()
+
+IF KeyDown(21) THEN
+	ls_tag = This.Describe(ls_column_name + ".Tag")
+	gf_kor_eng(Handle(Parent), ls_tag, 2)
+END IF
+
+CHOOSE CASE key
+	CASE KeyEnter!
+		Send(Handle(This), 256, 9, long(0,0))
+		return 1
+	CASE KeyF12!
+      char lc_kb[256]
+      GetKeyboardState (lc_kb)
+      lc_kb[17] = CharA (128)
+      SetKeyboardState (lc_kb)
+      Send (Handle (this), 256, 9, 0)
+      GetKeyboardState (lc_kb)
+      lc_kb[17] = CharA (0)
+      SetKeyboardState (lc_kb)
+	CASE KeyF1!
+		ls_report = This.Describe(ls_column_name + ".Protect")
+		IF ls_report = "1" THEN RETURN 0
+		ls_report = MidA(ls_report, 4, LenA(ls_report) - 4)
+		IF This.Describe("Evaluate(~"" + ls_report + "~", " + &
+								String(This.GetRow()) + ")") = '1' THEN RETURN 0
+		Parent.Trigger Event ue_popup (ls_column_name, This.GetRow(), This.GetText(), 2)
+END CHOOSE
+
+end event
+
+event buttonclicked;call super::buttonclicked;/*===========================================================================*/
+/* 작성자      : 지우정보 (김 태범)                                          */	
+/* 작성일      : 1999.11.09                                                  */	
+/* 수정일      : 1999.11.09                                                  */
+/*===========================================================================*/
+string ls_column_nm, ls_column_value, ls_report
+
+IF PosA(dwo.name, "cb_") = 0 THEN RETURN
+
+ls_column_nm = MidA(dwo.name, 4)
+
+ls_report = This.Describe(ls_column_nm + ".Protect")
+IF ls_report = "1" THEN RETURN 
+ls_report = MidA(ls_report, 4, LenA(ls_report) - 4)
+IF This.Describe("Evaluate(~"" + ls_report + "~", " + String(row) + ")") = '1' THEN RETURN 
+
+IF row = This.GetRow() AND ls_column_nm = This.GetColumnName() THEN
+	ls_column_value = This.GetText()
+ELSE
+	ls_column_value = This.GetItemString(row, ls_column_nm)
+END IF
+
+Parent.Trigger Event ue_popup (ls_column_nm, row, ls_column_value, 2)
+
+end event
+
+event itemerror;return 1
+end event
+
+event itemfocuschanged;/*===========================================================================*/
+/* 작성자      :                                                             */	
+/* 작성일      : 1999.11.09                                                  */	
+/* 수정일      : 1999.11.09                                                  */
+/*===========================================================================*/
+String ls_column_nm,  ls_tag, ls_helpMsg
+
+ls_column_nm = This.GetColumnName()
+
+ls_tag = This.Describe(ls_column_nm + ".Tag")
+
+gf_kor_eng(Handle(Parent), ls_tag, 1)
+
+This.SelectText(1, 3000)
+
+//CHOOSE CASE ls_column_name
+//	CASE "cust_cd"
+//		ls_helpMsg = "▶ ※ 거래처 코드를 입력하세요! "
+//	CASE ELSE
+//		ls_helpMsg = " "
+//END CHOOSE
+//
+//Parent.SetMicroHelp(ls_helpMsg)
+
+end event
+
+event itemchanged;call super::itemchanged;/*===========================================================================*/
+/* 작성자      :                                                       */	
+/* 작성일      : 2001..                                                  */	
+/* 수정일      : 2001..                                                  */
+/*===========================================================================*/
+//
+//CHOOSE CASE dwo.name
+//	CASE "brand_cd"      // dddw로 작성된 항목
+//    This.Setitem(1,"brand_nm",idw_brand_cd.getitemString(idw_brand_cd.GetRow(),"brand_nm"))
+//	CASE "cust_cd"	     //  Popup 검색창이 존재하는 항목 
+//		IF ib_itemchanged THEN RETURN 1
+//		return Parent.Trigger Event ue_Popup(dwo.name, row, data, 1)
+//END CHOOSE
+//
+end event
+
+event rbuttonup;//
+end event
+
+type ln_1 from line within w_sh160_e
+integer linethickness = 4
+integer beginy = 324
+integer endx = 2862
+integer endy = 324
+end type
+
+type ln_2 from line within w_sh160_e
+long linecolor = 16777215
+integer linethickness = 4
+integer beginy = 328
+integer endx = 2862
+integer endy = 328
+end type
+
+type dw_body from u_dw within w_sh160_e
+event ue_keydown pbm_dwnkey
+integer y = 336
+integer width = 1431
+integer height = 1500
+integer taborder = 30
+string dataobject = "d_sh160_d01"
+end type
+
+event ue_keydown;/*===========================================================================*/
+/* 작성자      : 지우정보 (김태범)                                           */	
+/* 작성일      : 1999.11.08                                                  */	
+/* 수정일      : 1999.11.08                                                  */
+/*===========================================================================*/
+
+String ls_column_name, ls_tag, ls_report
+
+ls_column_name = This.GetColumnName()
+
+IF KeyDown(21) THEN
+	ls_tag = This.Describe(ls_column_name + ".Tag")
+	gf_kor_eng(Handle(Parent), ls_tag, 2)
+END IF
+
+CHOOSE CASE key
+	CASE KeyEnter!
+		Send(Handle(This), 256, 9, long(0,0))
+		Return 1
+	CASE KeyDownArrow!
+		IF This.GetRow() = This.RowCount() THEN
+		   This.InsertRow(This.GetRow() + 1)
+		END IF
+   CASE KeyF12!
+      char lc_kb[256]
+      GetKeyboardState (lc_kb)
+      lc_kb[17] = CharA (128)
+      SetKeyboardState (lc_kb)
+      Send (Handle (this), 256, 9, 0)
+      GetKeyboardState (lc_kb)
+      lc_kb[17] = CharA (0)
+      SetKeyboardState (lc_kb)
+	CASE KeyF1!
+		ls_report = This.Describe(ls_column_name + ".Protect")
+		IF ls_report = "1" THEN RETURN 0
+		ls_report = MidA(ls_report, 4, LenA(ls_report) - 4)
+		IF This.Describe("Evaluate(~"" + ls_report + "~", " + &
+								String(This.GetRow()) + ")") = '1' THEN RETURN 0
+		Parent.Trigger Event ue_popup (ls_column_name, This.GetRow(), This.GetText(), 2)
+END CHOOSE
+
+end event
+
+event buttonclicked;call super::buttonclicked;/*===========================================================================*/
+/* 작성자      : 지우정보 (김 태범)                                          */	
+/* 작성일      : 1999.11.09                                                  */	
+/* 수정일      : 1999.11.09                                                  */
+/*===========================================================================*/
+string ls_column_nm, ls_column_value, ls_report
+
+if dwo.name = "cb_del" then
+	parent.trigger event ue_delete()
+	return
+end if
+
+IF PosA(dwo.name, "cb_") = 0 THEN RETURN
+
+ls_column_nm = MidA(dwo.name, 4)
+
+ls_report = This.Describe(ls_column_nm + ".Protect")
+IF ls_report = "1" THEN RETURN 
+ls_report = MidA(ls_report, 4, LenA(ls_report) - 4)
+IF This.Describe("Evaluate(~"" + ls_report + "~", " + String(row) + ")") = '1' THEN RETURN 
+
+IF row = This.GetRow() AND ls_column_nm = This.GetColumnName() THEN
+	ls_column_value = This.GetText()
+ELSE
+	ls_column_value = This.GetItemString(row, ls_column_nm)
+END IF
+
+Parent.Trigger Event ue_popup (ls_column_nm, row, ls_column_value, 2)
+
+end event
+
+event constructor;call super::constructor;/*===========================================================================*/
+/* 작성자      : 지우정보                                                     */	
+/* 작성일      : 1999.11.09                                                  */	
+/* 수정일      : 1999.11.09                                                  */
+/*===========================================================================*/
+This.of_SetRowManager(True)
+This.of_SetBase(True)
+This.of_SetSort(True)
+
+This.inv_base.of_SetColumnNameSource(2)  // header로 sort
+This.inv_sort.of_SetUseDisplay(True)     // dddw같은 경우 display value로 sort
+This.inv_sort.of_SetColumnHeader(True)
+
+//This.SetRowFocusIndicator(Hand!)
+
+end event
+
+event dberror;/*===========================================================================*/
+/* 작성자      : 지우정보                                                    */	
+/* 작성일      : 1999.11.09																  */	
+/* 수정일      : 1999.11.09																  */
+/*===========================================================================*/
+
+string ls_message_string
+
+CHOOSE CASE sqldbcode
+	CASE 1
+		ls_message_string = "같은 코드값은 입력할 수 없습니다!"
+	CASE 1400
+		ls_message_string = "코드값은 반드시 입력하셔야 합니다!"
+	CASE -1
+		ls_message_string = "데이타 베이스와 연결이 끊어졌습니다!"
+	CASE ELSE
+		ls_message_string = "에러코드(" + String(sqldbcode) + ")" + &
+		   				     "~n" + "에러메세지("+sqlerrtext+")" 
+END CHOOSE
+
+This.ScrollTorow(row)
+This.SetRow(row)
+This.SetFocus()
+
+MessageBox(parent.title, ls_message_string)
+return 1
+end event
+
+event itemerror;return 1
+end event
+
+event itemfocuschanged;call super::itemfocuschanged;/*===========================================================================*/
+/* 작성자      : 지우정보                                                    */	
+/* 작성일      : 1999.11.09                                                  */	
+/* 수정일      : 1999.11.09                                                  */
+/*===========================================================================*/
+String ls_column_nm,  ls_tag, ls_helpMsg
+
+ls_column_nm = This.GetColumnName()
+
+ls_tag = This.Describe(ls_column_nm + ".Tag")
+
+gf_kor_eng(Handle(Parent), ls_tag, 1)
+
+This.SelectText(1, 3000)
+
+//CHOOSE CASE ls_column_name
+//	CASE "cust_cd"
+//		ls_helpMsg = "▶ ※ 거래처 코드를 입력하세요! "
+//	CASE ELSE
+//		ls_helpMsg = " "
+//END CHOOSE
+//
+//Parent.SetMicroHelp(ls_helpMsg)
+
+end event
+
+event rbuttonup;//
+end event
+
+event itemchanged;call super::itemchanged;/*===========================================================================*/
+/* 작성자      : 지우정보 (김태범)                                           */	
+/* 작성일      : 1999.11.08                                                  */	
+/* 수정일      : 1999.11.08                                                  */
+/*===========================================================================*/
+ib_changed = true
+cb_update.enabled = true
+cb_print.enabled = false
+cb_preview.enabled = false
+/*===========================================================================*/
+/* 작성자      :                                                       */	
+/* 작성일      : 2001..                                                  */	
+/* 수정일      : 2001..                                                  */
+/*===========================================================================*/
+
+CHOOSE CASE dwo.name
+	CASE "style"	     //  Popup 검색창이 존재하는 항목 
+		IF ib_itemchanged THEN RETURN 1
+		return Parent.Trigger Event ue_Popup(dwo.name, row, data, 1)
+END CHOOSE
+
+end event
+
+event editchanged;call super::editchanged;/*===========================================================================*/
+/* 작성자      : 지우정보 (김태범)                                           */	
+/* 작성일      : 1999.11.08                                                  */	
+/* 수정일      : 1999.11.08                                                  */
+/*===========================================================================*/
+ib_changed = true
+cb_update.enabled = true
+cb_print.enabled = false
+cb_preview.enabled = false
+
+end event
+
+type dw_print from u_dw within w_sh160_e
+boolean visible = false
+integer x = 119
+integer y = 736
+integer width = 1006
+integer taborder = 0
+boolean bringtotop = true
+boolean hscrollbar = true
+end type
+
+event constructor;call super::constructor;This.of_SetPrintPreview(TRUE)
+end event
+
+type dw_1 from datawindow within w_sh160_e
+event ue_keydown pbm_dwnkey
+event ue_delete ( )
+integer x = 1440
+integer y = 336
+integer width = 1431
+integer height = 1500
+integer taborder = 40
+boolean bringtotop = true
+string dataobject = "d_sh160_d02"
+boolean vscrollbar = true
+boolean livescroll = true
+borderstyle borderstyle = stylelowered!
+end type
+
+event ue_keydown;/*===========================================================================*/
+/* 작성자      : 지우정보 (김태범)                                           */	
+/* 작성일      : 1999.11.08                                                  */	
+/* 수정일      : 1999.11.08                                                  */
+/*===========================================================================*/
+
+String ls_column_name, ls_tag, ls_report
+
+ls_column_name = This.GetColumnName()
+
+IF KeyDown(21) THEN
+	ls_tag = This.Describe(ls_column_name + ".Tag")
+	gf_kor_eng(Handle(Parent), ls_tag, 2)
+END IF
+
+CHOOSE CASE key
+	CASE KeyEnter!
+		Send(Handle(This), 256, 9, long(0,0))
+		Return 1
+	CASE KeyDownArrow!
+		IF This.GetRow() = This.RowCount() THEN
+		   This.InsertRow(This.GetRow() + 1)
+		END IF
+   CASE KeyF12!
+      char lc_kb[256]
+      GetKeyboardState (lc_kb)
+      lc_kb[17] = CharA (128)
+      SetKeyboardState (lc_kb)
+      Send (Handle (this), 256, 9, 0)
+      GetKeyboardState (lc_kb)
+      lc_kb[17] = CharA (0)
+      SetKeyboardState (lc_kb)
+	CASE KeyF1!
+		ls_report = This.Describe(ls_column_name + ".Protect")
+		IF ls_report = "1" THEN RETURN 0
+		ls_report = MidA(ls_report, 4, LenA(ls_report) - 4)
+		IF This.Describe("Evaluate(~"" + ls_report + "~", " + &
+								String(This.GetRow()) + ")") = '1' THEN RETURN 0
+		Parent.Trigger Event ue_popup (ls_column_name, This.GetRow(), This.GetText(), 2)
+END CHOOSE
+
+end event
+
+event ue_delete();/*===========================================================================*/
+/* 작성자      : 지우정보 (김 태범)                                          */	
+/* 작성일      : 2001.01.01																  */	
+/* 수정일      : 2001.01.01																  */
+/*===========================================================================*/
+/* row에 따라 삭제조건이 틀릴경우 새로 작성 */
+long			ll_cur_row
+
+ll_cur_row = dw_1.GetRow()
+
+if ll_cur_row <= 0 then return
+
+idw_status = dw_1.GetItemStatus (ll_cur_row, 0, primary!)	
+
+il_rows = dw_1.DeleteRow (ll_cur_row)
+dw_1.SetFocus()
+
+parent.Trigger Event ue_button(4, il_rows)
+parent.Trigger Event ue_msg(4, il_rows)
+
+end event
+
+event buttonclicked;/*===========================================================================*/
+/* 작성자      : 지우정보 (김 태범)                                          */	
+/* 작성일      : 1999.11.09                                                  */	
+/* 수정일      : 1999.11.09                                                  */
+/*===========================================================================*/
+string ls_column_nm, ls_column_value, ls_report
+
+if dwo.name = "cb_del" then
+	trigger event ue_delete()
+	return
+end if
+
+
+IF PosA(dwo.name, "cb_") = 0 THEN RETURN
+
+ls_column_nm = MidA(dwo.name, 4)
+
+ls_report = This.Describe(ls_column_nm + ".Protect")
+IF ls_report = "1" THEN RETURN 
+ls_report = MidA(ls_report, 4, LenA(ls_report) - 4)
+IF This.Describe("Evaluate(~"" + ls_report + "~", " + String(row) + ")") = '1' THEN RETURN 
+
+IF row = This.GetRow() AND ls_column_nm = This.GetColumnName() THEN
+	ls_column_value = This.GetText()
+ELSE
+	ls_column_value = This.GetItemString(row, ls_column_nm)
+END IF
+
+Parent.Trigger Event ue_popup2 (ls_column_nm, row, ls_column_value, 2)
+
+end event
+
+event itemchanged;
+ib_changed = true
+cb_update.enabled = true
+cb_print.enabled = false
+cb_preview.enabled = false
+/*===========================================================================*/
+/* 작성자      :                                                       */	
+/* 작성일      : 2001..                                                  */	
+/* 수정일      : 2001..                                                  */
+/*===========================================================================*/
+
+CHOOSE CASE dwo.name
+	CASE "style"	     //  Popup 검색창이 존재하는 항목 
+		IF ib_itemchanged THEN RETURN 1
+		return Parent.Trigger Event ue_Popup2(dwo.name, row, data, 1)
+END CHOOSE
+
+end event
+

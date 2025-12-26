@@ -1,0 +1,49 @@
+﻿$PBExportHeader$d_56025_d05c.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=82899184 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(11) updatewhereclause=yes name=style dbname="style" )
+ column=(type=char(6) updatewhereclause=yes name=shop_cd dbname="shop_cd" )
+ column=(type=char(30) updatewhereclause=yes name=shop_nm dbname="shop_nm" )
+ column=(type=char(1) updatewhereclause=yes name=shop_type dbname="shop_type" )
+ column=(type=char(8) updatewhereclause=yes name=end_ymd dbname="end_ymd" )
+ column=(type=char(8) updatewhereclause=yes name=start_ymd dbname="start_ymd" )
+ column=(type=char(2) updatewhereclause=yes name=sale_type dbname="sale_type" )
+ column=(type=decimal(0) updatewhereclause=yes name=sale_price dbname="SALE_PRICE" )
+ column=(type=char(30) updatewhereclause=yes name=sale_nm dbname="sale_nm" )
+ column=(type=decimal(2) updatewhereclause=yes name=dc_rate dbname="dc_rate" )
+ retrieve="SELECT   Y.style + '-' + y.color as style, y.shop_cd, dbo.sf_shop_nm(y.shop_cd, 's') as shop_nm, Y.shop_type, Y.end_ymd, Y.start_ymd, Y.sale_type, Y.SALE_PRICE,dbo.sf_inter_nm('011',y.sale_type) as sale_nm, y.dc_rate
+FROM 
+( select a.shop_cd, 
+ b.style, b.color, b.shop_type, b.end_ymd, b.start_ymd, b.sale_type, b.sale_price, b.dc_rate, b.excp_yn, b.brand, b.year, b.season
+from ##a_shop_cd a, ##a_marjin_shop b ) X, TB_56012_D_color Y
+WHERE X.SHOP_CD = Y.SHOP_CD
+AND X.SHOP_TYPE = Y.SHOP_TYPE
+AND  case when x.end_ymd = '9999999' then convert(char(08),dateadd(day, -1, x.start_ymd),112) else x.end_ymd end = Y.END_YMD
+AND X.STYLE = Y.STYLE
+AND X.color = Y.color
+order by y.style, y.shop_cd
+" )
+group(level=1 header.height=0 trailer.height=0 by=("style" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="품번" border="6" color="0" x="5" y="4" height="56" width="416"  name=style_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="매장명" border="6" color="0" x="695" y="4" height="56" width="626"  name=shop_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="매장코드" border="6" color="0" x="434" y="4" height="56" width="247"  name=shop_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="종료일" border="6" color="0" x="1335" y="4" height="56" width="306"  name=end_ymd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="시작일" border="6" color="0" x="1655" y="4" height="56" width="306"  name=start_ymd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="판매형태" border="6" color="0" x="1975" y="4" height="56" width="485"  name=sale_type_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="가격" border="6" color="0" x="2478" y="4" height="56" width="329"  name=sale_price_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="할인율" border="6" color="0" x="2821" y="4" height="56" width="329"  name=dc_rate_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="2071" y="4" height="60" width="393" format="[general]"  name=sale_nm edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1335" y="4" height="60" width="306" format="[general]"  name=end_ymd edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1655" y="4" height="60" width="306" format="[general]"  name=start_ymd edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="1975" y="4" height="60" width="82" format="[general]"  name=sale_type edit.limit=2 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="2478" y="4" height="60" width="329" format="[general]"  name=sale_price edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="0" color="0" x="2821" y="4" height="60" width="329" format="[general]"  name=dc_rate edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="5" y="4" height="60" width="416" format="[general]"  name=style edit.limit=11 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33417214" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="695" y="4" height="60" width="626" format="[general]"  name=shop_nm edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33417214" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="434" y="4" height="60" width="247" format="[general]"  name=shop_cd edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33417214" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,49 @@
+﻿$PBExportHeader$d_57001_d03.srd
+$PBExportComments$메시지관리[메지시]
+release 7;
+datawindow(units=0 timer_interval=0 color=80269528 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=1072 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes key=yes name=yymmdd dbname="TB_57010_H.yymmdd" )
+ column=(type=char(6) update=yes updatewhereclause=yes key=yes name=send_id dbname="TB_57010_H.send_id" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=mes_seq dbname="TB_57010_H.mes_seq" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=prog_nm dbname="TB_57010_H.prog_nm" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=title dbname="TB_57010_H.title" )
+ column=(type=char(4099) update=yes updatewhereclause=yes name=mes dbname="TB_57010_H.mes" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="TB_57010_H.Reg_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="TB_57010_H.Reg_Dt" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="TB_57010_H.Mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="TB_57010_H.Mod_Dt" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=send_fg dbname="TB_57010_H.send_fg" initial="1" values="본사	1/개인	2/" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=level_opt dbname="TB_57010_H.level_opt" initial="A" values="보통	A/중요	B/" )
+ retrieve="  SELECT yymmdd,   
+         send_id,   
+         mes_seq,   
+         prog_nm,   
+         title,   
+         mes,   
+         Reg_id,   
+         Reg_Dt,   
+         Mod_id,   
+         Mod_Dt, 
+         send_fg,
+			level_opt 
+    FROM TB_57010_H with (nolock)
+   WHERE yymmdd = :as_yymmdd 
+     AND send_id = :as_send_id 
+     AND mes_seq = :ai_mes_seq 
+ " update="TB_57010_H" updatewhere=0 updatekeyinplace=no arguments=(("as_yymmdd", string),("as_send_id", string),("ai_mes_seq", number)) )
+column(band=detail id=5 alignment="0" tabsequence=10 border="1" color="0" x="251" y="8" height="64" width="1696" format="[general]"  name=title edit.limit=30 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=detail alignment="2" text="내용" border="6" color="0" x="9" y="92" height="968" width="219"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269528" )
+column(band=detail id=6 alignment="0" tabsequence=20 border="1" color="0" x="251" y="88" height="972" width="3195" format="[general]"  name=mes  resizeable=1 edit.limit=4000 edit.case=any edit.autoselect=yes edit.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+text(band=detail alignment="2" text="제목" border="6" color="0" x="9" y="8" height="64" width="219"  name=title_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269528" )
+column(band=detail id=12 alignment="0" tabsequence=40 border="0" color="0" x="2976" y="12" height="60" width="466" format="[general]"  name=level_opt radiobuttons.columns=2 radiobuttons.scale=no radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+text(band=detail alignment="2" text="메일구분" border="6" color="0" x="1970" y="8" height="64" width="233"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="확인등급" border="6" color="0" x="2706" y="12" height="60" width="242"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+groupbox(band=detail text=""border="6" color="0" x="2981" y="8" height="68" width="466"  name=gb_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=11 alignment="0" tabsequence=30 border="0" color="0" x="2231" y="16" height="56" width="453" format="[general]" protect="0~tif(isRowNew(), 0, 1)"  name=send_fg radiobuttons.columns=2 radiobuttons.scale=no radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=11 alignment="0" tabsequence=30 border="0" color="0" x="2231" y="16" height="56" width="453" format="[general]" protect="0~tPreview - d_57001_d03"  name=send_fg_1 radiobuttons.columns=2 radiobuttons.scale=no radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+groupbox(band=detail text=""border="6" color="0" x="2222" y="8" height="68" width="466"  name=gb_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

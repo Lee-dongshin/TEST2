@@ -1,0 +1,23 @@
+﻿$PBExportHeader$d_75011_d02.srd
+$PBExportComments$고객 코디스타일
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=144 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=64 color="536870912" )
+table(column=(type=char(8) updatewhereclause=no name=style dbname="style" )
+ column=(type=char(8) updatewhereclause=no name=codi dbname="codi" )
+ column=(type=long updatewhereclause=no name=buy_cnt dbname="buy_cnt" )
+ column=(type=long updatewhereclause=no name=flag dbname="flag" )
+ procedure="1 execute dbo.sp_75011_d02;1 @style = :style, @srt_yymmdd = :srt_yymmdd, @end_yymmdd = :end_yymmdd, @buy_pcs = :buy_pcs, @jumin = :jumin" arguments=(("style", string),("srt_yymmdd", string),("end_yymmdd", string),("buy_pcs", number),("jumin", string))  sort="flag D buy_cnt D style A " )
+text(band=header alignment="0" text="▶ 구매스타일 및 코디 제안" border="0" color="16711680" x="14" y="8" height="56" width="745"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=header alignment="2" text="스타일" border="6" color="0" x="14" y="80" height="56" width="288"  name=style_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="코디스타일" border="6" color="0" x="315" y="80" height="56" width="288"  name=style_t_1_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="횟수" border="6" color="0" x="617" y="80" height="56" width="142"  name=buy_cnt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="617" y="0" height="60" width="151" format="#,##0"  name=buy_cnt visible="1~tif(flag = 2 , 0 , 1)" edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="29160440" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="14" y="0" height="60" width="297" format="[general]"  name=style visible="1~tif(flag = 2 , 0 , 1)" edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12632256" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="315" y="0" height="60" width="297" format="[general]"  name=codi edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="0" background.color="28959713~tIF(FLAG > 0, RGB(244,189,168), RGB(225,227,185))" )
+
+sparse(names="style")htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

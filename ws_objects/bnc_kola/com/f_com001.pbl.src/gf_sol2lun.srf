@@ -1,0 +1,318 @@
+﻿$PBExportHeader$gf_sol2lun.srf
+$PBExportComments$양력을음력으보변환
+global type gf_sol2lun from function_object
+end type
+
+forward prototypes
+global function boolean gf_sol2lun (string as_sol_date, ref string as_lun_date)
+end prototypes
+
+global function boolean gf_sol2lun (string as_sol_date, ref string as_lun_date);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 작 성 일  : 2002/02/18                                     */
+/* 수 정 일  : 2002/02/18                                     */
+/* 내    용  : 양력을 음력으로 변환                       	  */
+/*============================================================*/
+
+STRING  ls_ltbl[]
+LONG    ll_dt[], ll_day_per_month[]
+LONG    ll_i, ll_j, ll_m1, ll_m2, ll_month, ll_total_day0, ll_total_day, ll_total_day1
+Long    ll_total_day2, ll_k11, ll_count, ll_lun_year, ll_in_year, ll_in_month, ll_in_day
+
+// 1881
+ls_ltbl[1] = "1212122322121"
+ls_ltbl[2] = "1212121221220"
+ls_ltbl[3] = "1121121222120"
+ls_ltbl[4] = "2112132122122"
+ls_ltbl[5] = "2112112121220"
+ls_ltbl[6] = "2121211212120"
+ls_ltbl[7] = "2212321121212"
+ls_ltbl[8] = "2122121121210"
+ls_ltbl[9] = "2122121212120"
+ls_ltbl[10] = "1232122121212"
+// 1891
+ls_ltbl[11] = "1212121221220"
+ls_ltbl[12] = "1121123221222"
+ls_ltbl[13] = "1121121212220"
+ls_ltbl[14] = "1212112121220"
+ls_ltbl[15] = "2121231212121"
+ls_ltbl[16] = "2221211212120"
+ls_ltbl[17] = "1221212121210"
+ls_ltbl[18] = "2123221212121"
+ls_ltbl[19] = "2121212212120"
+ls_ltbl[20] = "1211212232212"
+// 1901
+ls_ltbl[21] = "1211212122210"
+ls_ltbl[22] = "2121121212220"
+ls_ltbl[23] = "1212132112212"
+ls_ltbl[24] = "2212112112210"
+ls_ltbl[25] = "2212211212120"
+ls_ltbl[26] = "1221412121212"
+ls_ltbl[27] = "1212122121210"
+ls_ltbl[28] = "2112212122120"
+ls_ltbl[29] = "1231212122212"
+ls_ltbl[30] = "1211212122210"
+// 1911
+ls_ltbl[31] = "2121123122122"
+ls_ltbl[32] = "2121121122120"
+ls_ltbl[33] = "2212112112120"
+ls_ltbl[34] = "2212231212112"
+ls_ltbl[35] = "2122121212120"
+ls_ltbl[36] = "1212122121210"
+ls_ltbl[37] = "2132122122121"
+ls_ltbl[38] = "2112121222120"
+ls_ltbl[39] = "1211212322122"
+ls_ltbl[40] = "1211211221220"
+// 1921
+ls_ltbl[41] = "2121121121220"
+ls_ltbl[42] = "2122132112122"
+ls_ltbl[43] = "1221212121120"
+ls_ltbl[44] = "2121221212110"
+ls_ltbl[45] = "2122321221212"
+ls_ltbl[46] = "1121212212210"
+ls_ltbl[47] = "2112121221220"
+ls_ltbl[48] = "1231211221222"
+ls_ltbl[49] = "1211211212220"
+ls_ltbl[50] = "1221123121221"
+// 1931
+ls_ltbl[51] = "2221121121210"
+ls_ltbl[52] = "2221212112120"
+ls_ltbl[53] = "1221241212112"
+ls_ltbl[54] = "1212212212120"
+ls_ltbl[55] = "1121212212210"
+ls_ltbl[56] = "2114121212221"
+ls_ltbl[57] = "2112112122210"
+ls_ltbl[58] = "2211211412212"
+ls_ltbl[59] = "2211211212120"
+ls_ltbl[60] = "2212121121210"
+// 1941
+ls_ltbl[61] = "2212214112121"
+ls_ltbl[62] = "2122122121120"
+ls_ltbl[63] = "1212122122120"
+ls_ltbl[64] = "1121412122122"
+ls_ltbl[65] = "1121121222120"
+ls_ltbl[66] = "2112112122120"
+ls_ltbl[67] = "2231211212122"
+ls_ltbl[68] = "2121211212120"
+ls_ltbl[69] = "2212121321212"
+ls_ltbl[70] = "2122121121210"
+// 1951
+ls_ltbl[71] = "2122121212120"
+ls_ltbl[72] = "1212142121212"
+ls_ltbl[73] = "1211221221220"
+ls_ltbl[74] = "1121121221220"
+ls_ltbl[75] = "2114112121222"
+ls_ltbl[76] = "1212112121220"
+ls_ltbl[77] = "2121211232122"
+ls_ltbl[78] = "1221211212120"
+ls_ltbl[79] = "1221212121210"
+ls_ltbl[80] = "2121223212121"
+// 1961
+ls_ltbl[81] = "2121212212120"
+ls_ltbl[82] = "1211212212210"
+ls_ltbl[83] = "2121321212221"
+ls_ltbl[84] = "2121121212220"
+ls_ltbl[85] = "1212112112210"
+ls_ltbl[86] = "2223211211221"
+ls_ltbl[87] = "2212211212120"
+ls_ltbl[88] = "1221212321212"
+ls_ltbl[89] = "1212122121210"
+ls_ltbl[90] = "2112212122120"
+// 1971
+ls_ltbl[91] = "1211232122212"
+ls_ltbl[92] = "1211212122210"
+ls_ltbl[93] = "2121121122210"
+ls_ltbl[94] = "2212312112212"
+ls_ltbl[95] = "2212112112120"
+ls_ltbl[96] = "2212121232112"
+ls_ltbl[97] = "2122121212110"
+ls_ltbl[98] = "2212122121210"
+ls_ltbl[99] = "2112124122121"
+ls_ltbl[100] = "2112121221220"
+// 1981
+ls_ltbl[101] = "1211211221220" 
+ls_ltbl[102] = "2121321122122"
+ls_ltbl[103] = "2121121121220"
+ls_ltbl[104] = "2122112112322"
+ls_ltbl[105] = "1221212112120"
+ls_ltbl[106] = "1221221212110"
+ls_ltbl[107] = "2122123221212"
+ls_ltbl[108] = "1121212212210"
+ls_ltbl[109] = "2112121221220"
+ls_ltbl[110] = "1211231212222"
+// 1991
+ls_ltbl[111] = "1211211212220"
+ls_ltbl[112] = "1221121121220"
+ls_ltbl[113] = "1223212112121"
+ls_ltbl[114] = "2221212112120"
+ls_ltbl[115] = "1221221232112"
+ls_ltbl[116] = "1212212122120"
+ls_ltbl[117] = "1121212212210"
+ls_ltbl[118] = "2112132212221"
+ls_ltbl[119] = "2112112122210"
+ls_ltbl[120] = "2211211212210"
+// 2001
+ls_ltbl[121] = "2221321121212"
+ls_ltbl[122] = "2212121121210"
+ls_ltbl[123] = "2212212112120"
+ls_ltbl[124] = "1232212122112"
+ls_ltbl[125] = "1212122122120"
+ls_ltbl[126] = "1121212322122"
+ls_ltbl[127] = "1121121222120"
+ls_ltbl[128] = "2112112122120"
+ls_ltbl[129] = "2211231212122"
+ls_ltbl[130] = "2121211212120"
+// 2011
+ls_ltbl[131] = "2122121121210"
+ls_ltbl[132] = "2124212112121"
+ls_ltbl[133] = "2122121212120"
+ls_ltbl[134] = "1212121223212"
+ls_ltbl[135] = "1211212221220"
+ls_ltbl[136] = "1121121221220"
+ls_ltbl[137] = "2112132121222"
+ls_ltbl[138] = "1212112121220"
+ls_ltbl[139] = "2121211212120"
+ls_ltbl[140] = "2122321121212"
+// 2021
+ls_ltbl[141] = "1221212121210"
+ls_ltbl[142] = "2121221212120"
+ls_ltbl[143] = "1232121221212"
+ls_ltbl[144] = "1211212212210"
+ls_ltbl[145] = "2121123212221"
+ls_ltbl[146] = "2121121212220"
+ls_ltbl[147] = "1212112112220"
+ls_ltbl[148] = "1221231211221"
+ls_ltbl[149] = "2212211211220"
+ls_ltbl[150] = "1212212121210"
+// 2031
+ls_ltbl[151] = "2123212212121"
+ls_ltbl[152] = "2112122122120"
+ls_ltbl[153] = "1211212322212"
+ls_ltbl[154] = "1211212122210"
+ls_ltbl[155] = "2121121122120"
+ls_ltbl[156] = "2212114112122"
+ls_ltbl[157] = "2212112112120"
+ls_ltbl[158] = "2212121211210"
+ls_ltbl[159] = "2212232121211"
+ls_ltbl[160] = "2122122121210"
+// 2041
+ls_ltbl[161] = "2112122122120"
+ls_ltbl[162] = "1231212122212"
+ls_ltbl[163] = "1211211221220"
+
+
+ll_day_per_month[1] = 31
+ll_day_per_month[2] = 0
+ll_day_per_month[3] = 31
+ll_day_per_month[4] = 30
+ll_day_per_month[5] = 31
+ll_day_per_month[6] = 30
+ll_day_per_month[7] = 31
+ll_day_per_month[8] = 31
+ll_day_per_month[9] = 30
+ll_day_per_month[10] = 31
+ll_day_per_month[11] = 30
+ll_day_per_month[12] = 31
+
+
+ll_total_day = 0
+
+if not IsDate(String(as_sol_date, "@@@@-@@-@@")) then
+	return False
+end if
+	
+ll_in_year  = long(LeftA(as_sol_date, 4))
+ll_in_month = long(MidA(as_sol_date, 5, 2))
+ll_in_day   = long(RightA(as_sol_date, 2))
+
+if ll_in_year < 1881 or ll_in_year > 2043 then
+	return False
+end if
+
+For ll_i = 1 To 163
+	ll_dt[ll_i] = 0
+	FOR ll_j = 1 To 12
+		CHOOSE Case MidA(ls_ltbl[ll_i], ll_j, 1)
+			Case "1" , "3"
+				ll_dt[ll_i] = ll_dt[ll_i] + 29
+			Case "2" , "4"
+				ll_dt[ll_i] = ll_dt[ll_i] + 30
+		End CHOOSE
+	Next
+        
+	CHOOSE Case MidA(ls_ltbl[ll_i], 13, 1)
+		Case "0"
+		Case "1" , "3"
+			ll_dt[ll_i] = ll_dt[ll_i] + 29
+		Case "2" , "4"
+			ll_dt[ll_i] = ll_dt[ll_i] + 30
+	End CHOOSE
+Next
+
+// 1880년 1월 30일까지의 총일수
+ll_total_day1 = 1880 * 365 + 1880 / 4 - 1880 / 100 + 1880 / 400 + 30
+ll_k11 = ll_in_year - 1
+
+// 입력된 년도 1년전까지의 총일수
+ll_total_day2 = ll_k11 * 365 + ll_k11 / 4 - ll_k11 / 100 + ll_k11 / 400
+    
+If Mod(ll_in_year, 400) = 0 Or Mod(ll_in_year, 100) <> 0 And Mod(ll_in_year, 4) = 0 Then
+	ll_day_per_month[2] = 29
+Else
+	ll_day_per_month[2] = 28
+End If
+    
+For ll_i = 1 To ll_in_month - 1
+	ll_total_day2 = ll_total_day2 + ll_day_per_month[ll_i]
+Next
+
+// 입력된 일자까지의 총일수
+ll_total_day2 = ll_total_day2 + ll_in_day
+
+// 1880-01-30 부터 현재까지의 총일수
+ll_total_day  = ll_total_day2 - ll_total_day1 // + 1
+
+// 1881년부터 현재까지의 총일수와 Table상의 숫자(음력)들의 합을 비교 반복
+ll_total_day0 = ll_dt[1]
+For ll_i = 1 To 163
+	If ll_total_day <= ll_total_day0 Then Exit
+	ll_total_day0 = ll_total_day0 + ll_dt[ll_i + 1]
+Next
+
+// 음력년도
+ll_lun_year = ll_i + 1880
+
+as_lun_date = as_lun_date + String(ll_lun_year, "0000")
+
+// 현재년도의 음력일수 감산
+ll_total_day0 = ll_total_day0 - ll_dt[ll_i]
+// 양력 총일수에서 음력 총일수 감산 
+ll_total_day  = ll_total_day - ll_total_day0
+    
+If MidA(ls_ltbl[ll_i], 13, 1) = "0" Then
+	ll_count = 12
+Else
+	ll_count = 13
+End If
+
+ll_m2 = 0
+For ll_j = 1 To ll_count
+	If MidA(ls_ltbl[ll_i], ll_j, 1) <= "2" Then
+		ll_m2 ++
+		ll_m1 = Long(MidA(ls_ltbl[ll_i], ll_j, 1)) + 28
+	Else
+		ll_m1 = Long(MidA(ls_ltbl[ll_i], ll_j, 1)) + 26
+	End If
+	If ll_total_day <= ll_m1 Then Exit
+	ll_total_day = ll_total_day - ll_m1
+Next
+
+// 음력일자
+as_lun_date = as_lun_date + String(ll_m2, "00") + String(ll_total_day, "00")
+
+RETURN True
+
+ 
+ 
+end function
+

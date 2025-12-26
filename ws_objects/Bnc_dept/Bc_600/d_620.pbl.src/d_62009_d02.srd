@@ -1,0 +1,52 @@
+﻿$PBExportHeader$d_62009_d02.srd
+$PBExportComments$그림별 판매 순위
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=64 color="536870912" )
+table(column=(type=char(2) updatewhereclause=yes name=color_cd dbname="COLOR_CD" )
+ column=(type=char(20) updatewhereclause=yes name=color_nm dbname="COLOR_NM" )
+ column=(type=long updatewhereclause=yes name=order_qty dbname="DUAL.ORDER_QTY" )
+ column=(type=long updatewhereclause=yes name=in_qty dbname="DUAL.IN_QTY" )
+ column=(type=long updatewhereclause=yes name=out_qty dbname="DUAL.OUT_QTY" )
+ column=(type=long updatewhereclause=yes name=term_sale dbname="DUAL.TERM_SALE" )
+ column=(type=long updatewhereclause=yes name=nu_sale dbname="DUAL.NU_SALE" )
+ column=(type=decimal(2) updatewhereclause=yes name=sale_rate dbname="DUAL.SALE_RATE" )
+ column=(type=long updatewhereclause=yes name=shop_jaego dbname="DUAL.SHOP_JAEGO" )
+ column=(type=long updatewhereclause=yes name=store_stock dbname="DUAL.STORE_STOCK" )
+ retrieve="  SELECT '  ' AS COLOR_CD,
+			'                    ' AS COLOR_NM,
+			0 AS ORDER_QTY,
+			0 AS IN_QTY,
+			0 AS OUT_QTY,
+			0 AS TERM_SALE,
+			0 AS NU_SALE,
+			0.00 AS SALE_RATE,
+			0 AS SHOP_JAEGO,
+			0 AS STORE_STOCK
+	 FROM DUAL
+" )
+data(null null null null null null null null null null null null null null null null null null null null null null null null null null null null null null ) 
+text(band=header alignment="2" text="COLOR" border="6" color="0" x="9" y="8" height="60" width="370"  name=color_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="발주량" border="6" color="0" x="398" y="8" height="60" width="219"  name=order_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="입고량" border="6" color="0" x="635" y="8" height="60" width="219"  name=in_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="출고량" border="6" color="0" x="873" y="8" height="60" width="219"  name=out_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="기간판매" border="6" color="0" x="1111" y="8" height="60" width="219"  name=term_sale_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="누계판매" border="6" color="0" x="1349" y="8" height="60" width="219"  name=nu_sale_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="판매율" border="6" color="0" x="1586" y="8" height="60" width="219"  name=sale_rate_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="매장재고" border="6" color="0" x="1824" y="8" height="60" width="219"  name=shop_jaego_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="창고재고" border="6" color="0" x="2062" y="8" height="60" width="215"  name=store_stock_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="0" height="60" width="82" format="[general]"  name=color_cd edit.limit=2 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33546973" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="101" y="0" height="60" width="279" format="[general]"  name=color_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33546973" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="0" color="0" x="389" y="0" height="60" width="233" format="[general]"  name=order_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="1577" y="0" height="60" width="229" format="[general]"  name=sale_rate edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0" x="631" y="0" height="60" width="229" format="[general]"  name=in_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="0" color="0" x="869" y="0" height="60" width="229" format="[general]"  name=out_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="1815" y="0" height="60" width="229" format="[general]"  name=shop_jaego edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=10 alignment="1" tabsequence=32766 border="0" color="0" x="2053" y="0" height="60" width="229" format="[general]"  name=store_stock edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="1106" y="0" height="60" width="229" format="[general]"  name=term_sale edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="0" color="0" x="1344" y="0" height="60" width="224" format="[general]"  name=nu_sale edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

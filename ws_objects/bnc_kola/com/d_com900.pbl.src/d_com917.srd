@@ -1,0 +1,48 @@
+﻿$PBExportHeader$d_com917.srd
+$PBExportComments$매장명[DPS검색창]
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(4) updatewhereclause=yes name=dps_num dbname="VI_91104_1.dps_num" )
+ column=(type=char(6) updatewhereclause=yes name=shop_cd dbname="VI_91104_1.SHOP_CD" )
+ column=(type=char(30) updatewhereclause=yes name=shop_nm dbname="VI_91104_1.SHOP_NM" )
+ column=(type=char(20) updatewhereclause=yes name=shop_snm dbname="VI_91104_1.SHOP_SNM" )
+ column=(type=char(8) updatewhereclause=yes name=close_ymd dbname="VI_91104_1.CLOSE_YMD" )
+ column=(type=char(6) updatewhereclause=yes name=empno dbname="VI_91104_1.EMPNO" )
+ column=(type=char(6) updatewhereclause=yes name=cust_cd dbname="VI_91104_1.CUST_CD" )
+ column=(type=char(1) updatewhereclause=yes name=shop_div dbname="VI_91104_1.SHOP_DIV" )
+ column=(type=char(1) updatewhereclause=yes name=brand dbname="VI_91104_1.brand" )
+ retrieve="  SELECT dps_num, 
+         SHOP_CD, 
+			SHOP_NM, 
+			SHOP_SNM, 
+			CLOSE_YMD, 
+			EMPNO, 
+			CUST_CD, 
+			SHOP_DIV,
+			brand
+    FROM VI_91104_1  with (nolock)
+
+   
+"  sort="dps_num A shop_cd A " )
+text(band=header alignment="2" text="DPS번호" border="6" color="0" x="18" y="8" height="60" width="247"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="매장코드" border="6" color="0" x="283" y="8" height="60" width="229"  name=shop_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="약   칭   명" border="6" color="0" x="530" y="8" height="60" width="576"  name=shop_snm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="매   장   명" border="6" color="0" x="1125" y="8" height="60" width="850"  name=shop_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="폐점일자" border="6" color="0" x="1989" y="8" height="60" width="293"  name=close_ymd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="영업담당자" border="6" color="0" x="2299" y="8" height="60" width="274"  name=empno_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="거래처코드" border="6" color="0" x="2592" y="8" height="60" width="274"  name=cust_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="5" color="0" x="2889" y="4" height="60" width="274" format="[general]"  name=shop_div edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="3177" y="8" height="56" width="27" format="[general]"  name=brand edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="14" y="4" height="60" width="247" format="[general]"  name=dps_num edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="283" y="4" height="60" width="229" format="[general]"  name=shop_cd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="5" color="0" x="530" y="4" height="60" width="576" format="[general]"  name=shop_nm  tag="OK" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="5" color="0" x="1125" y="4" height="60" width="850" format="[general]"  name=shop_snm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=50 border="5" color="0" x="1989" y="4" height="60" width="293" format="[general]"  name=close_ymd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=60 border="5" color="0" x="2299" y="4" height="60" width="274" format="[general]"  name=empno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="0" tabsequence=70 border="5" color="0" x="2592" y="4" height="60" width="274" format="[general]"  name=cust_cd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

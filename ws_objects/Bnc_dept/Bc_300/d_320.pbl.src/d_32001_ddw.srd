@@ -1,0 +1,13 @@
+﻿$PBExportHeader$d_32001_ddw.srd
+$PBExportComments$사전 원가계산서 등록
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=88 color="536870912" )
+table(column=(type=char(2) updatewhereclause=no name=yearsn dbname="yearsn" )
+ column=(type=char(20) updatewhereclause=no name=ord_baesu dbname="ord_baesu" )
+ procedure="1 execute dbo.sp_bae_su;1 @brand = :brand" arguments=(("brand", string)) )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="255" x="9" y="4" height="76" width="453" format="[general]"  name=ord_baesu edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="27911377" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

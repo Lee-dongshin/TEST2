@@ -1,0 +1,21 @@
+﻿$PBExportHeader$d_com704.srd
+$PBExportComments$회원검색 [dddw]
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=128 color="536870912" )
+table(column=(type=char(13) updatewhereclause=yes key=yes name=jumin dbname="TB_71010_M.jumin" )
+ column=(type=char(10) updatewhereclause=yes name=user_name dbname="TB_71010_M.user_name" )
+ column=(type=char(255) updatewhereclause=yes name=addr_home dbname="addr_home" )
+ column=(type=char(255) updatewhereclause=yes name=addr_job dbname="addr_job" )
+ retrieve="select  jumin, user_name, isnull(addr,'') + ' ' + isnull(addr_s,'') 	as addr_home, 
+	isnull(addr2,'') + ' ' + isnull(addr2_s,'') 				as addr_job 
+from beaucre.dbo.tb_71010_m a(nolock) " update="tb_71010_m" updatewhere=0 updatekeyinplace=no )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="0" height="120" width="229" format="[general]"  name=user_name edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="28370649" )
+text(band=detail alignment="2" text="자택" border="0" color="0" x="242" y="0" height="56" width="110"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27581930" )
+text(band=detail alignment="2" text="직장" border="0" color="0" x="242" y="64" height="56" width="110"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="27581930" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="357" y="0" height="56" width="2043" format="[general]"  name=addr_home edit.limit=255 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="357" y="64" height="56" width="2043" format="[general]"  name=addr_job edit.limit=255 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

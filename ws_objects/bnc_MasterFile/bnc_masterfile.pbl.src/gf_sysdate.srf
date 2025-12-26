@@ -1,0 +1,26 @@
+﻿$PBExportHeader$gf_sysdate.srf
+global type gf_sysdate from function_object
+end type
+
+forward prototypes
+global function boolean gf_sysdate (ref datetime adt_datetime)
+end prototypes
+
+global function boolean gf_sysdate (ref datetime adt_datetime);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 내    용  : System의 현재날짜 및 시각을 Select한다.        */
+/*============================================================*/
+
+SELECT GetDate() 
+  INTO :adt_datetime
+  FROM DUAL ;
+
+IF sqlca.sqlcode <> 0  THEN
+	MessageBox("입력일자 조회오류", SQLCA.SQLErrText)
+	RETURN FALSE
+END IF
+
+RETURN TRUE
+
+end function
+

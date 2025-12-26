@@ -1,0 +1,68 @@
+﻿$PBExportHeader$d_91020_r01.srd
+$PBExportComments$사무용품 요청조회
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=400 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=100 color="536870912" )
+detail(height=172 color="536870912" )
+table(column=(type=char(60) updatewhereclause=yes name=ibuserid dbname="IBUserId" )
+ column=(type=char(14) updatewhereclause=yes name=kname dbname="KNAME" )
+ column=(type=char(16) updatewhereclause=yes name=rqst_ymd dbname="RQST_YMD" )
+ column=(type=char(16) updatewhereclause=yes name=proc_ymd dbname="PROC_YMD" )
+ column=(type=char(4099) updatewhereclause=no name=rqst_cont dbname="RQST_CONT" )
+ column=(type=char(11) updatewhereclause=yes name=rpoc_gubn dbname="RPOC_GUBN" )
+ column=(type=char(100) updatewhereclause=yes name=dept_name dbname="DEPT_NAME" )
+ retrieve="
+select 
+
+upper(A.IBUserId) as IBUserId,	
+B.KNAME,
+left(A.IBWDate,8)	AS RQST_YMD,	
+left(A.IBUDate,8)	AS PROC_YMD,	
+A.IBUserDef_1	   	AS RQST_CONT,
+A.IBUserDef_5			AS RPOC_GUBN,
+A.IBUserDef_7			AS DEPT_NAME
+from WORKCREWNET.DBO.IBDocs_0000000001 A (NOLOCK) , MIS.DBO.THB01 B (NOLOCK)
+WHERE left(A.IBWDate,8) BETWEEN :AS_FR_YMD AND :aS_TO_YMD
+AND   A.IBUserDef_5 LIKE :AS_PROC_GUBN + '%'
+AND   A.IBUserId = B.EMPNO
+" arguments=(("AS_FR_YMD", string),("AS_TO_YMD", string),("AS_PROC_GUBN", string)) )
+group(level=1 header.height=0 trailer.height=12 by=("ibuserid" ) header.color="536870912" trailer.color="536870912" )
+rectangle(band=header x="2208" y="12" height="284" width="1024"  name=r_1 brush.hatch="7" brush.color="553648127" pen.style="0" pen.width="5" pen.color="0"  background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="부서명" border="0" color="0" x="128" y="324" height="56" width="480"  name=dept_name_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="요청내용" border="0" color="0" x="960" y="324" height="56" width="1321"  name=rqst_cont_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="처리구분" border="0" color="0" x="2304" y="324" height="56" width="329"  name=rpoc_gubn_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="요청일자" border="0" color="0" x="622" y="324" height="56" width="325"  name=rqst_ymd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="사번" border="0" color="0" x="2651" y="324" height="56" width="265"  name=ibuserid_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="이름" border="0" color="0" x="2930" y="324" height="56" width="293"  name=kname_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=header x1="114" y1="396" x2="3232" y2="396"  name=l_1 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="114" y1="396" x2="3232" y2="396"  name=l_3 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="114" y1="308" x2="3232" y2="308"  name=l_5 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="사무용품 요청내역" border="0" color="0" x="123" y="52" height="96" width="1646"  name=t_1  font.face="굴림" font.height="-16" font.weight="700"  font.family="1" font.pitch="2" font.charset="129" font.underline="1" background.mode="2" background.color="16777215" )
+line(band=header x1="2213" y1="84" x2="3223" y2="84"  name=l_9 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+text(band=header alignment="2" text="담당" border="0" color="0" x="2226" y="24" height="56" width="224"  name=t_2  font.face="굴림" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="과장" border="0" color="0" x="2491" y="24" height="56" width="224"  name=t_3  font.face="굴림" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="차장" border="0" color="0" x="2743" y="24" height="56" width="224"  name=t_4  font.face="굴림" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="이사" border="0" color="0" x="2990" y="24" height="56" width="224"  name=t_5  font.face="굴림" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=header x1="2469" y1="20" x2="2469" y2="292"  name=l_8 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+line(band=header x1="2725" y1="16" x2="2725" y2="288"  name=l_7 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+line(band=header x1="2976" y1="16" x2="2976" y2="288"  name=l_6 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+text(band=header alignment="0" text="요청기간:" border="0" color="0" x="123" y="232" height="56" width="251"  name=t_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="~~" border="0" color="0" x="741" y="232" height="56" width="46"  name=t_7  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="0" text="" border="0" color="0" x="389" y="232" height="56" width="338"  name=t_fr_ymd  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="" border="0" color="0" x="800" y="232" height="56" width="338"  name=t_to_ymd  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="128" y="4" height="164~trowheight()" width="480" format="[general]"  name=dept_name edit.limit=100 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="960" y="4" height="164" width="1330" format="[general]"  name=rqst_cont height.autosize=yes edit.limit=4099 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="2304" y="4" height="164~trowheight()" width="329" format="[general]"  name=rpoc_gubn edit.limit=11 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="622" y="4" height="164~trowheight()" width="325" format="@@@@/@@/@@"  name=rqst_ymd edit.limit=16 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="2930" y="4" height="164~trowheight()" width="293" format="[general]"  name=kname edit.limit=14 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="2651" y="4" height="164~trowheight()" width="265" format="[general]"  name=ibuserid edit.limit=30 edit.case=upper edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=trailer.1 x1="114" y1="0" x2="3232" y2="0"  name=l_4 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=footer x1="114" y1="8" x2="3232" y2="8"  name=l_2 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+compute(band=footer alignment="2" expression="page() + '/ ' + pageCount()"border="0" color="0" x="1445" y="24" height="56" width="283" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+compute(band=footer alignment="1" expression="today()"border="0" color="0" x="2386" y="24" height="68" width="832" format="[SHORTDATE] [TIME]"  name=compute_13  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=footer alignment="1" text="PGM_ID:" border="0" color="0" x="123" y="20" height="56" width="192"  name=t_pg_id  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=footer alignment="1" text="" border="0" color="0" x="329" y="20" height="56" width="430"  name=t_pgm_id  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

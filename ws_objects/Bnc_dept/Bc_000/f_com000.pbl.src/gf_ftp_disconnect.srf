@@ -1,0 +1,21 @@
+﻿$PBExportHeader$gf_ftp_disconnect.srf
+global type gf_ftp_disconnect from function_object
+end type
+
+forward prototypes
+global function integer gf_ftp_disconnect ()
+end prototypes
+
+global function integer gf_ftp_disconnect ();if ll_connect <> 0 then
+	u_ftp.InternetCloseHandle(ll_connect)
+	if ll_open <> 0 then
+		u_ftp.InternetCloseHandle(ll_open)
+		return 1
+	else
+		return -1
+	end if
+else
+	return -1
+end if
+end function
+

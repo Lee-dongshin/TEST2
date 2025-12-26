@@ -1,0 +1,26 @@
+﻿$PBExportHeader$d_61010_d01.srd
+$PBExportComments$사원조회
+release 7;
+datawindow(units=0 timer_interval=0 color=80269528 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(4) updatewhereclause=yes name=dept_cd dbname="VI_91101_1.dept_cd" )
+ column=(type=char(30) updatewhereclause=yes name=dept_nm dbname="VI_91101_1.dept_nm" )
+ column=(type=char(6) updatewhereclause=yes name=empno dbname="VI_93000_1.empno" )
+ column=(type=char(14) updatewhereclause=yes name=name dbname="VI_93000_1.name" )
+ retrieve="  SELECT a.DEPT_CD as dept_cd,   
+         a.DEPT_NM as dept_nm,   
+         b.empno as empno,   
+         b.kname as name 
+    FROM VI_91101_1 a,   
+         VI_93000_1 b  
+   WHERE ( b.dept_code = a.DEPT_CD )
+	ORDER BY a.DEPT_CD DESC    
+" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="23" y="8" height="56" width="421" format="[general]"  name=dept_nm edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="471" y="8" height="56" width="293" format="[general]"  name=empno edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="786" y="8" height="56" width="110" format="[general]"  name=dept_cd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="923" y="8" height="56" width="379" format="[general]"  name=name edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

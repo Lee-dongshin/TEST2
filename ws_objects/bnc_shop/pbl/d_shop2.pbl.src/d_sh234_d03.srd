@@ -1,0 +1,28 @@
+﻿$PBExportHeader$d_sh234_d03.srd
+$PBExportComments$주간리포트
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=1368 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=style dbname="VI_12020_1.style" )
+ column=(type=char(1) updatewhereclause=yes name=chno dbname="VI_12020_1.chno" )
+ column=(type=decimal(0) updatewhereclause=yes name=tag_price dbname="VI_12020_1.tag_price" )
+ column=(type=char(30) updatewhereclause=yes name=mat_nm dbname="VI_12020_1.mat_nm" )
+ column=(type=char(60) updatewhereclause=yes name=style_pic dbname="style_pic" )
+ retrieve="
+select 	style, chno,
+	 tag_price, mat_nm,
+	 dbo.sf_pic_dir ( '0',style)	as style_pic
+from vi_12020_1 (nolock)
+where style = :as_style
+  and chno =  :as_chno 
+" arguments=(("as_style", string),("as_chno", string)) )
+text(band=detail alignment="0" text="사진 준비 중...." border="0" color="16711680" x="82" y="308" height="56" width="475"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="2" color="0" x="14" y="76" height="1164" width="1307" format="[general]"  name=style_pic bitmapname=yes edit.limit=60 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="2" color="0" x="14" y="1252" height="68" width="1307" format="[general]"  name=mat_nm edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33413626" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="2" color="0" x="521" y="4" height="60" width="274" format="#,###"  name=tag_price edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33413626" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="2" color="0" x="14" y="4" height="60" width="256" format="[general]"  name=style edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33413626" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="2" color="0" x="283" y="4" height="60" width="55" format="[general]"  name=chno edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33413626" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

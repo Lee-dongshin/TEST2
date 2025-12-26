@@ -1,0 +1,22 @@
+﻿$PBExportHeader$d_sh194_h01.srd
+$PBExportComments$판매일보등록
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=104 color="536870912" )
+table(column=(type=char(8) updatewhereclause=no name=yymmdd dbname="yymmdd" )
+ column=(type=char(8) updatewhereclause=no name=fr_yymmdd dbname="fr_yymmdd" )
+ column=(type=char(8) updatewhereclause=no name=to_yymmdd dbname="to_yymmdd" )
+ column=(type=char(4) updatewhereclause=no name=sale_no dbname="sale_no" )
+ column=(type=char(1) updatewhereclause=no name=coupon_yn dbname="coupon_yn" initial="Y" values="쿠폰사용	Y/쿠폰사용	N" )
+ )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="16711680" x="773" y="24" height="60" width="503" format="[general]"  name=coupon_yn visible="1~t0" checkbox.text="쿠폰사용" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="5" color="0" x="261" y="24" height="60" width="293" format="@@@@/@@/@@"  name=yymmdd edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="82899184" )
+text(band=detail alignment="1" text="판매일:" border="0" color="0" x="14" y="24" height="56" width="229"  name=yymmdd_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="판매일:" border="0" color="0" x="1307" y="24" height="56" width="279"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=detail alignment="2" text="-" border="0" color="0" x="1915" y="28" height="56" width="18"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="2" tabsequence=10 border="5" color="0" x="1605" y="24" height="60" width="293" format="@@@@/@@/@@"  name=fr_yymmdd edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="2" tabsequence=20 border="5" color="0" x="1957" y="24" height="60" width="293" format="@@@@/@@/@@"  name=to_yymmdd edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,17 @@
+﻿$PBExportHeader$d_71010_h01.srd
+$PBExportComments$쿠폰소멸
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=112 color="536870912" )
+table(column=(type=char(8) updatewhereclause=no name=accept_ymd dbname="accept_ymd" )
+ column=(type=char(8) updatewhereclause=no name=give_date dbname="give_date" )
+ )
+text(band=detail alignment="1" text="소멸 기준일 :" border="0" color="0" x="928" y="28" height="56" width="466"  name=give_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="<= 입력한 날짜 이전의 쿠폰을 소멸 처리함." border="0" color="0" x="1838" y="32" height="56" width="1134"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="1472" y="24" height="64" width="347" format="@@@@/@@/@@"  name=give_date edit.limit=0 edit.case=any edit.format="" edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="521" y="24" height="64" width="347" format="@@@@/@@/@@"  name=accept_ymd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="쿠폰 소멸일 :" border="0" color="0" x="50" y="28" height="56" width="439"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

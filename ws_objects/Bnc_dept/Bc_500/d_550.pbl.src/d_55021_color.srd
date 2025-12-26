@@ -1,0 +1,21 @@
+﻿$PBExportHeader$d_55021_color.srd
+$PBExportComments$BEST/WORST STYLE조회
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(2) updatewhereclause=yes name=color dbname="tb_12030_s.color" )
+ column=(type=decimal(0) updatewhereclause=yes name=sale_qty dbname="sale_qty" )
+ retrieve="
+select color, sum(isnull(sale_qty,0)) as sale_qty
+from	tb_12030_s (nolock)
+where	style = :as_style
+group by color	
+order by 2 desc" arguments=(("as_style", string)) )
+text(band=header alignment="2" text="Color" border="0" color="0" x="5" y="4" height="64" width="137"  name=color_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="0" height="76" width="64" format="[general]"  name=color edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+column(band=detail id=2 alignment="0" tabsequence=0 border="0" color="0" x="151" y="4" height="76" width="512"  name=sale_qty  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

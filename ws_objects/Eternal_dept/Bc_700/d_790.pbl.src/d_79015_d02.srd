@@ -1,0 +1,127 @@
+﻿$PBExportHeader$d_79015_d02.srd
+$PBExportComments$불량유형관리메인
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=1576 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes key=yes name=yymmdd dbname="TB_79012_h.YYMMDD" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=seq_no dbname="TB_79012_h.SEQ_NO" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=style dbname="TB_79012_h.STYLE" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=chno dbname="TB_79012_h.CHNO" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=dsgn_emp dbname="TB_79012_h.DSGN_EMP" )
+ column=(type=char(20) updatewhereclause=yes name=dsgn_nm dbname="dsgn_nm" )
+ column=(type=char(250) update=yes updatewhereclause=yes name=receipt_ex dbname="TB_79012_h.RECEIPT_EX" )
+ column=(type=char(250) update=yes updatewhereclause=yes name=dept_opinion dbname="TB_79012_h.DEPT_OPINION" )
+ column=(type=char(250) update=yes updatewhereclause=yes name=how_handle dbname="TB_79012_h.HOW_HANDLE" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=brand dbname="TB_79012_h.BRAND" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=year dbname="TB_79012_h.YEAR" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=season dbname="TB_79012_h.SEASON" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="TB_79012_h.REG_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="TB_79012_h.REG_DT" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="TB_79012_h.MOD_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="TB_79012_h.MOD_DT" )
+ column=(type=char(6) updatewhereclause=yes name=cust_cd dbname="CUST_CD" )
+ column=(type=char(30) updatewhereclause=yes name=cust_nm dbname="CUST_NM" )
+ column=(type=decimal(0) updatewhereclause=yes name=ord_qty dbname="ORD_QTY" )
+ column=(type=decimal(0) updatewhereclause=yes name=sale_qty dbname="SALE_QTY" )
+ column=(type=long updatewhereclause=yes name=receipt_qty dbname="RECEIPT_QTY" )
+ column=(type=char(47) updatewhereclause=yes name=serial dbname="SERIAL" )
+ column=(type=char(132) updatewhereclause=yes name=file_nm dbname="TB_79012_h.file_nm" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=receipt_type dbname="receipt_type" )
+ retrieve="select 	a.YYMMDD,
+	a.SEQ_NO,
+	a.STYLE,
+	a.CHNO,
+	a.DSGN_EMP,
+   dbo.sf_emp_nm(a.DSGN_EMP) as dsgn_nm,
+	a.RECEIPT_EX,
+	a.DEPT_OPINION,
+	a.HOW_HANDLE,
+	a.BRAND,
+	a.YEAR,
+	a.SEASON,
+	a.REG_ID,
+	a.REG_DT,
+	a.MOD_ID,
+	a.MOD_DT,
+	(select b.cust_cd
+    from vi_12020_1 b
+	 where a.style = b.style
+      and a.chno = b.chno) AS CUST_CD,
+	DBO.SF_CUST_NM((select b.cust_cd
+    from vi_12020_1 b
+	 where a.style = b.style
+      and a.chno = b.chno),'S') AS CUST_NM,
+
+	(select SUM(ISNULL(B.ORD_QTY,0))
+    from TB_12030_S B (NOLOCK)
+	 where a.style = b.style
+      and a.chno = b.chno) AS ORD_QTY,
+
+	(select SUM(ISNULL(B.SALE_QTY,0))
+    from TB_12030_S B (NOLOCK)
+	 where a.style = b.style
+      and a.chno = b.chno) AS SALE_QTY,
+
+   (SELECT COUNT(B.SEQ_NO)
+    FROM VI_79010_1 B (NOLOCK)
+    WHERE A.STYLE = B.STYLE
+      AND A.CHNO  = B.CHNO
+	   and a.receipt_type = isnull(a.receipt_type, :As_receipt_type)
+   	 ) AS RECEIPT_QTY,
+	'\\220.118.68.4\photo\claim_ex\' + A.BRAND + A.YYMMDD + A.SEQ_NO  + '.jpg'		AS SERIAL,
+	~"                                                                                                                                    ~"		as file_nm,
+	isnull(a.receipt_type, :As_receipt_type) 		as receipt_type
+	
+
+from tb_79012_h  a (nolock)
+where a.yymmdd = :As_yymmdd
+and   a.seq_no = :as_seq_no
+and   a.brand  = :as_brand
+
+" update="tb_79012_h" updatewhere=1 updatekeyinplace=no arguments=(("as_yymmdd", string),("as_seq_no", string),("as_brand", string),("as_receipt_type", string)) )
+rectangle(band=detail x="9" y="8" height="1560" width="2683"  name=r_1 brush.hatch="6" brush.color="80269524" pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+column(band=detail id=18 alignment="2" tabsequence=32766 border="0" color="0" x="1952" y="52" height="56" width="695" format="[general]"  name=cust_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="18" y1="152" x2="2683" y2="152"  name=l_2 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16711680" )
+line(band=detail x1="18" y1="304" x2="2683" y2="304"  name=l_1 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16711680" )
+line(band=detail x1="347" y1="8" x2="347" y2="1564"  name=l_3 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16711680" )
+line(band=detail x1="919" y1="8" x2="919" y2="300"  name=l_4 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="0" )
+line(band=detail x1="1243" y1="12" x2="1243" y2="308"  name=l_5 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+line(band=detail x1="1659" y1="12" x2="1659" y2="304"  name=l_6 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="0" )
+line(band=detail x1="1934" y1="12" x2="1934" y2="308"  name=l_7 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="0" )
+line(band=detail x1="18" y1="732" x2="1787" y2="732"  name=l_8 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16711680" )
+line(band=detail x1="18" y1="1192" x2="1783" y2="1192"  name=l_9 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16711680" )
+column(band=detail id=7 alignment="0" tabsequence=30 border="5" color="0" x="370" y="320" height="392" width="1399" format="[general]"  name=receipt_ex  tag="DK" edit.limit=250 edit.case=any edit.autoselect=no edit.nilisnull=yes edit.autovscroll=yes edit.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="접수사례" border="0" color="16711680" x="23" y="352" height="56" width="311"  name=receipt_ex_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="관련부서
+의견" border="0" color="16711680" x="23" y="760" height="112" width="315"  name=dept_opinion_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="사후
+처리방안" border="0" color="16711680" x="27" y="1260" height="112" width="311"  name=how_handle_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="품번" border="0" color="16711680" x="50" y="52" height="56" width="251"  name=style_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=10 border="5" color="0" x="370" y="52" height="60" width="274" format="[general]"  name=style edit.limit=8 edit.case=upper edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+button(band=detail text=""filename="FIND.BMP"action="0" border="0" color="0" x="663" y="44" height="72" width="87" vtextalign="0" htextalign="0"  name=b_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="67108864" )
+column(band=detail id=4 alignment="0" tabsequence=20 border="5" color="0" x="768" y="52" height="60" width="87" format="[general]"  name=chno edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="디자이너" border="0" color="16711680" x="933" y="52" height="56" width="302"  name=dsgn_emp_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="업체" border="0" color="16711680" x="1705" y="52" height="56" width="210"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="생산량" border="0" color="16711680" x="46" y="200" height="56" width="247"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="판매량" border="0" color="16711680" x="923" y="200" height="56" width="302"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="접수량
+(불량%)" border="0" color="16711680" x="1673" y="172" height="112" width="251"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=detail x1="1787" y1="308" x2="1787" y2="1560"  name=l_10 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="0" )
+column(band=detail id=22 alignment="0" tabsequence=32766 border="3" color="0" x="1806" y="492" height="968" width="850" format="[general]"  name=serial  resizeable=1  moveable=1 height.autosize=yes bitmapname=yes edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=6 alignment="2" tabsequence=32766 border="0" color="0" x="1271" y="48" height="60" width="366" format="[general]"  name=dsgn_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=19 alignment="1" tabsequence=32766 border="0" color="128" x="379" y="200" height="56" width="512" format="#,###"  name=ord_qty edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=20 alignment="1" tabsequence=32766 border="0" color="128" x="1294" y="200" height="56" width="338" format="#,###"  name=sale_qty edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=40 border="5" color="0" x="370" y="748" height="432" width="1399" format="[general]"  name=dept_opinion edit.limit=250 edit.case=any edit.autoselect=no edit.nilisnull=yes edit.autovscroll=yes edit.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="0" tabsequence=50 border="5" color="0" x="370" y="1208" height="340" width="1399" format="[general]"  name=how_handle edit.limit=250 edit.case=any edit.autoselect=no edit.nilisnull=yes edit.autovscroll=yes edit.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=23 alignment="0" tabsequence=60 border="5" color="0" x="1806" y="404" height="60" width="763" format="[general]"  name=file_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="0" text="사진:" border="0" color="0" x="1801" y="332" height="56" width="151"  name=t_5  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+button(band=detail text=""filename="find.bmp"action="0" border="0" color="0" x="2583" y="396" height="76" width="91" vtextalign="0" htextalign="0"  name=cb_file_nm  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="67108864" )
+column(band=detail id=21 alignment="1" tabsequence=32766 border="0" color="128" x="1961" y="200" height="60" width="315" format="#,###"  name=receipt_qty edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="(" border="0" color="128" x="2295" y="200" height="60" width="50"  name=t_6  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+compute(band=detail alignment="2" expression=" receipt_qty /  sale_qty "border="0" color="128" x="2345" y="200" height="60" width="256" format="0.00%"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=detail alignment="0" text=")" border="0" color="128" x="2601" y="200" height="60" width="50"  name=t_7  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="80269524" )
+column(band=detail id=24 alignment="0" tabsequence=32766 border="0" color="0" x="2693" y="0" height="56" width="32" format="[general]"  name=receipt_type edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

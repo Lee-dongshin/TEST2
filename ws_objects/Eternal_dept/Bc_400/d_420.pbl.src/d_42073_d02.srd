@@ -1,0 +1,51 @@
+﻿$PBExportHeader$d_42073_d02.srd
+$PBExportComments$점재고 재매입
+release 7;
+datawindow(units=0 timer_interval=0 color=82899184 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=a_out_ymd dbname="tb_52031_h.out_ymd" )
+ column=(type=long updatewhereclause=yes name=a_deal_seq dbname="tb_52031_h.deal_seq" )
+ column=(type=char(4) updatewhereclause=yes name=b_year dbname="tb_52031_h.YEAR" )
+ column=(type=char(1) updatewhereclause=yes name=b_season dbname="tb_52031_h.SEASON" )
+ column=(type=char(30) updatewhereclause=yes name=season_nm dbname="SEASON_NM" )
+ column=(type=char(6) updatewhereclause=yes name=a_shop_cd dbname="tb_52031_h.shop_cd" )
+ column=(type=char(30) updatewhereclause=yes name=shop_nm dbname="shop_nm" )
+ column=(type=decimal(0) updatewhereclause=yes name=deal_qty dbname="DEAL_QTY" )
+ column=(type=char(8) updatewhereclause=yes name=a_to_out_ymd dbname="tb_52031_h.TO_OUT_YMD" )
+ column=(type=long updatewhereclause=yes name=a_to_deal_seq dbname="tb_52031_h.to_deal_seq" )
+ column=(type=char(1) updatewhereclause=yes name=proc_yn dbname="PROC_YN" values="선택	Y/선택	N" )
+ retrieve="select a.out_ymd, a.deal_seq, 
+			B.YEAR, 
+			B.SEASON, 
+			DBO.SF_INTER_NM('003', B.SEASON) AS SEASON_NM,
+			a.shop_cd, dbo.sf_shop_nm(a.shop_cd,'s') as shop_nm,
+			sum(deal_qty) AS DEAL_QTY,
+	    a.out_ymd AS TO_OUT_YMD,	a.deal_seq as to_deal_seq  , 'N' AS PROC_YN
+from tb_52031_h a (NOLOCK), tb_12020_m b (NOLOCK)
+where a.out_ymd = :AS_OUT_YMD
+and a.shop_cd like :AS_BRAND + '%'
+and a.deal_seq = :AL_DEAL_SEQ
+and a.style = b.style
+group by a.out_ymd, a.deal_seq, B.YEAR, B.SEASON, a.shop_cd
+" arguments=(("as_brand", string),("as_out_ymd", string),("al_deal_seq", number))  sort="a_out_ymd A a_deal_seq A a_shop_cd A b_year A b_season A " )
+text(band=header alignment="2" text="배분차수" border="6" color="0" x="421" y="4" height="60" width="265"  name=a_deal_seq_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="배분일자" border="6" color="0" x="55" y="4" height="60" width="352"  name=a_out_ymd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="매장" border="6" color="0" x="1280" y="4" height="60" width="750"  name=b_item_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="시즌" border="6" color="0" x="937" y="4" height="60" width="329"  name=b_season_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="년도" border="6" color="0" x="699" y="4" height="60" width="224"  name=b_year_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="수량" border="6" color="0" x="2043" y="4" height="60" width="329"  name=deal_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="변경여부선택" border="6" color="0" x="2391" y="8" height="56" width="384"  name=t_4  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="55" y="4" height="60" width="352" format="[general]"  name=a_out_ymd edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30539508" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="942" y="4" height="60" width="46" format="[general]"  name=b_season edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30539508" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="0" x="1001" y="4" height="60" width="265" format="[general]"  name=season_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30539508" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="421" y="4" height="60" width="265" format="[general]"  name=a_deal_seq edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30539508" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="699" y="4" height="60" width="224" format="[general]"  name=b_year edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30539508" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="1280" y="4" height="60" width="165" format="[general]"  name=a_shop_cd edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30539508" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="1458" y="4" height="60" width="567" format="[general]"  name=shop_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30539508" )
+column(band=detail id=8 alignment="1" tabsequence=32766 border="0" color="0" x="2043" y="4" height="60" width="329" format="#,###"  name=deal_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30539508" )
+column(band=detail id=11 alignment="0" tabsequence=30 border="6" color="16711680" x="2391" y="0" height="60" width="384" format="[general]"  name=proc_yn checkbox.text="선택" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15780518" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,160 @@
+﻿$PBExportHeader$w_53034_d.srw
+$PBExportComments$급여공제 명세서
+forward
+global type w_53034_d from w_com010_d
+end type
+end forward
+
+global type w_53034_d from w_com010_d
+integer width = 3680
+integer height = 2232
+end type
+global w_53034_d w_53034_d
+
+type variables
+String is_yymm, is_out_yn, is_kname
+end variables
+
+on w_53034_d.create
+call super::create
+end on
+
+on w_53034_d.destroy
+call super::destroy
+if IsValid(MenuID) then destroy(MenuID)
+end on
+
+event type boolean ue_keycheck(string as_cb_div);call super::ue_keycheck;String   ls_title
+
+IF as_cb_div = '1' THEN
+	ls_title = "조회오류"
+ELSEIF as_cb_div = '2' THEN
+	ls_title = "추가오류"
+ELSEIF as_cb_div = '3' THEN
+	ls_title = "저장오류"
+ELSE
+	ls_title = "오류"
+END IF
+
+IF dw_head.AcceptText() <> 1 THEN RETURN FALSE
+
+is_yymm = dw_head.GetItemString(1, "yymm")
+if IsNull(is_yymm) or Trim(is_yymm) = "" then
+   MessageBox(ls_title,"공제월을 입력하십시요!")
+   dw_head.SetFocus()
+   dw_head.SetColumn("yymm")
+   return false
+end if
+
+is_out_yn = dw_head.GetItemString(1, "out_yn")
+if IsNull(is_out_yn) or Trim(is_out_yn) = "" then
+   MessageBox(ls_title,"출고여부를 입력하십시요!")
+   dw_head.SetFocus()
+   dw_head.SetColumn("out_yn")
+   return false
+end if
+
+is_kname = dw_head.GetItemString(1, "kname")
+if IsNull(is_kname) or Trim(is_kname) = "" then
+	is_kname = "%"
+end if
+
+return true
+
+end event
+
+event ue_retrieve();call super::ue_retrieve;
+/* dw_head 필수입력 column check */
+IF Trigger Event ue_keycheck('1') = FALSE THEN RETURN
+
+il_rows = dw_body.retrieve(is_yymm, is_out_yn, is_kname)
+IF il_rows > 0 THEN
+   dw_body.SetFocus()
+ELSEIF il_rows = 0 THEN
+   MessageBox("조회", "조회할 자료가 없습니다.")
+ELSE
+   MessageBox("조회오류", "조회 실패 하였습니다.")
+END IF
+
+This.Trigger Event ue_button(1, il_rows)
+This.Trigger Event ue_msg(1, il_rows)
+
+end event
+
+event ue_title();call super::ue_title;datetime ld_datetime
+string ls_modify, ls_datetime
+
+IF gf_sysdate(ld_datetime) = FALSE THEN
+   ld_datetime = DateTime(Today(), Now())
+END IF
+
+ls_datetime = String(ld_datetime, "yyyy/mm/dd-hh:mm:ss")
+
+ls_modify =	"t_pg_id.Text = '" + is_pgm_id + "'" + &
+             "t_user_id.Text = '" + gs_user_id + "'" + &
+             "t_datetime.Text = '" + ls_datetime + "'" + &
+             "t_yymm.Text = '" + string(is_yymm, "@@@@/@@") + "'" 
+
+dw_print.Modify(ls_modify)
+
+end event
+
+event pfc_close();call super::pfc_close;gf_user_connect_pgm(gs_user_id,"W_53034_d","0")
+end event
+
+type cb_close from w_com010_d`cb_close within w_53034_d
+end type
+
+type cb_delete from w_com010_d`cb_delete within w_53034_d
+end type
+
+type cb_insert from w_com010_d`cb_insert within w_53034_d
+end type
+
+type cb_retrieve from w_com010_d`cb_retrieve within w_53034_d
+end type
+
+type cb_update from w_com010_d`cb_update within w_53034_d
+end type
+
+type cb_print from w_com010_d`cb_print within w_53034_d
+end type
+
+type cb_preview from w_com010_d`cb_preview within w_53034_d
+end type
+
+type gb_button from w_com010_d`gb_button within w_53034_d
+end type
+
+type cb_excel from w_com010_d`cb_excel within w_53034_d
+end type
+
+type dw_head from w_com010_d`dw_head within w_53034_d
+integer y = 156
+integer height = 136
+string dataobject = "d_53034_h01"
+end type
+
+type ln_1 from w_com010_d`ln_1 within w_53034_d
+integer beginy = 296
+integer endy = 296
+end type
+
+type ln_2 from w_com010_d`ln_2 within w_53034_d
+integer beginy = 300
+integer endy = 300
+end type
+
+type dw_body from w_com010_d`dw_body within w_53034_d
+integer x = 9
+integer y = 308
+integer width = 3593
+integer height = 1692
+string dataobject = "D_53034_D01"
+boolean hscrollbar = true
+end type
+
+type dw_print from w_com010_d`dw_print within w_53034_d
+string dataobject = "D_53034_r01"
+end type
+

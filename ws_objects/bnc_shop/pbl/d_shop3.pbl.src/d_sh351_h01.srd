@@ -1,0 +1,46 @@
+﻿$PBExportHeader$d_sh351_h01.srd
+$PBExportComments$실사비교조회
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=284 color="536870912" )
+table(column=(type=char(1) updatewhereclause=yes name=brand dbname="brand" )
+ column=(type=char(6) updatewhereclause=yes name=shop_cd dbname="shop_cd" )
+ column=(type=char(1) updatewhereclause=yes name=shop_type dbname="shop_type" )
+ column=(type=char(18) updatewhereclause=yes name=shop_nm dbname="shop_nm" )
+ column=(type=char(8) updatewhereclause=yes name=silsa_yymmdd dbname="silsa_yymmdd" )
+ column=(type=char(8) updatewhereclause=yes name=base_yymmdd dbname="base_yymmdd" )
+ column=(type=char(4) updatewhereclause=yes name=year dbname="year" )
+ column=(type=char(1) updatewhereclause=yes name=season dbname="season" )
+ column=(type=char(1) updatewhereclause=yes name=style_opt dbname="style_opt" initial="S" values="스타일별	S/스타일차수칼라사이즈별	X/" )
+ column=(type=char(1) updatewhereclause=yes name=wonga_enabled dbname="wonga_enabled" initial="N" values="택가보기	N/실판가보기	S/" )
+ column=(type=char(1) updatewhereclause=yes name=opt_visible dbname="opt_visible" initial="N" values="실재고,실사보기	Y/실재고,실사보기	N" )
+ retrieve="select 
+'n'				brand,
+'n00008'			shop_cd,
+'1'				shop_type,
+'천안갤러리아올리브'  shop_nm,
+'20011018'	silsa_yymmdd,
+'20011018'	base_yymmdd,
+'2001'			year,
+'w'				season,
+'s'				style_opt,
+'y'				wonga_enabled,
+'N'				opt_visible	
+from dual
+" )
+column(band=detail id=9 alignment="0" tabsequence=60 border="5" color="16711680" x="2094" y="20" height="156" width="699" format="[general]"  name=style_opt radiobuttons.columns=1 radiobuttons.scale=no radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="80269524" )
+text(band=detail alignment="1" text="실사일:" border="0" color="0" x="105" y="20" height="60" width="224"  name=silsa_date_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=10 border="5" color="0" x="343" y="20" height="60" width="347" format="@@@@/@@/@@"  name=silsa_yymmdd  tag="OE" editmask.mask="XXXX/XX/XX"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="기준일:" border="0" color="0" x="718" y="20" height="56" width="219"  name=base_date_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=20 border="5" color="0" x="955" y="20" height="60" width="357" format="@@@@/@@/@@"  name=base_yymmdd  tag="OE" editmask.mask="XXXX/XX/XX"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="년도/시즌:" border="0" color="0" x="23" y="124" height="56" width="306"  name=year_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=40 border="5" color="0" x="343" y="124" height="60" width="361" format="[general]"  name=year  tag="OE" edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_nm dddw.datacolumn=inter_cd1 dddw.percentwidth=110 dddw.lines=6 dddw.limit=1 dddw.allowedit=yes dddw.useasborder=yes dddw.case=upper dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=50 border="5" color="0" x="722" y="124" height="60" width="489" format="[general]"  name=season  tag="OE" edit.name="내부코드" dddw.name=d_com001_n dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=1 dddw.allowedit=yes dddw.useasborder=yes dddw.case=upper dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="0" tabsequence=70 border="0" color="8388736" x="1339" y="104" height="64" width="709" format="[general]"  name=opt_visible checkbox.text="실재고,실사보기" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="82042848" )
+text(band=detail alignment="1" text="매장형태:" border="0" color="0" x="1330" y="24" height="56" width="279"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="5" color="0" x="1627" y="24" height="56" width="443" format="[general]"  name=shop_type  tag="OE" edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=80 border="5" color="8388736" x="1344" y="196" height="64" width="901" format="[general]"  name=wonga_enabled radiobuttons.columns=2 radiobuttons.scale=no radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="82042848" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

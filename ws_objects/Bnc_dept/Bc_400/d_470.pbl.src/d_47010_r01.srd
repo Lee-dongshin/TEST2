@@ -1,0 +1,102 @@
+﻿$PBExportHeader$d_47010_r01.srd
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=344 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=96 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(12) updatewhereclause=yes name=db dbname="tb_45051_h.DB" )
+ column=(type=char(8) updatewhereclause=yes name=yymmdd dbname="tb_45051_h.YYMMDD" )
+ column=(type=char(8) updatewhereclause=yes name=style dbname="tb_45051_h.STYLE" )
+ column=(type=char(1) updatewhereclause=yes name=chno dbname="tb_45051_h.CHNO" )
+ column=(type=char(2) updatewhereclause=yes name=color dbname="tb_45051_h.COLOR" )
+ column=(type=char(2) updatewhereclause=yes name=size dbname="tb_45051_h.SIZE" )
+ column=(type=char(6) updatewhereclause=yes name=shop_cd dbname="tb_45051_h.SHOP_CD" )
+ column=(type=char(30) updatewhereclause=yes name=shop_nm dbname="shop_nm" )
+ column=(type=decimal(0) updatewhereclause=yes name=rqst_all dbname="rqst_all" )
+ column=(type=char(6) updatewhereclause=yes name=fr_shop_cd dbname="tb_45051_h.FR_SHOP_CD" )
+ column=(type=char(30) updatewhereclause=yes name=fr_shop_nm dbname="fr_shop_nm" )
+ column=(type=long updatewhereclause=yes name=cnt dbname="cnt" )
+ column=(type=decimal(6) updatewhereclause=yes name=rqst_qty dbname="rqst_qty" )
+ column=(type=decimal(0) updatewhereclause=yes name=stock_qty dbname="tb_45051_h.STOCK_QTY" )
+ column=(type=decimal(0) updatewhereclause=yes name=avail_rqst dbname="AVAIL_RQST" )
+ column=(type=decimal(0) updatewhereclause=yes name=y_qty dbname="Y_QTY" )
+ retrieve="
+SELECT DB,YYMMDD,STYLE, CHNO,COLOR, SIZE, SHOP_CD, DBO.SF_SHOP_NM(SHOP_CD,'S') shop_nm, 
+ ISNULL((SELECT SUM(B.QTY)
+	FROM TB_45030_H B (nolock)
+	WHERe b.gubn = 'R' 
+	and A.YYMMDD = B.YYMMDD
+	and   a.shop_cd = b.shop_cd
+	AND   A.STYLE = B.STYLE
+	AND   A.CHNO = B.CHNO
+	AND   A.COLOR = B.COLOR
+	AND   A.SIZE  = B.SIZE		),0) AS rqst_all,
+
+
+   FR_SHOP_CD, DBO.SF_SHOP_NM(FR_SHOP_CD,'S') fr_shop_nm, COUNT(DB) cnt,  SUM(QTY) /COUNT(DB) rqst_qty, STOCK_QTY ,
+	CASE WHEN SUM(QTY) > STOCK_QTY THEN STOCK_QTY ELSE SUM(QTY) END AS AVAIL_RQST,
+ ISNULL((SELECT SUM(B.QTY)
+	FROM TB_45050_H B
+	WHERE A.YYMMDD = B.YYMMDD
+	AND   A.STYLE = B.STYLE
+	AND   A.CHNO = B.CHNO
+	AND   A.COLOR = B.COLOR
+	AND   A.SIZE  = B.SIZE
+	AND   A.FR_SHOP_CD = B.FR_SHOP_CD
+	AND   A.DB = B.DB	),0) AS Y_QTY
+FROM tb_45051_h A
+WHERE YYMMDD BETWEEN  :ls_fr_ymd AND :ls_to_ymd
+and style like :ls_style + '%'
+and style like :ls_brand + '%'
+and fr_shop_cd like :ls_fr_shop_cd + '%'
+and shop_cd like :ls_to_shop_cd + '%'
+
+GROUP BY YYMMDD, SHOP_CD, FR_SHOP_CD, STYLE, CHNO,COLOR, SIZE,  STOCK_QTY , DB
+ORDER BY YYMMDD, SHOP_CD,  STYLE, CHNO,COLOR, SIZE,FR_SHOP_CD,  STOCK_QTY , DB
+
+" arguments=(("ls_brand", string),("ls_fr_ymd", string),("ls_to_ymd", string),("ls_style", string),("ls_fr_shop_cd", string),("ls_to_shop_cd", string)) )
+group(level=1 header.height=0 trailer.height=0 by=("yymmdd" ) header.color="536870912" trailer.color="536870912" )
+group(level=2 header.height=0 trailer.height=84 by=("style" , "chno" , "color" , "size" ) header.color="536870912" trailer.color="536870912" )
+group(level=3 header.height=0 trailer.height=0 by=("shop_cd" ) header.color="536870912" trailer.color="536870912" )
+text(band=header alignment="2" text="직택의뢰일" border="0" color="0" x="50" y="264" height="60" width="283"  name=yymmdd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="주문접수매장" border="0" color="0" x="352" y="264" height="60" width="750"  name=shop_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="품번" border="0" color="0" x="1115" y="264" height="60" width="535"  name=style_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="재고보유매장" border="0" color="0" x="1957" y="264" height="60" width="754"  name=fr_shop_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="지시당시재고" border="0" color="0" x="2725" y="264" height="60" width="329"  name=stock_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="접수수량" border="0" color="0" x="1664" y="268" height="56" width="274"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="직택 진행현황" border="0" color="0" x="1381" y="48" height="96" width="1458"  name=t_4  font.face="굴림체" font.height="-16" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="품번 브랜드" border="0" color="0" x="46" y="180" height="56" width="311"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="0" text="" border="0" color="0" x="375" y="180" height="56" width="690"  name=t_brand  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="46" y="4" height="60" width="288" format="[general]"  name=yymmdd edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="347" y="4" height="60" width="192" format="[general]"  name=shop_cd edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="553" y="4" height="60" width="549" format="[general]"  name=shop_nm edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=detail alignment="2" expression=" style +  '-' +  chno + '-' + color + '-' + size"border="0" color="0" x="1115" y="4" height="60" width="530" format="[GENERAL]"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="1957" y="4" height="60" width="192" format="[general]"  name=fr_shop_cd edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="2162" y="4" height="60" width="549" format="[general]"  name=fr_shop_nm edit.limit=30 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=14 alignment="1" tabsequence=32766 border="0" color="0" x="2725" y="4" height="60" width="329" format="#,###"  name=stock_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="1" tabsequence=32766 border="0" color="0" x="1659" y="4" height="60" width="283" format="#,###"  name=rqst_all edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=trailer.2 x1="352" y1="68" x2="3813" y2="68"  name=l_3 pen.style="2" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=trailer.2 alignment="1" text="[ 접수 대비 발송량]" border="0" color="255" x="169" y="8" height="56" width="827"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=trailer.2 alignment="1" expression=" rqst_all "border="0" color="255" x="1659" y="4" height="56" width="283" format="#,###"  name=compute_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=trailer.2 alignment="1" expression="sum(y_qty for group 2)"border="0" color="255" x="3232" y="4" height="56" width="329" format="#,##0"  name=compute_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+line(band=trailer.1 x1="9" y1="0" x2="4037" y2="0"  name=l_1 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=trailer.1 x1="9" y1="4" x2="4037" y2="4"  name=l_2 pen.style="0" pen.width="5" pen.color="16777215"  background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="요청수량" border="0" color="0" x="3067" y="264" height="60" width="242"  name=avail_rqst_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=15 alignment="1" tabsequence=32766 border="0" color="0" x="3067" y="4" height="60" width="242" format="#,###"  name=avail_rqst edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="발송수량" border="0" color="0" x="3323" y="264" height="60" width="238"  name=y_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=16 alignment="1" tabsequence=32766 border="0" color="0" x="3323" y="4" height="60" width="238" format="#,###"  name=y_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="발송여부" border="0" color="0" x="3579" y="264" height="60" width="256"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+compute(band=detail alignment="2" expression="if( y_qty > 0 , '발송', '')"border="0" color="0" x="3579" y="4" height="60" width="251" format="[GENERAL]"  name=compute_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=header alignment="1" text="조회기간" border="0" color="0" x="2743" y="180" height="56" width="329"  name=t_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="3090" y="180" height="56" width="329"  name=t_fr_ymd  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="" border="0" color="0" x="3506" y="180" height="56" width="329"  name=t_to_ymd  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="~~" border="0" color="0" x="3433" y="180" height="56" width="59"  name=t_7  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+line(band=header x1="46" y1="332" x2="3835" y2="332"  name=l_4 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=header x1="46" y1="244" x2="3835" y2="244"  name=l_5 pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="16777215" )
+line(band=footer x1="37" y1="12" x2="3826" y2="12"  name=l_6 pen.style="0" pen.width="9" pen.color="0"  background.mode="2" background.color="16777215" )
+text(band=footer alignment="0" text="text" border="0" color="0" x="55" y="24" height="56" width="850"  name=t_pg_id  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=footer alignment="0" text="text" border="0" color="0" x="2985" y="24" height="56" width="837"  name=t_datetime  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+
+sparse(names="yymmdd	shop_cd	shop_nm	compute_1	rqst_all")htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

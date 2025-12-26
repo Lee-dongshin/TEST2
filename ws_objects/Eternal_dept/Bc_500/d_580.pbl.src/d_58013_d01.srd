@@ -1,0 +1,24 @@
+﻿$PBExportHeader$d_58013_d01.srd
+$PBExportComments$부자재수출 Invoice출력
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 )
+header(height=68 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=64 color="536870912" )
+table(column=(type=char(1) updatewhereclause=yes key=yes name=brand dbname="tb_56400_d.Brand" )
+ column=(type=char(8) updatewhereclause=yes key=yes name=invoice_date dbname="tb_56400_d.Invoice_Date" )
+ column=(type=char(20) updatewhereclause=yes key=yes name=invoice_no dbname="tb_56400_d.Invoice_No" )
+ retrieve="  SELECT tb_56400_d.Brand,   
+         tb_56400_d.Invoice_Date,   
+         tb_56400_d.Invoice_No  
+    FROM tb_56400_d  
+	WHERE tb_56400_d.Brand = :AS_BRAND
+     AND tb_56400_d.Invoice_Date BETWEEN :AS_FROM_DATE AND :AS_TO_DATE;
+" update="tb_56400_d" updatewhere=1 updatekeyinplace=no arguments=(("AS_BRAND", string),("AS_FROM_DATE", string),("AS_TO_DATE", string)) )
+text(band=header alignment="0" text="Invoice Date" border="6" color="0" x="9" y="4" height="56" width="338"  name=t_5  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+text(band=header alignment="0" text="Invoice No" border="6" color="0" x="357" y="4" height="56" width="635"  name=t_6  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=2 alignment="0" tabsequence=0 border="0" color="0" x="14" y="0" height="56" width="334" format="@@@@/@@/@@"  name=invoice_date  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="31978989" )
+column(band=detail id=3 alignment="0" tabsequence=0 border="0" color="0" x="361" y="0" height="56" width="631"  name=invoice_no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="31978989" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

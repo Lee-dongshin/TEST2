@@ -1,0 +1,29 @@
+﻿$PBExportHeader$d_51009_d01_list.srd
+$PBExportComments$행사계획서 일괄 등록대상 매장리스트
+release 7;
+datawindow(units=0 timer_interval=0 color=81324524 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 selected.mouse=no )
+header(height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(255) updatewhereclause=yes name=shop_nm dbname="shop_nm" )
+ column=(type=char(1) updatewhereclause=yes name=cbit dbname="cbit" values="	0/	 1" )
+ column=(type=char(6) updatewhereclause=yes name=shop_cd dbname="shop_cd" )
+ retrieve="Select	replace(replace(replace (replace(replace(replace(shop_snm, '(Netc)',''),'(e-온앤온)',''),'(온앤온)',''),'(올리브)',''),'(lapalette)',''),'(stage89)','') as shop_nm,		
+			' ' as cbit,
+			shop_cd
+  From	TB_91100_M with (nolock)
+ Where	shop_div like :as_shop_div 
+	and	shop_stat = '00'	
+	and	brand like :as_brand
+order by brand" arguments=(("as_brand", string),("as_shop_div", string)) )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0" x="9" y="12" height="56" width="238" format="[general]"  name=cbit checkbox.text="" checkbox.on="0" checkbox.off=" 1" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="81324524" )
+compute(band=detail alignment="0" expression="if (cbit = '0',1,0)"border="0" color="0" x="983" y="12" height="56" width="251" format="[GENERAL]"  name=check_count visible="1~t0"  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1243" y="12" height="56" width="151" format="[general]"  name=shop_cd visible="1~t0" edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="81324524" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="485" y="12" height="56" width="489" format="[general]"  name=shop_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="81324524" )
+column(band=detail id=3 alignment="2" tabsequence=32766 border="0" color="0" x="256" y="12" height="56" width="219" format="[general]"  name=shop_cd_1 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+compute(band=summary alignment="0" expression="sum(check_count )"border="0" color="0" x="983" y="20" height="76" width="251" format="[GENERAL]"  name=sum_check visible="1~t0"  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=header alignment="2" text="매장코드" border="6" color="0" x="256" y="12" height="56" width="219"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+text(band=header alignment="2" text="매장명" border="6" color="0" x="485" y="12" height="56" width="489"  name=obj_21051375  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="81324524" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,24 @@
+﻿$PBExportHeader$gf_one_price.srf
+$PBExportComments$균일행사가 산출
+global type gf_one_price from function_object
+end type
+
+forward prototypes
+global function long gf_one_price (string as_shop_cd, string as_style, string as_shop_type, string as_sale_type, string as_yymmdd, ref decimal ad_price)
+end prototypes
+
+global function long gf_one_price (string as_shop_cd, string as_style, string as_shop_type, string as_sale_type, string as_yymmdd, ref decimal ad_price);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 작 성 일  : 2002/05/22                                     */
+/* 수 정 일  : 2002/05/22                                     */
+/* 내    용  : 균일 행사가 산출                               */
+/*============================================================*/
+
+SELECT dbo.sf_one_price(:as_shop_cd, :as_style, :as_shop_type, :as_sale_type, :as_yymmdd)
+  INTO :ad_price
+  FROM DUAL ;
+
+RETURN sqlca.sqlcode 
+
+end function
+

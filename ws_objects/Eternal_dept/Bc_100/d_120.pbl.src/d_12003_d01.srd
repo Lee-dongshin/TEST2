@@ -1,0 +1,32 @@
+﻿$PBExportHeader$d_12003_d01.srd
+$PBExportComments$컨벤션 관리
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 grid.columnmove=no selected.mouse=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes key=yes name=sample_cd dbname="TB_12010_M.sample_cd" )
+ column=(type=char(20) updatewhereclause=yes name=dsgn_nm dbname="dsgn_nm" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=mat_cd dbname="TB_12010_M.mat_cd" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=mat_nm dbname="TB_12010_M.mat_nm" )
+ retrieve="  select sample_cd                 as sample_cd,  
+         dbo.sf_user_nm(dsgn_emp)  as dsgn_nm,  
+         mat_cd                    as mat_cd,  
+         mat_nm                    as mat_nm 
+    from tb_12010_m 
+   where brand  = :as_brand
+     and year   = :as_year
+     and season = :as_season 
+
+" update="tb_12010_m" updatewhere=1 updatekeyinplace=no arguments=(("as_brand", string),("as_year", string),("as_season", string)) )
+text(band=header alignment="2" text="샘플번호" border="6" color="0" x="9" y="8" height="60" width="293"  name=sample_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="디자이너" border="6" color="0" x="311" y="8" height="60" width="261"  name=obj_2032965  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="소재번호" border="6" color="0" x="581" y="8" height="60" width="302"  name=mat_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="소재명칭" border="6" color="0" x="891" y="8" height="60" width="850"  name=mat_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="9" y="4" height="60" width="293" format="[general]"  name=sample_cd edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="581" y="4" height="60" width="302" format="[general]"  name=mat_cd edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="891" y="4" height="60" width="850" format="[general]"  name=mat_nm edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="311" y="4" height="60" width="261" format="[general]"  name=dsgn_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

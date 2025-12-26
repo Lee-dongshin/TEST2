@@ -1,0 +1,21 @@
+﻿$PBExportHeader$d_12a10_day.srd
+$PBExportComments$작업지시서[Assort]
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes key=yes name=t_date dbname="TB_DATE.t_date" )
+ column=(type=char(3) update=yes updatewhereclause=yes name=week_kor dbname="TB_DATE.week_kor" )
+ retrieve="
+
+select t_date, week_kor
+from tb_date
+" update="tb_date" updatewhere=0 updatekeyinplace=no )
+text(band=header alignment="2" text="일자" border="6" color="0" x="5" y="4" height="60" width="338"  name=t_date_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="요일" border="6" color="0" x="357" y="4" height="60" width="197"  name=week_kor_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0" x="5" y="4" height="60" width="338" format="@@@@.@@.@@"  name=t_date edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30800893" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="0~tif( week_kor = '토', rgb(0,0,255), if( week_kor = '일', rgb(255,0,0), rgb(0,0,0)))" x="357" y="4" height="60" width="197" format="[general]"  name=week_kor edit.limit=3 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="30800893" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

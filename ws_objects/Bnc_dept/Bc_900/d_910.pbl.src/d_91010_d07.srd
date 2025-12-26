@@ -1,0 +1,49 @@
+﻿$PBExportHeader$d_91010_d07.srd
+$PBExportComments$매장 등록
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=172 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(6) update=yes updatewhereclause=yes key=yes name=shop_cd dbname="TB_91104_H.SHOP_CD" )
+ column=(type=char(8) update=yes updatewhereclause=yes key=yes name=ed_dt dbname="TB_91104_H.ED_DT" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=seq_no dbname="TB_91104_H.SEQ_NO" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=st_dt dbname="TB_91104_H.ST_DT" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=pay_way dbname="TB_91104_H.PAY_WAY" initial="2" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=sale_emp dbname="TB_91104_H.SALE_EMP" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=brand dbname="TB_91104_H.BRAND" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=shop_div dbname="TB_91104_H.SHOP_DIV" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=comm_rate1 dbname="COMM_RATE1" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=comm_rate2 dbname="COMM_RATE2" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=comm_rate3 dbname="TB_91104_H.COMM_RATE3" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=comm_rate4 dbname="COMM_RATE4" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="TB_91104_H.REG_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="TB_91104_H.REG_DT" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="TB_91104_H.MOD_ID" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="TB_91104_H.MOD_DT" )
+ retrieve="  SELECT SHOP_CD,		ED_DT,			SEQ_NO,		
+			ST_DT,		PAY_WAY,			SALE_EMP,		BRAND,		SHOP_DIV,
+			FLOOR(COMM_RATE1 / 1000) AS COMM_RATE1,	FLOOR(COMM_RATE2 / 1000) AS COMM_RATE2,		
+			COMM_RATE3,											FLOOR(COMM_RATE4 / 1000) AS COMM_RATE4,
+			REG_ID,		REG_DT,			MOD_ID,			MOD_DT     
+	 FROM TB_91104_H
+	WHERE SHOP_CD = :as_shop_cd
+	  AND ED_DT = '99999999'
+	  AND PAY_WAY = :as_pay_way
+" update="TB_91104_H" updatewhere=0 updatekeyinplace=yes arguments=(("as_shop_cd", string),("as_pay_way", string)) )
+button(band=header text="추가"filename=""action="0" border="0" color="1090519039" x="0" y="0" height="96" width="347" vtextalign="0" htextalign="0"  name=cb_insert_row  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421376" )
+text(band=header alignment="2" text="FROM금액" border="6" color="0" x="9" y="104" height="60" width="329"  name=pay_way1_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="TO금액" border="6" color="0" x="357" y="104" height="60" width="329"  name=pay_way2_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="수수료율" border="6" color="0" x="704" y="104" height="60" width="329"  name=pay_way3_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+button(band=header text="삭제"filename=""action="0" border="0" color="1090519039" x="347" y="0" height="96" width="347" vtextalign="0" htextalign="0"  name=cb_delete_row  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421376" )
+button(band=header text="기본"filename=""action="0" border="0" color="1090519039" x="695" y="0" height="96" width="347" vtextalign="0" htextalign="0"  name=cb_default  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="8421376" )
+text(band=header alignment="2" text="기본급" border="6" color="0" x="1051" y="104" height="60" width="329"  name=pay_way4_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="1" text="(단위: 천원)" border="0" color="0" x="1051" y="32" height="60" width="329"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=9 alignment="1" tabsequence=10 border="5" color="0" x="9" y="4" height="60" width="329" format="#,##0"  name=comm_rate1 edit.limit=9 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="1" tabsequence=20 border="5" color="0" x="357" y="4" height="60" width="329" format="#,##0"  name=comm_rate2 edit.limit=9 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="1" tabsequence=30 border="5" color="0" x="704" y="4" height="60" width="283" format="0.00"  name=comm_rate3 edit.limit=9 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=12 alignment="1" tabsequence=40 border="5" color="0" x="1051" y="4" height="60" width="329" format="#,##0"  name=comm_rate4 edit.limit=9 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="0" text="%" border="0" color="0" x="1006" y="8" height="56" width="32"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

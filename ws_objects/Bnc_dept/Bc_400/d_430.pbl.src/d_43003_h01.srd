@@ -1,0 +1,62 @@
+﻿$PBExportHeader$d_43003_h01.srd
+$PBExportComments$창고재고조회
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=380 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=yymmdd dbname="YYMMDD" )
+ column=(type=char(6) updatewhereclause=yes name=house dbname="HOUSE" )
+ column=(type=char(1) updatewhereclause=yes name=brand dbname="BRAND" )
+ column=(type=char(1) updatewhereclause=yes name=sojae dbname="SOjae" )
+ column=(type=char(4) updatewhereclause=yes name=year dbname="YEAR" )
+ column=(type=char(1) updatewhereclause=yes name=season dbname="SEASON" )
+ column=(type=char(1) updatewhereclause=yes name=item dbname="ITEM" )
+ column=(type=char(3) updatewhereclause=yes name=style_no dbname="style_no" )
+ column=(type=char(1) updatewhereclause=yes name=chno dbname="chno" )
+ column=(type=char(2) updatewhereclause=yes name=color dbname="color" )
+ column=(type=char(2) updatewhereclause=yes name=size dbname="size" )
+ column=(type=char(1) updatewhereclause=yes name=opt_chi dbname="opt_chi" initial="A" values="전체	A/정상	B/상설	R/중국	C/" )
+ column=(type=char(1) updatewhereclause=yes name=consignment dbname="consignment" initial="N" values="위탁 제품 조회	Y/위탁 제품 조회	N" )
+ retrieve="SELECT 
+'        '			YYMMDD,
+'      '					HOUSE,
+' '						BRAND,
+' '						SOjae,
+'    '					YEAR,
+' '						SEASON,
+' '						ITEM,
+'   '						style_no,
+' '						chno,
+'  '						color,
+'  '						size,
+'A'						opt_chi,
+'N'						consignment
+
+FROM DUAL" )
+text(band=detail alignment="1" text="브랜드" border="0" color="0" x="27" y="20" height="56" width="201"  name=brand_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="년  도" border="0" color="0" x="27" y="108" height="56" width="201"  name=year_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="품  종" border="0" color="0" x="27" y="224" height="56" width="201"  name=item_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="칼  라" border="0" color="0" x="27" y="312" height="56" width="201"  name=t_4  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=10 border="5" color="0" x="247" y="20" height="60" width="471" format="[general]"  name=brand edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="2" tabsequence=40 border="5" color="0" x="247" y="108" height="60" width="471" format="[general]"  name=year edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd1 dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="0" tabsequence=70 border="5" color="0" x="247" y="224" height="60" width="471" format="[general]"  name=item edit.name="품종(품번)" dddw.name=d_com003_n01 dddw.displaycolumn=item_display dddw.datacolumn=item dddw.percentwidth=200 dddw.lines=6 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=10 alignment="0" tabsequence=100 border="5" color="0" x="247" y="312" height="56" width="471" format="[general]"  name=color edit.name="색상" dddw.name=d_com901 dddw.displaycolumn=color_display dddw.datacolumn=color dddw.percentwidth=100 dddw.lines=6 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="기준일자" border="0" color="0" x="768" y="20" height="56" width="256"  name=yymmdd_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="시    즌" border="0" color="0" x="768" y="108" height="56" width="256"  name=season_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="일련번호" border="0" color="0" x="768" y="224" height="56" width="256"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="사 이 즈" border="0" color="0" x="768" y="312" height="56" width="256"  name=t_5  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=20 border="5" color="0" x="1042" y="20" height="60" width="471" format="[general]"  name=yymmdd editmask.mask="XXXX.XX.XX" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=50 border="5" color="0" x="1042" y="108" height="60" width="471" format="[general]"  name=season edit.name="내부코드" dddw.name=d_com001_n dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=8 alignment="0" tabsequence=80 border="5" color="0" x="1042" y="224" height="56" width="197" format="[general]"  name=style_no edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=11 alignment="0" tabsequence=110 border="5" color="0" x="1042" y="312" height="56" width="471" format="[general]"  name=size edit.name="사이즈" dddw.name=d_com902 dddw.displaycolumn=size_display dddw.datacolumn=size dddw.percentwidth=100 dddw.lines=6 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+text(band=detail alignment="1" text="창  고" border="0" color="0" x="1563" y="20" height="56" width="219"  name=house_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="소  재" border="0" color="0" x="1563" y="108" height="56" width="219"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="차  수" border="0" color="0" x="1563" y="224" height="56" width="219"  name=t_3  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=30 border="5" color="0" x="1801" y="20" height="60" width="471" format="[general]"  name=house edit.name="창고" dddw.name=d_com910 dddw.displaycolumn=shop_display dddw.datacolumn=shop_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="0" tabsequence=60 border="5" color="0" x="1801" y="108" height="60" width="471" format="[general]"  name=sojae edit.name="소재유형" dddw.name=d_com002_n01 dddw.displaycolumn=sojae_display dddw.datacolumn=sojae dddw.percentwidth=200 dddw.lines=6 dddw.limit=0 dddw.allowedit=yes dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=9 alignment="0" tabsequence=90 border="5" color="0" x="1801" y="224" height="56" width="206" format="[general]"  name=chno edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=12 alignment="0" tabsequence=130 border="5" color="0" x="2336" y="20" height="340" width="325" format="[general]"  name=opt_chi visible="1~t0" radiobuttons.columns=1 radiobuttons.scale=no radiobuttons.threed=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="82042848" )
+column(band=detail id=13 alignment="0" tabsequence=120 border="0" color="16711680" x="1600" y="304" height="56" width="585" format="[general]"  name=consignment checkbox.text="위탁 제품 조회" checkbox.on="Y" checkbox.off="N" checkbox.scale=no checkbox.threed=yes  font.face="굴림체" font.height="-9" font.weight="700"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="82899184" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

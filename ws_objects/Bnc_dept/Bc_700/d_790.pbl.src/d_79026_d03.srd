@@ -1,0 +1,47 @@
+﻿$PBExportHeader$d_79026_d03.srd
+$PBExportComments$수선실 처리별 내역 1
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=172 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=80 color="536870912" )
+table(column=(type=char(6) updatewhereclause=no name=judg_a dbname="judg_a" )
+ column=(type=char(30) updatewhereclause=no name=inter_nm dbname="inter_nm" )
+ column=(type=long updatewhereclause=no name=c_031 dbname="C_031" )
+ column=(type=long updatewhereclause=no name=c_032 dbname="C_032" )
+ column=(type=long updatewhereclause=no name=c_033 dbname="C_033" )
+ column=(type=long updatewhereclause=no name=c_034 dbname="C_034" )
+ column=(type=long updatewhereclause=no name=c_03z dbname="C_03Z" )
+ procedure="1 execute dbo.sp_79026_d03;1 @brand = :brand, @year = :year, @season = :season, @sojae = :sojae, @item = :item, @frm_ymd = :frm_ymd, @to_ymd = :to_ymd" arguments=(("brand", string),("year", string),("season", string),("sojae", string),("item", string),("frm_ymd", string),("to_ymd", string)) )
+text(band=header alignment="2" text="
+
+합계" border="2" color="0" x="507" y="8" height="168" width="233"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+올정리
+(올뜯김)" border="2" color="0" x="745" y="8" height="168" width="233"  name=c_011_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+
+장식수선" border="2" color="0" x="983" y="8" height="168" width="233"  name=c_012_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+
+세팅" border="2" color="0" x="1221" y="8" height="168" width="233"  name=c_013_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+
+보플제거" border="2" color="0" x="1458" y="8" height="168" width="233"  name=c_015_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+
+기타" border="2" color="0" x="1696" y="8" height="168" width="233"  name=c_01z_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="
+
+복종" border="2" color="0" x="5" y="8" height="168" width="498"  name=judg_a_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="2" color="0" x="5" y="4" height="68" width="119" format="[general]"  name=judg_a edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="2" color="0" x="128" y="4" height="68" width="375" format="[general]"  name=inter_nm edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+compute(band=detail alignment="1" expression=" c_031 + c_032 + c_033 + c_034 + c_03z "border="2" color="0" x="507" y="4" height="68" width="233" format="#,##0"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15780518" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="2" color="0" x="983" y="4" height="68" width="233" format="#,###"  name=c_032 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=5 alignment="1" tabsequence=32766 border="2" color="0" x="1221" y="4" height="68" width="233" format="#,###"  name=c_033 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="2" color="0" x="1458" y="4" height="68" width="233" format="#,###"  name=c_034 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="2" color="0" x="1696" y="4" height="68" width="233" format="#,###"  name=c_03z edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="2" color="0" x="745" y="4" height="68" width="233" format="#,###"  name=c_031 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

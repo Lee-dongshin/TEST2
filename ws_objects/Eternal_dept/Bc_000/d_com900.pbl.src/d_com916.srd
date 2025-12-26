@@ -1,0 +1,35 @@
+﻿$PBExportHeader$d_com916.srd
+$PBExportComments$우편번호[검색창]
+release 7;
+datawindow(units=0 timer_interval=0 color=80269528 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=72 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(16) updatewhereclause=yes name=zipcode dbname="zipcode.zipcode1" )
+ column=(type=char(8) updatewhereclause=yes name=jiyeok dbname="zipcode.jiyeok" )
+ column=(type=char(22) updatewhereclause=yes name=gu dbname="zipcode.gu" )
+ column=(type=char(82) updatewhereclause=yes name=dong dbname="zipcode.dong" )
+ column=(type=char(52) updatewhereclause=yes name=note1 dbname="zipcode.note1" )
+ column=(type=char(36) updatewhereclause=yes name=note2 dbname="zipcode.note2" )
+ retrieve="  SELECT zipcode1 ,
+         jiyeok ,
+         gu ,
+         dong ,
+         note1 ,
+         note2     
+    FROM dbo.zipcode with (nolock)
+" )
+text(band=header alignment="2" text="우편번호" border="6" color="0" x="14" y="8" height="56" width="238"  name=zipcode_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="지역" border="6" color="0" x="270" y="8" height="56" width="247"  name=jiyeok_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="시군구" border="6" color="0" x="535" y="8" height="56" width="366"  name=gu_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="상세" border="6" color="0" x="1774" y="8" height="56" width="1499"  name=note1_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="읍면동" border="6" color="0" x="919" y="8" height="56" width="837"  name=dong_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="2" tabsequence=40 border="5" color="0" x="535" y="4" height="56" width="366" format="[general]" protect="0~tif( isrownew(), 0, 1 )"  name=gu edit.limit=22 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="536870912~tif( isrownew(), RGB(255,255, 255), 536870912 )" )
+column(band=detail id=1 alignment="2" tabsequence=20 border="5" color="0" x="14" y="4" height="56" width="238" format="[general]" protect="0~tif( isrownew(), 0, 1 )"  name=zipcode1 edit.limit=16 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="536870912~tif( isrownew(), RGB(255,255, 255), 536870912 )" )
+column(band=detail id=2 alignment="2" tabsequence=30 border="5" color="0" x="270" y="4" height="56" width="247" format="[general]" protect="0~tif( isrownew(), 0, 1 )"  name=jiyeok edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="536870912~tif( isrownew(), RGB(255,255, 255), 536870912 )" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="5" color="0" x="1774" y="4" height="56" width="613" format="[general]"  name=note1 edit.limit=52 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="5" color="0" x="2405" y="4" height="56" width="869" format="[general]"  name=note2 edit.limit=36 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=10 border="5" color="0" x="919" y="4" height="56" width="837" format="[general]" protect="0~tif( isrownew(), 0, 1 )"  name=dong  tag="DK" edit.limit=82 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="536870912~tif( isrownew(), RGB(255,255, 255), 536870912 )" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

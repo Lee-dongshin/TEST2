@@ -1,0 +1,22 @@
+﻿$PBExportHeader$d_53002_h01.srd
+$PBExportComments$타사 매출 등록
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=116 color="536870912" )
+table(column=(type=char(1) updatewhereclause=no name=brand dbname="brand" )
+ column=(type=char(6) updatewhereclause=no name=shop_cd dbname="shop_cd" )
+ column=(type=char(20) updatewhereclause=no name=shop_nm dbname="shop_nm" )
+ column=(type=datetime updatewhereclause=no name=yymmdd dbname="yymmdd" )
+ )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="297" y="36" height="60" width="617" format="[general]"  name=brand  tag="OE" edit.name="내부코드" dddw.name=d_com001 dddw.displaycolumn=inter_display dddw.datacolumn=inter_cd dddw.percentwidth=110 dddw.lines=6 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.nilisnull=yes dddw.vscrollbar=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33554431" )
+text(band=detail alignment="1" text="브랜드" border="0" color="0" x="73" y="36" height="60" width="206"  name=brand_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="1271" y="36" height="60" width="178" format="[general]"  name=shop_cd  tag="OE" edit.limit=6 edit.case=upper edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="33554431" )
+text(band=detail alignment="1" text="매  장" border="0" color="0" x="1033" y="36" height="56" width="219"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="2" tabsequence=30 border="5" color="0" x="2505" y="36" height="60" width="302" format="[shortdate] [time]"  name=yymmdd edit.name="YYYY/MM/DD" editmask.mask="YYYY/MM/DD" editmask.focusrectangle=no  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="33554431" )
+text(band=detail alignment="1" text="판매일" border="0" color="0" x="2286" y="36" height="56" width="201"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+button(band=detail text=""filename="find.bmp"action="0" border="0" color="0" x="1463" y="32" height="72" width="87" vtextalign="0" htextalign="0"  name=cb_shop_cd  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="67108864" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="5" color="0" x="1559" y="36" height="60" width="603" format="[general]"  name=shop_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

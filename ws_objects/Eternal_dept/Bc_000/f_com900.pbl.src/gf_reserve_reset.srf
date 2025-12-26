@@ -1,0 +1,21 @@
+﻿$PBExportHeader$gf_reserve_reset.srf
+global type gf_reserve_reset from function_object
+end type
+
+forward prototypes
+global function boolean gf_reserve_reset (ref string as_errmsg)
+end prototypes
+
+global function boolean gf_reserve_reset (ref string as_errmsg);
+DECLARE SP_Reserve_reset PROCEDURE FOR SP_Reserve_reset;
+
+EXECUTE SP_Reserve_reset;
+
+IF SQLCA.SQLCODE <> 0 AND SQLCA.SQLCODE <> 100 THEN 
+	as_errmsg = SQLCA.SqlErrText
+	Return False 
+END IF 
+
+Return True 
+end function
+

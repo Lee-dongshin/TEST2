@@ -1,0 +1,17 @@
+﻿$PBExportHeader$d_55006_d07_old.srd
+$PBExportComments$출고 대비 판매율 현황
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=96 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=108 color="536870912" )
+table(column=(type=char(2) updatewhereclause=no name=size dbname="SIZE" )
+ column=(type=char(10) updatewhereclause=no name=size_nm dbname="SIZE_NM" )
+ procedure="1 execute dbo.SP_55006_D07;1 @ps_brand = :ps_brand, @ps_year = :ps_year, @ps_season = :ps_season, @ps_yymmdd = :ps_yymmdd, @ps_sojae = :ps_sojae, @ps_item = :ps_item, @ps_shop_cd = :ps_shop_cd, @ps_shop_type = :ps_shop_type, @ps_style = :ps_style, @ps_chno = :ps_chno, @ps_color = :ps_color, @ps_size = :ps_size" arguments=(("ps_brand", string),("ps_year", string),("ps_season", string),("ps_yymmdd", string),("ps_sojae", string),("ps_item", string),("ps_shop_cd", string),("ps_shop_type", string),("ps_style", string),("ps_chno", string),("ps_color", string),("ps_size", string)) )
+text(band=header alignment="2" text="Size" border="6" color="0" x="18" y="16" height="64" width="119"  name=size_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Size Nm" border="6" color="0" x="178" y="16" height="64" width="229"  name=size_nm_t  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="5" color="0" x="18" y="16" height="76" width="82" format="[general]"  name=size edit.limit=2 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="5" color="0" x="165" y="16" height="76" width="539" format="[general]"  name=size_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

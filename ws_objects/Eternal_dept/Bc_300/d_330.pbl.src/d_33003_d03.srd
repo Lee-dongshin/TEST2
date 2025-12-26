@@ -1,0 +1,53 @@
+﻿$PBExportHeader$d_33003_d03.srd
+$PBExportComments$협력업체 선급금 전표Master
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=8 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=68 color="536870912" )
+table(column=(type=char(2) update=yes updatewhereclause=yes key=yes name=slip_bonji dbname="slip_bonji" )
+ column=(type=char(10) update=yes updatewhereclause=yes key=yes name=slip_date dbname="slip_date" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=slip_no dbname="slip_no" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=slip_bari_dept dbname="slip_bari_dept" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=slip_bari_empno dbname="slip_bari_empno" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=slip_gubn dbname="slip_gubn" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=slip_ok dbname="slip_ok" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=deposit_no dbname="deposit_no" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=deposit_owner dbname="deposit_owner" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=bank dbname="bank" )
+ column=(type=char(4) update=yes updatewhereclause=yes name=slip_appl_code dbname="slip_appl_code" )
+ retrieve="select slip_bonji, 
+       slip_date, 
+       slip_no, 
+       slip_bari_dept, 
+       slip_bari_empno,
+       slip_gubn,
+       slip_ok,
+       deposit_no,
+       deposit_owner,
+       bank,
+       slip_appl_code    
+  from mis.dbo.tat01m
+ where slip_bonji = :as_slip_bonji
+   and slip_date  = :as_slip_date
+   and slip_no    = :as_slip_no
+
+
+
+ 
+
+" update="mis.dbo.tat01m" updatewhere=0 updatekeyinplace=yes arguments=(("as_slip_bonji", string),("as_slip_date", string),("as_slip_no", string)) )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="6" color="0" x="0" y="0" height="60" width="119" format="[general]"  name=slip_bonji edit.limit=2 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="6" color="0" x="137" y="0" height="60" width="293" format="[general]"  name=slip_date edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="6" color="0" x="448" y="0" height="60" width="142" format="[general]"  name=slip_no edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="6" color="0" x="608" y="0" height="60" width="224" format="[general]"  name=slip_bari_dept edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="6" color="0" x="850" y="0" height="60" width="197" format="[general]"  name=slip_bari_empno edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="6" color="0" x="1065" y="0" height="60" width="73" format="[general]"  name=slip_gubn edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="6" color="0" x="1157" y="0" height="60" width="55" format="[general]"  name=slip_ok edit.limit=0 edit.case=any edit.autoselect=yes  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=0 border="0" color="0" x="1207" y="0" height="64" width="110"  name=slip_appl_code  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=0 border="0" color="0" x="1321" y="0" height="64" width="809"  name=deposit_no  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=0 border="0" color="0" x="2130" y="0" height="64" width="809"  name=deposit_owner  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=0 border="0" color="0" x="2939" y="0" height="64" width="809"  name=bank  font.face="Arial" font.height="-10" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

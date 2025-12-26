@@ -1,0 +1,34 @@
+﻿$PBExportHeader$gf_get_inter_sub.srf
+$PBExportComments$내부코드 관련코드 조회
+global type gf_get_inter_sub from function_object
+end type
+
+forward prototypes
+global function boolean gf_get_inter_sub (string as_inter_grp, string as_inter_cd, string as_flag, ref string as_inter_sub)
+end prototypes
+
+global function boolean gf_get_inter_sub (string as_inter_grp, string as_inter_cd, string as_flag, ref string as_inter_sub);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 작 성 일  : 2001/09/27                                     */
+/* 수 정 일  : 2001/09/27                                     */
+/* 내    용  : 내부코드의 관련코드를 읽어온다.                */
+/*             as_flag ( '1': inter_cd1,   '2': inter_cd2     */
+/*                       '3': inter_data1, '4': inter_data2 ) */
+/*============================================================*/
+
+select dbo.sf_inter_sub(:as_inter_grp, :as_inter_cd, :as_flag)
+  into :as_inter_sub
+  from DUAL;
+
+IF sqlca.sqlcode <> 0  THEN
+	MessageBox("SQL 오류", SQLCA.SQLErrText)
+	RETURN FALSE
+ELSEIF ISNULL(as_inter_sub) THEN
+	MessageBox("입력 오류", "미 등록된 내부코드 입니다.")
+	RETURN FALSE
+END IF
+
+RETURN TRUE
+
+end function
+

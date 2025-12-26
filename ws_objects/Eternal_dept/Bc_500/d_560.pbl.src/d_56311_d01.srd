@@ -1,0 +1,40 @@
+﻿$PBExportHeader$d_56311_d01.srd
+$PBExportComments$중국매장수금등록
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(8) update=yes updatewhereclause=yes key=yes name=yymmdd dbname="tb_56110_d.yymmdd" )
+ column=(type=long update=yes updatewhereclause=yes key=yes name=no dbname="tb_56110_d.no" )
+ column=(type=char(6) update=yes updatewhereclause=yes key=yes name=shop_cd dbname="tb_56110_d.shop_cd" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=sugmamt_us dbname="tb_56110_d.sugmamt_US" )
+ column=(type=decimal(2) update=yes updatewhereclause=yes name=exchange_rate dbname="tb_56110_d.exchange_rate" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=note dbname="tb_56110_d.note" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="tb_56110_d.reg_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="tb_56110_d.reg_dt" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="tb_56110_d.mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="tb_56110_d.mod_dt" )
+ retrieve="select yymmdd,
+       no,
+		 shop_cd,
+		 sugmamt_US,
+		 exchange_rate,
+		 note,
+		 reg_id,
+		 reg_dt,
+		 mod_id,
+		 mod_dt
+from tb_56110_d
+where yymmdd = :as_yymmdd
+  and shop_cd = :as_shop_cd
+" update="tb_56110_d" updatewhere=1 updatekeyinplace=no arguments=(("as_yymmdd", string),("as_shop_cd", string)) )
+text(band=header alignment="2" text="순번" border="6" color="0" x="14" y="8" height="60" width="146"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="입금액" border="6" color="0" x="174" y="8" height="60" width="347"  name=sugmamt_us_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="비고" border="6" color="0" x="535" y="8" height="60" width="599"  name=note_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="2" expression="getrow()"border="6" color="0" x="14" y="4" height="64" width="151" format="[GENERAL]"  name=row_cnt  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=10 border="5" color="0" x="183" y="8" height="60" width="329" format="[general]"  name=sugmamt_us edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=6 alignment="0" tabsequence=20 border="5" color="0" x="535" y="8" height="60" width="599" format="[general]"  name=note edit.limit=100 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

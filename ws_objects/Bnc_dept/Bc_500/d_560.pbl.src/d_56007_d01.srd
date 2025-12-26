@@ -1,0 +1,37 @@
+﻿$PBExportHeader$d_56007_d01.srd
+$PBExportComments$마진율일괄등록
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=136 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=72 color="536870912" )
+table(column=(type=char(6) updatewhereclause=no name=shop_cd dbname="shop_cd" )
+ column=(type=char(20) updatewhereclause=no name=shop_nm dbname="shop_nm" )
+ column=(type=decimal(2) updatewhereclause=no name=b_marjin dbname="b_marjin" )
+ column=(type=char(8) updatewhereclause=no name=start_ymd dbname="start_ymd" )
+ column=(type=char(8) updatewhereclause=no name=end_ymd dbname="end_ymd" )
+ column=(type=decimal(2) updatewhereclause=no name=bf_marjin dbname="bf_marjin" )
+ column=(type=decimal(2) updatewhereclause=no name=marjin_rate dbname="marjin_rate" )
+ procedure="1 execute dbo.SP_56007_D01;1 @brand = :brand, @shop_div = :shop_div, @shop_type = :shop_type, @shop_grp = :shop_grp, @yymmdd = :yymmdd, @sale_type = :sale_type, @dc_rate = :dc_rate" arguments=(("brand", string),("shop_div", string),("shop_type", string),("shop_grp", string),("yymmdd", string),("sale_type", string),("dc_rate", number)) )
+text(band=header alignment="2" text="매장" border="6" color="0" x="165" y="8" height="124" width="759"  name=shop_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="151" y="4" height="64" width="192" format="[general]"  name=shop_cd edit.limit=6 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="352" y="4" height="64" width="576" format="[general]"  name=shop_nm edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="12639424" )
+text(band=header alignment="2" text="기본
+마진" border="6" color="0" x="937" y="8" height="124" width="219"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="1" tabsequence=0 border="0" color="0" x="937" y="4" height="64" width="219"  name=b_marjin  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="29935871" )
+text(band=header alignment="2" text="기존 등록 내역" border="6" color="0" x="1170" y="8" height="56" width="818"  name=t_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="시작일" border="6" color="0" x="1170" y="76" height="56" width="288"  name=start_ymd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="종료일" border="6" color="0" x="1477" y="76" height="56" width="274"  name=end_ymd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="마진율" border="6" color="0" x="1769" y="76" height="56" width="219"  name=bf_marjin_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="신규
+마진" border="6" color="0" x="2240" y="8" height="124" width="210"  name=marjin_rate_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="변경
+폭" border="6" color="0" x="2007" y="8" height="124" width="215"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+compute(band=detail alignment="1" expression=" marjin_rate  -  bf_marjin "border="0" color="128" x="1998" y="4" height="64" width="224" format="##0.00~tif( compute_1 = 0, ~"###~", ~"##0.00~")"  name=compute_1  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="15780518" )
+column(band=detail id=7 alignment="1" tabsequence=10 border="0" color="0" x="2231" y="4" height="64" width="224" format="[general]"  name=marjin_rate  tag="OE" edit.limit=5 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+column(band=detail id=4 alignment="2" tabsequence=32766 border="0" color="0" x="1166" y="4" height="64" width="293" format="@@@@/@@/@@"  name=start_ymd edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0" x="1467" y="4" height="64" width="288" format="@@@@/@@/@@"  name=end_ymd edit.limit=8 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+column(band=detail id=6 alignment="1" tabsequence=32766 border="0" color="0" x="1765" y="4" height="64" width="224" format="[general]"  name=bf_marjin edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="15793151" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

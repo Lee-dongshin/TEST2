@@ -1,0 +1,25 @@
+﻿$PBExportHeader$gf_getorgmat_cd.srf
+global type gf_getorgmat_cd from function_object
+end type
+
+forward prototypes
+global function string gf_getorgmat_cd (string as_mat_cd)
+end prototypes
+
+global function string gf_getorgmat_cd (string as_mat_cd);/*============================================================*/
+/* 작 성 자  : 지우정보                                       */
+/* 작 성 일  : 2002/01/04                                     */
+/* 수 정 일  : 2002/01/04                                     */
+/* 내    용  : 년도을 읽어온다.                             */
+/*============================================================*/
+string ls_orgmat_cd
+
+SELECT dbo.sf_getorgmat_cd(:as_mat_cd)
+  INTO :ls_orgmat_cd
+  FROM DUAL ;
+
+
+
+RETURN ls_orgmat_cd
+end function
+

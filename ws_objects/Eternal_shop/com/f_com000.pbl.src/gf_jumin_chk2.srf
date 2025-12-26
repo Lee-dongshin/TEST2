@@ -1,0 +1,38 @@
+﻿$PBExportHeader$gf_jumin_chk2.srf
+global type gf_jumin_chk2 from function_object
+end type
+
+forward prototypes
+global function boolean gf_jumin_chk2 (string as_jumin)
+end prototypes
+
+global function boolean gf_jumin_chk2 (string as_jumin);/*============================================================*/
+/* 작 성 자  : 지우정보(김영일)                               */
+/* 작 성 일  : 2002/02/18                                     */
+/* 수 정 일  : 2002/04/02(김태범)                             */
+/* 내    용  : 주민등록번호를 체크한다.                       */
+/*============================================================*/
+Integer i,IDtot = 0
+String  ls_jumin, IDAdd = "234567892345"
+
+SELECT rtrim(ltrim(REPLACE(:as_jumin,'-','')))
+  INTO :ls_jumin 
+  FROM DUAL ;
+
+IF LenA(ls_jumin) <> 13 THEN RETURN FALSE 
+IF Match(MidA(ls_jumin,7,1), "^[1-4]") = FALSE THEN RETURN FALSE 
+
+FOR i=1 TO 12
+	  IDtot = IDtot + integer(MidA(ls_jumin, i, 1)) * integer(MidA(IDAdd, i, 1))
+NEXT
+
+IDtot = 11 - Mod(IDtot,11)
+
+if RightA(ls_jumin, 1) <> RightA(string(IDtot), 1) then
+	RETURN False	
+ELSE
+	RETURN True
+END IF
+
+end function
+

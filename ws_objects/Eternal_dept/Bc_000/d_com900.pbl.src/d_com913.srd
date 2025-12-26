@@ -1,0 +1,50 @@
+﻿$PBExportHeader$d_com913.srd
+$PBExportComments$부자재코드[검색창]
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes key=yes name=mat_cd dbname="TB_21000_M.mat_cd" )
+ column=(type=char(40) updatewhereclause=yes name=mat_nm dbname="TB_21000_M.mat_nm" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=unit dbname="TB_21000_M.unit" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=price dbname="TB_21000_M.price" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=brand dbname="TB_21000_M.Brand" )
+ column=(type=char(4) updatewhereclause=yes name=mat_year dbname="TB_21000_M.mat_year" )
+ column=(type=char(1) updatewhereclause=yes name=mat_season dbname="TB_21000_M.mat_season" )
+ column=(type=char(20) updatewhereclause=yes name=season_nm dbname="season_nm" )
+ column=(type=char(1) updatewhereclause=yes name=mat_item dbname="TB_21000_M.mat_item" )
+ column=(type=char(20) updatewhereclause=yes name=item_nm dbname="item_nm" )
+ column=(type=char(1) updatewhereclause=yes name=mat_type dbname="TB_21000_M.mat_type" )
+ retrieve="	select 
+	mat_cd,
+	mat_nm,                   
+	unit,
+	price,
+	Brand,
+   mat_year,
+   mat_season,
+   dbo.sf_inter_nm('003', mat_Season)  as season_nm, 
+   mat_item,
+   dbo.sf_sojaeitem_nm('2',mat_item)  as item_nm, 
+   mat_type 	
+   from tb_21000_m with (nolock)
+" update="tb_21000_m" updatewhere=1 updatekeyinplace=no  sort="mat_cd A " )
+text(band=header alignment="2" text="자재명" border="6" color="0" x="352" y="8" height="60" width="549"  name=obj_3560579  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="자재코드" border="6" color="0" x="9" y="8" height="60" width="325"  name=obj_3565056  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="단위" border="6" color="0" x="919" y="8" height="60" width="169"  name=unit_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="단가" border="6" color="0" x="1106" y="8" height="60" width="256"  name=price_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="시즌" border="6" color="0" x="1381" y="8" height="60" width="334"  name=t_2  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="품종" border="6" color="0" x="1733" y="8" height="60" width="416"  name=t_3  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="5" color="0" x="1815" y="4" height="60" width="334" format="[general]"  name=item_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="9" y="4" height="60" width="325" format="@@@@@@@@@-@" protect="0~tif( isrownew(), 0, 1 )"  name=mat_cd  tag="OE" edit.limit=10 edit.case=upper edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="553648127~tif( isrownew(), 16777215, 553648127 )" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="352" y="4" height="60" width="549" format="[general]" protect="0~tif( isrownew(), 0, 1 )"  name=mat_nm  tag="DK" edit.limit=40 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="553648127~tif( isrownew(), 16777215, 553648127 )" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="5" color="0" x="919" y="4" height="60" width="169" format="[general]" protect="0~tif( isrownew(), 0, 1 )"  name=unit  tag="OE" edit.limit=2 edit.case=upper edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="553648127~tif( isrownew(), 16777215, 553648127 )" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="5" color="0" x="1106" y="4" height="60" width="256" format="#,##0"  name=price  tag="OE" edit.limit=0 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=6 alignment="0" tabsequence=40 border="5" color="0" x="1381" y="4" height="60" width="114" format="[general]" protect="0~tif( isrownew(), 0, 1 )"  name=mat_year  tag="OE" edit.limit=4 edit.case=upper edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="553648127~tif( isrownew(), 16777215, 553648127 )" )
+column(band=detail id=7 alignment="2" tabsequence=50 border="5" color="0" x="1513" y="4" height="60" width="55" format="[general]" protect="0~tif( isrownew(), 0, 1 )"  name=mat_season  tag="OE" edit.limit=1 edit.case=upper edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="553648127~tif( isrownew(), 16777215, 553648127 )" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="5" color="0" x="1586" y="4" height="60" width="128" format="[general]"  name=season_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=9 alignment="2" tabsequence=60 border="5" color="0" x="1733" y="4" height="60" width="64" format="[general]" protect="0~tif( isrownew(), 0, 1 )"  name=mat_item  tag="OE" edit.limit=1 edit.case=upper edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="553648127~tif( isrownew(), 16777215, 553648127 )" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

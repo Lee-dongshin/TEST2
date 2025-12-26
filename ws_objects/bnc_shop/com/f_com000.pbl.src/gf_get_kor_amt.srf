@@ -1,0 +1,42 @@
+﻿$PBExportHeader$gf_get_kor_amt.srf
+$PBExportComments$금액을 한글로 변환
+global type gf_get_kor_amt from function_object
+end type
+
+forward prototypes
+global subroutine gf_get_kor_amt (double ad_amt, ref string as_kor_amt)
+end prototypes
+
+global subroutine gf_get_kor_amt (double ad_amt, ref string as_kor_amt);/*===========================================================================*/
+/* 작성자 : 지우정보                                                         */	
+/* 내  용 : 금액을 한글로 변환                                               */
+/*===========================================================================*/
+int     i, j,   li_su
+String  ls_amt, ls_sw
+String  ls_kor1[] = {"일","이","삼","사","오","육","칠","팔","구"}
+String  ls_kor2[] = {"","십","백","천"}
+String  ls_kor3[] = {"","만","억","조","경","해"}
+
+IF ad_amt = 0 THEN Return
+
+ls_amt = String(ABS(ad_amt))
+j = LenA(ls_amt)
+
+ls_sw = "N"
+FOR i = 1 to j 
+	li_su = Integer(MidA(ls_amt, i, 1)) 
+	IF li_su <> 0  THEN
+	   as_kor_amt = as_kor_amt + ls_kor1[li_su] + ls_kor2[Mod(j - i, 4) + 1]
+		ls_sw = "Y"
+	END IF
+	IF Mod(j - i, 4) = 0 AND ls_sw = "Y" THEN
+      as_kor_amt = as_kor_amt + ls_kor3[Truncate((j - i)/4, 0) + 1]
+		ls_sw = "N"
+   END IF
+NEXT
+
+as_kor_amt = as_kor_amt + "원"
+
+Return
+end subroutine
+

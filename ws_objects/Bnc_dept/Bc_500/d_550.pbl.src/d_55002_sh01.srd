@@ -1,0 +1,29 @@
+﻿$PBExportHeader$d_55002_sh01.srd
+$PBExportComments$인기 STYLE 판매 현황
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=108 color="536870912" )
+table(column=(type=char(8) updatewhereclause=yes name=style dbname="STYLE" )
+ column=(type=char(2) updatewhereclause=yes name=color dbname="COLOR" )
+ column=(type=char(20) updatewhereclause=yes name=color_nm dbname="COLOR_NM" )
+ column=(type=char(2) updatewhereclause=yes name=size dbname="SIZE" )
+ column=(type=char(10) updatewhereclause=yes name=size_nm dbname="SIZE_NM" )
+ retrieve="  SELECT CAST(:as_style AS VARCHAR(8))   AS STYLE,
+         CAST(:as_color AS VARCHAR(2))   AS COLOR, 
+         dbo.sf_color_nm(:as_color, 'E') AS COLOR_NM,
+         CAST(:as_size  AS VARCHAR(2))   AS SIZE, 
+         dbo.sf_size_nm(:as_size)        AS SIZE_NM
+    FROM DUAL
+" arguments=(("as_style", string),("as_color", string),("as_size", string)) )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="5" color="0" x="320" y="36" height="60" width="261" format="[general]"  name=style edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Style" border="0" color="0" x="37" y="36" height="56" width="265"  name=style_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="5" color="0" x="974" y="36" height="60" width="59" format="[general]"  name=color edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="5" color="0" x="1051" y="36" height="60" width="576" format="[general]"  name=color_nm edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Color" border="0" color="0" x="690" y="36" height="56" width="265"  name=color_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="5" color="0" x="1961" y="36" height="60" width="59" format="[general]"  name=size edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="5" color="0" x="2039" y="36" height="60" width="302" format="[general]"  name=size_nm edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Size" border="0" color="0" x="1678" y="36" height="56" width="265"  name=size_t  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

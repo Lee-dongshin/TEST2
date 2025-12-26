@@ -1,0 +1,12 @@
+﻿$PBExportHeader$d_42004_d02.srd
+$PBExportComments$출고요청출고
+release 7;
+datawindow(units=0 timer_interval=0 color=80269524 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=232 color="536870912" )
+table(column=(type=char(1) updatewhereclause=yes name=compute_0001 dbname="compute_0001" )
+ retrieve="select 'x' from dual" )
+button(band=detail text="임시출고/DPS작업번호처리"filename=""action="0" border="0" color="16711680" x="55" y="52" height="120" width="841" vtextalign="0" htextalign="0"  name=cb_out_proc  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="2" background.color="67108864" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

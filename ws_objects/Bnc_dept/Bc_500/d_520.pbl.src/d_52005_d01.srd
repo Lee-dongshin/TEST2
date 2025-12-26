@@ -1,0 +1,48 @@
+﻿$PBExportHeader$d_52005_d01.srd
+$PBExportComments$품번별판매비축율관리
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=1 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no grid.lines=0 grid.columnmove=no selected.mouse=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(9) updatewhereclause=yes name=style_no dbname="style_no" )
+ column=(type=char(8) update=yes updatewhereclause=yes key=yes name=style dbname="tb_12021_d.style" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=chno dbname="tb_12021_d.chno" )
+ column=(type=decimal(0) updatewhereclause=yes name=tag_price dbname="tb_12020_m.tag_price" )
+ column=(type=char(12) updatewhereclause=yes name=dep_fg dbname="dep_fg" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=resv_rate dbname="tb_12021_d.resv_rate" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="tb_12021_d.mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="tb_12021_d.mod_dt" )
+ retrieve="  SELECT a.style + a.chno  as style_no, 
+         a.style,   
+         a.chno,   
+         b.tag_price, 
+         case b.dep_fg
+            when 'Y' then '부진' 
+            when 'O' then '시즌아웃부진'
+            else '정상' 
+         end   as dep_fg,   
+         a.resv_rate, 
+         a.mod_id,   
+         a.mod_dt  
+    FROM tb_12021_d a, 
+         tb_12020_m b 
+   where a.style = b.style 
+     and b.brand  = :as_brand 
+     and b.year   = :as_year 
+     and b.season = :as_season 
+     and b.sojae  like :as_sojae + '%' 
+     and b.item   like :as_item  + '%' 
+
+" update="tb_12021_d" updatewhere=0 updatekeyinplace=yes arguments=(("as_brand", string),("as_year", string),("as_season", string),("as_sojae", string),("as_item", string)) )
+text(band=header alignment="2" text="품번" border="6" color="0" x="9" y="8" height="60" width="306"  name=style_no_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="권장가" border="6" color="0" x="325" y="8" height="60" width="329"  name=tb_12020_m_tag_price_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="제품상태" border="6" color="0" x="663" y="8" height="60" width="439"  name=tb_12020_m_dep_fg_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="판매비축율" border="6" color="0" x="1111" y="8" height="60" width="325"  name=tb_12021_d_resv_rate_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="2" tabsequence=32766 border="0" color="0~tif( dep_fg = '정상', rgb(0,0,0), rgb(255, 0,0))" x="9" y="4" height="68" width="306" format="@@@@@@@@-@"  name=style_no edit.limit=9 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="0" color="0~tif( dep_fg = '정상', rgb(0,0,0), rgb(255, 0,0))" x="325" y="4" height="68" width="329" format="#,##"  name=tag_price edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="2" tabsequence=32766 border="0" color="0~tif( dep_fg = '정상', rgb(0,0,0), rgb(255, 0,0))" x="663" y="4" height="68" width="439" format="[general]"  name=dep_fg edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="1" tabsequence=10 border="0" color="0" x="1111" y="4" height="68" width="325" format="##0" protect="0~tif( dep_fg = '정상', 0, 1)"  name=resv_rate edit.limit=3 edit.case=any edit.autoselect=no edit.nilisnull=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="2" background.color="16777215" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

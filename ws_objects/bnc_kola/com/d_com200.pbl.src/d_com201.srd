@@ -1,0 +1,61 @@
+﻿$PBExportHeader$d_com201.srd
+$PBExportComments$원자재재고[검색창]
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+header(height=76 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(10) updatewhereclause=yes name=mat_cd dbname="MAT_CD" )
+ column=(type=char(30) updatewhereclause=yes name=mat_nm dbname="MAT_NM" )
+ column=(type=char(2) updatewhereclause=yes name=color dbname="COLOR" )
+ column=(type=char(20) updatewhereclause=yes name=color_nm dbname="COLOR_NM" )
+ column=(type=char(15) updatewhereclause=yes name=spec dbname="SPEC" )
+ column=(type=char(2) updatewhereclause=yes name=unit dbname="UNIT" )
+ column=(type=decimal(0) updatewhereclause=yes name=in_price dbname="IN_PRICE" )
+ column=(type=char(1) updatewhereclause=yes name=brand dbname="BRAND" )
+ column=(type=char(4) updatewhereclause=yes name=mat_year dbname="MAT_YEAR" )
+ column=(type=char(1) updatewhereclause=yes name=mat_season dbname="MAT_SEASON" )
+ column=(type=char(1) updatewhereclause=yes name=mat_sojae dbname="MAT_SOJAE" )
+ column=(type=char(1) updatewhereclause=yes name=mat_chno dbname="MAT_CHNO" )
+ column=(type=char(3) updatewhereclause=yes name=out_seq dbname="OUT_SEQ" )
+ column=(type=char(1) updatewhereclause=yes name=mat_gubn dbname="MAT_GUBN" )
+ column=(type=char(6) updatewhereclause=yes name=house dbname="HOUSE" )
+ column=(type=char(30) updatewhereclause=yes name=house_nm dbname="HOUSE_NM" )
+ column=(type=decimal(2) updatewhereclause=yes name=stock_qty dbname="STOCK_QTY" )
+ column=(type=decimal(0) updatewhereclause=yes name=stock_amt dbname="STOCK_AMT" )
+ retrieve="  SELECT MAT_CD, MAT_NM, COLOR, COLOR_NM, 
+         SPEC, UNIT, IN_PRICE,
+         BRAND, MAT_YEAR, MAT_SEASON, MAT_SOJAE, MAT_CHNO, OUT_SEQ,
+         MAT_GUBN, HOUSE, HOUSE_NM,
+         STOCK_QTY, STOCK_AMT
+    FROM ( SELECT A.MAT_CD, A.MAT_NM, 
+                  A.COLOR, dbo.sf_color_nm(A.COLOR, 'E') AS COLOR_NM,
+                  A.SPEC, A.UNIT, A.IN_PRICE, 
+                  A.BRAND, A.MAT_YEAR, A.MAT_SEASON, A.MAT_SOJAE, A.MAT_CHNO, A.OUT_SEQ, B.MAT_GUBN, 
+                  B.HOUSE, dbo.sf_shop_nm(B.HOUSE, 'S') AS HOUSE_NM,
+                  B.STOCK_QTY, B.STOCK_AMT
+             FROM VI_21010_1 A with (nolock),
+                  VI_29012_1 B with (nolock)
+            WHERE A.MAT_CD = B.MAT_CD
+              AND A.COLOR  = B.COLOR
+              AND B.MAT_GUBN = '1'
+         ) A
+" )
+text(band=header alignment="2" text="자재코드" border="6" color="0" x="9" y="8" height="60" width="352"  name=mat_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="자  재  명" border="6" color="0" x="379" y="8" height="60" width="567"  name=mat_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="자재 색상" border="6" color="0" x="965" y="8" height="60" width="466"  name=color_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="폭" border="6" color="0" x="1449" y="8" height="60" width="114"  name=spec_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="단  가" border="6" color="0" x="1582" y="8" height="60" width="329"  name=in_price_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="재고수량" border="6" color="0" x="1929" y="8" height="60" width="329"  name=stock_qty_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="재고금액" border="6" color="0" x="2277" y="8" height="60" width="329"  name=stock_amt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="5" color="0" x="379" y="4" height="60" width="567" format="[general]" protect="0~tif( isrownew(), 0, 1 )"  name=mat_nm  tag="DK" edit.limit=30 edit.case=any edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="536870912~tif( isrownew(), 16777215, 553648127 )" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="5" color="0" x="1065" y="4" height="60" width="366" format="[general]"  name=color_nm edit.limit=20 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="5" color="0" x="9" y="4" height="60" width="352" format="@@@@@@@@@-@" protect="0~tif( isrownew(), 0, 1 )"  name=mat_cd  tag="OE" edit.limit=10 edit.case=upper edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="536870912~tif( isrownew(), 16777215, 553648127 )" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="5" color="0" x="965" y="4" height="60" width="82" format="[general]" protect="0~tif( isrownew(), 0, 1 )"  name=color  tag="OE" edit.limit=2 edit.case=upper edit.autoselect=yes edit.nilisnull=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="0" background.color="536870912~tif( isrownew(), 16777215, 553648127 )" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="5" color="0" x="1449" y="4" height="60" width="114" format="[general]"  name=spec edit.limit=15 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="1" tabsequence=32766 border="5" color="0" x="1582" y="4" height="60" width="329" format="#,##0"  name=in_price edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=17 alignment="1" tabsequence=32766 border="5" color="0" x="1929" y="4" height="60" width="329" format="#,##0.00"  name=stock_qty edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="1" tabsequence=32766 border="5" color="0" x="2277" y="4" height="60" width="329" format="#,##0"  name=stock_amt edit.limit=0 edit.case=any edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

@@ -1,0 +1,19 @@
+﻿$PBExportHeader$d_12a10_r23.srd
+$PBExportComments$작지출력
+release 7;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=5 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 0 print.margin.right = 0 print.margin.top = 0 print.margin.bottom = 0 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=4220 color="536870912"  height.autosize=yes)
+table(column=(type=char(10) updatewhereclause=yes name=a dbname="a" )
+ unbound = "yes"arguments=(("order_id", string),("style", string),("chno", string)) )
+groupbox(band=detail text=""border="6" color="0" x="73" y="1556" height="2584" width="3278"  name=gb_2  resizeable=1  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+groupbox(band=detail text=""border="6" color="0" x="73" y="324" height="1212" width="3278"  name=gb_1  resizeable=1  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+report(band=detail dataobject="d_12a10_r20" x="69" y="24" height="276" width="3291" border="0" criteria="" nest_arguments=(("order_id"),("style"),("chno")) trail_footer = yes  name=dw_1  slideup=directlyabove )
+compute(band=detail alignment="2" expression="pageCount()+2"border="0" color="0" x="46" y="4156" height="60" width="3287" format="[General]"  name=page_1  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="-" border="0" color="0" x="1554" y="4148" height="56" width="110"  name=t_1  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+text(band=detail alignment="2" text="-" border="0" color="0" x="1714" y="4148" height="56" width="110"  name=t_2  font.face="Arial" font.height="-12" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="2" background.color="16777215" )
+report(band=detail dataobject="d_12a10_r04" x="87" y="340" height="136" width="3250" border="0"  height.autosize=yes criteria="" nest_arguments=(("order_id")) trail_footer = yes  name=dw_4  slideup=directlyabove )
+report(band=detail dataobject="d_12a10_r09" x="87" y="1576" height="136" width="3250" border="0"  height.autosize=yes criteria="" nest_arguments=(("order_id")) trail_footer = yes  name=dw_9  slideup=directlyabove )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

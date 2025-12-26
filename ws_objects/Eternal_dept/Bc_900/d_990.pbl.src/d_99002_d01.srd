@@ -1,0 +1,31 @@
+﻿$PBExportHeader$d_99002_d01.srd
+$PBExportComments$table 정의서
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=0 HTMLDW=no print.documentname="" print.orientation = 2 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=148 color="536870912"  height.autosize=yes)
+table(column=(type=char(30) updatewhereclause=yes name=level_1 dbname="level_1" )
+ column=(type=char(30) updatewhereclause=yes name=level_2 dbname="level_2" )
+ column=(type=char(255) updatewhereclause=yes name=table_id dbname="VI_99001_1.table_id" )
+ column=(type=char(255) updatewhereclause=yes name=table_nm dbname="VI_99001_1.table_nm" )
+ retrieve="  SELECT dbo.sf_sys_level_nm(substring(table_id, 4, 1) + '00') as level_1,
+         dbo.sf_sys_level_nm(substring(table_id, 4, 2) + '0')  as level_2, 
+         table_id                                              as table_id, 
+         table_nm                                              as table_nm
+    FROM VI_99001_1
+   WHERE TABLE_ID LIKE :as_table_id + '%' 
+" arguments=(("as_table_id", string))  sort="table_id A " )
+group(level=1 header.height=92 trailer.height=48 by=("table_id" ) header.color="536870912" trailer.color="536870912" )
+rectangle(band=header.1 x="14" y="4" height="84" width="869"  name=r_1 brush.hatch="6" brush.color="31449055" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="31449055" )
+column(band=header.1 id=2 alignment="0" tabsequence=32766 border="0" color="0" x="357" y="16" height="60" width="507" format="[general]"  name=level_2 edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header.1 alignment="0" text="부System :" border="0" color="0" x="32" y="16" height="56" width="315"  name=t_1  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+rectangle(band=header.1 x="878" y="4" height="84" width="709"  name=r_2 brush.hatch="6" brush.color="31449055" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="31449055" )
+column(band=header.1 id=3 alignment="0" tabsequence=32766 border="0" color="0" x="1225" y="16" height="60" width="334" format="[general]"  name=table_id edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header.1 alignment="0" text="Table ID :" border="0" color="0" x="896" y="16" height="56" width="325"  name=t_2  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+rectangle(band=header.1 x="1582" y="4" height="84" width="1147"  name=r_3 brush.hatch="6" brush.color="31449055" pen.style="0" pen.width="5" pen.color="0"  background.mode="2" background.color="31449055" )
+text(band=header.1 alignment="0" text="Table 명 :" border="0" color="0" x="1600" y="20" height="56" width="320"  name=t_13  font.face="굴림체" font.height="-9" font.weight="700"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=header.1 id=4 alignment="0" tabsequence=32766 border="0" color="0" x="1938" y="20" height="56" width="773" format="[general]"  name=table_nm edit.limit=0 edit.case=any edit.autoselect=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+report(band=detail dataobject="d_99002_d02" x="0" y="4" height="136" width="2738" border="0"  height.autosize=yes criteria="" nest_arguments=((" table_id ")) trail_footer = yes  name=dw_1  slideup=directlyabove )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

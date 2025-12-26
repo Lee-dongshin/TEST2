@@ -1,0 +1,26 @@
+﻿$PBExportHeader$d_31001_d03.srd
+$PBExportComments$생산 의뢰 확정 관리 [완성제품치수]
+release 7;
+datawindow(units=0 timer_interval=0 color=79741120 processing=4 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no  crosstab.dynamic = yes grid.lines=0 grid.columnmove=no selected.mouse=no )
+header[1](height=0 color="536870912" )
+header[2](height=80 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=76 color="536870912" )
+table(column=(type=char(20) updatewhereclause=yes name=spec_fg dbname="spec_fg" )
+ column=(type=char(20) updatewhereclause=yes name=spec_cd dbname="spec_cd" )
+ column=(type=number updatewhereclause=yes name=spec_term dbname="spec_term" )
+ column=(type=number updatewhereclause=yes name=size_spec dbname="size_spec" )
+ procedure="1 execute dbo.SP_31001_D03;1 @ps_style = :ps_style, @ps_chno = :ps_chno" arguments=(("ps_style", string),("ps_chno", string))  sort="spec_fg A spec_cd A spec_term A " )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="5" color="33554432" x="9" y="4" height="60" width="430" format="[general]"  name=spec_fg edit.limit=22 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="5" color="33554432" x="448" y="4" height="60" width="466" format="[general]"  name=spec_cd edit.limit=23 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="1" tabsequence=32766 border="5" color="33554432" x="923" y="4" height="60" width="283" format="[general]"  name=spec_term edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="1" tabsequence=32766 border="5" color="33554432" x="1216" y="4" height="60" width="329" format="[general]"  name=size_spec edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no edit.autohscroll=yes crosstab.repeat=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header[2] alignment="2" text="@size" border="6" color="33554432" x="1216" y="12" height="60" width="329"  name=size_spec_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header[2] alignment="2" text="허용편차" border="6" color="33554432" x="923" y="12" height="60" width="283"  name=spec_term_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header[2] alignment="2" text="상/하 구분" border="6" color="33554432" x="9" y="12" height="60" width="430"  name=spec_fg_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header[2] alignment="2" text="치수 내역" border="6" color="33554432" x="448" y="12" height="60" width="466"  name=spec_cd_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+ crosstab(band = foreground  crosstabonly = yes 
+ columns = "size" rows = "spec_fg, spec_cd, spec_term" values = "sum(size_spec for crosstab)" sourcenames = "spec_fg, spec_cd, spec_term, size, size_spec")
+sparse(names="spec_fg	spec_cd")htmltable(border="0" cellpadding="1" cellspacing="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )

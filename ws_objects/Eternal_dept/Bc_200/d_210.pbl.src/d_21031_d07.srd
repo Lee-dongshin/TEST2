@@ -1,0 +1,87 @@
+﻿$PBExportHeader$d_21031_d07.srd
+$PBExportComments$ftp전송
+release 7;
+datawindow(units=0 timer_interval=0 color=16777215 processing=0 HTMLDW=no print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.prompt=no print.buttons=no print.preview.buttons=no )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=1200 color="536870912" )
+table(column=(type=char(1) update=yes updatewhereclause=yes key=yes name=brand dbname="brand" )
+ column=(type=char(4) update=yes updatewhereclause=yes key=yes name=year dbname="year" )
+ column=(type=char(8) update=yes updatewhereclause=yes key=yes name=style dbname="style" )
+ column=(type=char(1) update=yes updatewhereclause=yes key=yes name=chno dbname="chno" )
+ column=(type=char(2) update=yes updatewhereclause=yes key=yes name=color dbname="color" )
+ column=(type=char(30) update=yes updatewhereclause=yes name=p_name dbname="p_name" )
+ column=(type=char(10) update=yes updatewhereclause=yes name=p_saupno dbname="p_saupno" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=p_ownr_nm dbname="p_ownr_nm" )
+ column=(type=char(50) update=yes updatewhereclause=yes name=p_mail dbname="p_mail" )
+ column=(type=char(200) update=yes updatewhereclause=yes name=p_addr dbname="p_addr" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=p_tel dbname="p_tel" )
+ column=(type=char(20) update=yes updatewhereclause=yes name=p_fax dbname="p_fax" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=s_name_1 dbname="s_name_1" )
+ column=(type=char(2) update=yes updatewhereclause=yes name=s_name_2 dbname="s_name_2" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=reg_id dbname="reg_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=reg_dt dbname="reg_dt" )
+ column=(type=char(6) update=yes updatewhereclause=yes name=mod_id dbname="mod_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=mod_dt dbname="mod_dt" )
+ retrieve="  SELECT brand,   
+         year,   
+         style,   
+         chno,   
+			color,
+         p_name,   
+         p_saupno,   
+         p_ownr_nm,   
+         p_mail,   
+         p_addr,   
+         p_tel,   
+         p_fax,   
+         s_name_1,   
+         s_name_2,   
+         reg_id,   
+         reg_dt,   
+         mod_id,   
+         mod_dt  
+    FROM tb_21032_h   
+	where brand = :as_brand
+			and year = :as_year
+			and style = :as_style
+			and chno like :as_chno + '%'
+			and color = :as_color
+" update="tb_21032_h" updatewhere=1 updatekeyinplace=yes arguments=(("as_brand", string),("as_year", string),("as_style", string),("as_chno", string),("as_color", string)) )
+text(band=detail alignment="1" text="Brand:" border="0" color="0" x="2962" y="72" height="56" width="325"  name=brand_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=32766 border="0" color="0" x="3305" y="72" height="76" width="55" format="[general]"  name=brand edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Year:" border="0" color="0" x="2962" y="208" height="56" width="325"  name=year_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=32766 border="0" color="0" x="3305" y="208" height="76" width="137" format="[general]"  name=year edit.limit=4 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Style:" border="0" color="0" x="2962" y="344" height="56" width="325"  name=style_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="0" x="3305" y="344" height="76" width="247" format="[general]"  name=style edit.limit=8 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Chno:" border="0" color="0" x="2962" y="480" height="56" width="325"  name=chno_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="0" x="3305" y="480" height="76" width="55" format="[general]"  name=chno edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="P Name:" border="0" color="0" x="37" y="12" height="56" width="325"  name=p_name_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="0" x="379" y="12" height="76" width="850" format="[general]"  name=p_name edit.limit=30 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="P Saupno:" border="0" color="0" x="37" y="104" height="56" width="325"  name=p_saupno_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="0" x="379" y="104" height="76" width="302" format="[general]"  name=p_saupno edit.limit=10 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="P Ownr Nm:" border="0" color="0" x="37" y="192" height="56" width="325"  name=p_ownr_nm_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="0" x="379" y="192" height="76" width="576" format="[general]"  name=p_ownr_nm edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="P Mail:" border="0" color="0" x="37" y="284" height="56" width="325"  name=p_mail_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="0" x="379" y="284" height="76" width="1399" format="[general]"  name=p_mail edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="P Addr:" border="0" color="0" x="37" y="376" height="56" width="325"  name=p_addr_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="0" x="379" y="376" height="76" width="2491" format="[general]"  name=p_addr edit.limit=200 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="P Tel:" border="0" color="0" x="37" y="468" height="56" width="325"  name=p_tel_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="0" x="379" y="468" height="76" width="576" format="[general]"  name=p_tel edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="P Fax:" border="0" color="0" x="37" y="560" height="56" width="325"  name=p_fax_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="0" x="379" y="560" height="76" width="576" format="[general]"  name=p_fax edit.limit=20 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="S Name 1:" border="0" color="0" x="37" y="652" height="56" width="325"  name=s_name_1_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="0" x="379" y="652" height="76" width="82" format="[general]"  name=s_name_1 edit.limit=2 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="S Name 2:" border="0" color="0" x="37" y="744" height="56" width="325"  name=s_name_2_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="0" x="379" y="744" height="76" width="82" format="[general]"  name=s_name_2 edit.limit=2 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Reg Id:" border="0" color="0" x="37" y="836" height="56" width="325"  name=reg_id_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="0" x="379" y="836" height="76" width="192" format="[general]"  name=reg_id edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Reg Dt:" border="0" color="0" x="37" y="932" height="56" width="325"  name=reg_dt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="0" x="379" y="932" height="76" width="603" format="[shortdate] [time]"  name=reg_dt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Mod Id:" border="0" color="0" x="37" y="1024" height="56" width="325"  name=mod_id_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="0" color="0" x="379" y="1024" height="76" width="192" format="[general]"  name=mod_id edit.limit=6 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="Mod Dt:" border="0" color="0" x="37" y="1116" height="56" width="325"  name=mod_dt_t  font.face="굴림체" font.height="-9" font.weight="400"  font.family="1" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="0" color="0" x="379" y="1116" height="76" width="603" format="[shortdate] [time]"  name=mod_dt edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=0 border="0" color="0" x="3552" y="0" height="56" width="55"  name=color  font.face="굴림체" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" )
