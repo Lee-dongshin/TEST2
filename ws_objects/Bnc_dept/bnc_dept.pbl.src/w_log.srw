@@ -182,6 +182,10 @@ end on
 
 event open;//
 MessageBox("BNC_DEPT", "환영합니다.")			/*2025.12.29 dslee Git Test 를 위한 추가 */
+
+MessageBox("BNC_DEPT", "환영합니다.2")			/*2026.01.02 dslee Git Test 를 위한 추가 */
+
+
 end event
 
 event pfc_default;integer	li_rc,li_rtrn
@@ -638,3 +642,4 @@ end type
 event getfocus;call super::getfocus;ii_focus = 6
 
 end event
+
